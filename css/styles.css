@@ -380,6 +380,14 @@ body {
 html, body { overflow-x: hidden; }
 body { max-width: 100vw; }
 
+/* Ensure anchor targets aren't hidden behind the sticky header */
+:target,
+[id^="services"],
+[id="services"], [id="about"], [id="process"], [id="realisations"], [id="avis"], [id="faq"], [id="contact"], [id="zones"] {
+  scroll-margin-top: 96px;
+}
+html { scroll-padding-top: 96px; }
+
 /* Map / iframe */
 .map-frame {
   width: 100%; min-height: 360px;

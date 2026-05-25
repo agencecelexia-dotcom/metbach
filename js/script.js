@@ -74,10 +74,28 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
     revealEls.forEach(el => { if (!el.classList.contains('in')) io.observe(el); });
   } else {
     revealEls.forEach(el => el.classList.add('in'));
+  }
+  // Failsafe: any reveal still hidden after 1.5s gets marked .in (covers
+  // hash-navigation, slow observers, anchor jumps past sticky header).
+  setTimeout(() => {
+    revealEls.forEach(el => { if (!el.classList.contains('in')) el.classList.add('in'); });
+  }, 1500);
+  // Hash navigation: when user lands on an anchor, immediately reveal
+  // everything in or above the target zone so content doesn't read blank.
+  if (location.hash) {
+    requestAnimationFrame(() => {
+      const target = document.querySelector(location.hash);
+      if (!target) return;
+      const targetBottom = target.getBoundingClientRect().bottom + window.scrollY;
+      revealEls.forEach(el => {
+        const elTop = el.getBoundingClientRect().top + window.scrollY;
+        if (elTop <= targetBottom + window.innerHeight) el.classList.add('in');
+      });
+    });
   }
 
   /* ---- Animated counters ---- */
