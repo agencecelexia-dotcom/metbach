@@ -132,7 +132,7 @@
   <header class="site-header fixed inset-x-0 top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-3 flex items-center justify-between gap-6 min-h-[68px] lg:min-h-[84px]">
       <a href="../index.html" class="shrink-0" aria-label="Rénovation Metbach — Accueil">
-        <img src="../assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" class="h-11 md:h-12 lg:h-14 w-auto" width="531" height="282" fetchpriority="high" loading="eager" decoding="async" />
+        <picture><source srcset="../assets/img/logo/metbach-logo.webp" type="image/webp" /><img src="../assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" class="h-11 md:h-12 lg:h-14 w-auto" width="531" height="282" fetchpriority="high" loading="eager" decoding="async" /></picture>
       </a>
       <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium" aria-label="Navigation principale">
         <a href="../index.html#services" class="nav-link">Services</a>
@@ -198,11 +198,23 @@
           </div>
         </div>
         <div class="lg:col-span-6 reveal reveal-delay-1">
-          <img fetchpriority="high" decoding="async" class="rounded-2xl shadow-xl w-full aspect-[4/3] object-cover"
+          <picture><source srcset="../assets/img/realisations/peinture-interieure.webp" type="image/webp" /><img fetchpriority="high" decoding="async" class="rounded-2xl shadow-xl w-full aspect-[4/3] object-cover"
                alt="Rénovation intérieure et peinture par Rénovation Metbach"
-               src="../assets/img/realisations/peinture-interieure.jpg"  width="1600" height="1200" />
+               src="../assets/img/realisations/peinture-interieure.jpg"  width="1600" height="1200" /></picture>
         </div>
       </div>
+
+    <!-- Answer block (40-60 mots, extractable AI search) -->
+    <section class="py-8 lg:py-10 bg-white border-y border-line">
+      <div class="max-w-3xl mx-auto container-pad">
+        <div class="answer-block bg-page rounded-2xl border border-line p-6 lg:p-8 reveal">
+          <p class="h-eyebrow mb-2">Réponse rapide</p>
+          <h2 class="font-display font-bold text-xl lg:text-2xl mb-3">Qu'est-ce qu'un service de petits travaux ?</h2>
+          <p class="text-ink leading-relaxed">Les petits travaux désignent l'ensemble des interventions courtes ne nécessitant pas un chantier complet : pose de mobilier, reprises de peinture, dépannage plomberie simple, fixations, montage de meubles, finitions. Délai d'intervention typique : 3 à 7 jours en Haute-Savoie. Tarif au forfait demi-journée minimum, déplacement inclus. Urgences (fuite, casse) traitées dans la journée ou le lendemain.</p>
+        </div>
+      </div>
+    </section>
+
     </section>
 
     <section class="py-20 bg-white border-y border-line">
