@@ -281,13 +281,13 @@ body {
 
 /* Header */
 .site-header {
-  transition: background .3s ease, border-color .3s ease, padding .3s ease;
-  border-bottom: 1px solid transparent;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow .3s ease, border-color .3s ease;
 }
 .site-header.scrolled {
-  background: rgba(247, 244, 238, 0.86);
-  backdrop-filter: blur(14px) saturate(1.4);
-  border-bottom-color: var(--line);
+  box-shadow: 0 6px 20px -16px rgba(14, 19, 24, 0.25);
+  border-bottom-color: rgba(231, 225, 213, 0.7);
 }
 .nav-link {
   position: relative;
