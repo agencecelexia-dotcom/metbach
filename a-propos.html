@@ -21,6 +21,27 @@
   </script>
   <link rel="stylesheet" href="css/styles.css" />
   <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "url": "https://renovation-metbach.fr/a-propos.html",
+    "name": "À propos — Rénovation Metbach",
+    "isPartOf": { "@id": "https://renovation-metbach.fr/#business" },
+    "mainEntity": { "@id": "https://renovation-metbach.fr/#business" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://renovation-metbach.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "À propos", "item": "https://renovation-metbach.fr/a-propos.html" }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-page text-ink">
 
@@ -56,8 +77,8 @@
         <div class="lg:col-span-7 reveal">
           <nav class="flex items-center gap-2 text-sm text-muted mb-6" aria-label="Fil d'Ariane">
             <a href="index.html" class="hover:text-accent-dark">Accueil</a>
-            <i data-lucide="chevron-right" class="w-3 h-3"></i>
-            <span class="text-ink font-medium">À propos</span>
+            <i data-lucide="chevron-right" aria-hidden="true" class="w-3 h-3"></i>
+            <span class="text-ink font-medium" aria-current="page">À propos</span>
           </nav>
           <span class="chip mb-5">
             <i data-lucide="user" class="w-3.5 h-3.5"></i>
@@ -75,6 +96,7 @@
           <div class="mt-8 flex flex-wrap gap-3">
             <a href="index.html#contact" class="btn btn-primary">Discuter de votre projet <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
             <a href="index.html#realisations" class="btn btn-ghost"><i data-lucide="image" class="w-4 h-4"></i> Voir mes réalisations</a>
+            <!-- absolute home anchor, this page has no #realisations section -->
           </div>
         </div>
         <div class="lg:col-span-5 reveal reveal-delay-1">

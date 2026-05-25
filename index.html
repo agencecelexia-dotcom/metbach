@@ -368,9 +368,8 @@
     </section>
 
     <!-- ============== MARQUEE STRIP ============== -->
-    <section class="border-y border-line bg-white/60 backdrop-blur overflow-hidden">
+    <section class="border-y border-line bg-white/60 backdrop-blur overflow-hidden" aria-label="Nos métiers">
       <div class="marquee py-5 text-ink">
-        <!-- duplicated for seamless loop -->
         <span class="font-display text-2xl flex items-center gap-3">Bardage <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
         <span class="font-display text-2xl flex items-center gap-3">Petits travaux <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
         <span class="font-display text-2xl flex items-center gap-3">Revêtement de sol <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
@@ -380,14 +379,15 @@
         <span class="font-display text-2xl flex items-center gap-3">Déménagement <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
         <span class="font-display text-2xl flex items-center gap-3">Arboriculture <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
 
-        <span class="font-display text-2xl flex items-center gap-3">Bardage <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-        <span class="font-display text-2xl flex items-center gap-3">Petits travaux <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-        <span class="font-display text-2xl flex items-center gap-3">Revêtement de sol <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-        <span class="font-display text-2xl flex items-center gap-3">Fondations <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-        <span class="font-display text-2xl flex items-center gap-3">Aménagement paysager <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-        <span class="font-display text-2xl flex items-center gap-3">Clôtures <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-        <span class="font-display text-2xl flex items-center gap-3">Déménagement <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
-        <span class="font-display text-2xl flex items-center gap-3">Arboriculture <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <!-- duplicated for seamless loop, hidden from assistive tech -->
+        <span aria-hidden="true" class="font-display text-2xl flex items-center gap-3">Bardage <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span aria-hidden="true" class="font-display text-2xl flex items-center gap-3">Petits travaux <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span aria-hidden="true" class="font-display text-2xl flex items-center gap-3">Revêtement de sol <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span aria-hidden="true" class="font-display text-2xl flex items-center gap-3">Fondations <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span aria-hidden="true" class="font-display text-2xl flex items-center gap-3">Aménagement paysager <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span aria-hidden="true" class="font-display text-2xl flex items-center gap-3">Clôtures <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span aria-hidden="true" class="font-display text-2xl flex items-center gap-3">Déménagement <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span aria-hidden="true" class="font-display text-2xl flex items-center gap-3">Arboriculture <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
       </div>
     </section>
 
@@ -1052,7 +1052,7 @@
         <div class="lg:col-span-2">
           <h4 class="font-display font-semibold mb-4">Navigation</h4>
           <ul class="space-y-2 text-white/65">
-            <li><a class="hover:text-accent-soft transition-colors" href="#about">À propos</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="a-propos.html">À propos</a></li>
             <li><a class="hover:text-accent-soft transition-colors" href="#process">Notre méthode</a></li>
             <li><a class="hover:text-accent-soft transition-colors" href="#realisations">Réalisations</a></li>
             <li><a class="hover:text-accent-soft transition-colors" href="#avis">Avis</a></li>

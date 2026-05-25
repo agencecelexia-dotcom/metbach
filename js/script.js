@@ -26,14 +26,46 @@
   const menuBtn   = $('[data-menu-open]');
   const menuClose = $('[data-menu-close]');
   const menu      = $('.mobile-menu');
-  const openMenu  = () => { menu?.classList.add('open');  document.body.style.overflow = 'hidden'; };
-  const closeMenu = () => { menu?.classList.remove('open'); document.body.style.overflow = ''; };
+  if (menu) {
+    menu.setAttribute('aria-hidden', 'true');
+    menu.setAttribute('role', 'dialog');
+    menu.setAttribute('aria-modal', 'true');
+  }
+  menuBtn?.setAttribute('aria-expanded', 'false');
+  menuBtn?.setAttribute('aria-controls', 'mobile-menu');
+  if (menu && !menu.id) menu.id = 'mobile-menu';
+  let lastFocused = null;
+  const openMenu  = () => {
+    lastFocused = document.activeElement;
+    menu?.classList.add('open');
+    menu?.setAttribute('aria-hidden', 'false');
+    menuBtn?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    menuClose?.focus();
+  };
+  const closeMenu = () => {
+    menu?.classList.remove('open');
+    menu?.setAttribute('aria-hidden', 'true');
+    menuBtn?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    lastFocused?.focus?.();
+  };
   menuBtn?.addEventListener('click', openMenu);
   menuClose?.addEventListener('click', closeMenu);
   $$('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu?.classList.contains('open')) closeMenu();
+  });
 
-  /* ---- Reveal on scroll ---- */
+  /* ---- Reveal on scroll ----
+     Above-the-fold elements get .in synchronously to avoid FOIC.
+     Below-the-fold elements are revealed by IntersectionObserver. */
   const revealEls = $$('.reveal');
+  const vh = window.innerHeight || document.documentElement.clientHeight;
+  revealEls.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < vh) el.classList.add('in');
+  });
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -43,7 +75,7 @@
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    revealEls.forEach(el => io.observe(el));
+    revealEls.forEach(el => { if (!el.classList.contains('in')) io.observe(el); });
   } else {
     revealEls.forEach(el => el.classList.add('in'));
   }
