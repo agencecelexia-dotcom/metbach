@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0E1318" />
+
+  <title>Rénovation Metbach — Artisan tout corps d'état • Haute-Savoie</title>
+  <meta name="description" content="Rénovation Metbach : bardage, revêtement de sol, fondations, aménagement paysager, clôtures, déménagement et arboriculture. Artisan en Haute-Savoie. Devis gratuit." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rénovation Metbach — Artisan tout corps d'état" />
+  <meta property="og:description" content="Bardage, sols, fondations, paysager, clôtures, déménagement, arboriculture. Devis gratuit en Haute-Savoie." />
+  <meta property="og:locale" content="fr_FR" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1318'/%3E%3Cpath d='M14 44V20l9 12 9-12v24' stroke='%23B8602A' stroke-width='4' stroke-linejoin='round' stroke-linecap='round' fill='none'/%3E%3Cpath d='M38 44V20h12' stroke='%23F3DEC8' stroke-width='4' stroke-linejoin='round' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind via Play CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            page: '#F7F4EE',
+            ink: '#0E1318',
+            'ink-2': '#1B2A3A',
+            accent: '#B8602A',
+            'accent-dark': '#8A4520',
+            'accent-soft': '#F3DEC8',
+            forest: '#2D5F3F',
+            line: '#E7E1D5',
+            muted: '#5B6677',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['"Bricolage Grotesque"', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+          },
+          maxWidth: {
+            '7xl-plus': '84rem',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "Rénovation Metbach",
+    "image": "https://renovation-metbach.fr/assets/img/og.jpg",
+    "description": "Artisan tout corps d'état : bardage, revêtement de sol, fondations, aménagement paysager, clôtures, déménagement, arboriculture.",
+    "areaServed": ["Haute-Savoie", "Pays de Gex", "Genevois français"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Haute-Savoie",
+      "addressCountry": "FR"
+    },
+    "telephone": "+33 6 00 00 00 00",
+    "url": "https://renovation-metbach.fr"
+  }
+  </script>
+</head>
+
+<body class="bg-page text-ink">
+
+  <!-- ============== HEADER ============== -->
+  <header class="site-header fixed inset-x-0 top-0 z-50">
+    <div class="max-w-7xl-plus mx-auto container-pad py-4 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3 group">
+        <span class="logo-mark text-lg">M</span>
+        <span class="flex flex-col leading-none">
+          <span class="font-display font-bold text-lg tracking-tight">Rénovation Metbach</span>
+          <span class="text-xs text-muted mt-0.5">Artisan tout corps d'état · Haute-Savoie</span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">À propos</a>
+        <a href="#process" class="nav-link">Notre méthode</a>
+        <a href="#realisations" class="nav-link">Réalisations</a>
+        <a href="#avis" class="nav-link">Avis</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+33600000000" class="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-accent transition-colors">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          06 00 00 00 00
+        </a>
+        <a href="#contact" class="btn btn-accent hidden md:inline-flex">
+          Devis gratuit
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+        <button data-menu-open class="lg:hidden p-2 -mr-2" aria-label="Menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== MOBILE MENU ============== -->
+  <aside class="mobile-menu fixed inset-0 z-[60] bg-ink text-white lg:hidden">
+    <div class="flex items-center justify-between p-5 border-b border-white/10">
+      <span class="font-display font-bold">Menu</span>
+      <button data-menu-close class="p-2 -mr-2" aria-label="Fermer">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav class="p-6 flex flex-col gap-1 text-2xl font-display">
+      <a href="#services" class="py-3 border-b border-white/10">Services</a>
+      <a href="#about" class="py-3 border-b border-white/10">À propos</a>
+      <a href="#process" class="py-3 border-b border-white/10">Notre méthode</a>
+      <a href="#realisations" class="py-3 border-b border-white/10">Réalisations</a>
+      <a href="#avis" class="py-3 border-b border-white/10">Avis</a>
+      <a href="#contact" class="py-3 border-b border-white/10">Contact</a>
+    </nav>
+    <div class="absolute inset-x-0 bottom-0 p-6 space-y-3">
+      <a href="tel:+33600000000" class="btn btn-glass w-full justify-center">
+        <i data-lucide="phone" class="w-4 h-4"></i>
+        06 00 00 00 00
+      </a>
+      <a href="#contact" class="btn btn-accent w-full justify-center">Demander un devis</a>
+    </div>
+  </aside>
+
+  <main id="top">
+
+    <!-- ============== HERO ============== -->
+    <section class="relative overflow-hidden pt-32 lg:pt-40 pb-20 lg:pb-28">
+      <div class="aurora"></div>
+      <div class="absolute inset-0 grid-bg"></div>
+      <div class="spotlight"></div>
+
+      <div class="relative max-w-7xl-plus mx-auto container-pad grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7">
+          <span class="reveal chip mb-6">
+            <span class="pulse-dot"></span>
+            Disponible pour vos chantiers · Devis sous 48 h
+          </span>
+
+          <h1 class="reveal h-display font-display mt-2">
+            L'artisan complet
+            <span class="block gradient-text">qui finit ce qu'il commence.</span>
+          </h1>
+
+          <p class="reveal reveal-delay-1 mt-7 max-w-xl text-lg text-muted leading-relaxed">
+            De la fondation au bardage, du sol au jardin : un seul interlocuteur pour
+            tous vos projets de rénovation et d'aménagement en Haute-Savoie.
+            Travail soigné, délais tenus, devis transparent.
+          </p>
+
+          <div class="reveal reveal-delay-2 mt-9 flex flex-wrap items-center gap-3">
+            <a href="#contact" class="btn btn-primary">
+              Demander un devis gratuit
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#services" class="btn btn-ghost">
+              <i data-lucide="layout-grid" class="w-4 h-4"></i>
+              Voir nos 8 métiers
+            </a>
+          </div>
+
+          <!-- Mini stats -->
+          <div class="reveal reveal-delay-3 mt-12 grid grid-cols-3 gap-6 max-w-lg">
+            <div>
+              <div class="stat-number"><span data-count="12" data-suffix="+">0</span></div>
+              <p class="text-xs uppercase tracking-wider text-muted mt-1">Années d'expérience</p>
+            </div>
+            <div>
+              <div class="stat-number"><span data-count="250" data-suffix="+">0</span></div>
+              <p class="text-xs uppercase tracking-wider text-muted mt-1">Chantiers réalisés</p>
+            </div>
+            <div>
+              <div class="stat-number"><span data-count="98" data-suffix="%">0</span></div>
+              <p class="text-xs uppercase tracking-wider text-muted mt-1">Clients satisfaits</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual side -->
+        <div class="lg:col-span-5 relative">
+          <div class="reveal reveal-delay-2 image-stack" data-tilt>
+            <img class="img-1" alt="Façade en bardage bois posée par Rénovation Metbach"
+                 src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" />
+            <img class="img-2" alt="Détail charpente et menuiserie extérieure"
+                 src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80" />
+          </div>
+
+          <!-- Floating badge -->
+          <div class="reveal reveal-delay-4 absolute -bottom-6 -left-4 lg:left-2 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-line float-y">
+            <div class="w-12 h-12 rounded-xl bg-accent-soft text-accent grid place-items-center">
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="font-display font-semibold text-sm">Garantie décennale</div>
+              <div class="text-xs text-muted">Travaux assurés & sécurisés</div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-5 absolute -top-4 right-0 bg-ink text-white rounded-2xl shadow-xl p-4 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-accent grid place-items-center">
+              <i data-lucide="star" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="font-display font-semibold text-sm">4,9 / 5</div>
+              <div class="text-xs text-white/70">Avis Google</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-ink">
+        <div class="scroll-cue"></div>
+        <span class="text-[10px] uppercase tracking-[0.3em] text-muted">Découvrir</span>
+      </div>
+    </section>
+
+    <!-- ============== MARQUEE STRIP ============== -->
+    <section class="border-y border-line bg-white/60 backdrop-blur overflow-hidden">
+      <div class="marquee py-5 text-ink">
+        <!-- duplicated for seamless loop -->
+        <span class="font-display text-2xl flex items-center gap-3">Bardage <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Petits travaux <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Revêtement de sol <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Fondations <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Aménagement paysager <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Clôtures <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Déménagement <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Arboriculture <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+
+        <span class="font-display text-2xl flex items-center gap-3">Bardage <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Petits travaux <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Revêtement de sol <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Fondations <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Aménagement paysager <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Clôtures <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Déménagement <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+        <span class="font-display text-2xl flex items-center gap-3">Arboriculture <span class="w-1.5 h-1.5 bg-accent rounded-full"></span></span>
+      </div>
+    </section>
+
+    <!-- ============== SERVICES ============== -->
+    <section id="services" class="relative py-24 lg:py-32">
+      <div class="max-w-7xl-plus mx-auto container-pad">
+        <div class="grid lg:grid-cols-12 gap-10 items-end mb-14">
+          <div class="lg:col-span-7 reveal">
+            <p class="h-eyebrow">Nos métiers</p>
+            <h2 class="h-section font-display mt-3">
+              Huit savoir-faire,
+              <span class="font-serif italic text-accent">un seul artisan.</span>
+            </h2>
+          </div>
+          <div class="lg:col-span-5 reveal reveal-delay-1">
+            <p class="text-muted leading-relaxed">
+              Plutôt que d'orchestrer trois entreprises différentes pour un même projet,
+              centralisez tout chez Metbach. On gère la coordination, vous gardez la sérénité —
+              et un seul devis global.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- 1. Bardage -->
+          <a href="services/bardage.html" class="service-card reveal">
+            <div class="service-icon"><i data-lucide="layers" class="w-7 h-7"></i></div>
+            <h3 class="font-display font-bold text-xl mb-2">Bardage</h3>
+            <p class="text-sm text-muted leading-relaxed">Habillage extérieur en bois, composite ou métal. Isolation et look durables pour votre façade.</p>
+            <div class="arrow"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></div>
+          </a>
+
+          <!-- 2. Petits travaux -->
+          <a href="services/petits-travaux.html" class="service-card reveal reveal-delay-1">
+            <div class="service-icon"><i data-lucide="wrench" class="w-7 h-7"></i></div>
+            <h3 class="font-display font-bold text-xl mb-2">Petits travaux</h3>
+            <p class="text-sm text-muted leading-relaxed">Réparations, fixations, montage de meubles, dépannage : l'artisan multi-tâches à portée de main.</p>
+            <div class="arrow"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></div>
+          </a>
+
+          <!-- 3. Revêtement de sol -->
+          <a href="services/revetement-sol.html" class="service-card reveal reveal-delay-2">
+            <div class="service-icon"><i data-lucide="grid-3x3" class="w-7 h-7"></i></div>
+            <h3 class="font-display font-bold text-xl mb-2">Revêtement de sol</h3>
+            <p class="text-sm text-muted leading-relaxed">Parquet, carrelage, stratifié, vinyle, terrasse : pose soignée pour intérieur et extérieur.</p>
+            <div class="arrow"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></div>
+          </a>
+
+          <!-- 4. Fondations -->
+          <a href="services/fondations.html" class="service-card reveal reveal-delay-3">
+            <div class="service-icon"><i data-lucide="hard-hat" class="w-7 h-7"></i></div>
+            <h3 class="font-display font-bold text-xl mb-2">Fondations</h3>
+            <p class="text-sm text-muted leading-relaxed">Terrassement, semelles, dalles, soubassements. La base solide de votre construction.</p>
+            <div class="arrow"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></div>
+          </a>
+
+          <!-- 5. Aménagement paysager -->
+          <a href="services/amenagement-paysager.html" class="service-card reveal">
+            <div class="service-icon"><i data-lucide="trees" class="w-7 h-7"></i></div>
+            <h3 class="font-display font-bold text-xl mb-2">Aménagement paysager</h3>
+            <p class="text-sm text-muted leading-relaxed">Création de jardins, terrasses, allées, massifs. On dessine, on plante, on entretient.</p>
+            <div class="arrow"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></div>
+          </a>
+
+          <!-- 6. Clôtures -->
+          <a href="services/clotures.html" class="service-card reveal reveal-delay-1">
+            <div class="service-icon"><i data-lucide="fence" class="w-7 h-7"></i></div>
+            <h3 class="font-display font-bold text-xl mb-2">Clôtures</h3>
+            <p class="text-sm text-muted leading-relaxed">Bois, panneaux rigides, grillage, portails. Délimitez votre propriété avec style et durabilité.</p>
+            <div class="arrow"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></div>
+          </a>
+
+          <!-- 7. Déménagement -->
+          <a href="services/demenagement.html" class="service-card reveal reveal-delay-2">
+            <div class="service-icon"><i data-lucide="truck" class="w-7 h-7"></i></div>
+            <h3 class="font-display font-bold text-xl mb-2">Déménagement</h3>
+            <p class="text-sm text-muted leading-relaxed">Particuliers ou pros, transport soigneux, démontage / remontage, manutention lourde.</p>
+            <div class="arrow"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></div>
+          </a>
+
+          <!-- 8. Arboriculture -->
+          <a href="services/arboriculture.html" class="service-card reveal reveal-delay-3">
+            <div class="service-icon"><i data-lucide="tree-pine" class="w-7 h-7"></i></div>
+            <h3 class="font-display font-bold text-xl mb-2">Arboriculture</h3>
+            <p class="text-sm text-muted leading-relaxed">Élagage, abattage, taille douce, soins aux arbres. Sécurité et respect du végétal.</p>
+            <div class="arrow"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== ABOUT / WHY US ============== -->
+    <section id="about" class="relative py-24 lg:py-32 bg-white border-y border-line">
+      <div class="absolute inset-0 dot-bg opacity-40 pointer-events-none"></div>
+      <div class="relative max-w-7xl-plus mx-auto container-pad grid lg:grid-cols-12 gap-14 items-center">
+        <div class="lg:col-span-6 reveal">
+          <div class="relative">
+            <img class="rounded-2xl shadow-xl w-full aspect-[4/5] object-cover"
+                 alt="Artisan Rénovation Metbach sur chantier"
+                 src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80" />
+            <div class="absolute -bottom-6 -right-4 bg-page rounded-2xl border border-line p-5 shadow-lg max-w-[260px]">
+              <div class="flex items-center gap-2 text-accent mb-2">
+                <i data-lucide="award" class="w-5 h-5"></i>
+                <span class="text-xs font-semibold uppercase tracking-wider">Artisan local</span>
+              </div>
+              <p class="font-display font-semibold text-lg leading-snug">Une équipe à taille humaine. Pas de sous-traitance cachée.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 reveal reveal-delay-1">
+          <p class="h-eyebrow">Pourquoi Metbach</p>
+          <h2 class="h-section font-display mt-3 mb-6">
+            Un artisan qui parle vrai,
+            <span class="font-serif italic">et qui livre.</span>
+          </h2>
+          <p class="text-muted text-lg leading-relaxed mb-8">
+            Depuis plus d'une décennie, nous accompagnons les particuliers et professionnels
+            de Haute-Savoie sur leurs chantiers, du plus petit dépannage au gros œuvre.
+            Notre force : la polyvalence, l'écoute, et un engagement sans détour sur la qualité.
+          </p>
+
+          <ul class="space-y-4">
+            <li class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-accent-soft text-accent-dark grid place-items-center shrink-0">
+                <i data-lucide="badge-check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-lg">Devis clair, sous 48 h</h3>
+                <p class="text-muted text-sm">Pas de surprise. Chaque ligne est expliquée, chaque prix justifié.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-accent-soft text-accent-dark grid place-items-center shrink-0">
+                <i data-lucide="calendar-clock" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-lg">Délais respectés</h3>
+                <p class="text-muted text-sm">Planning communiqué dès le départ, et tenu. Vous savez où vous allez.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-accent-soft text-accent-dark grid place-items-center shrink-0">
+                <i data-lucide="hand-coins" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-lg">Rapport qualité-prix juste</h3>
+                <p class="text-muted text-sm">Matériaux choisis avec soin, pose impeccable, prix d'artisan — pas de marge cachée.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-accent-soft text-accent-dark grid place-items-center shrink-0">
+                <i data-lucide="message-circle-heart" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-lg">Un interlocuteur unique</h3>
+                <p class="text-muted text-sm">Un seul numéro, du devis à la réception du chantier. On s'occupe de tout.</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#contact" class="btn btn-primary mt-10">
+            Parler à un artisan
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== PROCESS ============== -->
+    <section id="process" class="relative py-24 lg:py-32 bg-ink text-white overflow-hidden">
+      <div class="absolute inset-0 grid-bg-dark"></div>
+      <div class="absolute -top-32 -right-32 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-forest/30 rounded-full blur-3xl"></div>
+
+      <div class="relative max-w-7xl-plus mx-auto container-pad">
+        <div class="max-w-2xl reveal">
+          <p class="h-eyebrow text-accent-soft">Notre méthode</p>
+          <h2 class="h-section font-display mt-3">
+            Quatre étapes,
+            <span class="font-serif italic text-accent-soft">zéro mauvaise surprise.</span>
+          </h2>
+          <p class="text-white/70 mt-5 text-lg">
+            On ne réinvente pas la roue. On la fait tourner droit.
+          </p>
+        </div>
+
+        <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="reveal">
+            <div class="step-num">01</div>
+            <h3 class="font-display font-bold text-2xl mt-3 mb-3">Échange</h3>
+            <p class="text-white/65 leading-relaxed">Vous nous expliquez votre projet. On pose les bonnes questions, on visite si besoin.</p>
+          </div>
+          <div class="reveal reveal-delay-1">
+            <div class="step-num">02</div>
+            <h3 class="font-display font-bold text-2xl mt-3 mb-3">Devis</h3>
+            <p class="text-white/65 leading-relaxed">Sous 48 h, vous recevez une proposition claire, détaillée, sans frais cachés.</p>
+          </div>
+          <div class="reveal reveal-delay-2">
+            <div class="step-num">03</div>
+            <h3 class="font-display font-bold text-2xl mt-3 mb-3">Chantier</h3>
+            <p class="text-white/65 leading-relaxed">Planning fixé, matériel approvisionné, équipe sur place. Vous êtes tenu informé.</p>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <div class="step-num">04</div>
+            <h3 class="font-display font-bold text-2xl mt-3 mb-3">Livraison</h3>
+            <p class="text-white/65 leading-relaxed">Réception sur place, vérifications, finitions. On ne part pas tant que vous n'êtes pas content.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== REALISATIONS / BENTO ============== -->
+    <section id="realisations" class="py-24 lg:py-32">
+      <div class="max-w-7xl-plus mx-auto container-pad">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div class="reveal">
+            <p class="h-eyebrow">Nos réalisations</p>
+            <h2 class="h-section font-display mt-3">
+              Vu sur le terrain.
+            </h2>
+          </div>
+          <a href="#contact" class="btn btn-ghost reveal reveal-delay-1 self-start md:self-end">
+            <i data-lucide="image" class="w-4 h-4"></i>
+            Demander le portfolio complet
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 auto-rows-[180px] lg:auto-rows-[220px]">
+          <!-- Big bento -->
+          <div class="bento col-span-2 row-span-2 reveal">
+            <img alt="Bardage bois sur chalet de montagne"
+                 src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80" />
+            <div class="bento-content absolute inset-0 p-6 lg:p-8 flex flex-col justify-end">
+              <span class="chip-dark chip mb-3 w-fit">Bardage · Chalet</span>
+              <h3 class="font-display text-2xl lg:text-3xl font-bold">Habillage façade chalet, Habère-Poche</h3>
+              <p class="text-white/80 text-sm mt-2 max-w-md">Bardage mélèze brossé sur 140 m², avec isolation extérieure renforcée.</p>
+            </div>
+          </div>
+
+          <div class="bento reveal reveal-delay-1">
+            <img alt="Terrasse bois extérieure"
+                 src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80" />
+            <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
+              <span class="chip-dark chip mb-2 w-fit">Sols</span>
+              <h3 class="font-display text-lg font-bold">Terrasse bois ipé</h3>
+            </div>
+          </div>
+
+          <div class="bento reveal reveal-delay-2">
+            <img alt="Clôture bois moderne"
+                 src="https://images.unsplash.com/photo-1597047084897-51e81819a499?auto=format&fit=crop&w=900&q=80" />
+            <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
+              <span class="chip-dark chip mb-2 w-fit">Clôtures</span>
+              <h3 class="font-display text-lg font-bold">Clôture & portail</h3>
+            </div>
+          </div>
+
+          <div class="bento reveal reveal-delay-3">
+            <img alt="Jardin paysager"
+                 src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=900&q=80" />
+            <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
+              <span class="chip-dark chip mb-2 w-fit">Paysager</span>
+              <h3 class="font-display text-lg font-bold">Jardin contemporain</h3>
+            </div>
+          </div>
+
+          <div class="bento reveal reveal-delay-4">
+            <img alt="Élagage arboriculture"
+                 src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80" />
+            <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
+              <span class="chip-dark chip mb-2 w-fit">Arboriculture</span>
+              <h3 class="font-display text-lg font-bold">Élagage en hauteur</h3>
+            </div>
+          </div>
+
+          <div class="bento col-span-2 reveal reveal-delay-2">
+            <img alt="Coffrage et fondations béton"
+                 src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" />
+            <div class="bento-content absolute inset-0 p-6 flex flex-col justify-end">
+              <span class="chip-dark chip mb-2 w-fit">Fondations</span>
+              <h3 class="font-display text-xl lg:text-2xl font-bold">Soubassement maison neuve, Thonon</h3>
+              <p class="text-white/80 text-sm mt-1.5">Dalle ferraillée 110 m², coulée et lissée en deux jours.</p>
+            </div>
+          </div>
+
+          <div class="bento reveal reveal-delay-3">
+            <img alt="Petits travaux intérieur"
+                 src="https://images.unsplash.com/photo-1542621334-a254cf47733d?auto=format&fit=crop&w=900&q=80" />
+            <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
+              <span class="chip-dark chip mb-2 w-fit">Petits travaux</span>
+              <h3 class="font-display text-lg font-bold">Aménagement studio</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== TESTIMONIALS ============== -->
+    <section id="avis" class="py-24 lg:py-32 bg-white border-y border-line">
+      <div class="max-w-7xl-plus mx-auto container-pad">
+        <div class="text-center max-w-2xl mx-auto reveal">
+          <p class="h-eyebrow">Ils nous ont fait confiance</p>
+          <h2 class="h-section font-display mt-3">
+            Le bouche-à-oreille,
+            <span class="font-serif italic">notre meilleure pub.</span>
+          </h2>
+        </div>
+
+        <div class="mt-14 grid md:grid-cols-3 gap-6">
+          <article class="bg-page rounded-2xl border border-line p-7 reveal">
+            <div class="quote-mark">"</div>
+            <p class="text-ink text-lg leading-relaxed -mt-4">
+              Bardage et terrasse refaits en deux semaines, devis tenu au centime près.
+              Une équipe sérieuse, j'ai recommandé à mes voisins dans la foulée.
+            </p>
+            <div class="mt-6 flex items-center gap-3">
+              <div class="w-11 h-11 rounded-full bg-accent text-white grid place-items-center font-display font-bold">L</div>
+              <div>
+                <div class="font-display font-semibold">Laurent D.</div>
+                <div class="text-xs text-muted">Particulier · Évian</div>
+              </div>
+              <div class="ml-auto flex gap-0.5 text-accent">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-page rounded-2xl border border-line p-7 reveal reveal-delay-1">
+            <div class="quote-mark">"</div>
+            <p class="text-ink text-lg leading-relaxed -mt-4">
+              On a tout fait avec Metbach : fondations, clôture, aménagement extérieur.
+              Le fait d'avoir un seul interlocuteur sur l'ensemble du projet a tout changé.
+            </p>
+            <div class="mt-6 flex items-center gap-3">
+              <div class="w-11 h-11 rounded-full bg-forest text-white grid place-items-center font-display font-bold">M</div>
+              <div>
+                <div class="font-display font-semibold">Maëlle & Antoine R.</div>
+                <div class="text-xs text-muted">Maison neuve · Annemasse</div>
+              </div>
+              <div class="ml-auto flex gap-0.5 text-accent">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-page rounded-2xl border border-line p-7 reveal reveal-delay-2">
+            <div class="quote-mark">"</div>
+            <p class="text-ink text-lg leading-relaxed -mt-4">
+              Élagage d'urgence après tempête, intervention le lendemain.
+              Travail propre, rangement impeccable. Je rappellerai sans hésiter.
+            </p>
+            <div class="mt-6 flex items-center gap-3">
+              <div class="w-11 h-11 rounded-full bg-ink-2 text-white grid place-items-center font-display font-bold">C</div>
+              <div>
+                <div class="font-display font-semibold">Claire V.</div>
+                <div class="text-xs text-muted">Arboriculture · Douvaine</div>
+              </div>
+              <div class="ml-auto flex gap-0.5 text-accent">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== FAQ ============== -->
+    <section id="faq" class="py-24 lg:py-32">
+      <div class="max-w-5xl mx-auto container-pad">
+        <div class="text-center max-w-2xl mx-auto reveal">
+          <p class="h-eyebrow">Questions fréquentes</p>
+          <h2 class="h-section font-display mt-3">Vous vous demandez peut-être…</h2>
+        </div>
+
+        <div class="mt-12 divide-y divide-line border-y border-line">
+          <details class="group py-6 reveal">
+            <summary class="flex items-center justify-between cursor-pointer list-none">
+              <span class="font-display font-semibold text-lg">Quelles zones desservez-vous ?</span>
+              <i data-lucide="plus" class="w-5 h-5 text-accent transition-transform group-open:rotate-45"></i>
+            </summary>
+            <p class="text-muted mt-3 leading-relaxed">Toute la Haute-Savoie : Thonon, Évian, Annemasse, Douvaine, le Chablais, le Genevois français et alentours. Pour les chantiers plus éloignés, contactez-nous : on s'adapte.</p>
+          </details>
+
+          <details class="group py-6 reveal reveal-delay-1">
+            <summary class="flex items-center justify-between cursor-pointer list-none">
+              <span class="font-display font-semibold text-lg">Sous combien de temps obtient-on un devis ?</span>
+              <i data-lucide="plus" class="w-5 h-5 text-accent transition-transform group-open:rotate-45"></i>
+            </summary>
+            <p class="text-muted mt-3 leading-relaxed">En général sous 48 h après visite ou échange détaillé. Pour les petits travaux, un chiffrage rapide peut se faire par téléphone.</p>
+          </details>
+
+          <details class="group py-6 reveal reveal-delay-2">
+            <summary class="flex items-center justify-between cursor-pointer list-none">
+              <span class="font-display font-semibold text-lg">Êtes-vous assurés ?</span>
+              <i data-lucide="plus" class="w-5 h-5 text-accent transition-transform group-open:rotate-45"></i>
+            </summary>
+            <p class="text-muted mt-3 leading-relaxed">Oui, nous sommes couverts par une assurance responsabilité civile professionnelle et la garantie décennale sur les travaux concernés. Attestations fournies sur demande.</p>
+          </details>
+
+          <details class="group py-6 reveal reveal-delay-3">
+            <summary class="flex items-center justify-between cursor-pointer list-none">
+              <span class="font-display font-semibold text-lg">Peut-on grouper plusieurs services dans un même devis ?</span>
+              <i data-lucide="plus" class="w-5 h-5 text-accent transition-transform group-open:rotate-45"></i>
+            </summary>
+            <p class="text-muted mt-3 leading-relaxed">Oui — c'est même notre force. Bardage + sol + clôture, par exemple, peuvent être pensés ensemble pour un planning et un budget optimisés.</p>
+          </details>
+
+          <details class="group py-6 reveal reveal-delay-4">
+            <summary class="flex items-center justify-between cursor-pointer list-none">
+              <span class="font-display font-semibold text-lg">Travaillez-vous pour les professionnels ?</span>
+              <i data-lucide="plus" class="w-5 h-5 text-accent transition-transform group-open:rotate-45"></i>
+            </summary>
+            <p class="text-muted mt-3 leading-relaxed">Oui : commerces, restaurants, bureaux, gîtes, copropriétés. Devis adaptés aux exigences pro (planning, facturation, sécurité chantier).</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CTA BANNER ============== -->
+    <section class="container-pad pb-24">
+      <div class="relative overflow-hidden max-w-7xl-plus mx-auto rounded-3xl bg-ink text-white p-10 lg:p-16">
+        <div class="absolute inset-0 grid-bg-dark opacity-50"></div>
+        <div class="absolute -top-20 -right-20 w-80 h-80 bg-accent/30 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-32 -left-10 w-80 h-80 bg-forest/30 rounded-full blur-3xl"></div>
+
+        <div class="relative grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7 reveal">
+            <h2 class="h-section font-display">
+              Prêt à démarrer votre projet ?
+              <span class="block font-serif italic text-accent-soft">Parlons-en aujourd'hui.</span>
+            </h2>
+            <p class="text-white/70 mt-5 text-lg max-w-xl">
+              Un appel suffit pour cadrer votre besoin et planifier une visite. Devis gratuit, sans engagement.
+            </p>
+          </div>
+          <div class="lg:col-span-5 flex flex-col gap-3 reveal reveal-delay-1">
+            <a href="tel:+33600000000" class="btn btn-accent justify-center text-base">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+              Appeler : 06 00 00 00 00
+            </a>
+            <a href="#contact" class="btn btn-glass justify-center text-base">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+              Demander un devis en ligne
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CONTACT ============== -->
+    <section id="contact" class="pb-24 lg:pb-32">
+      <div class="max-w-7xl-plus mx-auto container-pad">
+        <div class="text-center max-w-2xl mx-auto reveal mb-14">
+          <p class="h-eyebrow">Contact</p>
+          <h2 class="h-section font-display mt-3">Une question, un projet ?</h2>
+          <p class="text-muted mt-5 text-lg">
+            Remplissez le formulaire, ou appelez directement. Réponse rapide garantie.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+          <!-- Form -->
+          <form id="contact-form" class="lg:col-span-7 bg-white border border-line rounded-2xl p-7 lg:p-10 shadow-sm reveal">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="nom" class="field-label block">Nom complet</label>
+                <input type="text" id="nom" name="nom" required class="field" placeholder="Jean Dupont" />
+              </div>
+              <div>
+                <label for="tel" class="field-label block">Téléphone</label>
+                <input type="tel" id="tel" name="tel" required class="field" placeholder="06 12 34 56 78" />
+              </div>
+            </div>
+            <div class="mt-5">
+              <label for="email" class="field-label block">Email</label>
+              <input type="email" id="email" name="email" required class="field" placeholder="vous@email.fr" />
+            </div>
+            <div class="mt-5">
+              <label for="service" class="field-label block">Service concerné</label>
+              <select id="service" name="service" class="field">
+                <option value="">— Choisissez —</option>
+                <option>Bardage</option>
+                <option>Petits travaux</option>
+                <option>Revêtement de sol</option>
+                <option>Fondations</option>
+                <option>Aménagement paysager</option>
+                <option>Clôtures</option>
+                <option>Déménagement</option>
+                <option>Arboriculture</option>
+                <option>Plusieurs services / projet global</option>
+              </select>
+            </div>
+            <div class="mt-5">
+              <label for="message" class="field-label block">Votre projet en quelques mots</label>
+              <textarea id="message" name="message" class="field" placeholder="Décrivez-nous votre projet, vos contraintes, votre délai souhaité…"></textarea>
+            </div>
+
+            <div class="mt-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <p class="text-xs text-muted">En soumettant, vous acceptez d'être recontacté. Aucune donnée n'est partagée.</p>
+              <button type="submit" class="btn btn-primary justify-center">
+                Envoyer ma demande
+                <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <p id="form-note" class="hidden mt-4 text-sm text-accent-dark bg-accent-soft border border-accent/30 rounded-lg px-4 py-3"></p>
+          </form>
+
+          <!-- Info side -->
+          <aside class="lg:col-span-5 space-y-5 reveal reveal-delay-1">
+            <div class="bg-ink text-white rounded-2xl p-7">
+              <h3 class="font-display font-bold text-2xl mb-4">Coordonnées</h3>
+              <ul class="space-y-4 text-white/85">
+                <li class="flex gap-3 items-start">
+                  <i data-lucide="phone" class="w-5 h-5 text-accent-soft mt-0.5"></i>
+                  <div>
+                    <p class="text-xs uppercase tracking-wider text-white/50">Téléphone</p>
+                    <a href="tel:+33600000000" class="font-display text-lg hover:text-accent-soft transition-colors">06 00 00 00 00</a>
+                  </div>
+                </li>
+                <li class="flex gap-3 items-start">
+                  <i data-lucide="mail" class="w-5 h-5 text-accent-soft mt-0.5"></i>
+                  <div>
+                    <p class="text-xs uppercase tracking-wider text-white/50">Email</p>
+                    <a href="mailto:contact@renovation-metbach.fr" class="font-display text-lg hover:text-accent-soft transition-colors">contact@renovation-metbach.fr</a>
+                  </div>
+                </li>
+                <li class="flex gap-3 items-start">
+                  <i data-lucide="map-pin" class="w-5 h-5 text-accent-soft mt-0.5"></i>
+                  <div>
+                    <p class="text-xs uppercase tracking-wider text-white/50">Zone d'intervention</p>
+                    <p class="font-display text-lg">Haute-Savoie & Genevois</p>
+                  </div>
+                </li>
+                <li class="flex gap-3 items-start">
+                  <i data-lucide="clock" class="w-5 h-5 text-accent-soft mt-0.5"></i>
+                  <div>
+                    <p class="text-xs uppercase tracking-wider text-white/50">Horaires</p>
+                    <p class="text-sm">Lun – Ven · 7h30 – 18h30<br/>Sam · sur rendez-vous</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Map embed -->
+            <iframe
+              class="map-frame"
+              loading="lazy"
+              title="Localisation Rénovation Metbach"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=6.3%2C46.2%2C6.7%2C46.55&layer=mapnik&marker=46.400383%2C6.520969"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <a class="text-xs text-muted underline hover:text-accent transition-colors" target="_blank" rel="noopener"
+               href="https://maps.app.goo.gl/qT7JAYDecWLjErYB7">Voir sur Google Maps →</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="bg-ink text-white pt-16 pb-8">
+    <div class="max-w-7xl-plus mx-auto container-pad">
+      <div class="grid lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="logo-mark text-lg">M</span>
+            <span class="font-display font-bold text-xl">Rénovation Metbach</span>
+          </div>
+          <p class="text-white/65 max-w-sm leading-relaxed">
+            L'artisan tout corps d'état de Haute-Savoie. Bardage, sols, fondations,
+            paysager, clôtures, déménagement, arboriculture — un seul interlocuteur.
+          </p>
+          <div class="mt-6 flex gap-2">
+            <a href="https://maps.app.goo.gl/qT7JAYDecWLjErYB7" target="_blank" rel="noopener" class="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-accent transition-colors" aria-label="Google Maps">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+            </a>
+            <a href="tel:+33600000000" class="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-accent transition-colors" aria-label="Téléphone">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+            </a>
+            <a href="mailto:contact@renovation-metbach.fr" class="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-accent transition-colors" aria-label="Email">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-3">
+          <h4 class="font-display font-semibold mb-4">Services</h4>
+          <ul class="space-y-2 text-white/65">
+            <li><a class="hover:text-accent-soft transition-colors" href="services/bardage.html">Bardage</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/petits-travaux.html">Petits travaux</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/revetement-sol.html">Revêtement de sol</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/fondations.html">Fondations</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/amenagement-paysager.html">Aménagement paysager</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/clotures.html">Clôtures</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/demenagement.html">Déménagement</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/arboriculture.html">Arboriculture</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="font-display font-semibold mb-4">Navigation</h4>
+          <ul class="space-y-2 text-white/65">
+            <li><a class="hover:text-accent-soft transition-colors" href="#about">À propos</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="#process">Notre méthode</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="#realisations">Réalisations</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="#avis">Avis</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="#faq">FAQ</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="font-display font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-white/65">
+            <li><a class="hover:text-accent-soft transition-colors" href="tel:+33600000000">06 00 00 00 00</a></li>
+            <li><a class="hover:text-accent-soft transition-colors break-all" href="mailto:contact@renovation-metbach.fr">contact@renovation-metbach.fr</a></li>
+            <li>Haute-Savoie · France</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
+        <p>&copy; <span data-year>2026</span> Rénovation Metbach. Tous droits réservés.</p>
+        <p class="flex items-center gap-2">
+          <span>Site conçu avec</span>
+          <i data-lucide="heart" class="w-4 h-4 text-accent"></i>
+          <span>par Celexia</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Init lucide & scripts -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
