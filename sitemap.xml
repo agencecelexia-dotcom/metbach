@@ -9,6 +9,11 @@
   <url><loc>https://renovation-metbach.fr/services/amenagement-paysager.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://renovation-metbach.fr/services/clotures.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://renovation-metbach.fr/services/arboriculture.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://renovation-metbach.fr/villes/publier.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://renovation-metbach.fr/villes/thonon-les-bains.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://renovation-metbach.fr/villes/evian-les-bains.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://renovation-metbach.fr/villes/annemasse.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://renovation-metbach.fr/villes/douvaine.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://renovation-metbach.fr/mentions-legales.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://renovation-metbach.fr/politique-confidentialite.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
 </urlset>
