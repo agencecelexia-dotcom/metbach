@@ -1,4 +1,97 @@
+# Rénovation Metbach — robots.txt
+# All standard search engine crawlers are welcome.
+# AI search crawlers (ChatGPT, Claude, Perplexity, Gemini, Apple Intelligence)
+# are explicitly allowed to maximize AI Overviews / AI search visibility.
+
 User-agent: *
 Allow: /
 
+# === AI Search & LLM Crawlers (explicit allow) ===
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google AI (Gemini, AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft / Bing / Copilot
+User-agent: bingbot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Amazon Alexa
+User-agent: Amazonbot
+Allow: /
+
+# Common Crawl (training data, used by many LLMs)
+User-agent: CCBot
+Allow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Mistral AI
+User-agent: MistralAI-User
+Allow: /
+
 Sitemap: https://renovation-metbach.fr/sitemap.xml
+
+# LLM-friendly summary file (https://llmstxt.org)
+# /llms.txt
