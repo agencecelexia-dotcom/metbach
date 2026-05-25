@@ -194,19 +194,26 @@
             <label for="email" class="field-label block">Email <span class="text-accent-dark" aria-hidden="true">*</span></label>
             <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" maxlength="200" class="field" placeholder="vous@email.fr" aria-required="true" />
           </div>
-          <div class="mt-5">
-            <label for="service" class="field-label block">Service concerné <span class="text-accent-dark" aria-hidden="true">*</span></label>
-            <select id="service" name="service" class="field" required aria-required="true">
-              <option value="" disabled selected>— Choisissez —</option>
-              <option>Bardage</option>
-              <option>Petits travaux</option>
-              <option>Revêtement de sol</option>
-              <option>Fondations</option>
-              <option>Aménagement paysager</option>
-              <option>Clôtures</option>
-              <option>Arboriculture</option>
-              <option>Plusieurs services / projet global</option>
-            </select>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="service" class="field-label block">Service concerné <span class="text-accent-dark" aria-hidden="true">*</span></label>
+              <select id="service" name="service" class="field" required aria-required="true">
+                <option value="" disabled selected>— Choisissez —</option>
+                <option>Bardage</option>
+                <option>Couverture</option>
+                <option>Petits travaux</option>
+                <option>Revêtement de sol</option>
+                <option>Fondations</option>
+                <option>Aménagement paysager</option>
+                <option>Clôtures</option>
+                <option>Arboriculture</option>
+                <option>Plusieurs services / projet global</option>
+              </select>
+            </div>
+            <div>
+              <label for="city" class="field-label block">Ville du chantier</label>
+              <input type="text" id="city" name="city" autocomplete="address-level2" maxlength="200" class="field" placeholder="Thonon-les-Bains, Genève…" />
+            </div>
           </div>
           <div class="mt-5">
             <label for="message" class="field-label block">Votre projet en quelques mots <span class="text-accent-dark" aria-hidden="true">*</span></label>

@@ -164,57 +164,104 @@
   const y = $('[data-year]');
   if (y) y.textContent = new Date().getFullYear();
 
-  /* ---- Contact form (mailto fallback + honeypot) ---- */
+  /* ---- Contact form (POST /api/contact → Celexia CRM) ---- */
   const form = $('#contact-form');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    const note = $('#form-note');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    const showNote = (text, isError = false) => {
+      if (!note) return;
+      note.textContent = text;
+      note.className = 'mt-4 text-sm rounded-lg px-4 py-3 border';
+      if (isError) {
+        note.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
+      } else {
+        note.classList.add('text-accent-dark', 'bg-accent-soft', 'border-accent/30');
+      }
+      note.setAttribute('role', 'status');
+      note.setAttribute('aria-live', 'polite');
+    };
+
+    const merciPath = () => {
+      const p = location.pathname;
+      if (p.includes('/services/') || p.includes('/villes/') || p.includes('/realisations/') || p.includes('/contact/')) return '../merci/';
+      return 'merci/';
+    };
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Honeypot: if filled, silently drop (bot detected)
+      // Honeypot: if filled, silently confirm (bot detected, drop silently)
       const hp = form.querySelector('[name="website"]');
       if (hp && hp.value.trim() !== '') {
-        const note = $('#form-note');
-        if (note) {
-          note.textContent = "Votre demande a bien été enregistrée.";
-          note.classList.remove('hidden');
-        }
+        location.href = merciPath();
         return;
       }
 
-      // Native HTML5 validation
+      // Native HTML5 validation first
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
 
       const data = new FormData(form);
-      const nom = (data.get('nom') || '').toString().trim();
-      const email = (data.get('email') || '').toString().trim();
-      const tel = (data.get('tel') || '').toString().trim();
-      const service = (data.get('service') || '').toString().trim();
-      const message = (data.get('message') || '').toString().trim();
+      const payload = {
+        name:      (data.get('nom') || '').toString().trim(),
+        phone:     (data.get('tel') || '').toString().trim(),
+        email:     (data.get('email') || '').toString().trim(),
+        work_type: (data.get('service') || '').toString().trim(),
+        city:      (data.get('city') || '').toString().trim(),
+        message:   (data.get('message') || '').toString().trim(),
+        website:   (data.get('website') || '').toString().trim(),
+        rgpd:      data.get('rgpd') === 'on' || data.get('rgpd') === 'true' || !!form.querySelector('#rgpd:checked'),
+      };
 
-      const subject = encodeURIComponent(`Demande de devis — ${service || 'Rénovation Metbach'}`);
-      const body = encodeURIComponent(
-        `Bonjour,\n\nJe vous contacte pour : ${service || '—'}\n\n` +
-        `Nom : ${nom}\nEmail : ${email}\nTéléphone : ${tel}\n\n` +
-        `Message :\n${message}\n\n— Envoyé via renovation-metbach.fr`
-      );
-      const mailto = `mailto:kevinmetbach7@gmail.com?subject=${subject}&body=${body}`;
-
-      const note = $('#form-note');
-      if (note) {
-        note.textContent = "Votre client mail s'ouvre pour finaliser l'envoi. Sinon, appelez le 07 85 65 56 02.";
-        note.classList.remove('hidden');
+      // Disable button to prevent double-submit
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.6';
+        submitBtn.style.cursor = 'wait';
       }
-      // Open mail client in new tab so the page itself can redirect to /merci/
-      window.open(mailto, '_blank');
-      setTimeout(() => {
-        const merciPath = (location.pathname.includes('/services/') || location.pathname.includes('/villes/') || location.pathname.includes('/realisations/') || location.pathname.includes('/contact/'))
-          ? '../merci/'
-          : 'merci/';
-        location.href = merciPath;
-      }, 600);
+      showNote("Envoi en cours…");
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          // Track anonymous conversion event (no PII) — works with GA/GTM/Plausible if connected
+          try {
+            if (window.dataLayer) window.dataLayer.push({ event: 'form_submitted' });
+            if (window.plausible) window.plausible('form_submitted');
+          } catch (_) {}
+          location.href = merciPath();
+          return;
+        }
+
+        // Specific error handling
+        let body;
+        try { body = await res.json(); } catch { body = {}; }
+        if (res.status === 429) {
+          showNote("Trop de demandes envoyées récemment. Réessayez dans 30 secondes ou appelez le 07 85 65 56 02.", true);
+        } else if (res.status === 400) {
+          showNote("Demande incomplète : " + (body.details || 'vérifiez nom, téléphone, email et message.'), true);
+        } else {
+          showNote("Une erreur est survenue. Appelez-nous au 07 85 65 56 02 ou écrivez à kevinmetbach7@gmail.com.", true);
+        }
+      } catch (err) {
+        console.error('contact submit failed:', err);
+        showNote("Connexion impossible. Appelez le 07 85 65 56 02 ou écrivez à kevinmetbach7@gmail.com.", true);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '';
+          submitBtn.style.cursor = '';
+        }
+      }
     });
   }
 
