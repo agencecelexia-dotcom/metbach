@@ -87,10 +87,15 @@
       { "@type": "AdministrativeArea", "name": "Haute-Savoie" },
       { "@type": "AdministrativeArea", "name": "Pays de Gex" },
       { "@type": "AdministrativeArea", "name": "Genevois français" },
-      { "@type": "City", "name": "Thonon-les-Bains" },
-      { "@type": "City", "name": "Évian-les-Bains" },
-      { "@type": "City", "name": "Annemasse" },
-      { "@type": "City", "name": "Douvaine" }
+      { "@type": "AdministrativeArea", "name": "Canton de Genève" },
+      { "@type": "AdministrativeArea", "name": "Canton de Vaud" },
+      { "@type": "City", "name": "Publier", "addressCountry": "FR" },
+      { "@type": "City", "name": "Thonon-les-Bains", "addressCountry": "FR" },
+      { "@type": "City", "name": "Évian-les-Bains", "addressCountry": "FR" },
+      { "@type": "City", "name": "Annemasse", "addressCountry": "FR" },
+      { "@type": "City", "name": "Douvaine", "addressCountry": "FR" },
+      { "@type": "City", "name": "Genève", "addressCountry": "CH" },
+      { "@type": "City", "name": "Nyon", "addressCountry": "CH" }
     ],
     "address": {
       "@type": "PostalAddress",
@@ -810,25 +815,30 @@
           <div class="lg:col-span-7 reveal">
             <p class="h-eyebrow">Zones d'intervention</p>
             <h2 class="h-section font-display mt-3">
-              Présents partout
-              <span class="font-serif italic text-accent-dark">en Chablais & Genevois.</span>
+              Haute-Savoie
+              <span class="font-serif italic text-accent-dark">& Suisse romande.</span>
             </h2>
           </div>
           <div class="lg:col-span-5 reveal reveal-delay-1">
             <p class="text-muted leading-relaxed">
-              Basés à Publier, en bord du Léman, on rayonne sur tout le département. Cliquez sur
-              votre commune pour voir ce qu'on y traite spécifiquement.
+              Basés à Publier, on rayonne sur le Chablais, le Genevois français et, via les
+              <strong>accords bilatéraux UE–Suisse</strong>, sur le canton de Genève et la côte vaudoise.
             </p>
           </div>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- France -->
+        <h3 class="font-display font-bold text-xl mb-4 mt-2 flex items-center gap-3 reveal">
+          <span class="w-8 h-6 inline-flex items-center justify-center rounded text-xs bg-blue-700 text-white font-bold">FR</span>
+          Haute-Savoie
+        </h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
           <a href="villes/publier.html" class="group bg-page rounded-2xl border border-line p-6 hover:border-accent-dark transition-colors reveal">
             <div class="flex items-start justify-between mb-3">
               <i data-lucide="map-pin" class="w-6 h-6 text-accent-dark"></i>
               <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted group-hover:text-accent-dark transition-colors"></i>
             </div>
-            <h3 class="font-display font-bold text-xl">Publier</h3>
+            <h4 class="font-display font-bold text-xl">Publier</h4>
             <p class="text-xs text-muted mt-1">74500 · base d'intervention</p>
           </a>
 
@@ -837,7 +847,7 @@
               <i data-lucide="map-pin" class="w-6 h-6 text-accent-dark"></i>
               <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted group-hover:text-accent-dark transition-colors"></i>
             </div>
-            <h3 class="font-display font-bold text-xl">Thonon-les-Bains</h3>
+            <h4 class="font-display font-bold text-xl">Thonon-les-Bains</h4>
             <p class="text-xs text-muted mt-1">74200 · capitale du Chablais</p>
           </a>
 
@@ -846,7 +856,7 @@
               <i data-lucide="map-pin" class="w-6 h-6 text-accent-dark"></i>
               <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted group-hover:text-accent-dark transition-colors"></i>
             </div>
-            <h3 class="font-display font-bold text-xl">Évian-les-Bains</h3>
+            <h4 class="font-display font-bold text-xl">Évian-les-Bains</h4>
             <p class="text-xs text-muted mt-1">74500 · station thermale</p>
           </a>
 
@@ -855,7 +865,7 @@
               <i data-lucide="map-pin" class="w-6 h-6 text-accent-dark"></i>
               <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted group-hover:text-accent-dark transition-colors"></i>
             </div>
-            <h3 class="font-display font-bold text-xl">Annemasse</h3>
+            <h4 class="font-display font-bold text-xl">Annemasse</h4>
             <p class="text-xs text-muted mt-1">74100 · pôle frontalier</p>
           </a>
 
@@ -864,14 +874,46 @@
               <i data-lucide="map-pin" class="w-6 h-6 text-accent-dark"></i>
               <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted group-hover:text-accent-dark transition-colors"></i>
             </div>
-            <h3 class="font-display font-bold text-xl">Douvaine</h3>
+            <h4 class="font-display font-bold text-xl">Douvaine</h4>
             <p class="text-xs text-muted mt-1">74140 · Bas-Chablais résidentiel</p>
           </a>
 
           <div class="bg-ink text-white rounded-2xl p-6 reveal reveal-delay-1">
             <i data-lucide="plus-circle" class="w-6 h-6 text-accent-soft mb-3"></i>
-            <h3 class="font-display font-bold text-xl">Autres communes</h3>
+            <h4 class="font-display font-bold text-xl">Autres communes 74</h4>
             <p class="text-sm text-white/65 mt-1">Lugrin, Sciez, Anthy-sur-Léman, Bons-en-Chablais, Saint-Julien-en-Genevois, Reignier… on étudie chaque demande.</p>
+          </div>
+        </div>
+
+        <!-- Suisse -->
+        <h3 class="font-display font-bold text-xl mb-4 mt-8 flex items-center gap-3 reveal">
+          <span class="w-8 h-6 inline-flex items-center justify-center rounded text-xs bg-red-600 text-white font-bold">CH</span>
+          Suisse romande
+          <span class="text-xs text-muted font-normal italic">— accords bilatéraux UE-CH</span>
+        </h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <a href="villes/geneve.html" class="group bg-page rounded-2xl border border-line p-6 hover:border-accent-dark transition-colors reveal">
+            <div class="flex items-start justify-between mb-3">
+              <i data-lucide="flag" class="w-6 h-6 text-accent-dark"></i>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted group-hover:text-accent-dark transition-colors"></i>
+            </div>
+            <h4 class="font-display font-bold text-xl">Genève</h4>
+            <p class="text-xs text-muted mt-1">CH-1200 · 60 min · facturation CHF/EUR</p>
+          </a>
+
+          <a href="villes/nyon.html" class="group bg-page rounded-2xl border border-line p-6 hover:border-accent-dark transition-colors reveal reveal-delay-1">
+            <div class="flex items-start justify-between mb-3">
+              <i data-lucide="flag" class="w-6 h-6 text-accent-dark"></i>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted group-hover:text-accent-dark transition-colors"></i>
+            </div>
+            <h4 class="font-display font-bold text-xl">Nyon</h4>
+            <p class="text-xs text-muted mt-1">CH-1260 (Vaud) · 40 min · côte du Léman</p>
+          </a>
+
+          <div class="bg-ink text-white rounded-2xl p-6 reveal reveal-delay-2">
+            <i data-lucide="plus-circle" class="w-6 h-6 text-accent-soft mb-3"></i>
+            <h4 class="font-display font-bold text-xl">Autres communes CH</h4>
+            <p class="text-sm text-white/65 mt-1">Coppet, Founex, Mies, Carouge, Meyrin, Lancy, Chêne-Bougeries… contactez-nous pour étudier votre projet.</p>
           </div>
         </div>
       </div>
