@@ -96,16 +96,26 @@
     };
     requestAnimationFrame(tick);
   };
-  if (counters.length && 'IntersectionObserver' in window) {
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          animateCount(e.target);
-          cio.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    counters.forEach(el => cio.observe(el));
+  if (counters.length) {
+    // Fire immediately for counters already in viewport (avoid "stuck at 0")
+    const vh2 = window.innerHeight || document.documentElement.clientHeight;
+    counters.forEach(el => {
+      if (el.getBoundingClientRect().top < vh2) {
+        animateCount(el);
+        el.dataset.animated = '1';
+      }
+    });
+    if ('IntersectionObserver' in window) {
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting && !e.target.dataset.animated) {
+            animateCount(e.target);
+            cio.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(el => { if (!el.dataset.animated) cio.observe(el); });
+    }
   }
 
   /* ---- Service card spotlight ---- */
