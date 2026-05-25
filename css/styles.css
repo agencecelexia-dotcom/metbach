@@ -399,6 +399,16 @@ html { scroll-padding-top: 96px; }
 /* Focus rings */
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
 
+/* Honeypot field (hidden from users, visible to dumb bots) */
+.hp-field {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }

@@ -164,11 +164,29 @@
   const y = $('[data-year]');
   if (y) y.textContent = new Date().getFullYear();
 
-  /* ---- Contact form (mailto fallback) ---- */
+  /* ---- Contact form (mailto fallback + honeypot) ---- */
   const form = $('#contact-form');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // Honeypot: if filled, silently drop (bot detected)
+      const hp = form.querySelector('[name="website"]');
+      if (hp && hp.value.trim() !== '') {
+        const note = $('#form-note');
+        if (note) {
+          note.textContent = "Votre demande a bien été enregistrée.";
+          note.classList.remove('hidden');
+        }
+        return;
+      }
+
+      // Native HTML5 validation
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       const data = new FormData(form);
       const nom = (data.get('nom') || '').toString().trim();
       const email = (data.get('email') || '').toString().trim();
@@ -180,16 +198,23 @@
       const body = encodeURIComponent(
         `Bonjour,\n\nJe vous contacte pour : ${service || '—'}\n\n` +
         `Nom : ${nom}\nEmail : ${email}\nTéléphone : ${tel}\n\n` +
-        `Message :\n${message}\n\n— Envoyé via metbach.fr`
+        `Message :\n${message}\n\n— Envoyé via renovation-metbach.fr`
       );
-      const mailto = `mailto:contact@renovation-metbach.fr?subject=${subject}&body=${body}`;
+      const mailto = `mailto:kevinmetbach7@gmail.com?subject=${subject}&body=${body}`;
 
       const note = $('#form-note');
       if (note) {
-        note.textContent = "Votre client mail va s'ouvrir pour finaliser l'envoi. Sinon, appelez-nous directement.";
+        note.textContent = "Votre client mail s'ouvre pour finaliser l'envoi. Sinon, appelez le 07 85 65 56 02.";
         note.classList.remove('hidden');
       }
-      window.location.href = mailto;
+      // Open mail client in new tab so the page itself can redirect to /merci/
+      window.open(mailto, '_blank');
+      setTimeout(() => {
+        const merciPath = (location.pathname.includes('/services/') || location.pathname.includes('/villes/') || location.pathname.includes('/realisations/') || location.pathname.includes('/contact/'))
+          ? '../merci/'
+          : 'merci/';
+        location.href = merciPath;
+      }, 600);
     });
   }
 

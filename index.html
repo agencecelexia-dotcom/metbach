@@ -959,36 +959,49 @@
     </section>
 
     <!-- ============== CONTACT ============== -->
-    <section id="contact" class="pb-24 lg:pb-32">
+    <section id="contact" class="pb-24 lg:pb-32" aria-labelledby="contact-title">
       <div class="max-w-7xl-plus mx-auto container-pad">
         <div class="text-center max-w-2xl mx-auto reveal mb-14">
           <p class="h-eyebrow">Contact</p>
-          <h2 class="h-section font-display mt-3">Une question, un projet ?</h2>
+          <h2 id="contact-title" class="h-section font-display mt-3">Une question, un projet ?</h2>
           <p class="text-muted mt-5 text-lg">
-            Remplissez le formulaire, ou appelez directement. Réponse rapide garantie.
+            Remplissez le formulaire ou appelez directement le
+            <a href="tel:+33785655602" class="text-accent-dark font-semibold hover:text-ink">07 85 65 56 02</a>.
+            <strong class="text-ink">Réponse sous 48 h ouvrées.</strong>
           </p>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-8">
           <!-- Form -->
-          <form id="contact-form" class="lg:col-span-7 bg-white border border-line rounded-2xl p-7 lg:p-10 shadow-sm reveal">
+          <form id="contact-form" class="lg:col-span-7 bg-white border border-line rounded-2xl p-7 lg:p-10 shadow-sm reveal"
+                action="mailto:kevinmetbach7@gmail.com" method="post" enctype="text/plain"
+                aria-labelledby="contact-title" novalidate>
+            <!-- Honeypot anti-spam : if a bot fills this hidden field, the form is silently dropped -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">Ne pas remplir</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
-                <label for="nom" class="field-label block">Nom complet</label>
-                <input type="text" id="nom" name="nom" required autocomplete="name" class="field" placeholder="Jean Dupont" />
+                <label for="nom" class="field-label block">Nom complet <span class="text-accent-dark" aria-hidden="true">*</span></label>
+                <input type="text" id="nom" name="nom" required autocomplete="name" minlength="2" maxlength="100" class="field" placeholder="Jean Dupont" aria-required="true" />
               </div>
               <div>
-                <label for="tel" class="field-label block">Téléphone</label>
-                <input type="tel" id="tel" name="tel" required autocomplete="tel" inputmode="tel" class="field" placeholder="06 12 34 56 78" />
+                <label for="tel" class="field-label block">Téléphone <span class="text-accent-dark" aria-hidden="true">*</span></label>
+                <input type="tel" id="tel" name="tel" required autocomplete="tel" inputmode="tel"
+                       pattern="(?:\+33|0)[\s.-]?[1-9](?:[\s.-]?\d{2}){4}"
+                       title="Numéro français : ex. 06 12 34 56 78 ou +33 6 12 34 56 78"
+                       class="field" placeholder="06 12 34 56 78" aria-required="true" />
               </div>
             </div>
             <div class="mt-5">
-              <label for="email" class="field-label block">Email</label>
-              <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" class="field" placeholder="vous@email.fr" />
+              <label for="email" class="field-label block">Email <span class="text-accent-dark" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" maxlength="200" class="field" placeholder="vous@email.fr" aria-required="true" />
             </div>
             <div class="mt-5">
-              <label for="service" class="field-label block">Service concerné</label>
-              <select id="service" name="service" class="field" required>
+              <label for="service" class="field-label block">Service concerné <span class="text-accent-dark" aria-hidden="true">*</span></label>
+              <select id="service" name="service" class="field" required aria-required="true">
                 <option value="" disabled selected>— Choisissez —</option>
                 <option>Bardage</option>
                 <option>Petits travaux</option>
@@ -1001,26 +1014,28 @@
               </select>
             </div>
             <div class="mt-5">
-              <label for="message" class="field-label block">Votre projet en quelques mots</label>
-              <textarea id="message" name="message" class="field" placeholder="Décrivez-nous votre projet, vos contraintes, votre délai souhaité…"></textarea>
+              <label for="message" class="field-label block">Votre projet en quelques mots <span class="text-accent-dark" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="5" required minlength="20" maxlength="2000" class="field" placeholder="Décrivez votre projet, vos contraintes, votre délai souhaité (20 caractères min.)…" aria-required="true" aria-describedby="message-help"></textarea>
+              <p id="message-help" class="text-xs text-muted mt-1">20 à 2 000 caractères. Plus c'est précis, plus le devis est juste.</p>
             </div>
 
             <div class="mt-6">
               <label for="rgpd" class="flex items-start gap-3 cursor-pointer">
-                <input type="checkbox" id="rgpd" name="rgpd" required class="mt-1 w-4 h-4 rounded border-line text-accent-dark focus:ring-accent-dark" />
+                <input type="checkbox" id="rgpd" name="rgpd" required aria-required="true" class="mt-1 w-4 h-4 rounded border-line text-accent-dark focus:ring-accent-dark" />
                 <span class="text-sm text-muted leading-relaxed">
-                  J'accepte que mes données soient traitées par Rénovation Metbach pour répondre à ma demande, conformément à la <a href="politique-confidentialite.html" class="text-accent-dark underline hover:text-ink">politique de confidentialité</a>. Aucune donnée n'est cédée à des tiers.
+                  J'accepte que mes données soient traitées par Rénovation Metbach pour répondre à ma demande, conformément à la <a href="politique-confidentialite.html" class="text-accent-dark underline hover:text-ink">politique de confidentialité</a>. Conservation 3 ans après dernier contact. Vous pouvez exercer vos droits (accès, rectification, suppression) à tout moment par email.
                 </span>
               </label>
             </div>
 
-            <div class="mt-6 flex flex-col sm:flex-row sm:items-center justify-end gap-4">
+            <div class="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <p class="text-xs text-muted"><span aria-hidden="true">*</span> Champs obligatoires</p>
               <button type="submit" class="btn btn-primary justify-center">
                 Envoyer ma demande
                 <i data-lucide="send" class="w-4 h-4"></i>
               </button>
             </div>
-            <p id="form-note" class="hidden mt-4 text-sm text-accent-dark bg-accent-soft border border-accent/30 rounded-lg px-4 py-3"></p>
+            <p id="form-note" role="status" aria-live="polite" class="hidden mt-4 text-sm text-accent-dark bg-accent-soft border border-accent/30 rounded-lg px-4 py-3"></p>
           </form>
 
           <!-- Info side -->
@@ -1046,7 +1061,8 @@
                   <i data-lucide="map-pin" class="w-5 h-5 text-accent-soft mt-0.5"></i>
                   <div>
                     <p class="text-xs uppercase tracking-wider text-white/50">Zone d'intervention</p>
-                    <p class="font-display text-lg">Haute-Savoie & Genevois</p>
+                    <p class="font-display text-lg">Haute-Savoie · Chablais · Genevois</p>
+                    <p class="text-xs text-white/55 mt-1">Siège : 91 Rue de la République, 33400 Talence</p>
                   </div>
                 </li>
                 <li class="flex gap-3 items-start">
