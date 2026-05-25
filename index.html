@@ -594,123 +594,128 @@
     </section>
 
     <!-- ============== REALISATIONS / BENTO ============== -->
-    <section id="realisations" class="py-24 lg:py-32">
+    <section id="realisations" class="py-24 lg:py-32" aria-labelledby="realisations-title">
       <div class="max-w-7xl-plus mx-auto container-pad">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div class="reveal">
+        <div class="grid lg:grid-cols-12 gap-10 items-end mb-12">
+          <div class="lg:col-span-7 reveal">
             <p class="h-eyebrow">Nos réalisations</p>
-            <h2 class="h-section font-display mt-3">
-              Vu sur le terrain.
-            </h2>
+            <h2 id="realisations-title" class="h-section font-display mt-3">Vu sur le terrain.</h2>
           </div>
-          <a href="#contact" class="btn btn-ghost reveal reveal-delay-1 self-start md:self-end">
-            <i data-lucide="image" class="w-4 h-4"></i>
-            Demander le portfolio complet
-          </a>
+          <div class="lg:col-span-5 reveal reveal-delay-1">
+            <p class="text-muted leading-relaxed">
+              Quelques chantiers récents en Haute-Savoie — du bardage extension de chalet
+              à la charpente métallique. Cliquez sur une réalisation pour voir le service
+              correspondant.
+            </p>
+            <a href="realisations/" class="inline-flex items-center gap-2 mt-4 text-accent-dark font-semibold hover:text-ink transition-colors">
+              Voir toutes les réalisations
+              <i data-lucide="arrow-up-right" aria-hidden="true" class="w-4 h-4"></i>
+            </a>
+          </div>
         </div>
 
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 auto-rows-[180px] lg:auto-rows-[220px]">
-          <!-- Big bento -->
-          <div class="bento col-span-2 row-span-2 reveal">
-            <img loading="lazy" decoding="async" alt="Bardage bois posé sur façade par Rénovation Metbach"
+          <!-- Big bento — Bardage -->
+          <a href="services/bardage.html" class="bento col-span-2 row-span-2 reveal block">
+            <img loading="lazy" decoding="async" width="1600" height="1066" alt="Bardage bois posé sur façade par Rénovation Metbach"
                  src="assets/img/realisations/bardage-bois-terrasse.jpg" />
             <div class="bento-content absolute inset-0 p-6 lg:p-8 flex flex-col justify-end">
               <span class="chip-dark chip mb-3 w-fit">Bardage · Bois</span>
               <h3 class="font-display text-2xl lg:text-3xl font-bold">Bardage bois brossé sur extension</h3>
               <p class="text-white/80 text-sm mt-2 max-w-md">Façade ventilée en lames horizontales, terrasse pavée intégrée. Finition huilée durable.</p>
             </div>
-          </div>
+          </a>
 
-          <div class="bento reveal reveal-delay-1">
-            <img loading="lazy" decoding="async" alt="Allée pavée et muret de soutènement"
+          <a href="services/revetement-sol.html" class="bento reveal reveal-delay-1 block">
+            <img loading="lazy" decoding="async" width="1600" height="1066" alt="Allée pavée et muret de soutènement"
                  src="assets/img/realisations/sol-paves-allee.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Sols extérieurs</span>
               <h3 class="font-display text-lg font-bold">Allée pavée & muret</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="bento reveal reveal-delay-2">
-            <img loading="lazy" decoding="async" alt="Jardin paysager avec clôture moderne"
+          <a href="services/clotures.html" class="bento reveal reveal-delay-2 block">
+            <img loading="lazy" decoding="async" width="320" height="240" alt="Jardin paysager avec clôture moderne"
                  src="assets/img/realisations/jardin-paysager.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Paysager · Clôtures</span>
               <h3 class="font-display text-lg font-bold">Jardin & clôture</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="bento reveal reveal-delay-3">
-            <img loading="lazy" decoding="async" alt="Pose de pelouse synthétique haut de gamme"
+          <a href="services/amenagement-paysager.html" class="bento reveal reveal-delay-3 block">
+            <img loading="lazy" decoding="async" width="320" height="240" alt="Pose de pelouse synthétique haut de gamme"
                  src="assets/img/realisations/amenagement-pelouse.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Paysager</span>
               <h3 class="font-display text-lg font-bold">Pelouse synthétique</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="bento reveal reveal-delay-4">
-            <img loading="lazy" decoding="async" alt="Élagage d'un grand pin en hauteur"
+          <a href="services/arboriculture.html" class="bento reveal reveal-delay-4 block">
+            <img loading="lazy" decoding="async" width="1600" height="1200" alt="Élagage d'un grand pin en hauteur"
                  src="assets/img/realisations/elagage-pin.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Arboriculture</span>
               <h3 class="font-display text-lg font-bold">Élagage en hauteur</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="bento col-span-2 reveal reveal-delay-2">
-            <img loading="lazy" decoding="async" alt="Charpente métallique pour bâtiment agricole"
+          <a href="services/fondations.html" class="bento col-span-2 reveal reveal-delay-2 block">
+            <img loading="lazy" decoding="async" width="1600" height="1200" alt="Charpente métallique pour bâtiment agricole"
                  src="assets/img/realisations/structure-fondations.jpg" />
             <div class="bento-content absolute inset-0 p-6 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Fondations · Structure</span>
               <h3 class="font-display text-xl lg:text-2xl font-bold">Structure & gros œuvre, bâtiment agricole</h3>
               <p class="text-white/80 text-sm mt-1.5">Charpente métallique sur fondations béton, levée en quelques jours.</p>
             </div>
-          </div>
+          </a>
 
-          <div class="bento reveal reveal-delay-3">
-            <img loading="lazy" decoding="async" alt="Pose de revêtement de sol en résine"
+          <a href="services/revetement-sol.html" class="bento reveal reveal-delay-3 block">
+            <img loading="lazy" decoding="async" width="1200" height="1600" alt="Pose de revêtement de sol en résine"
                  src="assets/img/realisations/revetement-sol-resine.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Revêtement sol</span>
               <h3 class="font-display text-lg font-bold">Sol résine intérieur</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="bento reveal">
-            <img loading="lazy" decoding="async" alt="Toiture en tuiles rénovée"
+          <a href="services/bardage.html" class="bento reveal block">
+            <img loading="lazy" decoding="async" width="1200" height="1600" alt="Toiture en tuiles rénovée"
                  src="assets/img/realisations/toiture-tuiles.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Toiture</span>
               <h3 class="font-display text-lg font-bold">Rénovation tuiles</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="bento reveal reveal-delay-1">
-            <img loading="lazy" decoding="async" alt="Toiture en ardoise contemporaine"
+          <a href="services/bardage.html" class="bento reveal reveal-delay-1 block">
+            <img loading="lazy" decoding="async" width="320" height="240" alt="Toiture en ardoise contemporaine"
                  src="assets/img/realisations/toiture-ardoise.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Toiture</span>
               <h3 class="font-display text-lg font-bold">Toiture ardoise</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="bento reveal reveal-delay-2">
-            <img loading="lazy" decoding="async" alt="Bardage composite gris sur maison contemporaine"
+          <a href="services/bardage.html" class="bento reveal reveal-delay-2 block">
+            <img loading="lazy" decoding="async" width="320" height="213" alt="Bardage composite gris sur maison contemporaine"
                  src="assets/img/realisations/bardage-composite.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Bardage</span>
               <h3 class="font-display text-lg font-bold">Bardage composite</h3>
             </div>
-          </div>
+          </a>
 
-          <div class="bento reveal reveal-delay-3">
-            <img loading="lazy" decoding="async" alt="Peinture et rénovation intérieure"
+          <a href="services/petits-travaux.html" class="bento reveal reveal-delay-3 block">
+            <img loading="lazy" decoding="async" width="1600" height="1200" alt="Peinture et rénovation intérieure"
                  src="assets/img/realisations/peinture-interieure.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Petits travaux</span>
               <h3 class="font-display text-lg font-bold">Peinture intérieure</h3>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
