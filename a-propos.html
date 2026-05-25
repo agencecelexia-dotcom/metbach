@@ -2,10 +2,22 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>À propos — Rénovation Metbach · Artisan en Haute-Savoie</title>
-  <meta name="description" content="Découvrez Rénovation Metbach : l'artisan tout corps d'état qui accompagne particuliers et professionnels de Haute-Savoie depuis plus de dix ans." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0E1318" />
+  <title>À propos — Zachari Metbach · Artisan en Haute-Savoie</title>
+  <meta name="description" content="Zachari Metbach, artisan fondateur de Rénovation Metbach. Bardage, fondations, sols, paysager, clôtures, arboriculture en Haute-Savoie depuis plus de dix ans." />
   <link rel="canonical" href="https://renovation-metbach.fr/a-propos.html" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="À propos — Zachari Metbach, artisan en Haute-Savoie" />
+  <meta property="og:description" content="L'artisan derrière Rénovation Metbach : parcours, valeurs, engagements." />
+  <meta property="og:url" content="https://renovation-metbach.fr/a-propos.html" />
+  <meta property="og:image" content="https://renovation-metbach.fr/assets/img/realisations/maison-renovation.jpg" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="À propos — Zachari Metbach, artisan en Haute-Savoie" />
+  <meta name="twitter:description" content="L'artisan derrière Rénovation Metbach." />
+  <meta name="twitter:image" content="https://renovation-metbach.fr/assets/img/realisations/maison-renovation.jpg" />
   <link rel="icon" type="image/png" href="assets/img/logo/metbach-logo.png" />
   <link rel="apple-touch-icon" href="assets/img/logo/metbach-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,6 +42,23 @@
     "name": "À propos — Rénovation Metbach",
     "isPartOf": { "@id": "https://renovation-metbach.fr/#business" },
     "mainEntity": { "@id": "https://renovation-metbach.fr/#business" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zachari Metbach",
+    "jobTitle": "Artisan tout corps d'état",
+    "worksFor": { "@id": "https://renovation-metbach.fr/#business" },
+    "telephone": "+33 7 85 65 56 02",
+    "email": "kevinmetbach7@gmail.com",
+    "url": "https://renovation-metbach.fr/a-propos.html",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Haute-Savoie" },
+      { "@type": "AdministrativeArea", "name": "Chablais" }
+    ],
+    "knowsAbout": ["Bardage", "Couverture", "Terrassement", "Fondations", "Aménagement paysager", "Espaces verts", "Clôtures", "Arboriculture", "Revêtement de sol", "Peinture"]
   }
   </script>
   <script type="application/ld+json">
@@ -106,34 +135,33 @@
             L'artisan derrière Metbach
           </span>
           <h1 class="font-display font-bold text-5xl lg:text-6xl leading-[1.02]">
-            L'artisan,
-            <span class="block gradient-text">pas seulement l'entreprise.</span>
+            Zachari Metbach,
+            <span class="block gradient-text">l'artisan derrière Rénovation Metbach.</span>
           </h1>
           <p class="mt-6 text-lg text-muted leading-relaxed max-w-xl">
-            Derrière Rénovation Metbach, il y a une personne, un parcours et une vision claire :
-            faire un travail dont on est fier, livrer ce qu'on a promis, et bâtir une relation de confiance
-            qui dure plus longtemps que le chantier.
+            Une personne, un parcours et une vision claire : faire un travail dont on est fier,
+            livrer ce qu'on a promis, et bâtir une relation de confiance qui dure plus longtemps que le chantier.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a href="index.html#contact" class="btn btn-primary">Discuter de votre projet <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-            <a href="index.html#realisations" class="btn btn-ghost"><i data-lucide="image" class="w-4 h-4"></i> Voir mes réalisations</a>
-            <!-- absolute home anchor, this page has no #realisations section -->
+            <a href="realisations/" class="btn btn-ghost"><i data-lucide="image" class="w-4 h-4"></i> Voir mes réalisations</a>
           </div>
         </div>
         <div class="lg:col-span-5 reveal reveal-delay-1">
           <div class="relative">
             <img class="rounded-2xl shadow-xl w-full aspect-[4/5] object-cover"
-                 alt="Artisan Rénovation Metbach intervenant sur une rénovation"
+                 alt="Zachari Metbach, artisan tout corps d'état, sur un chantier de rénovation"
                  src="assets/img/realisations/maison-renovation.jpg"
-                 decoding="async" width="1600" height="1200" />
-            <div class="absolute -bottom-6 -right-4 bg-page rounded-2xl border border-line p-5 shadow-lg max-w-[260px]">
+                 fetchpriority="high" loading="eager" decoding="async" width="1600" height="1200" />
+            <div class="absolute -bottom-6 -right-4 bg-white rounded-2xl border border-line p-5 shadow-lg max-w-[280px]">
               <div class="flex items-center gap-2 text-accent-dark mb-2">
                 <i data-lucide="map-pin" class="w-5 h-5"></i>
                 <span class="text-xs font-semibold uppercase tracking-wider">Basé en Haute-Savoie</span>
               </div>
-              <p class="font-display font-semibold text-lg leading-snug">
-                <span class="text-muted">[Nom de l'artisan]</span>, fondateur de Rénovation Metbach.
+              <p class="font-display font-semibold text-lg leading-snug text-ink">
+                Zachari Metbach, fondateur.
               </p>
+              <p class="text-sm text-muted mt-1">Entreprise individuelle · SIRET 448 464 545 00020</p>
             </div>
           </div>
         </div>
@@ -153,21 +181,27 @@
         <div class="lg:col-span-7 space-y-6 text-lg leading-relaxed text-ink reveal reveal-delay-1">
           <p>
             J'ai commencé jeune, sur les chantiers, en apprenant chaque corps de métier auprès
-            d'artisans qui m'ont transmis leur exigence. Bardage, fondations, sols, paysager,
-            arboriculture — j'ai voulu comprendre chaque étape pour mieux servir mes clients
-            par la suite.
+            d'artisans qui m'ont transmis leur exigence. Le <a href="services/bardage.html" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">bardage</a>,
+            les <a href="services/fondations.html" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">fondations</a>,
+            les <a href="services/revetement-sol.html" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">sols</a>,
+            l'<a href="services/amenagement-paysager.html" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">aménagement paysager</a>,
+            l'<a href="services/arboriculture.html" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">arboriculture</a> —
+            j'ai voulu comprendre chaque étape pour mieux servir mes clients par la suite.
           </p>
           <p>
             Rénovation Metbach est née de ce constat : la plupart des gens jonglent entre
             trois ou quatre prestataires pour un seul projet, perdent du temps, paient des
             marges multiples, et finissent par accepter des compromis qu'ils n'auraient
             jamais validés s'ils avaient eu un seul interlocuteur. Mon offre, c'est cette
-            simplification : un artisan, plusieurs métiers, une seule responsabilité.
+            simplification : <a href="services/" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">un artisan, plusieurs métiers</a>, une seule responsabilité.
           </p>
           <p>
-            Aujourd'hui, j'interviens sur l'ensemble de la Haute-Savoie, du Chablais au
-            Genevois français, pour des particuliers comme pour des professionnels —
-            restaurants, gîtes, copropriétés, petites entreprises locales.
+            Aujourd'hui, j'interviens sur l'ensemble de la Haute-Savoie — de
+            <a href="villes/thonon-les-bains.html" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">Thonon-les-Bains</a> à
+            <a href="villes/evian-les-bains.html" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">Évian</a> en passant par
+            <a href="villes/annemasse.html" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">Annemasse</a> et
+            <a href="villes/douvaine.html" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">Douvaine</a> —
+            pour des particuliers comme pour des professionnels (restaurants, gîtes, copropriétés, petites entreprises locales).
           </p>
         </div>
       </div>
@@ -256,6 +290,45 @@
       </div>
     </section>
 
+    <!-- Joignez-moi directement -->
+    <section class="py-20 lg:py-24 bg-white border-y border-line">
+      <div class="max-w-7xl-plus mx-auto container-pad grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5 reveal">
+          <p class="h-eyebrow">Joignez-moi directement</p>
+          <h2 class="h-section font-display mt-3">
+            Pas de standard,
+            <span class="font-serif italic">pas d'intermédiaire.</span>
+          </h2>
+          <p class="text-muted mt-5 leading-relaxed">
+            Le téléphone et l'email ci-contre, c'est mon ligne directe. Pas d'assistant, pas de filtrage.
+            Quand vous appelez, c'est moi qui réponds — ou je vous rappelle dans la journée.
+          </p>
+        </div>
+        <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4 reveal reveal-delay-1">
+          <a href="tel:+33785655602" class="group bg-page border border-line rounded-2xl p-6 hover:border-accent-dark transition-colors">
+            <i data-lucide="phone" class="w-7 h-7 text-accent-dark mb-3"></i>
+            <p class="text-xs uppercase tracking-wider text-muted">Téléphone</p>
+            <p class="font-display font-bold text-2xl mt-1 group-hover:text-accent-dark transition-colors">07 85 65 56 02</p>
+          </a>
+          <a href="mailto:kevinmetbach7@gmail.com" class="group bg-page border border-line rounded-2xl p-6 hover:border-accent-dark transition-colors">
+            <i data-lucide="mail" class="w-7 h-7 text-accent-dark mb-3"></i>
+            <p class="text-xs uppercase tracking-wider text-muted">Email</p>
+            <p class="font-display font-bold text-lg mt-1 break-all group-hover:text-accent-dark transition-colors">kevinmetbach7@gmail.com</p>
+          </a>
+          <a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener" class="group bg-page border border-line rounded-2xl p-6 hover:border-accent-dark transition-colors">
+            <i data-lucide="star" class="w-7 h-7 text-accent-dark mb-3"></i>
+            <p class="text-xs uppercase tracking-wider text-muted">Avis Google</p>
+            <p class="font-display font-bold text-2xl mt-1 group-hover:text-accent-dark transition-colors">4,9 / 5 ★</p>
+          </a>
+          <div class="bg-ink text-white rounded-2xl p-6">
+            <i data-lucide="clock" class="w-7 h-7 text-accent-soft mb-3"></i>
+            <p class="text-xs uppercase tracking-wider text-white/50">Horaires</p>
+            <p class="font-display font-bold text-base mt-1">Lun – Sam · 8h – 20h</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="container-pad py-20 lg:py-24">
       <div class="relative overflow-hidden max-w-5xl mx-auto rounded-3xl bg-white border border-line p-10 lg:p-14 text-center">
@@ -268,31 +341,86 @@
         </p>
         <div class="mt-8 flex flex-wrap gap-3 justify-center">
           <a href="index.html#contact" class="btn btn-primary">Demander un devis <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
-          <a href="index.html#realisations" class="btn btn-ghost">Voir mes réalisations <i data-lucide="image" class="w-4 h-4"></i></a>
+          <a href="realisations/" class="btn btn-ghost">Voir mes réalisations <i data-lucide="image" class="w-4 h-4"></i></a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="bg-ink text-white pt-14 pb-8">
+  <!-- ============== FOOTER ============== -->
+  <footer class="bg-ink text-white pt-16 pb-8">
     <div class="max-w-7xl-plus mx-auto container-pad">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-white/10">
-        <div class="flex items-center">
-          <a href="index.html" class="inline-flex items-baseline gap-2 font-display font-bold leading-none">
+      <div class="grid lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-5">
+          <a href="/" class="inline-flex items-baseline gap-2 font-display font-bold leading-none mb-4">
             <span class="text-accent-soft uppercase text-[10px] tracking-[0.25em]">Rénovation</span>
             <span class="text-white text-2xl tracking-tight">Metbach</span>
           </a>
+          <p class="text-white/65 max-w-sm leading-relaxed">
+            L'artisan tout corps d'état de Haute-Savoie. Bardage, sols, fondations,
+            paysager, clôtures, arboriculture, petits travaux — un seul interlocuteur.
+          </p>
+          <div class="mt-6 flex gap-2">
+            <a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener" class="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-accent transition-colors" aria-label="Google Maps">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+            </a>
+            <a href="tel:+33785655602" class="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-accent transition-colors" aria-label="Téléphone">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+            </a>
+            <a href="mailto:kevinmetbach7@gmail.com" class="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-accent transition-colors" aria-label="Email">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+          </div>
         </div>
-        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/65">
-          <a href="index.html" class="hover:text-accent-soft">Accueil</a>
-          <a href="index.html#services" class="hover:text-accent-soft">Services</a>
-          <a href="index.html#contact" class="hover:text-accent-soft">Contact</a>
-          <a href="mentions-legales.html" class="hover:text-accent-soft">Mentions légales</a>
-          <a href="politique-confidentialite.html" class="hover:text-accent-soft">Confidentialité</a>
+
+        <div class="lg:col-span-3">
+          <h2 class="font-display font-semibold mb-4 text-base">Services</h2>
+          <ul class="space-y-2 text-white/65">
+            <li><a class="hover:text-accent-soft transition-colors" href="services/bardage.html">Bardage</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/petits-travaux.html">Petits travaux</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/revetement-sol.html">Revêtement de sol</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/fondations.html">Fondations</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/amenagement-paysager.html">Aménagement paysager</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/clotures.html">Clôtures</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="services/arboriculture.html">Arboriculture</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h2 class="font-display font-semibold mb-4 text-base">Navigation</h2>
+          <ul class="space-y-2 text-white/65">
+            <li><a class="hover:text-accent-soft transition-colors" href="a-propos.html">À propos</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="realisations/">Réalisations</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="index.html#avis">Avis</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="index.html#faq">FAQ</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h2 class="font-display font-semibold mb-4 text-base">Contact</h2>
+          <ul class="space-y-2 text-white/65">
+            <li><a class="hover:text-accent-soft transition-colors" href="tel:+33785655602">07 85 65 56 02</a></li>
+            <li><a class="hover:text-accent-soft transition-colors break-all" href="mailto:kevinmetbach7@gmail.com">kevinmetbach7@gmail.com</a></li>
+            <li>Haute-Savoie · France</li>
+          </ul>
         </div>
       </div>
-      <p class="pt-6 text-sm text-white/50">&copy; <span data-year>2026</span> Rénovation Metbach. Tous droits réservés.</p>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
+        <p>&copy; <span data-year>2026</span> Rénovation Metbach. Tous droits réservés.</p>
+        <nav class="flex flex-wrap gap-x-5 gap-y-2 items-center">
+          <a href="mentions-legales.html" class="hover:text-accent-soft">Mentions légales</a>
+          <a href="politique-confidentialite.html" class="hover:text-accent-soft">Confidentialité</a>
+          <span class="hidden sm:inline text-white/30">·</span>
+          <span class="flex items-center gap-2">
+            <span>Site conçu avec</span>
+            <i data-lucide="heart" class="w-4 h-4 text-accent"></i>
+            <span>par Celexia</span>
+          </span>
+        </nav>
+      </div>
     </div>
   </footer>
 
