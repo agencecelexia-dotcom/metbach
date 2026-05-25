@@ -37,7 +37,7 @@ body {
 /* Fluid type */
 .h-display { font-size: clamp(2.5rem, 6vw + 1rem, 5.75rem); line-height: 1.02; font-weight: 700; }
 .h-section { font-size: clamp(2rem, 3.2vw + 0.5rem, 3.25rem); line-height: 1.08; font-weight: 700; }
-.h-eyebrow { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+.h-eyebrow { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--accent-dark); }
 
 /* Background decorations */
 .grid-bg {
@@ -59,9 +59,9 @@ body {
   background-size: 18px 18px;
 }
 
-/* Animated gradient text */
+/* Animated gradient text — darker stops for AA contrast on cream */
 .gradient-text {
-  background: linear-gradient(120deg, #B8602A 0%, #C99A4D 35%, #2D5F3F 75%, #1B2A3A 100%);
+  background: linear-gradient(120deg, #8A4520 0%, #A75A28 35%, #2D5F3F 75%, #0E1318 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -141,11 +141,11 @@ body {
 /* Chip / tag */
 .chip {
   display: inline-flex; align-items: center; gap: .4rem;
-  padding: .35rem .75rem; border-radius: 999px;
-  font-size: .78rem; font-weight: 600;
-  background: rgba(184,96,42,.10);
-  color: var(--accent-dark);
-  border: 1px solid rgba(184,96,42,.18);
+  padding: .4rem .85rem; border-radius: 999px;
+  font-size: .78rem; font-weight: 700;
+  background: rgba(184,96,42,.14);
+  color: #6E3617;
+  border: 1px solid rgba(138,69,32,.30);
 }
 .chip-dark {
   background: rgba(255,255,255,.10);
@@ -231,7 +231,7 @@ body {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
-.marquee:hover { animation-play-state: paused; }
+.marquee:hover, .marquee:focus-within { animation-play-state: paused; }
 
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
@@ -366,8 +366,8 @@ body {
 }
 
 /* Stagger images / image collage */
-.image-stack { position: relative; aspect-ratio: 4/5; }
-.image-stack img { position: absolute; border-radius: 18px; box-shadow: var(--shadow-lg); }
+.image-stack { position: relative; aspect-ratio: 4/5; max-width: 100%; }
+.image-stack img { position: absolute; border-radius: 18px; box-shadow: var(--shadow-lg); width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: cover; }
 .image-stack .img-1 { inset: 0 30% 30% 0; }
 .image-stack .img-2 { inset: 25% 0 0 35%; border: 6px solid var(--page); }
 

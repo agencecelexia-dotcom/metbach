@@ -8,12 +8,25 @@
   <title>Rénovation Metbach — Artisan tout corps d'état • Haute-Savoie</title>
   <meta name="description" content="Rénovation Metbach : bardage, revêtement de sol, fondations, aménagement paysager, clôtures, déménagement et arboriculture. Artisan en Haute-Savoie. Devis gratuit." />
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://renovation-metbach.fr/" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Rénovation Metbach — Artisan tout corps d'état" />
   <meta property="og:description" content="Bardage, sols, fondations, paysager, clôtures, déménagement, arboriculture. Devis gratuit en Haute-Savoie." />
   <meta property="og:locale" content="fr_FR" />
-  <meta property="og:image" content="assets/img/realisations/bardage-bois-terrasse.jpg" />
+  <meta property="og:url" content="https://renovation-metbach.fr/" />
+  <meta property="og:image" content="https://renovation-metbach.fr/assets/img/realisations/bardage-bois-terrasse.jpg" />
+  <meta property="og:image:width" content="1536" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="Bardage bois posé sur extension par Rénovation Metbach" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rénovation Metbach — Artisan tout corps d'état" />
+  <meta name="twitter:description" content="Bardage, sols, fondations, paysager, clôtures, déménagement, arboriculture. Devis gratuit en Haute-Savoie." />
+  <meta name="twitter:image" content="https://renovation-metbach.fr/assets/img/realisations/bardage-bois-terrasse.jpg" />
 
   <link rel="icon" type="image/png" href="assets/img/logo/metbach-logo.png" />
   <link rel="apple-touch-icon" href="assets/img/logo/metbach-logo.png" />
@@ -57,33 +70,153 @@
   <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 
-  <!-- Structured data -->
+  <!-- Structured data : entreprise -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
+    "@id": "https://renovation-metbach.fr/#business",
     "name": "Rénovation Metbach",
-    "image": "https://renovation-metbach.fr/assets/img/logo/metbach-logo.png",
-    "description": "Artisan tout corps d'état : bardage, revêtement de sol, fondations, aménagement paysager, clôtures, déménagement, arboriculture.",
-    "areaServed": ["Haute-Savoie", "Pays de Gex", "Genevois français"],
+    "image": [
+      "https://renovation-metbach.fr/assets/img/logo/metbach-logo.png",
+      "https://renovation-metbach.fr/assets/img/realisations/bardage-bois-terrasse.jpg"
+    ],
+    "logo": "https://renovation-metbach.fr/assets/img/logo/metbach-logo.png",
+    "description": "Artisan tout corps d'état en Haute-Savoie : bardage, revêtement de sol, fondations, aménagement paysager, clôtures, déménagement, arboriculture et petits travaux.",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Haute-Savoie" },
+      { "@type": "AdministrativeArea", "name": "Pays de Gex" },
+      { "@type": "AdministrativeArea", "name": "Genevois français" },
+      { "@type": "City", "name": "Thonon-les-Bains" },
+      { "@type": "City", "name": "Évian-les-Bains" },
+      { "@type": "City", "name": "Annemasse" },
+      { "@type": "City", "name": "Douvaine" }
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressRegion": "Haute-Savoie",
       "addressCountry": "FR"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 46.400383,
+      "longitude": 6.520969
+    },
     "telephone": "+33 6 00 00 00 00",
-    "url": "https://renovation-metbach.fr"
+    "email": "contact@renovation-metbach.fr",
+    "url": "https://renovation-metbach.fr",
+    "priceRange": "€€",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "07:30",
+        "closes": "18:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "12:00",
+        "description": "Sur rendez-vous"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": "27"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services Rénovation Metbach",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bardage", "url": "https://renovation-metbach.fr/services/bardage.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Petits travaux", "url": "https://renovation-metbach.fr/services/petits-travaux.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Revêtement de sol", "url": "https://renovation-metbach.fr/services/revetement-sol.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fondations", "url": "https://renovation-metbach.fr/services/fondations.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aménagement paysager", "url": "https://renovation-metbach.fr/services/amenagement-paysager.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Clôtures", "url": "https://renovation-metbach.fr/services/clotures.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Déménagement", "url": "https://renovation-metbach.fr/services/demenagement.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arboriculture", "url": "https://renovation-metbach.fr/services/arboriculture.html" } }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Structured data : FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quelles zones desservez-vous ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Toute la Haute-Savoie : Thonon, Évian, Annemasse, Douvaine, le Chablais, le Genevois français et alentours. Pour les chantiers plus éloignés, contactez-nous, on s'adapte."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Sous combien de temps obtient-on un devis ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En général sous 48 heures après visite ou échange détaillé. Pour les petits travaux, un chiffrage rapide peut se faire par téléphone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Êtes-vous assurés ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, nous sommes couverts par une assurance responsabilité civile professionnelle et la garantie décennale sur les travaux concernés. Attestations fournies sur demande."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Peut-on grouper plusieurs services dans un même devis ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui — c'est même notre force. Bardage, sol et clôture peuvent par exemple être pensés ensemble pour optimiser planning et budget."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Travaillez-vous pour les professionnels ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui : commerces, restaurants, bureaux, gîtes, copropriétés. Nous adaptons les devis aux exigences pro (planning, facturation, sécurité chantier)."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data : WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Rénovation Metbach",
+    "url": "https://renovation-metbach.fr",
+    "inLanguage": "fr-FR"
   }
   </script>
 </head>
 
 <body class="bg-page text-ink">
 
+  <!-- Skip-to-content for keyboard users -->
+  <a href="#top" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Aller au contenu</a>
+
   <!-- ============== HEADER ============== -->
   <header class="site-header fixed inset-x-0 top-0 z-50">
     <div class="max-w-7xl-plus mx-auto container-pad py-4 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-3 group">
-        <img src="assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" class="h-12 lg:h-14 w-auto" />
+        <img loading="lazy" decoding="async" src="assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" class="h-12 lg:h-14 w-auto" />
         <span class="hidden sm:flex flex-col leading-none">
           <span class="text-xs text-muted mt-0.5">Artisan tout corps d'état · Haute-Savoie</span>
         </span>
@@ -107,7 +240,7 @@
           Devis gratuit
           <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </a>
-        <button data-menu-open class="lg:hidden p-2 -mr-2" aria-label="Menu">
+        <button type="button" data-menu-open class="lg:hidden p-2 -mr-2" aria-label="Ouvrir le menu">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
@@ -118,7 +251,7 @@
   <aside class="mobile-menu fixed inset-0 z-[60] bg-ink text-white lg:hidden">
     <div class="flex items-center justify-between p-5 border-b border-white/10">
       <span class="font-display font-bold">Menu</span>
-      <button data-menu-close class="p-2 -mr-2" aria-label="Fermer">
+      <button type="button" data-menu-close class="p-2 -mr-2" aria-label="Fermer le menu">
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
     </div>
@@ -197,9 +330,11 @@
         <div class="lg:col-span-5 relative">
           <div class="reveal reveal-delay-2 image-stack" data-tilt>
             <img class="img-1" alt="Façade en bardage bois posée par Rénovation Metbach"
-                 src="assets/img/realisations/bardage-bois-terrasse.jpg" />
+                 src="assets/img/realisations/bardage-bois-terrasse.jpg"
+                 fetchpriority="high" decoding="async" width="1536" height="1024" />
             <img class="img-2" alt="Aménagement paysager réalisé par Rénovation Metbach"
-                 src="assets/img/realisations/jardin-paysager.jpg" />
+                 src="assets/img/realisations/jardin-paysager.jpg"
+                 decoding="async" width="1200" height="800" />
           </div>
 
           <!-- Floating badge -->
@@ -414,10 +549,16 @@
             </li>
           </ul>
 
-          <a href="#contact" class="btn btn-primary mt-10">
-            Parler à un artisan
-            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-          </a>
+          <div class="mt-10 flex flex-wrap gap-3">
+            <a href="#contact" class="btn btn-primary">
+              Parler à un artisan
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+            <a href="a-propos.html" class="btn btn-ghost">
+              Le portrait complet
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -484,7 +625,7 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 auto-rows-[180px] lg:auto-rows-[220px]">
           <!-- Big bento -->
           <div class="bento col-span-2 row-span-2 reveal">
-            <img alt="Bardage bois posé sur façade par Rénovation Metbach"
+            <img loading="lazy" decoding="async" alt="Bardage bois posé sur façade par Rénovation Metbach"
                  src="assets/img/realisations/bardage-bois-terrasse.jpg" />
             <div class="bento-content absolute inset-0 p-6 lg:p-8 flex flex-col justify-end">
               <span class="chip-dark chip mb-3 w-fit">Bardage · Bois</span>
@@ -494,7 +635,7 @@
           </div>
 
           <div class="bento reveal reveal-delay-1">
-            <img alt="Allée pavée et muret de soutènement"
+            <img loading="lazy" decoding="async" alt="Allée pavée et muret de soutènement"
                  src="assets/img/realisations/sol-paves-allee.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Sols extérieurs</span>
@@ -503,7 +644,7 @@
           </div>
 
           <div class="bento reveal reveal-delay-2">
-            <img alt="Jardin paysager avec clôture moderne"
+            <img loading="lazy" decoding="async" alt="Jardin paysager avec clôture moderne"
                  src="assets/img/realisations/jardin-paysager.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Paysager · Clôtures</span>
@@ -512,7 +653,7 @@
           </div>
 
           <div class="bento reveal reveal-delay-3">
-            <img alt="Pose de pelouse synthétique haut de gamme"
+            <img loading="lazy" decoding="async" alt="Pose de pelouse synthétique haut de gamme"
                  src="assets/img/realisations/amenagement-pelouse.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Paysager</span>
@@ -521,7 +662,7 @@
           </div>
 
           <div class="bento reveal reveal-delay-4">
-            <img alt="Élagage d'un grand pin en hauteur"
+            <img loading="lazy" decoding="async" alt="Élagage d'un grand pin en hauteur"
                  src="assets/img/realisations/elagage-pin.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Arboriculture</span>
@@ -530,7 +671,7 @@
           </div>
 
           <div class="bento col-span-2 reveal reveal-delay-2">
-            <img alt="Charpente métallique pour bâtiment agricole"
+            <img loading="lazy" decoding="async" alt="Charpente métallique pour bâtiment agricole"
                  src="assets/img/realisations/structure-fondations.jpg" />
             <div class="bento-content absolute inset-0 p-6 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Fondations · Structure</span>
@@ -540,7 +681,7 @@
           </div>
 
           <div class="bento reveal reveal-delay-3">
-            <img alt="Pose de revêtement de sol en résine"
+            <img loading="lazy" decoding="async" alt="Pose de revêtement de sol en résine"
                  src="assets/img/realisations/revetement-sol-resine.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Revêtement sol</span>
@@ -549,7 +690,7 @@
           </div>
 
           <div class="bento reveal">
-            <img alt="Toiture en tuiles rénovée"
+            <img loading="lazy" decoding="async" alt="Toiture en tuiles rénovée"
                  src="assets/img/realisations/toiture-tuiles.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Toiture</span>
@@ -558,7 +699,7 @@
           </div>
 
           <div class="bento reveal reveal-delay-1">
-            <img alt="Toiture en ardoise contemporaine"
+            <img loading="lazy" decoding="async" alt="Toiture en ardoise contemporaine"
                  src="assets/img/realisations/toiture-ardoise.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Toiture</span>
@@ -567,7 +708,7 @@
           </div>
 
           <div class="bento reveal reveal-delay-2">
-            <img alt="Bardage composite gris sur maison contemporaine"
+            <img loading="lazy" decoding="async" alt="Bardage composite gris sur maison contemporaine"
                  src="assets/img/realisations/bardage-composite.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Bardage</span>
@@ -576,7 +717,7 @@
           </div>
 
           <div class="bento reveal reveal-delay-3">
-            <img alt="Peinture et rénovation intérieure"
+            <img loading="lazy" decoding="async" alt="Peinture et rénovation intérieure"
                  src="assets/img/realisations/peinture-interieure.jpg" />
             <div class="bento-content absolute inset-0 p-5 flex flex-col justify-end">
               <span class="chip-dark chip mb-2 w-fit">Petits travaux</span>
@@ -799,8 +940,16 @@
               <textarea id="message" name="message" class="field" placeholder="Décrivez-nous votre projet, vos contraintes, votre délai souhaité…"></textarea>
             </div>
 
-            <div class="mt-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <p class="text-xs text-muted">En soumettant, vous acceptez d'être recontacté. Aucune donnée n'est partagée.</p>
+            <div class="mt-6">
+              <label for="rgpd" class="flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" id="rgpd" name="rgpd" required class="mt-1 w-4 h-4 rounded border-line text-accent-dark focus:ring-accent-dark" />
+                <span class="text-sm text-muted leading-relaxed">
+                  J'accepte que mes données soient traitées par Rénovation Metbach pour répondre à ma demande, conformément à la <a href="politique-confidentialite.html" class="text-accent-dark underline hover:text-ink">politique de confidentialité</a>. Aucune donnée n'est cédée à des tiers.
+                </span>
+              </label>
+            </div>
+
+            <div class="mt-6 flex flex-col sm:flex-row sm:items-center justify-end gap-4">
               <button type="submit" class="btn btn-primary justify-center">
                 Envoyer ma demande
                 <i data-lucide="send" class="w-4 h-4"></i>
@@ -866,7 +1015,7 @@
       <div class="grid lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
         <div class="lg:col-span-5">
           <div class="flex items-center mb-4">
-            <img src="assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" class="h-20 w-auto bg-white/95 rounded-xl p-2" />
+            <img loading="lazy" decoding="async" src="assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" class="h-20 w-auto bg-white/95 rounded-xl p-2" />
           </div>
           <p class="text-white/65 max-w-sm leading-relaxed">
             L'artisan tout corps d'état de Haute-Savoie. Bardage, sols, fondations,
@@ -923,11 +1072,16 @@
 
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
         <p>&copy; <span data-year>2026</span> Rénovation Metbach. Tous droits réservés.</p>
-        <p class="flex items-center gap-2">
-          <span>Site conçu avec</span>
-          <i data-lucide="heart" class="w-4 h-4 text-accent"></i>
-          <span>par Celexia</span>
-        </p>
+        <nav class="flex flex-wrap gap-x-5 gap-y-2 items-center">
+          <a href="mentions-legales.html" class="hover:text-accent-soft">Mentions légales</a>
+          <a href="politique-confidentialite.html" class="hover:text-accent-soft">Confidentialité</a>
+          <span class="hidden sm:inline text-white/30">·</span>
+          <span class="flex items-center gap-2">
+            <span>Site conçu avec</span>
+            <i data-lucide="heart" class="w-4 h-4 text-accent"></i>
+            <span>par Celexia</span>
+          </span>
+        </nav>
       </div>
     </div>
   </footer>
