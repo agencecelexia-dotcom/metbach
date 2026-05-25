@@ -1,12 +1,13 @@
 # Rénovation Metbach
 
-> Artisan tout corps d'état en Haute-Savoie (France) et Suisse romande. Sept métiers depuis plus de dix ans : bardage, petits travaux, revêtement de sol, fondations, aménagement paysager, clôtures, arboriculture. Devis gratuit sous 48 h ouvrées. Note 4,9/5 sur Google (27 avis).
+> Artisan tout corps d'état en Haute-Savoie (France) et Suisse romande. Huit métiers depuis plus de dix ans : bardage, couverture (toiture), petits travaux, revêtement de sol, fondations, aménagement paysager, clôtures, arboriculture. Devis gratuit sous 48 h ouvrées. Note 4,9/5 sur Google (27 avis).
 
 Fondateur : Zachari Metbach. Forme juridique : Entrepreneur individuel (EI). SIRET 448 464 545 00020. Siège administratif : 91 Rue de la République, 33400 Talence (Gironde). Base opérationnelle et atelier : Publier (Haute-Savoie, 74500). Téléphone : +33 7 85 65 56 02. Email : kevinmetbach7@gmail.com. Horaires : lundi–samedi, 8h–20h. TVA non applicable (franchise en base, art. 293 B du CGI).
 
 ## Services
 
 - [Bardage](https://renovation-metbach.fr/services/bardage.html) : pose de bardage bois (mélèze des Alpes, douglas, red cedar), composite et fibrociment. Habillage de façade durable, isolation par l'extérieur (ITE) en option. Adapté au climat alpin et frontalier.
+- [Couverture](https://renovation-metbach.fr/services/couverture.html) : pose et réfection de toiture (tuiles canal, plates, ardoise naturelle, zinc, fibrociment). Isolation toiture, gouttières, urgences fuite sous 24-48 h. Garantie décennale (article 1792 Code civil).
 - [Petits travaux](https://renovation-metbach.fr/services/petits-travaux.html) : peinture, fixations, pose de mobilier, montage, dépannage plomberie simple, reprises de plâtre. Intervention sous 3 à 7 jours, urgences possibles dans la journée.
 - [Revêtement de sol](https://renovation-metbach.fr/services/revetement-sol.html) : pose de parquet (massif, contrecollé), carrelage, stratifié, vinyle, terrasse bois et sol résine. Préparation du support, calepinage, finitions.
 - [Fondations](https://renovation-metbach.fr/services/fondations.html) : terrassement, semelles filantes, dalles béton ferraillées aux normes DTU 13.11. Profondeur hors-gel adaptée à l'altitude. Étude G2 sur demande.
@@ -34,6 +35,7 @@ Autres communes Haute-Savoie : Lugrin, Sciez, Anthy-sur-Léman, Bons-en-Chablais
 
 - [Genève (CH-1200)](https://renovation-metbach.fr/villes/geneve.html) : canton de Genève, 60 min depuis Publier, facturation CHF ou EUR
 - [Nyon (CH-1260)](https://renovation-metbach.fr/villes/nyon.html) : canton de Vaud, côte du Léman, 40 min depuis Publier
+- [Lausanne (CH-1000)](https://renovation-metbach.fr/villes/lausanne.html) : capitale vaudoise, 45 min depuis Publier
 
 Les chantiers en Suisse font l'objet d'une déclaration A1/E101 préalable conformément aux accords bilatéraux UE-Suisse sur la libre prestation de services. Avantage : tarifs Haute-Savoie (20 à 35 % en dessous du marché local suisse) à qualité équivalente.
 
@@ -98,6 +100,7 @@ Le mélèze des Alpes est la référence locale : naturellement durable, il pren
 - [Services (hub)](https://renovation-metbach.fr/services/)
 - [Réalisations (11 projets avec filtres)](https://renovation-metbach.fr/realisations/)
 - [Contact](https://renovation-metbach.fr/contact/)
+- [Glossaire — 50 définitions métier](https://renovation-metbach.fr/glossaire.html)
 - [Mentions légales](https://renovation-metbach.fr/mentions-legales.html)
 - [Politique de confidentialité](https://renovation-metbach.fr/politique-confidentialite.html)
 - [Sitemap XML](https://renovation-metbach.fr/sitemap.xml)

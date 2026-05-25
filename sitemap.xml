@@ -21,4 +21,9 @@
   <url><loc>https://renovation-metbach.fr/villes/nyon.html</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-05-25</lastmod></url>
   <url><loc>https://renovation-metbach.fr/mentions-legales.html</loc><priority>0.3</priority><changefreq>yearly</changefreq><lastmod>2026-05-25</lastmod></url>
   <url><loc>https://renovation-metbach.fr/politique-confidentialite.html</loc><priority>0.3</priority><changefreq>yearly</changefreq><lastmod>2026-05-25</lastmod></url>
+
+  <url><loc>https://renovation-metbach.fr/services/couverture.html</loc><priority>0.8</priority><changefreq>monthly</changefreq><lastmod>2026-05-25</lastmod></url>
+  <url><loc>https://renovation-metbach.fr/glossaire.html</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-05-25</lastmod></url>
+  <url><loc>https://renovation-metbach.fr/villes/lausanne.html</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-05-25</lastmod></url>
+  <url><loc>https://renovation-metbach.fr/villes/saint-julien-en-genevois.html</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-05-25</lastmod></url>
 </urlset>

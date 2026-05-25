@@ -94,8 +94,10 @@
       { "@type": "City", "name": "Évian-les-Bains", "addressCountry": "FR" },
       { "@type": "City", "name": "Annemasse", "addressCountry": "FR" },
       { "@type": "City", "name": "Douvaine", "addressCountry": "FR" },
+      { "@type": "City", "name": "Saint-Julien-en-Genevois", "addressCountry": "FR" },
       { "@type": "City", "name": "Genève", "addressCountry": "CH" },
-      { "@type": "City", "name": "Nyon", "addressCountry": "CH" }
+      { "@type": "City", "name": "Nyon", "addressCountry": "CH" },
+      { "@type": "City", "name": "Lausanne", "addressCountry": "CH" }
     ],
     "address": {
       "@type": "PostalAddress",
@@ -136,6 +138,7 @@
       "name": "Services Rénovation Metbach",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bardage", "url": "https://renovation-metbach.fr/services/bardage.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Couverture", "url": "https://renovation-metbach.fr/services/couverture.html" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Petits travaux", "url": "https://renovation-metbach.fr/services/petits-travaux.html" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Revêtement de sol", "url": "https://renovation-metbach.fr/services/revetement-sol.html" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fondations", "url": "https://renovation-metbach.fr/services/fondations.html" } },
@@ -296,7 +299,7 @@
             </a>
             <a href="#services" class="btn btn-ghost">
               <i data-lucide="layout-grid" class="w-4 h-4"></i>
-              Voir nos 7 métiers
+              Voir nos 8 métiers
             </a>
           </div>
 
@@ -382,7 +385,7 @@
           <div class="lg:col-span-7 reveal">
             <p class="h-eyebrow">Nos métiers</p>
             <h2 id="services-title" class="h-section font-display mt-3">
-              Sept savoir-faire,
+              Huit savoir-faire,
               <span class="font-serif italic text-accent-dark">un seul artisan.</span>
             </h2>
           </div>
@@ -401,6 +404,15 @@
             <div class="service-icon"><i data-lucide="layers" class="w-7 h-7"></i></div>
             <h3 class="font-display font-bold text-xl mb-2">Bardage</h3>
             <p class="text-sm text-muted leading-relaxed">Habillage extérieur en bois, composite ou métal. Isolation et look durables pour votre façade.</p>
+            <div class="arrow" aria-hidden="true"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></div>
+          </a>
+
+          
+          <!-- Couverture -->
+          <a href="services/couverture.html" class="service-card reveal reveal-delay-1">
+            <div class="service-icon"><i data-lucide="home" class="w-7 h-7"></i></div>
+            <h3 class="font-display font-bold text-xl mb-2">Couverture</h3>
+            <p class="text-sm text-muted leading-relaxed">Toiture tuiles, ardoise, zinc. Isolation, étanchéité, urgences fuite. Garantie décennale.</p>
             <div class="arrow" aria-hidden="true"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></div>
           </a>
 
@@ -878,6 +890,16 @@
             <p class="text-xs text-muted mt-1">74140 · Bas-Chablais résidentiel</p>
           </a>
 
+          
+          <a href="villes/saint-julien-en-genevois.html" class="group bg-page rounded-2xl border border-line p-6 hover:border-accent-dark transition-colors reveal">
+            <div class="flex items-start justify-between mb-3">
+              <i data-lucide="map-pin" class="w-6 h-6 text-accent-dark"></i>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted group-hover:text-accent-dark transition-colors"></i>
+            </div>
+            <h4 class="font-display font-bold text-xl">Saint-Julien-en-Genevois</h4>
+            <p class="text-xs text-muted mt-1">74160 · pôle Genevois français</p>
+          </a>
+
           <div class="bg-ink text-white rounded-2xl p-6 reveal reveal-delay-1">
             <i data-lucide="plus-circle" class="w-6 h-6 text-accent-soft mb-3"></i>
             <h4 class="font-display font-bold text-xl">Autres communes 74</h4>
@@ -899,6 +921,16 @@
             </div>
             <h4 class="font-display font-bold text-xl">Genève</h4>
             <p class="text-xs text-muted mt-1">CH-1200 · 60 min · facturation CHF/EUR</p>
+          </a>
+
+          
+          <a href="villes/lausanne.html" class="group bg-page rounded-2xl border border-line p-6 hover:border-accent-dark transition-colors reveal">
+            <div class="flex items-start justify-between mb-3">
+              <i data-lucide="flag" class="w-6 h-6 text-accent-dark"></i>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted group-hover:text-accent-dark transition-colors"></i>
+            </div>
+            <h4 class="font-display font-bold text-xl">Lausanne</h4>
+            <p class="text-xs text-muted mt-1">CH-1000 (Vaud) · 45 min · capitale vaudoise</p>
           </a>
 
           <a href="villes/nyon.html" class="group bg-page rounded-2xl border border-line p-6 hover:border-accent-dark transition-colors reveal reveal-delay-1">
@@ -1183,6 +1215,7 @@
             <li><a class="hover:text-accent-soft transition-colors" href="#realisations">Réalisations</a></li>
             <li><a class="hover:text-accent-soft transition-colors" href="#avis">Avis</a></li>
             <li><a class="hover:text-accent-soft transition-colors" href="#faq">FAQ</a></li>
+            <li><a class="hover:text-accent-soft transition-colors" href="glossaire.html">Glossaire</a></li>
             <li><a class="hover:text-accent-soft transition-colors" href="#contact">Contact</a></li>
           </ul>
         </div>
