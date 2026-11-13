@@ -2,105 +2,52 @@
 
 ## `/api/contact`
 
-Proxy entre le formulaire de contact du site et le CRM **Celexia** (Supabase
-edge function `inbound-lead`).
+Formulaire de devis → **webhook n8n** → **email** de notification.
 
-### Setup Vercel (à faire UNE fois)
+```
+Navigateur ──POST /api/contact──▶ Vercel (valide, anti-spam) ──▶ webhook n8n ──▶ email
+```
 
-1. Va sur https://vercel.com/dashboard → projet `metbach`
-2. **Settings** → **Environment Variables**
-3. Crée une variable :
-   - **Name** : `INBOUND_API_KEY`
-   - **Value** : `<la clé fournie par l'équipe Celexia>`
-   - **Environments** : coche **Production** et **Preview** (pas Development à moins de tester en local)
-   - ⚠️ **Ne PAS préfixer par `NEXT_PUBLIC_`** — la clé doit rester strictement côté serveur
-4. **Save**
-5. Redéploie : **Deployments** → bouton **…** sur le dernier deploy → **Redeploy**
+Rien n'est stocké côté site. L'URL du webhook reste côté serveur.
 
-### Test endpoints
+### Mise en place
 
-**Succès attendu (201 → 200 côté site) :**
+1. **n8n** : Workflows → Import from file → `n8n/workflow-devis.json`
+   (fichier local, non versionné). Dans le nœud **Envoyer email interne**, choisir
+   le credential Gmail (OAuth2). Expéditeur et destinataire : agence.celexia@gmail.com (le credential Gmail doit être ce compte).
+   Activer le workflow (**Active**) puis copier l'URL **Production** du nœud
+   Webhook (`https://…/webhook/metbach-devis`, pas `webhook-test`).
+2. **Local** : coller l'URL dans `.env` (`N8N_WEBHOOK_URL=`). Lancer `vercel dev`.
+3. **Vercel** : Settings → Environment Variables → ajouter `N8N_WEBHOOK_URL`
+   (Production + Preview), puis Redeploy. Les `.env` ne sont pas lus en prod.
+4. *(Optionnel)* Secret : définir `N8N_WEBHOOK_SECRET` côté Vercel, et dans n8n
+   mettre le nœud Webhook en Authentication = Header Auth (nom `X-Webhook-Secret`,
+   même valeur).
+
+### Test
 
 ```bash
 curl -X POST https://www.renovationmetbach.fr/api/contact \
   -H "Content-Type: application/json" \
-  -d '{
-    "name":"Test Curl",
-    "phone":"0612345678",
-    "email":"test@example.com",
-    "work_type":"Bardage",
-    "city":"Thonon",
-    "message":"Test de soumission depuis curl, environ 30 caractères.",
-    "rgpd":true
-  }'
+  -d '{"name":"Test Curl","phone":"0612345678","email":"test@example.com","work_type":"Bardage","city":"Thonon","message":"Test de soumission depuis curl, plus de 20 caractères.","rgpd":true}'
 ```
 
-Doit renvoyer `{"ok":true,"lead_id":"<uuid>"}`.
+→ `{"ok":true}` et un email reçu.
 
-**Sans phone ni email (400) :**
+### Protections
 
-```bash
-curl -X POST https://www.renovationmetbach.fr/api/contact \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Test","rgpd":true,"message":"abcdefghijklmnopqrst"}'
-```
+- Honeypot (`website` rempli → 200 silencieux, rien n'est transmis)
+- Rate-limit par IP : 1 envoi / 30 s (en mémoire, best effort)
+- Validation : téléphone ≥ 9 chiffres ou email valide, consentement RGPD obligatoire
+- `no-store` sur `/api/*` (`vercel.json`)
 
-→ `{"error":"validation_failed","details":"phone_or_email_required"}`
-
-**Honeypot rempli (200 silencieux, drop) :**
-
-```bash
-curl -X POST https://www.renovationmetbach.fr/api/contact \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Bot","phone":"0612345678","website":"http://spam.example","rgpd":true,"message":"abcdefghijklmnopqrst"}'
-```
-
-→ `{"ok":true,"lead_id":"honeypot"}` (mais rien n'est forwardé au CRM)
-
-**Rate-limit (429) :**
-
-Envoie 2 requêtes valides en moins de 30 secondes depuis la même IP → la 2e
-renvoie `{"error":"rate_limited","retry_after_s":30}`.
-
-**GET au lieu de POST (405) :**
-
-```bash
-curl https://www.renovationmetbach.fr/api/contact
-```
-
-→ `{"error":"method_not_allowed"}`
-
-### Sécurité
-
-- ✅ La clé API reste **server-side** (env var Vercel, jamais dans le bundle JS)
-- ✅ **Honeypot** invisible côté CSS (`<input name="website">` dans `.hp-field`)
-- ✅ **Rate-limit** par IP (1 soumission / 30 s)
-- ✅ **Validation** stricte avant forward : email regex, phone ≥ 9 chiffres, ≥ 1 des 2 requis
-- ✅ **RGPD** : case obligatoire vérifiée côté serveur, pas seulement client
-- ✅ **Cache** : `no-store` sur `/api/*` (configuré dans `vercel.json`)
-- ✅ **Tracking** : `dataLayer.push({event:'form_submitted'})` sans PII
-
-### Données envoyées au CRM
-
-Le serveur Vercel ne stocke RIEN. Il fait juste le proxy vers Supabase. La
-seule source de vérité est le CRM Celexia.
-
-```json
-POST https://zsbrhftzjqqqbwbboyqe.supabase.co/functions/v1/inbound-lead
-Headers:
-  Content-Type: application/json
-  X-API-Key: <INBOUND_API_KEY>
-Body:
-  { "name": "...", "phone": "...", "email": "...", "work_type": "...", "city": "...", "message": "..." }
-```
-
-### Codes retournés au client
+### Codes retournés
 
 | Code | Signification | UX |
 |---|---|---|
-| 200 | Lead créé dans le CRM | Redirection vers `/merci/` |
-| 400 | Champs invalides | Affichage du détail dans le formulaire |
-| 401 | `INBOUND_API_KEY` manquante côté serveur Vercel | Erreur générique côté client |
-| 405 | Méthode non POST | Erreur générique |
-| 429 | Rate-limit (trop de soumissions depuis la même IP) | Message "Réessayez dans 30 s" |
-| 502 | CRM Celexia injoignable | Message + lien tel/mailto en repli |
+| 200 | Transmis à n8n | Redirection `/merci/` |
+| 400 | Champs invalides / RGPD manquant | Détail affiché |
+| 405 | Méthode ≠ POST | — |
+| 429 | Trop de demandes | « Réessayez dans 30 s » |
+| 500 | `N8N_WEBHOOK_URL` absente | Message + téléphone |
+| 502 | n8n injoignable ou en erreur | Message + téléphone |

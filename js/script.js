@@ -6,7 +6,7 @@
    - Animated counters
    - Service card spotlight
    - Smooth anchor scroll w/ offset
-   - Contact form (client-side mailto fallback)
+   - Contact form (POST /api/contact → n8n → notification email interne)
    ========================================================= */
 
 (() => {
@@ -164,7 +164,7 @@
   const y = $('[data-year]');
   if (y) y.textContent = new Date().getFullYear();
 
-  /* ---- Contact form (POST /api/contact → Celexia CRM) ---- */
+  /* ---- Contact form (POST /api/contact → n8n → email) ---- */
   const form = $('#contact-form');
   if (form) {
     const note = $('#form-note');
@@ -246,15 +246,15 @@
         let body;
         try { body = await res.json(); } catch { body = {}; }
         if (res.status === 429) {
-          showNote("Trop de demandes envoyées récemment. Réessayez dans 30 secondes ou appelez le 07 85 65 56 02.", true);
+          showNote("Trop de demandes envoyées récemment. Réessayez dans 30 secondes ou appelez le 07 69 13 61 82.", true);
         } else if (res.status === 400) {
           showNote("Demande incomplète : " + (body.details || 'vérifiez nom, téléphone, email et message.'), true);
         } else {
-          showNote("Une erreur est survenue. Appelez-nous au 07 85 65 56 02 ou écrivez à kevinmetbach7@gmail.com.", true);
+          showNote("Une erreur est survenue. Appelez-nous au 07 69 13 61 82.", true);
         }
       } catch (err) {
         console.error('contact submit failed:', err);
-        showNote("Connexion impossible. Appelez le 07 85 65 56 02 ou écrivez à kevinmetbach7@gmail.com.", true);
+        showNote("Connexion impossible. Appelez le 07 69 13 61 82.", true);
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
