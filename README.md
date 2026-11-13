@@ -41,7 +41,7 @@ Cherche-remplace dans tout le projet :
 | `06 00 00 00 00`                     | Numéro de téléphone réel             |
 | `+33600000000`                       | Idem au format E.164 (`tel:` href)   |
 | `contact@renovation-metbach.fr`      | Email réel                           |
-| `renovation-metbach.fr`              | Domaine réel                         |
+| `www.renovationmetbach.fr`          | Domaine réel                         |
 
 Ces valeurs sont présentes dans : `index.html`, les 8 pages `services/*.html`,
 `robots.txt`, `sitemap.xml`, et le JSON-LD de l'index.

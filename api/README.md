@@ -22,7 +22,7 @@ edge function `inbound-lead`).
 **Succès attendu (201 → 200 côté site) :**
 
 ```bash
-curl -X POST https://renovation-metbach.fr/api/contact \
+curl -X POST https://www.renovationmetbach.fr/api/contact \
   -H "Content-Type: application/json" \
   -d '{
     "name":"Test Curl",
@@ -40,7 +40,7 @@ Doit renvoyer `{"ok":true,"lead_id":"<uuid>"}`.
 **Sans phone ni email (400) :**
 
 ```bash
-curl -X POST https://renovation-metbach.fr/api/contact \
+curl -X POST https://www.renovationmetbach.fr/api/contact \
   -H "Content-Type: application/json" \
   -d '{"name":"Test","rgpd":true,"message":"abcdefghijklmnopqrst"}'
 ```
@@ -50,7 +50,7 @@ curl -X POST https://renovation-metbach.fr/api/contact \
 **Honeypot rempli (200 silencieux, drop) :**
 
 ```bash
-curl -X POST https://renovation-metbach.fr/api/contact \
+curl -X POST https://www.renovationmetbach.fr/api/contact \
   -H "Content-Type: application/json" \
   -d '{"name":"Bot","phone":"0612345678","website":"http://spam.example","rgpd":true,"message":"abcdefghijklmnopqrst"}'
 ```
@@ -65,7 +65,7 @@ renvoie `{"error":"rate_limited","retry_after_s":30}`.
 **GET au lieu de POST (405) :**
 
 ```bash
-curl https://renovation-metbach.fr/api/contact
+curl https://www.renovationmetbach.fr/api/contact
 ```
 
 → `{"error":"method_not_allowed"}`

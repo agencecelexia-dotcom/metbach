@@ -9,7 +9,7 @@
 //   INBOUND_API_KEY = <the key the Celexia team gave>
 //
 // The endpoint is reachable at:
-//   POST https://renovation-metbach.fr/api/contact
+//   POST https://www.renovationmetbach.fr/api/contact
 //
 // Expected body (application/json):
 //   { name, phone, email, work_type, city, message, website (honeypot, must be empty), rgpd }

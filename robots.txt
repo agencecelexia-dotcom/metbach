@@ -91,7 +91,7 @@ Allow: /
 User-agent: MistralAI-User
 Allow: /
 
-Sitemap: https://renovation-metbach.fr/sitemap.xml
+Sitemap: https://www.renovationmetbach.fr/sitemap.xml
 
 # LLM-friendly summary file (https://llmstxt.org)
 # /llms.txt
