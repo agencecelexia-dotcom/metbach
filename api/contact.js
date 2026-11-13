@@ -130,7 +130,7 @@ export default async function handler(req, res) {
 
   const payload = {
     name, phone, email, work_type, city, message,
-    source: "renovation-metbach.fr",
+    source: "renovationmetbach.fr",
     submitted_at: new Date().toISOString(),
   };
 
