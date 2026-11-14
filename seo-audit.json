@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-14",
+  "domain": "https://www.renovationmetbach.fr",
+  "delivery": "Audit snapshot prepared before the publication authorized on 2026-11-14. See the GitHub/Vercel status of this commit for the deployment result.",
+  "validation": {
+    "pages": 27,
+    "indexable_pages": 23,
+    "max_crawl_depth": 2,
+    "errors": [],
+    "warnings": []
+  },
+  "measured_changes": {
+    "business_entity_definitions": {
+      "before": 10,
+      "after": 1
+    },
+    "self_serving_aggregate_ratings": {
+      "before": 10,
+      "after": 0
+    },
+    "internal_html_extension_links": {
+      "before": 593,
+      "after": 0
+    },
+    "pages_using_runtime_tailwind": {
+      "before": 26,
+      "after": 0
+    },
+    "pages_using_remote_google_fonts_css": {
+      "before": 26,
+      "after": 0
+    },
+    "lucide_javascript_bytes": {
+      "before": 358106,
+      "after": 26108
+    },
+    "compiled_css_bytes": 44737
+  },
+  "resources": [
+    {
+      "url": "https://github.com/AgricIDaniel/claude-seo",
+      "usage": "Read and applied audit/technical/local/content/schema criteria; project CLI not executed."
+    },
+    {
+      "url": "https://github.com/every-app/open-seo",
+      "usage": "Read and applied first-party-data and page-family audit method; plugin suggested, connection unconfirmed."
+    },
+    {
+      "url": "https://mcpsearchconsole.com/mcp",
+      "usage": "Reviewed OAuth integration; user confirmed account access, but MCP not connected. No Search Console data read or sitemap submitted."
+    },
+    {
+      "url": "https://github.com/Auriti-Labs/geo-optimizer-skill",
+      "usage": "Read and applied entity/crawlability/content criteria; geo CLI absent; no GEO score measured."
+    }
+  ],
+  "limits": [
+    "No real Core Web Vitals, traffic, keyword or ranking metrics obtained.",
+    "Desktop homepage and navigation observed; mobile visual QA interrupted by browser tool failure.",
+    "No live contact form submitted.",
+    "Business insurance, prices, identity and photo provenance require owner confirmation."
+  ],
+  "next_steps": [
+    "Connect exact Google Search Console property via OAuth.",
+    "Complete mobile visual QA on the published version.",
+    "Verify public pages, redirects, assets and contact API after deployment.",
+    "Submit sitemap and inspect canonical/indexation status.",
+    "Confirm business facts and document real projects and reviews."
+  ]
+}

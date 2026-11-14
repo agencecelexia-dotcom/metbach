@@ -12,6 +12,11 @@
 (() => {
   const $  = (s, p = document) => p.querySelector(s);
   const $$ = (s, p = document) => Array.from(p.querySelectorAll(s));
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const findAnchor = hash => {
+    try { return document.getElementById(decodeURIComponent(hash.slice(1))); }
+    catch { return null; }
+  };
 
   /* ---- Header scroll state ---- */
   const header = $('.site-header');
@@ -30,13 +35,17 @@
     menu.setAttribute('aria-hidden', 'true');
     menu.setAttribute('role', 'dialog');
     menu.setAttribute('aria-modal', 'true');
+    menu.setAttribute('aria-label', 'Navigation principale');
+    menu.inert = true;
   }
   menuBtn?.setAttribute('aria-expanded', 'false');
   menuBtn?.setAttribute('aria-controls', 'mobile-menu');
   if (menu && !menu.id) menu.id = 'mobile-menu';
   let lastFocused = null;
   const openMenu  = () => {
+    if (!menu) return;
     lastFocused = document.activeElement;
+    menu.inert = false;
     menu?.classList.add('open');
     menu?.setAttribute('aria-hidden', 'false');
     menuBtn?.setAttribute('aria-expanded', 'true');
@@ -47,6 +56,7 @@
     menu?.classList.remove('open');
     menu?.setAttribute('aria-hidden', 'true');
     menuBtn?.setAttribute('aria-expanded', 'false');
+    if (menu) menu.inert = true;
     document.body.style.overflow = '';
     lastFocused?.focus?.();
   };
@@ -54,7 +64,20 @@
   menuClose?.addEventListener('click', closeMenu);
   $$('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menu?.classList.contains('open')) closeMenu();
+    if (!menu?.classList.contains('open')) return;
+    if (e.key === 'Escape') closeMenu();
+    if (e.key !== 'Tab') return;
+    const focusable = $$('a[href], button:not([disabled]), [tabindex="0"]', menu)
+      .filter(el => el.getClientRects().length > 0);
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last?.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first?.focus();
+    }
   });
 
   /* ---- Reveal on scroll ----
@@ -66,29 +89,38 @@
     const top = el.getBoundingClientRect().top;
     if (top < vh) el.classList.add('in');
   });
-  if ('IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window && !reducedMotion) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('in');
+          e.target.classList.remove('reveal-pending');
           io.unobserve(e.target);
         }
       });
     }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
-    revealEls.forEach(el => { if (!el.classList.contains('in')) io.observe(el); });
+    revealEls.forEach(el => {
+      if (!el.classList.contains('in')) {
+        el.classList.add('reveal-pending');
+        io.observe(el);
+      }
+    });
   } else {
     revealEls.forEach(el => el.classList.add('in'));
   }
   // Failsafe: any reveal still hidden after 1.5s gets marked .in (covers
   // hash-navigation, slow observers, anchor jumps past sticky header).
   setTimeout(() => {
-    revealEls.forEach(el => { if (!el.classList.contains('in')) el.classList.add('in'); });
+    revealEls.forEach(el => {
+      el.classList.remove('reveal-pending');
+      el.classList.add('in');
+    });
   }, 1500);
   // Hash navigation: when user lands on an anchor, immediately reveal
   // everything in or above the target zone so content doesn't read blank.
   if (location.hash) {
     requestAnimationFrame(() => {
-      const target = document.querySelector(location.hash);
+      const target = findAnchor(location.hash);
       if (!target) return;
       const targetBottom = target.getBoundingClientRect().bottom + window.scrollY;
       revealEls.forEach(el => {
@@ -103,6 +135,10 @@
   const animateCount = (el) => {
     const target = parseFloat(el.dataset.count);
     const suffix = el.dataset.suffix || '';
+    if (reducedMotion) {
+      el.textContent = target.toLocaleString('fr-FR') + suffix;
+      return;
+    }
     const dur = 1600;
     const start = performance.now();
     const ease = (t) => 1 - Math.pow(1 - t, 3);
@@ -137,7 +173,7 @@
   }
 
   /* ---- Service card spotlight ---- */
-  $$('.service-card').forEach(card => {
+  if (!reducedMotion) $$('.service-card').forEach(card => {
     card.addEventListener('pointermove', (e) => {
       const r = card.getBoundingClientRect();
       card.style.setProperty('--mx', `${e.clientX - r.left}px`);
@@ -150,12 +186,12 @@
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
       if (id.length < 2) return;
-      const target = $(id);
+      const target = findAnchor(id);
       if (!target) return;
       e.preventDefault();
       const offset = (header?.offsetHeight || 0) + 12;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
+      window.scrollTo({ top, behavior: reducedMotion ? 'auto' : 'smooth' });
       history.replaceState(null, '', id);
     });
   });
@@ -183,11 +219,7 @@
       note.setAttribute('aria-live', 'polite');
     };
 
-    const merciPath = () => {
-      const p = location.pathname;
-      if (p.includes('/services/') || p.includes('/villes/') || p.includes('/realisations/') || p.includes('/contact/')) return '../merci/';
-      return 'merci/';
-    };
+    const merciPath = () => '/merci';
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -266,7 +298,7 @@
   }
 
   /* ---- Tilt on cards w/ data-tilt ---- */
-  $$('[data-tilt]').forEach(el => {
+  if (!reducedMotion) $$('[data-tilt]').forEach(el => {
     const damp = 18;
     el.addEventListener('pointermove', (e) => {
       const r = el.getBoundingClientRect();
