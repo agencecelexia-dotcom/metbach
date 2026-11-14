@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "generator": "scripts/build-images.py --avif-hero",
+  "pillow_version": "11.3.0",
+  "libavif_version": "1.3.0",
+  "format": "image/avif",
+  "quality": 60,
+  "speed": 5,
+  "subsampling": "4:2:0",
+  "max_threads": 2,
+  "resampling": "Lanczos",
+  "upscaling": false,
+  "cropping": false,
+  "images": {
+    "/assets/img/realisations/bardage-bois-terrasse.webp": {
+      "source": "/assets/img/realisations/bardage-bois-terrasse.jpg",
+      "source_sha256": "c591f2ff6c29d799739920d7ae963350c580daca207ebf76dc35653030117dc9",
+      "width": 1600,
+      "height": 1066,
+      "fallback_webp": "/assets/img/realisations/bardage-bois-terrasse.webp",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/bardage-bois-terrasse-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 20823,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/bardage-bois-terrasse-768.avif",
+          "width": 768,
+          "height": 512,
+          "bytes": 45165,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/bardage-bois-terrasse-1200.avif",
+          "width": 1200,
+          "height": 800,
+          "bytes": 85639,
+          "generated": true
+        }
+      ],
+      "srcset": "/assets/img/responsive/bardage-bois-terrasse-480.avif 480w, /assets/img/responsive/bardage-bois-terrasse-768.avif 768w, /assets/img/responsive/bardage-bois-terrasse-1200.avif 1200w"
+    }
+  }
+}

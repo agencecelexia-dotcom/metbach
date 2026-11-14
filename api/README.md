@@ -1,53 +1,58 @@
-# /api — Vercel serverless functions
+# Formulaire de devis
 
-## `/api/contact`
+`POST /api/contact` valide une demande et la transmet au webhook n8n existant, qui envoie la
+notification interne. L’URL du webhook et son secret restent côté serveur.
 
-Formulaire de devis → **webhook n8n** → **email** de notification.
+## Configuration
 
+- `N8N_WEBHOOK_URL` : URL Production du webhook n8n, configurée dans Vercel.
+- `N8N_WEBHOOK_SECRET` : secret facultatif transmis dans `X-Webhook-Secret` si le workflow le vérifie.
+- L’export n8n local reste hors versionnement. Préserver le workflow et ses identifiants existants.
+- Un aperçu purement statique n’exécute pas cette API ; utiliser Vercel pour une intégration complète.
+
+## Données
+
+Le corps JSON contient `name`, `phone`, `email`, `work_type`, `city`, `message`, `website`
+(honeypot vide), `rgpd: true` et éventuellement `attribution`.
+
+Le navigateur demande nom, téléphone, métier et message ; l’email est facultatif. L’API vérifie
+un nom d’au moins 2 caractères, un message d’au moins 20 caractères, au moins un téléphone ou email
+valide et un consentement explicitement booléen. Les numéros FR/CH et internationaux sont validés
+sans prétendre vérifier leur attribution ; espaces, parenthèses, tirets et préfixe00 sont acceptés.
+Le numéro transmis est normalisé pour faciliter le rappel.
+
+L’attribution autorise seulement le chemin du formulaire (`/` ou `/contact`), l’origine HTTP(S)
+du référent et trois paramètres de campagne filtrés : `utm_source`, `utm_medium`, `utm_campaign`.
+Les URL complètes, emails et valeurs arbitraires sont rejetés. Aucun cookie ni stockage navigateur.
+L’attribution n’est pas conservée lors de la navigation entre pages. Elle est transmise avec la
+demande consentie ; le modèle d’email n8n peut l’ignorer tant qu’il n’est pas adapté.
+
+## Résultat et protections
+
+| HTTP | Résultat |
+|---|---|
+| 200 + `ok: true` | Demande transmise au webhook, puis redirection client `/merci` |
+| 400 | Données ou consentement invalides ; message exploitable côté formulaire |
+| 405 | Méthode autre que POST refusée |
+| 429 | Limite d’envoi, avec `Retry-After: 30` |
+| 500 | Configuration serveur manquante |
+| 502 | Webhook inaccessible ou en erreur |
+
+Le honeypot confirme silencieusement sans transmettre. La limite mémoire par IP (un envoi valide
+par 30 secondes, best effort) s’applique après validation pour permettre de corriger une faute.
+Le navigateur bloque le double envoi et ne déclare le succès qu’après `ok: true`. L’acceptation
+par le webhook ne prouve pas à elle seule la livraison de l’email ou la qualification commerciale.
+
+## Vérification sans notification
+
+```sh
+npm run check:contact
 ```
-Navigateur ──POST /api/contact──▶ Vercel (valide, anti-spam) ──▶ webhook n8n ──▶ email
-```
 
-Rien n'est stocké côté site. L'URL du webhook reste côté serveur.
+Les tests exécutent le code client/API avec DOM et réseau simulés : FR/CH, numéros internationaux,
+email vide, mauvais JSON, consentement, filtrage d’attribution, préselection des métiers, succès,
+échec, double envoi et anti-spam. Aucun appel réseau ni prospect de test n’est envoyé.
 
-### Mise en place
-
-1. **n8n** : Workflows → Import from file → `n8n/workflow-devis.json`
-   (fichier local, non versionné). Dans le nœud **Envoyer email interne**, choisir
-   le credential Gmail (OAuth2). Expéditeur et destinataire : agence.celexia@gmail.com (le credential Gmail doit être ce compte).
-   Activer le workflow (**Active**) puis copier l'URL **Production** du nœud
-   Webhook (`https://…/webhook/metbach-devis`, pas `webhook-test`).
-2. **Local** : coller l'URL dans `.env` (`N8N_WEBHOOK_URL=`). Lancer `vercel dev`.
-3. **Vercel** : Settings → Environment Variables → ajouter `N8N_WEBHOOK_URL`
-   (Production + Preview), puis Redeploy. Les `.env` ne sont pas lus en prod.
-4. *(Optionnel)* Secret : définir `N8N_WEBHOOK_SECRET` côté Vercel, et dans n8n
-   mettre le nœud Webhook en Authentication = Header Auth (nom `X-Webhook-Secret`,
-   même valeur).
-
-### Test
-
-```bash
-curl -X POST https://www.renovationmetbach.fr/api/contact \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Test Curl","phone":"0612345678","email":"test@example.com","work_type":"Bardage","city":"Thonon","message":"Test de soumission depuis curl, plus de 20 caractères.","rgpd":true}'
-```
-
-→ `{"ok":true}` et un email reçu.
-
-### Protections
-
-- Honeypot (`website` rempli → 200 silencieux, rien n'est transmis)
-- Rate-limit par IP : 1 envoi / 30 s (en mémoire, best effort)
-- Validation : téléphone ≥ 9 chiffres ou email valide, consentement RGPD obligatoire
-- `no-store` sur `/api/*` (`vercel.json`)
-
-### Codes retournés
-
-| Code | Signification | UX |
-|---|---|---|
-| 200 | Transmis à n8n | Redirection `/merci/` |
-| 400 | Champs invalides / RGPD manquant | Détail affiché |
-| 405 | Méthode ≠ POST | — |
-| 429 | Trop de demandes | « Réessayez dans 30 s » |
-| 500 | `N8N_WEBHOOK_URL` absente | Message + téléphone |
-| 502 | n8n injoignable ou en erreur | Message + téléphone |
+Les hooks `form_submitted` et `tel_click` utilisent `dataLayer`/Plausible seulement si un collecteur
+est déjà présent. Aucun service de statistiques n’est activé automatiquement. Le suivi d’appels
+aboutis et des demandes qualifiées nécessite une mesure complémentaire.

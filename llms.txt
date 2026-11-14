@@ -8,9 +8,14 @@
 - [À propos](https://www.renovationmetbach.fr/a-propos) : présentation de Zachari Metbach et de l’entreprise.
 - [Mentions légales](https://www.renovationmetbach.fr/mentions-legales) : entrepreneur individuel, SIRET 448 464 545 00020. Siège administratif à Talence ; base d’intervention à Publier. Informations légales de référence.
 
+## Activités principales
+
+- [Maçonnerie](https://www.renovationmetbach.fr/services/maconnerie) : dalles, murs et ouvrages maçonnés, étudiés selon le terrain et le bâti.
+- [Isolation extérieure](https://www.renovationmetbach.fr/services/isolation-exterieure) : étude des façades, de l’isolant et des finitions, sans certification ou aide présumée.
+
 ## Prestations
 
-- [Tous les services](https://www.renovationmetbach.fr/services) : présentation des huit métiers.
+- [Tous les services](https://www.renovationmetbach.fr/services) : présentation des métiers de rénovation et d’aménagement.
 - [Bardage](https://www.renovationmetbach.fr/services/bardage) : habillage et rénovation des façades.
 - [Couverture](https://www.renovationmetbach.fr/services/couverture) : travaux de toiture.
 - [Petits travaux](https://www.renovationmetbach.fr/services/petits-travaux) : peinture, reprises et finitions.
@@ -38,6 +43,8 @@ Les demandes sont étudiées depuis Publier. Les pages suivantes ne représenten
 - [Lausanne](https://www.renovationmetbach.fr/villes/lausanne) : étude de projets de rénovation et d’aménagement.
 
 ## Ressources
+
+- [Préparer ses travaux](https://www.renovationmetbach.fr/preparer-travaux) : checklist gratuite, imprimable, pour la couverture, la maçonnerie et l’isolation extérieure. Les exemples sont illustratifs.
 
 - [Accueil](https://www.renovationmetbach.fr/) : entreprise, prestations et zones d’intervention.
 - [Réalisations](https://www.renovationmetbach.fr/realisations) : galerie présentée sur le site.

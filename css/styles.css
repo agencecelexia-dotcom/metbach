@@ -5,16 +5,16 @@
    ========================================================= */
 
 :root {
-  --page: #F7F4EE;
+  --page: #F7F5F0;
   --surface: #FFFFFF;
-  --ink: #0E1318;
-  --ink-2: #1B2A3A;
-  --muted: #5B6677;
-  --line: #E7E1D5;
-  --accent: #B8602A;        /* copper / terracotta */
-  --accent-dark: #8A4520;
-  --accent-soft: #F3DEC8;
-  --forest: #2D5F3F;        /* arbo / landscape accent */
+  --ink: #163C34;
+  --ink-2: #21483F;
+  --muted: #5E6862;
+  --line: #DDDCD2;
+  --accent: #A84D2C;        /* copper / terracotta */
+  --accent-dark: #8D3F23;
+  --accent-soft: #EFE2D2;
+  --forest: #345D48;        /* arbo / landscape accent */
   --gold: #C99A4D;
   --ring: rgba(184, 96, 42, 0.28);
   --shadow-lg: 0 30px 60px -20px rgba(14, 19, 24, 0.18), 0 12px 24px -10px rgba(14, 19, 24, 0.10);
@@ -61,7 +61,7 @@ body {
 
 /* Animated gradient text — darker stops for AA contrast on cream */
 .gradient-text {
-  background: linear-gradient(120deg, #8A4520 0%, #A75A28 35%, #2D5F3F 75%, #0E1318 100%);
+  background: linear-gradient(120deg, #8D3F23 0%, #A75A28 35%, #345D48 75%, #163C34 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;

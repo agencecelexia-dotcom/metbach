@@ -1,0 +1,603 @@
+{
+  "version": 1,
+  "generator": "scripts/build-images.py",
+  "format": "image/webp",
+  "quality": 80,
+  "resampling": "Lanczos",
+  "target_widths": [
+    480,
+    768,
+    1200
+  ],
+  "upscaling": false,
+  "cropping": false,
+  "images": {
+    "/assets/img/realisations/amenagement-pelouse.webp": {
+      "original": {
+        "url": "/assets/img/realisations/amenagement-pelouse.webp",
+        "width": 320,
+        "height": 240,
+        "bytes": 21978,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/amenagement-pelouse.jpg",
+      "source_sha256": "92ce09bdaeed1529b4eab431dbcbf1a94d483928f55b321f7e88d6984ca15a4b",
+      "original_sha256": "82bff3cf27942182845618512679a4c272ef2271e5bd1a318f0d2abfb75732d5",
+      "variants": [
+        {
+          "url": "/assets/img/realisations/amenagement-pelouse.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 21978,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/realisations/amenagement-pelouse.webp 320w",
+      "small_source": true
+    },
+    "/assets/img/realisations/arboriculture-elagage.webp": {
+      "original": {
+        "url": "/assets/img/realisations/arboriculture-elagage.webp",
+        "width": 320,
+        "height": 240,
+        "bytes": 18534,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/arboriculture-elagage.jpg",
+      "source_sha256": "be270dc39303d6bcaa853e5cca3dc46d45c4078ccd5fbf6d15efaac9c1e29827",
+      "original_sha256": "7d12f8967d462568b57972c276ac1c7482fae2af6e6efff06578817c73f6756e",
+      "variants": [
+        {
+          "url": "/assets/img/realisations/arboriculture-elagage.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 18534,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/realisations/arboriculture-elagage.webp 320w",
+      "small_source": true
+    },
+    "/assets/img/realisations/bardage-bois-terrasse.webp": {
+      "original": {
+        "url": "/assets/img/realisations/bardage-bois-terrasse.webp",
+        "width": 1600,
+        "height": 1066,
+        "bytes": 174032,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/bardage-bois-terrasse.jpg",
+      "source_sha256": "c591f2ff6c29d799739920d7ae963350c580daca207ebf76dc35653030117dc9",
+      "original_sha256": "b0406d6b40ac29c38f433fd247b1ac7d0d6dfa2a5f0f2f107f07cb8271c1701f",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/bardage-bois-terrasse-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 25792,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/bardage-bois-terrasse-768.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 56330,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/bardage-bois-terrasse-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 113958,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/bardage-bois-terrasse.webp",
+          "width": 1600,
+          "height": 1066,
+          "bytes": 174032,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/bardage-bois-terrasse-480.webp 480w, /assets/img/responsive/bardage-bois-terrasse-768.webp 768w, /assets/img/responsive/bardage-bois-terrasse-1200.webp 1200w, /assets/img/realisations/bardage-bois-terrasse.webp 1600w",
+      "small_source": false
+    },
+    "/assets/img/realisations/bardage-composite.webp": {
+      "original": {
+        "url": "/assets/img/realisations/bardage-composite.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 10930,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/bardage-composite.jpg",
+      "source_sha256": "3eacbd05d452c3bf8bc44cd608e941429286f1033a6243c995a9a84b0f380d41",
+      "original_sha256": "218bfbea6e0a66db929022c37277980711d964b4a62fe0faafc1139b64f23402",
+      "variants": [
+        {
+          "url": "/assets/img/realisations/bardage-composite.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 10930,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/realisations/bardage-composite.webp 320w",
+      "small_source": true
+    },
+    "/assets/img/realisations/bardage-pose-artisan.webp": {
+      "original": {
+        "url": "/assets/img/realisations/bardage-pose-artisan.webp",
+        "width": 320,
+        "height": 240,
+        "bytes": 16166,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/bardage-pose-artisan.jpg",
+      "source_sha256": "c5102e67e520bcfde7545ff619db0ca7013e44efb90f60b3f2dd2f454e0aaa4d",
+      "original_sha256": "c89163e74a8e41c94e4f8ddd772b8f89461053625708fb7be77f880a61ec5bcc",
+      "variants": [
+        {
+          "url": "/assets/img/realisations/bardage-pose-artisan.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 16166,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/realisations/bardage-pose-artisan.webp 320w",
+      "small_source": true
+    },
+    "/assets/img/realisations/elagage-pin.webp": {
+      "original": {
+        "url": "/assets/img/realisations/elagage-pin.webp",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 337018,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/elagage-pin.jpg",
+      "source_sha256": "e9a91f89c2d88ea36cc33e16a5e0d4e0fef7510d99aa071d59b522c6a988836a",
+      "original_sha256": "acc86d58a3f2c9c5c9477c350f3ac8bc8cc4eda02c1c3200461b253942dba3e1",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/elagage-pin-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 51640,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/elagage-pin-768.webp",
+          "width": 768,
+          "height": 576,
+          "bytes": 118660,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/elagage-pin-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 235238,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/elagage-pin.webp",
+          "width": 1600,
+          "height": 1200,
+          "bytes": 337018,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/elagage-pin-480.webp 480w, /assets/img/responsive/elagage-pin-768.webp 768w, /assets/img/responsive/elagage-pin-1200.webp 1200w, /assets/img/realisations/elagage-pin.webp 1600w",
+      "small_source": false
+    },
+    "/assets/img/realisations/jardin-paysager.webp": {
+      "original": {
+        "url": "/assets/img/realisations/jardin-paysager.webp",
+        "width": 320,
+        "height": 240,
+        "bytes": 17278,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/jardin-paysager.jpg",
+      "source_sha256": "54c82cfd5e9d03b37c0d88daa3d7cf796b00960764b5ca4ed20e1abeec47e9bc",
+      "original_sha256": "29d72815cf5d152514510965dc510df444461356ca4b7141163076874d74622f",
+      "variants": [
+        {
+          "url": "/assets/img/realisations/jardin-paysager.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 17278,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/realisations/jardin-paysager.webp 320w",
+      "small_source": true
+    },
+    "/assets/img/realisations/maison-renovation.webp": {
+      "original": {
+        "url": "/assets/img/realisations/maison-renovation.webp",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 317454,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/maison-renovation.jpg",
+      "source_sha256": "375f4720724fd981c67402f443a7fcbef85ba200c24d091929c5348df541999c",
+      "original_sha256": "eebaae2d67b5356004c5cee72c70596538e10442e239a21f5d939f7ca86f0b9b",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/maison-renovation-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 31028,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/maison-renovation-768.webp",
+          "width": 768,
+          "height": 576,
+          "bytes": 80504,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/maison-renovation-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 190298,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/maison-renovation.webp",
+          "width": 1600,
+          "height": 1200,
+          "bytes": 317454,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/maison-renovation-480.webp 480w, /assets/img/responsive/maison-renovation-768.webp 768w, /assets/img/responsive/maison-renovation-1200.webp 1200w, /assets/img/realisations/maison-renovation.webp 1600w",
+      "small_source": false
+    },
+    "/assets/img/realisations/peinture-interieure.webp": {
+      "original": {
+        "url": "/assets/img/realisations/peinture-interieure.webp",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 60536,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/peinture-interieure.jpg",
+      "source_sha256": "ff23e484c9eee2b7dbc1d0877cb1f155cadcc47d667fbff118b15476f02d4ed1",
+      "original_sha256": "be2761ff3f4594b468c070ceda40efe07588da6b095a47f69d23b1c7845873a9",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/peinture-interieure-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 9592,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/peinture-interieure-768.webp",
+          "width": 768,
+          "height": 576,
+          "bytes": 20490,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/peinture-interieure-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 40756,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/peinture-interieure.webp",
+          "width": 1600,
+          "height": 1200,
+          "bytes": 60536,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/peinture-interieure-480.webp 480w, /assets/img/responsive/peinture-interieure-768.webp 768w, /assets/img/responsive/peinture-interieure-1200.webp 1200w, /assets/img/realisations/peinture-interieure.webp 1600w",
+      "small_source": false
+    },
+    "/assets/img/realisations/plafond-bois.webp": {
+      "original": {
+        "url": "/assets/img/realisations/plafond-bois.webp",
+        "width": 1200,
+        "height": 1600,
+        "bytes": 141272,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/plafond-bois.jpg",
+      "source_sha256": "de827bc20ac301baa1d4aa1688a553a144c525685f761da4579e8efdde631c38",
+      "original_sha256": "a036fb91bcf253f4d9330b9eb74497e8b103c35e4509f925a7a90a783db20a22",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/plafond-bois-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 28608,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/plafond-bois-768.webp",
+          "width": 768,
+          "height": 1024,
+          "bytes": 63800,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/plafond-bois.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 141272,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/plafond-bois-480.webp 480w, /assets/img/responsive/plafond-bois-768.webp 768w, /assets/img/realisations/plafond-bois.webp 1200w",
+      "small_source": false
+    },
+    "/assets/img/realisations/renovation-toiture.webp": {
+      "original": {
+        "url": "/assets/img/realisations/renovation-toiture.webp",
+        "width": 1200,
+        "height": 1600,
+        "bytes": 204920,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/renovation-toiture.jpg",
+      "source_sha256": "300763f98654d54c3d4d842d9090656809ef39da3c95c8b6bffa484cfce3e432",
+      "original_sha256": "fe9c8eae9b77fdca74d9a3105a3f7498d5fccaf6f2a64f2e0c3cc9d6fd160cce",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/renovation-toiture-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 66094,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/renovation-toiture-768.webp",
+          "width": 768,
+          "height": 1024,
+          "bytes": 123114,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/renovation-toiture.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 204920,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/renovation-toiture-480.webp 480w, /assets/img/responsive/renovation-toiture-768.webp 768w, /assets/img/realisations/renovation-toiture.webp 1200w",
+      "small_source": false
+    },
+    "/assets/img/realisations/revetement-sol-resine.webp": {
+      "original": {
+        "url": "/assets/img/realisations/revetement-sol-resine.webp",
+        "width": 1200,
+        "height": 1600,
+        "bytes": 165792,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/revetement-sol-resine.jpg",
+      "source_sha256": "e9d9f565807efc63786afd99a2d7a33f187fb60a5eeb715acd193eba7c79eaa5",
+      "original_sha256": "676214b78b7dc8b4b87887668dbe2f43e083d0cea8710e01c928671f66490183",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/revetement-sol-resine-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 29592,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/revetement-sol-resine-768.webp",
+          "width": 768,
+          "height": 1024,
+          "bytes": 76870,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/revetement-sol-resine.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 165792,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/revetement-sol-resine-480.webp 480w, /assets/img/responsive/revetement-sol-resine-768.webp 768w, /assets/img/realisations/revetement-sol-resine.webp 1200w",
+      "small_source": false
+    },
+    "/assets/img/realisations/sol-paves-allee.webp": {
+      "original": {
+        "url": "/assets/img/realisations/sol-paves-allee.webp",
+        "width": 1600,
+        "height": 1066,
+        "bytes": 166162,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/sol-paves-allee.jpg",
+      "source_sha256": "e70306bf3954d0b5e7c4326fd1acebb744a9440e3cdb8f84d340404fc7c59317",
+      "original_sha256": "b59c07de378abf7c556f85919b16ad073679228ec75d1abf1c53d3d143451e3d",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/sol-paves-allee-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 22384,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/sol-paves-allee-768.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 51852,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/sol-paves-allee-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 107282,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/sol-paves-allee.webp",
+          "width": 1600,
+          "height": 1066,
+          "bytes": 166162,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/sol-paves-allee-480.webp 480w, /assets/img/responsive/sol-paves-allee-768.webp 768w, /assets/img/responsive/sol-paves-allee-1200.webp 1200w, /assets/img/realisations/sol-paves-allee.webp 1600w",
+      "small_source": false
+    },
+    "/assets/img/realisations/structure-fondations.webp": {
+      "original": {
+        "url": "/assets/img/realisations/structure-fondations.webp",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 270214,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/structure-fondations.jpg",
+      "source_sha256": "c033c41c7d51ff54ce1134da5933ff195e73c7ce372abb6653acb78e13d2617f",
+      "original_sha256": "6b24d38f840470d35d3798270bf78e665316784bbef38221505003bf952ea3ff",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/structure-fondations-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 39196,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/structure-fondations-768.webp",
+          "width": 768,
+          "height": 576,
+          "bytes": 84566,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/structure-fondations-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 174604,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/structure-fondations.webp",
+          "width": 1600,
+          "height": 1200,
+          "bytes": 270214,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/structure-fondations-480.webp 480w, /assets/img/responsive/structure-fondations-768.webp 768w, /assets/img/responsive/structure-fondations-1200.webp 1200w, /assets/img/realisations/structure-fondations.webp 1600w",
+      "small_source": false
+    },
+    "/assets/img/realisations/terrasse-jardin.webp": {
+      "original": {
+        "url": "/assets/img/realisations/terrasse-jardin.webp",
+        "width": 1200,
+        "height": 1600,
+        "bytes": 348540,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/terrasse-jardin.jpg",
+      "source_sha256": "19dadd1df9291b0961ec2e2e33b61fb2b09103f817a785b40761518446f36482",
+      "original_sha256": "a96219fbfee09b40019a5126cab45404cf66a3f49110a2b389cc88cd3a6f9ff2",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/terrasse-jardin-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 61366,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/terrasse-jardin-768.webp",
+          "width": 768,
+          "height": 1024,
+          "bytes": 150890,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/terrasse-jardin.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 348540,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/terrasse-jardin-480.webp 480w, /assets/img/responsive/terrasse-jardin-768.webp 768w, /assets/img/realisations/terrasse-jardin.webp 1200w",
+      "small_source": false
+    },
+    "/assets/img/realisations/toiture-ardoise.webp": {
+      "original": {
+        "url": "/assets/img/realisations/toiture-ardoise.webp",
+        "width": 320,
+        "height": 240,
+        "bytes": 7400,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/toiture-ardoise.jpg",
+      "source_sha256": "e98009aa56efba79303bdba358021e9e280e603201b90fd6a1aec0f18795dc09",
+      "original_sha256": "ab47d57bce93ebb2e08c54bc4d90b8a5a732393f5340023cef33dfb4c04cf94d",
+      "variants": [
+        {
+          "url": "/assets/img/realisations/toiture-ardoise.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 7400,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/realisations/toiture-ardoise.webp 320w",
+      "small_source": true
+    },
+    "/assets/img/realisations/toiture-tuiles.webp": {
+      "original": {
+        "url": "/assets/img/realisations/toiture-tuiles.webp",
+        "width": 1200,
+        "height": 1600,
+        "bytes": 240274,
+        "generated": false
+      },
+      "source": "/assets/img/realisations/toiture-tuiles.jpg",
+      "source_sha256": "728bfed50a4a92e171a6e33bca14f64cb285d1e6fa5d010e9ecdc88dcfbf1046",
+      "original_sha256": "8f1ebd62beff9582f33d4a1b389255e42f6cadbcf7edfea9a236b665628b12d0",
+      "variants": [
+        {
+          "url": "/assets/img/responsive/toiture-tuiles-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 58106,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/responsive/toiture-tuiles-768.webp",
+          "width": 768,
+          "height": 1024,
+          "bytes": 126314,
+          "generated": true
+        },
+        {
+          "url": "/assets/img/realisations/toiture-tuiles.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 240274,
+          "generated": false
+        }
+      ],
+      "srcset": "/assets/img/responsive/toiture-tuiles-480.webp 480w, /assets/img/responsive/toiture-tuiles-768.webp 768w, /assets/img/realisations/toiture-tuiles.webp 1200w",
+      "small_source": false
+    }
+  }
+}

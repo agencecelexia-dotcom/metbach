@@ -15,7 +15,7 @@
 //   POST https://www.renovationmetbach.fr/api/contact
 //
 // Expected body (application/json):
-//   { name, phone, email, work_type, city, message, website (honeypot, must be empty), rgpd }
+//   { name, phone, email, work_type, city, message, website (honeypot), rgpd, attribution? }
 //
 // Responses :
 //   200 { ok: true }                  — forwarded to n8n
@@ -63,10 +63,45 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
 }
 
-function isValidPhone(phone) {
-  // Strip everything except digits and "+". Need at least 9 digits.
-  const digits = phone.replace(/[^0-9]/g, "");
-  return digits.length >= 9 && digits.length <= 20;
+// Keep these format rules aligned with js/script.js. No ownership/assignment
+// check is implied; this only rejects malformed contact details.
+function normalizePhone(value) {
+  if (typeof value !== "string" || value.length > 40 || /[\r\n]/.test(value)) return "";
+  const input = value.trim();
+  if (!/^[+\d\s().-]+$/.test(input)) return "";
+  let phone = input.replace(/[\s().-]/g, "").replace(/^00/, "+");
+  if (!/^\+?\d+$/.test(phone)) return "";
+  phone = phone.replace(/^(\+(?:33|41))0/, "$1");
+  return phone;
+}
+
+function isValidPhone(value) {
+  const phone = normalizePhone(value);
+  if (/^\+(?:33|41)/.test(phone)) return /^\+(?:33|41)[1-9]\d{8}$/.test(phone);
+  return /^0[1-9]\d{8}$/.test(phone) || /^\+[1-9]\d{7,14}$/.test(phone);
+}
+
+function sanitizeAttribution(value) {
+  const result = {};
+  if (!value || typeof value !== "object" || Array.isArray(value)) return result;
+  // Enquiry forms are currently on these two public paths only. Never forward
+  // a whole URL or an arbitrary path that could contain personal information.
+  if (typeof value.page === "string" && /^\/(?:contact)?$/.test(value.page)) result.page = value.page;
+  if (typeof value.referrer_origin === "string" && value.referrer_origin.length <= 255) {
+    try {
+      const url = new URL(value.referrer_origin);
+      if (/^https?:$/.test(url.protocol) && !["renovationmetbach.fr", "www.renovationmetbach.fr"].includes(url.hostname)) {
+        result.referrer_origin = url.origin;
+      }
+    } catch { /* Invalid origins are simply omitted. */ }
+  }
+  for (const key of ["utm_source", "utm_medium", "utm_campaign"]) {
+    const item = value[key];
+    if (typeof item === "string" && /^[a-zA-Z][a-zA-Z0-9_-]{0,79}$/.test(item) && !/\d{7}/.test(item)) {
+      result[key] = item;
+    }
+  }
+  return result;
 }
 
 export default async function handler(req, res) {
@@ -82,7 +117,7 @@ export default async function handler(req, res) {
   if (typeof body === "string") {
     try { body = JSON.parse(body); } catch { return res.status(400).json({ error: "validation_failed", details: "invalid_json" }); }
   }
-  if (!body || typeof body !== "object") {
+  if (!body || typeof body !== "object" || Array.isArray(body)) {
     return res.status(400).json({ error: "validation_failed", details: "missing_body" });
   }
 
@@ -93,14 +128,8 @@ export default async function handler(req, res) {
   }
 
   // RGPD consent must be present
-  if (!body.rgpd) {
+  if (body.rgpd !== true) {
     return res.status(400).json({ error: "validation_failed", details: "consent_required" });
-  }
-
-  // Rate limiting per IP
-  const ip = getClientIp(req);
-  if (isRateLimited(ip)) {
-    return res.status(429).json({ error: "rate_limited", retry_after_s: 30 });
   }
 
   // Clean + validate fields
@@ -111,6 +140,12 @@ export default async function handler(req, res) {
   const city      = clean(body.city, 200);
   const message   = clean(body.message, 5000);
 
+  if (name.length < 2) {
+    return res.status(400).json({ error: "validation_failed", details: "invalid_name" });
+  }
+  if (message.length < 20) {
+    return res.status(400).json({ error: "validation_failed", details: "invalid_message" });
+  }
   // At least phone OR email
   if (!phone && !email) {
     return res.status(400).json({ error: "validation_failed", details: "phone_or_email_required" });
@@ -128,10 +163,19 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "server_misconfigured" });
   }
 
+  // Only valid requests use the submission limit. A visitor correcting a typo
+  // should not be prevented from sending their enquiry for another 30 seconds.
+  const ip = getClientIp(req);
+  if (isRateLimited(ip)) {
+    res.setHeader("Retry-After", "30");
+    return res.status(429).json({ error: "rate_limited", retry_after_s: 30 });
+  }
+
   const payload = {
-    name, phone, email, work_type, city, message,
+    name, phone: phone ? normalizePhone(phone) : "", email, work_type, city, message,
     source: "renovationmetbach.fr",
     submitted_at: new Date().toISOString(),
+    attribution: sanitizeAttribution(body.attribution),
   };
 
   const headers = { "Content-Type": "application/json" };

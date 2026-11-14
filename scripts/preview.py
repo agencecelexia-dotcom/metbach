@@ -5,6 +5,8 @@ from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import argparse
 import json
+import gzip
+import io
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / 'dist'
@@ -32,10 +34,21 @@ class Handler(SimpleHTTPRequestHandler):
         if not name.is_file() or PUBLIC not in name.resolve().parents:
             name = PUBLIC / '404.html'; status = 404
         else: status = 200
-        stream = name.open('rb')
+        content_type = self.guess_type(str(name))
+        data = name.read_bytes()
+        compressed = 'gzip' in self.headers.get('Accept-Encoding', '') and (
+            content_type.startswith('text/') or content_type in (
+                'application/javascript', 'application/json', 'image/svg+xml'
+            )
+        )
+        if compressed:
+            data = gzip.compress(data, mtime=0)
+        stream = io.BytesIO(data)
         self.send_response(status)
-        self.send_header('Content-Type', self.guess_type(str(name)))
-        self.send_header('Content-Length', str(name.stat().st_size))
+        self.send_header('Content-Type', content_type)
+        self.send_header('Content-Length', str(len(data)))
+        self.send_header('Vary', 'Accept-Encoding')
+        if compressed: self.send_header('Content-Encoding', 'gzip')
         self.send_header('Cache-Control', 'no-store')
         if status == 404 or raw in ('/merci','/404'): self.send_header('X-Robots-Tag', 'noindex, follow')
         # Match the production policy during layout checks.

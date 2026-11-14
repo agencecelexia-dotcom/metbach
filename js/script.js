@@ -12,11 +12,74 @@
 (() => {
   const $  = (s, p = document) => p.querySelector(s);
   const $$ = (s, p = document) => Array.from(p.querySelectorAll(s));
+  const initializeIcons = () => {
+    // Some pages keep their own initializer. Only initialize while placeholders
+    // remain; Lucide preserves their attributes, including aria-hidden/classes.
+    if (window.lucide && document.querySelector('i[data-lucide]')) window.lucide.createIcons();
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initializeIcons, { once: true });
+  else initializeIcons();
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const findAnchor = hash => {
     try { return document.getElementById(decodeURIComponent(hash.slice(1))); }
     catch { return null; }
   };
+
+  // Keep these format rules aligned with /api/contact. This validates a usable
+  // format, not ownership or whether a telephone number is currently assigned.
+  function normalizePhone(value) {
+    if (typeof value !== 'string' || value.length > 40 || /[\r\n]/.test(value)) return '';
+    const input = value.trim();
+    if (!/^[+\d\s().-]+$/.test(input)) return '';
+    let phone = input.replace(/[\s().-]/g, '').replace(/^00/, '+');
+    if (!/^\+?\d+$/.test(phone)) return '';
+    // People often paste the optional national trunk: +33 (0)6 … / +41 (0)79 …
+    phone = phone.replace(/^(\+(?:33|41))0/, '$1');
+    return phone;
+  }
+  function isValidPhone(value) {
+    const phone = normalizePhone(value);
+    if (/^\+(?:33|41)/.test(phone)) return /^\+(?:33|41)[1-9]\d{8}$/.test(phone);
+    return /^0[1-9]\d{8}$/.test(phone) || /^\+[1-9]\d{7,14}$/.test(phone);
+  }
+
+  // Attribution accompanies a consented enquiry only. No cookie or browser
+  // storage, fingerprint, arbitrary query string or referrer path is collected.
+  // Without storage, campaign information is available only on this page.
+  function contactAttribution() {
+    const result = {};
+    const path = location.pathname;
+    if (/^\/(?:contact)?$/.test(path)) result.page = path;
+    try {
+      const referrer = new URL(document.referrer);
+      if (/^https?:$/.test(referrer.protocol) && referrer.origin !== location.origin) {
+        result.referrer_origin = referrer.origin;
+      }
+    } catch { /* Empty or invalid referrer. */ }
+    const params = new URLSearchParams(location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(key => {
+      const value = params.get(key);
+      if (value && /^[a-zA-Z][a-zA-Z0-9_-]{0,79}$/.test(value) && !/\d{7}/.test(value)) {
+        result[key] = value;
+      }
+    });
+    return result;
+  }
+
+  // Optional adapters only: these do not load an analytics service. A telephone
+  // click is an intent signal, never an assertion that a call was completed.
+  function trackContactEvent(event) {
+    const page = /^\/[a-z0-9/-]*$/.test(location.pathname) ? location.pathname : '/';
+    try {
+      if (typeof window.dataLayer?.push === 'function') window.dataLayer.push({ event, page });
+    } catch { /* A collector must never interrupt the contact path. */ }
+    try {
+      if (typeof window.plausible === 'function') window.plausible(event, { props: { page } });
+    } catch { /* The other adapter may still work independently. */ }
+  }
+  $$('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => trackContactEvent('tel_click'));
+  });
 
   /* ---- Header scroll state ---- */
   const header = $('.site-header');
@@ -205,6 +268,33 @@
   if (form) {
     const note = $('#form-note');
     const submitBtn = form.querySelector('button[type="submit"]');
+    const phoneField = form.querySelector('[name="tel"]');
+    let submitting = false;
+
+    const validatePhone = () => {
+      if (!phoneField) return;
+      phoneField.setCustomValidity(!phoneField.value.trim() || isValidPhone(phoneField.value)
+        ? ''
+        : 'Indiquez un numéro valide : 06 12 34 56 78 ou +41 79 123 45 67. Pour un autre pays, ajoutez son indicatif.');
+    };
+    phoneField?.addEventListener('input', validatePhone);
+    phoneField?.addEventListener('change', validatePhone);
+    // No values from the URL are inserted into HTML. Only a known service may
+    // select one of the options already present in the form.
+    const services = {
+      bardage: 'Bardage', couverture: 'Couverture', 'petits-travaux': 'Petits travaux',
+      'revetement-sol': 'Revêtement de sol', fondations: 'Fondations',
+      'amenagement-paysager': 'Aménagement paysager', clotures: 'Clôtures',
+      arboriculture: 'Arboriculture', maconnerie: 'Maçonnerie',
+      'isolation-exterieure': 'Isolation thermique extérieure (ITE)',
+      'projet-global': 'Plusieurs services / projet global',
+    };
+    const selectedService = services[new URLSearchParams(location.search).get('service')];
+    const serviceField = form.querySelector('[name="service"]');
+    if (selectedService && serviceField) {
+      const option = Array.from(serviceField.options).find(item => item.value === selectedService);
+      if (option) serviceField.value = option.value;
+    }
 
     const showNote = (text, isError = false) => {
       if (!note) return;
@@ -223,6 +313,7 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (submitting) return;
 
       // Honeypot: if filled, silently confirm (bot detected, drop silently)
       const hp = form.querySelector('[name="website"]');
@@ -232,6 +323,7 @@
       }
 
       // Native HTML5 validation first
+      validatePhone();
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
@@ -247,9 +339,12 @@
         message:   (data.get('message') || '').toString().trim(),
         website:   (data.get('website') || '').toString().trim(),
         rgpd:      data.get('rgpd') === 'on' || data.get('rgpd') === 'true' || !!form.querySelector('#rgpd:checked'),
+        attribution: contactAttribution(),
       };
 
       // Disable button to prevent double-submit
+      submitting = true;
+      form.setAttribute('aria-busy', 'true');
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.style.opacity = '0.6';
@@ -264,23 +359,29 @@
           body: JSON.stringify(payload),
         });
 
-        if (res.ok) {
-          // Track anonymous conversion event (no PII) — works with GA/GTM/Plausible if connected
-          try {
-            if (window.dataLayer) window.dataLayer.push({ event: 'form_submitted' });
-            if (window.plausible) window.plausible('form_submitted');
-          } catch (_) {}
+        let body;
+        try { body = await res.json(); } catch { body = {}; }
+        if (res.ok && body.ok === true) {
+          // The endpoint confirms successful upstream receipt. This is an
+          // accepted enquiry, not proof that a notification email was delivered.
+          trackContactEvent('form_submitted');
           location.href = merciPath();
           return;
         }
 
         // Specific error handling
-        let body;
-        try { body = await res.json(); } catch { body = {}; }
         if (res.status === 429) {
           showNote("Trop de demandes envoyées récemment. Réessayez dans 30 secondes ou appelez le 07 69 13 61 82.", true);
         } else if (res.status === 400) {
-          showNote("Demande incomplète : " + (body.details || 'vérifiez nom, téléphone, email et message.'), true);
+          const messages = {
+            invalid_phone: 'Vérifiez votre téléphone et ajoutez l’indicatif pour un numéro étranger, par exemple +41.',
+            invalid_email: 'Vérifiez votre adresse email, par exemple vous@exemple.fr.',
+            invalid_name: 'Indiquez votre nom pour que nous puissions vous répondre.',
+            invalid_message: 'Décrivez votre projet en 20 caractères minimum.',
+            phone_or_email_required: 'Indiquez un téléphone ou une adresse email pour être recontacté.',
+            consent_required: 'Cochez la case autorisant le traitement de votre demande.',
+          };
+          showNote(messages[body.details] || 'Vérifiez les champs du formulaire, puis réessayez.', true);
         } else {
           showNote("Une erreur est survenue. Appelez-nous au 07 69 13 61 82.", true);
         }
@@ -288,6 +389,8 @@
         console.error('contact submit failed:', err);
         showNote("Connexion impossible. Appelez le 07 69 13 61 82.", true);
       } finally {
+        submitting = false;
+        form.removeAttribute('aria-busy');
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.style.opacity = '';

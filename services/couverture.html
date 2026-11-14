@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0E1318" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <meta name="theme-color" content="#163C34" />
   <link rel="icon" type="image/png" href="/assets/img/logo/metbach-logo.png" />
   <link rel="apple-touch-icon" href="/assets/img/logo/metbach-logo.png" />
-
-  <link rel="stylesheet" href="/assets/css/fonts.css" />
-  <link rel="stylesheet" href="/assets/css/tailwind.css" />
-  <link rel="stylesheet" href="/css/styles.css" />
   <script src="/assets/js/lucide.min.js" defer></script>
 
   <title>Couvreur en Haute-Savoie | Rénovation Metbach</title>
@@ -135,7 +132,7 @@
           "name": "Combien coûte une réfection complète de toiture ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pour une maison individuelle 100 m² de toiture en tuiles, comptez 8 000 à 18 000 € selon état de la charpente, isolation incluse ou non, matériau choisi. Une toiture ardoise est plus chère (12 000 à 25 000 €). Devis personnalisé sur visite."
+            "text": "Le budget dépend de la surface, de l’état du support, du matériau, des raccords et des moyens d’accès. Une isolation ou des reprises de charpente modifient le périmètre. Le devis est établi après échange ou visite, avec les prestations incluses et les points restant à vérifier."
           }
         },
         {
@@ -191,7 +188,7 @@
           "name": "Faut-il un échafaudage pour refaire une toiture ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Les moyens d’accès et de protection sont définis selon la hauteur, la configuration du bâtiment et les travaux. Lorsqu’un échafaudage est nécessaire, sa fourniture, sa pose et son retrait doivent être précisés dans le devis. La fourchette affichée sur cette page reste indicative."
+            "text": "Les moyens d’accès et de protection sont définis selon la hauteur, la configuration du bâtiment et les travaux. Lorsqu’un échafaudage est nécessaire, sa fourniture, sa pose et son retrait doivent être précisés dans le devis. Les moyens retenus et leur coût sont précisés dans le devis."
           }
         }
       ]
@@ -199,44 +196,25 @@
   ]
 }
   </script>
+
 </head>
-<body class="bg-page text-ink">
+<body class="bg-page text-ink site-page">
 
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Aller au contenu</a>
 
   <header class="site-header fixed inset-x-0 top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-3 flex items-center justify-between gap-6 min-h-[68px] lg:min-h-[84px]">
-      <a href="/" class="shrink-0" aria-label="Rénovation Metbach — Accueil">
-        <img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" class="h-11 md:h-12 lg:h-14 w-auto" loading="eager" decoding="async" width="531" height="282" />
-      </a>
-      <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium" aria-label="Navigation principale">
-        <a href="/services" class="nav-link">Services</a>
-        <a href="/realisations" class="nav-link">Réalisations</a>
-        <a href="/a-propos" class="nav-link">À propos</a>
-        <a href="/contact" class="nav-link">Contact</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a href="/contact" class="btn btn-accent hidden md:inline-flex">Devis gratuit <i aria-hidden="true" data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
-        <button type="button" data-menu-open class="lg:hidden p-3 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Ouvrir le menu"><i aria-hidden="true" data-lucide="menu" class="w-6 h-6"></i></button>
-      </div>
-    </div>
-  </header>
+ <div class="editorial-container header-inner">
+  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" width="531" height="282" decoding="async"></picture></a>
+  <nav class="desktop-nav" aria-label="Navigation principale"><a href="/services" class="nav-link">Nos métiers</a><a href="/realisations" class="nav-link">Réalisations</a><a href="/a-propos" class="nav-link">L’entreprise</a><a href="/preparer-travaux" class="nav-link">Conseils</a></nav>
+  <div class="header-actions"><a href="tel:+33769136182" class="header-phone">07 69 13 61 82</a><a href="/contact#form" class="btn btn-primary header-quote">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" data-menu-open class="menu-toggle" aria-label="Ouvrir le menu"><i data-lucide="menu" aria-hidden="true"></i></button></div>
+ </div>
+</header>
 
-  <aside class="mobile-menu fixed inset-0 z-[60] bg-ink text-white lg:hidden">
-    <div class="flex items-center justify-between p-5 border-b border-white/10">
-      <span class="font-display font-bold">Menu</span>
-      <button type="button" data-menu-close class="p-3 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Fermer le menu"><i aria-hidden="true" data-lucide="x" class="w-6 h-6"></i></button>
-    </div>
-    <nav class="p-6 flex flex-col gap-1 text-2xl font-display" aria-label="Menu mobile">
-      <a href="/services" class="py-3 border-b border-white/10">Services</a>
-      <a href="/realisations" class="py-3 border-b border-white/10">Réalisations</a>
-      <a href="/a-propos" class="py-3 border-b border-white/10">À propos</a>
-      <a href="/contact" class="py-3 border-b border-white/10">Contact</a>
-    </nav>
-    <div class="absolute inset-x-0 bottom-0 p-6">
-      <a href="/contact" class="btn btn-accent w-full justify-center">Demander un devis</a>
-    </div>
-  </aside>
+  <div class="mobile-menu fixed inset-0 z-[60] bg-ink text-white lg:hidden">
+ <div class="mobile-menu-top"><span class="font-display text-xl">Rénovation Metbach</span><button type="button" data-menu-close class="menu-toggle" aria-label="Fermer le menu"><i data-lucide="x" aria-hidden="true"></i></button></div>
+ <nav class="mobile-navigation" aria-label="Menu mobile"><a href="/">Accueil</a><a href="/services">Nos métiers</a><a href="/realisations">Réalisations</a><a href="/a-propos">L’entreprise</a><a href="/preparer-travaux">Préparer mes travaux</a><a href="/contact#form">Contact & devis</a></nav>
+ <div class="mobile-menu-bottom"><a href="tel:+33769136182" class="btn btn-glass">Appeler le 07 69 13 61 82</a><a href="/contact#form" class="btn btn-accent">Demander mon devis</a></div>
+</div>
 
   <main id="main" class="pt-16 lg:pt-20">
 
@@ -272,7 +250,7 @@
           </div>
         </div>
         <div class="lg:col-span-6 reveal reveal-delay-1">
-          <picture><source srcset="/assets/img/realisations/toiture-tuiles.webp" type="image/webp" /><img fetchpriority="high" decoding="async" class="rounded-2xl shadow-xl w-full aspect-[4/3] object-cover"
+          <picture><source srcset="/assets/img/responsive/toiture-tuiles-480.webp 480w, /assets/img/responsive/toiture-tuiles-768.webp 768w, /assets/img/realisations/toiture-tuiles.webp 1200w" sizes="(max-width: 1023px) calc(100vw - 48px), (max-width: 1408px) calc((100vw - 96px) / 2), 640px" type="image/webp" /><img fetchpriority="high" decoding="async" class="rounded-2xl shadow-xl w-full aspect-[4/3] object-cover"
                alt="Toiture en tuiles rénovée par Rénovation Metbach en Haute-Savoie"
                src="/assets/img/realisations/toiture-tuiles.jpg" width="1200" height="1600" /></picture>
         </div>
@@ -297,9 +275,9 @@
           <p class="h-eyebrow">Notre savoir-faire</p>
           <h2 class="h-section font-display mt-3">Ce qu'on réalise</h2>
           <p class="text-muted mt-5 leading-relaxed">
-            Activité couverture officiellement déclarée à notre SIRET. Toiture neuve,
-            réfection complète, entretien ponctuel, urgences post-tempête : on est armé
-            pour chaque cas.
+            Toiture neuve, réfection ou entretien : nous examinons la couverture, les accès
+            et les travaux nécessaires avant de définir le périmètre du chantier.
+            Les demandes urgentes sont étudiées selon la disponibilité et les conditions d’intervention.
           </p>
         </div>
         <ul class="lg:col-span-7 grid sm:grid-cols-2 gap-x-8 gap-y-5">
@@ -325,52 +303,52 @@
             <thead>
               <tr class="bg-ink text-white text-left">
                 <th class="font-display font-bold text-base px-4 py-3 rounded-tl-xl">Matériau</th>
-                <th class="font-display font-bold text-base px-4 py-3">Durée de vie</th>
+
                 <th class="font-display font-bold text-base px-4 py-3">Pente à vérifier</th>
                 <th class="font-display font-bold text-base px-4 py-3">Entretien</th>
-                <th class="font-display font-bold text-base px-4 py-3 rounded-tr-xl">Prix indicatif (m²)</th>
+
               </tr>
             </thead>
             <tbody class="bg-white">
               <tr class="border-b border-line">
                 <td class="px-4 py-4 font-display font-semibold">Tuile terre cuite canal</td>
-                <td class="px-4 py-4">50-70 ans</td>
+
                 <td class="px-4 py-4">Selon produit et exposition</td>
                 <td class="px-4 py-4">Démoussage 10 ans</td>
-                <td class="px-4 py-4 text-muted">80-130 €</td>
+
               </tr>
               <tr class="border-b border-line">
                 <td class="px-4 py-4 font-display font-semibold">Tuile plate mécanique</td>
-                <td class="px-4 py-4">60-80 ans</td>
+
                 <td class="px-4 py-4">Selon produit et exposition</td>
                 <td class="px-4 py-4">Faible</td>
-                <td class="px-4 py-4 text-muted">90-150 €</td>
+
               </tr>
               <tr class="border-b border-line">
                 <td class="px-4 py-4 font-display font-semibold">Ardoise naturelle</td>
-                <td class="px-4 py-4">80-100 ans</td>
+
                 <td class="px-4 py-4">Selon produit et exposition</td>
                 <td class="px-4 py-4">Contrôle régulier</td>
-                <td class="px-4 py-4 text-muted">120-200 €</td>
+
               </tr>
               <tr class="border-b border-line">
                 <td class="px-4 py-4 font-display font-semibold">Fibrociment</td>
-                <td class="px-4 py-4">40-50 ans</td>
+
                 <td class="px-4 py-4">Selon produit et exposition</td>
                 <td class="px-4 py-4">Démoussage 10 ans</td>
-                <td class="px-4 py-4 text-muted">60-100 €</td>
+
               </tr>
               <tr>
                 <td class="px-4 py-4 font-display font-semibold">Zinc joint debout</td>
-                <td class="px-4 py-4">70-100 ans</td>
+
                 <td class="px-4 py-4">Selon produit et exposition</td>
                 <td class="px-4 py-4">Contrôle régulier</td>
-                <td class="px-4 py-4 text-muted">150-250 €</td>
+
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="text-xs text-muted mt-4">Prix indicatifs fourniture et pose, hors isolation et charpente. Les durées sont des ordres de grandeur, variables selon le produit, la pose et l’entretien. La pente admissible doit être vérifiée pour le système retenu. Pour les démarches : <a href="https://www.service-public.fr/particuliers/vosdroits/F36767" class="text-accent-dark underline underline-offset-2 hover:text-ink">autorisations de travaux de toiture</a>.</p>
+        <p class="text-xs text-muted mt-4">Le choix dépend du bâtiment, de l’exposition et du système retenu. La pente admissible et les prescriptions de pose doivent être vérifiées pour le produit choisi. Pour les démarches : <a href="https://www.service-public.fr/particuliers/vosdroits/F36767" class="text-accent-dark underline underline-offset-2 hover:text-ink">autorisations de travaux de toiture</a>.</p>
       </div>
     </section>
 
@@ -391,7 +369,7 @@
           <article class="bg-page rounded-2xl p-7 reveal reveal-delay-1">
             <div class="step-num">02</div>
             <h3 class="font-display font-bold text-xl mt-3 mb-2">Devis & choix matériaux</h3>
-            <p class="text-muted leading-relaxed">Devis détaillé sous 48 h. Présentation des options (tuiles canal, tuiles plates, ardoise naturelle ou fibrociment, zinc).</p>
+            <p class="text-muted leading-relaxed">Réponse sous 48 h ouvrées. Le délai du devis est précisé après échange ou visite. Les options de couverture sont examinées selon la toiture et votre projet.</p>
           </article>
           <article class="bg-page rounded-2xl p-7 reveal reveal-delay-2">
             <div class="step-num">03</div>
@@ -417,32 +395,21 @@
       </div>
     </section>
 
-    <!-- Tarifs -->
+    <!-- Préparer le budget -->
     <section id="tarifs" class="py-16 lg:py-20 bg-white border-y border-line">
       <div class="max-w-5xl mx-auto container-pad">
-        <p class="h-eyebrow">Tarifs indicatifs</p>
-        <h2 class="h-section font-display mt-3 mb-3">Combien coûte une toiture ?</h2>
-        <p class="text-muted mb-8 max-w-2xl">Fourchettes pour une maison individuelle 100 m² de toiture, hors charpente neuve. Devis exact après visite.</p>
-        <div class="overflow-x-auto bg-page rounded-2xl border border-line">
-          <table class="w-full text-sm">
-            <thead>
-              <tr class="bg-ink text-white text-left">
-                <th class="font-display font-bold text-base px-4 py-3">Prestation</th>
-                <th class="font-display font-bold text-base px-4 py-3">Prix indicatif</th>
-                <th class="font-display font-bold text-base px-4 py-3">Remarque</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-line"><td class="px-4 py-3 font-display font-semibold">Réfection toiture tuiles 100 m²</td><td class="px-4 py-3 text-accent-dark font-semibold whitespace-nowrap">8 000–18 000 € TTC</td><td class="px-4 py-3 text-sm text-muted">Avec sous-toiture HPV</td></tr>
-              <tr class="border-b border-line"><td class="px-4 py-3 font-display font-semibold">Toiture ardoise 100 m²</td><td class="px-4 py-3 text-accent-dark font-semibold whitespace-nowrap">12 000–25 000 € TTC</td><td class="px-4 py-3 text-sm text-muted">Naturelle, posée crochets</td></tr>
-              <tr class="border-b border-line"><td class="px-4 py-3 font-display font-semibold">Démoussage + hydrofuge</td><td class="px-4 py-3 text-accent-dark font-semibold whitespace-nowrap">15–25 €/m²</td><td class="px-4 py-3 text-sm text-muted">Selon l’état et le produit</td></tr>
-              <tr class="border-b border-line"><td class="px-4 py-3 font-display font-semibold">Isolation toiture par sarking</td><td class="px-4 py-3 text-accent-dark font-semibold whitespace-nowrap">+ 100–180 €/m²</td><td class="px-4 py-3 text-sm text-muted">Aides à vérifier selon conditions</td></tr>
-              <tr class="border-b border-line"><td class="px-4 py-3 font-display font-semibold">Échafaudage location</td><td class="px-4 py-3 text-accent-dark font-semibold whitespace-nowrap">1 500–4 000 €</td><td class="px-4 py-3 text-sm text-muted">Selon hauteur, intégré au devis</td></tr>
-              <tr><td class="px-4 py-3 font-display font-semibold">Urgence fuite (bâche + diagnostic)</td><td class="px-4 py-3 text-accent-dark font-semibold whitespace-nowrap">250–500 € forfait</td><td class="px-4 py-3 text-sm text-muted">Selon disponibilité et météo</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-xs text-muted mt-4">TVA non applicable (franchise en base, art. 293 B du CGI). Vérifiez avant le chantier les attestations d’assurance correspondant aux travaux retenus.</p>
+        <p class="h-eyebrow">Votre budget</p>
+        <h2 class="h-section font-display mt-3 mb-6">Préparer le budget de votre toiture</h2>
+        <p class="text-muted leading-relaxed mb-6">Le montant dépend du périmètre retenu et des conditions du chantier. Voici les points à préciser pour préparer un devis adapté.</p>
+        <ul class="list-disc pl-5 space-y-3 text-muted leading-relaxed">
+          <li><strong class="text-ink">La toiture existante :</strong> Surface, pente, hauteur, état du support et zones à reprendre.</li>
+          <li><strong class="text-ink">Les matériaux et raccords :</strong> Couverture retenue, faîtage, noues, solins et évacuations d’eau à prévoir.</li>
+          <li><strong class="text-ink">Les travaux associés :</strong> Dépose, réparations du support et isolation éventuelle à distinguer dans le devis.</li>
+          <li><strong class="text-ink">Les moyens de chantier :</strong> Accès, protections, échafaudage, manutention et évacuation des matériaux.</li>
+        </ul>
+        <p class="text-muted leading-relaxed mt-6">Le devis est établi après un échange suffisamment détaillé ou une visite. Son délai est précisé selon les vérifications et les fournitures nécessaires. Nous répondons sous 48 h ouvrées à votre demande.</p>
+        <a href="/preparer-travaux" class="text-accent-dark underline underline-offset-2 hover:text-ink inline-block mt-5">Préparer les informations utiles avec notre checklist de travaux</a>
+        <p class="text-xs text-muted mt-4">TVA non applicable (franchise en base, art. 293 B du CGI). Devis personnalisé gratuit.</p>
       </div>
     </section>
 
@@ -473,7 +440,7 @@
               <span class="font-display font-semibold text-lg">Combien coûte une réfection complète de toiture ?</span>
               <i aria-hidden="true" data-lucide="plus" class="w-5 h-5 text-accent-dark transition-transform group-open:rotate-45 shrink-0"></i>
             </summary>
-            <p class="text-muted mt-3 leading-relaxed">Pour une maison individuelle 100 m² de toiture en tuiles, comptez 8 000 à 18 000 € selon état de la charpente, isolation incluse ou non, matériau choisi. Une toiture ardoise est plus chère (12 000 à 25 000 €). Devis personnalisé sur visite.</p>
+            <p class="text-muted mt-3 leading-relaxed">Le budget dépend de la surface, de l’état du support, du matériau, des raccords et des moyens d’accès. Une isolation ou des reprises de charpente modifient le périmètre. Le devis est établi après échange ou visite, avec les prestations incluses et les points restant à vérifier.</p>
           </details>
           <details class="group py-6 reveal reveal-delay-3">
             <summary class="flex items-center justify-between cursor-pointer list-none gap-6">
@@ -522,7 +489,7 @@
               <span class="font-display font-semibold text-lg">Faut-il un échafaudage pour refaire une toiture ?</span>
               <i aria-hidden="true" data-lucide="plus" class="w-5 h-5 text-accent-dark transition-transform group-open:rotate-45 shrink-0"></i>
             </summary>
-            <p class="text-muted mt-3 leading-relaxed">Les moyens d’accès et de protection sont définis selon la hauteur, la configuration du bâtiment et les travaux. Lorsqu’un échafaudage est nécessaire, sa fourniture, sa pose et son retrait doivent être précisés dans le devis. La fourchette affichée sur cette page reste indicative.</p>
+            <p class="text-muted mt-3 leading-relaxed">Les moyens d’accès et de protection sont définis selon la hauteur, la configuration du bâtiment et les travaux. Lorsqu’un échafaudage est nécessaire, sa fourniture, sa pose et son retrait doivent être précisés dans le devis. Les moyens retenus et leur coût sont précisés dans le devis.</p>
           </details>
         </div>
       </div>
@@ -579,28 +546,18 @@
     </section>
   </main>
 
-  <footer class="bg-ink text-white pt-14 pb-8">
-    <div class="max-w-7xl-plus mx-auto container-pad">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-white/10">
-        <a href="/" class="inline-flex items-baseline gap-2 font-display font-bold leading-none">
-            <span class="text-accent-soft uppercase text-[10px] tracking-[0.25em]">Rénovation</span>
-            <span class="text-white text-2xl tracking-tight">Metbach</span>
-          </a>
-        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/65">
-          <a href="/" class="hover:text-accent-soft">Accueil</a>
-          <a href="/services" class="hover:text-accent-soft">Services</a>
-          <a href="/contact" class="hover:text-accent-soft">Contact</a>
-          <a href="/mentions-legales" class="hover:text-accent-soft">Mentions légales</a>
-          <a href="/politique-confidentialite" class="hover:text-accent-soft">Confidentialité</a>
-        </div>
-      </div>
-      <p class="pt-6 text-sm text-white/50">&copy; <span data-year>2026</span> Rénovation Metbach. Tous droits réservés.</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="editorial-container">
+ <div class="footer-top"><div><p class="eyebrow light">Rénovation Metbach · Haute-Savoie</p><p class="footer-statement">Le soin du détail.<br><em>La solidité du résultat.</em></p></div><a href="/contact#form" class="btn btn-accent">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+ <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a></div>
+ <div><h2>Nos métiers</h2><a href="/services/couverture">Couverture & toiture</a><a href="/services/maconnerie">Maçonnerie</a><a href="/services/isolation-exterieure">Isolation extérieure</a><a href="/services/bardage">Bardage & façades</a><a href="/services">Tous les services</a></div>
+ <div><h2>Votre projet</h2><a href="/realisations">Réalisations</a><a href="/preparer-travaux">Préparer ses travaux</a><a href="/a-propos">L’entreprise</a><a href="/glossaire">Glossaire</a><a href="/contact">Contact & devis</a></div>
+ <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
+ <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
+</div></footer>
 
   <script>
     window.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
   </script>
   <script src="/js/script.js"></script>
-</body>
+<nav class="mobile-contact-bar" aria-label="Contact rapide"><a href="tel:+33769136182"><i data-lucide="phone" aria-hidden="true"></i> Appeler</a><a href="/contact#form">Mon devis gratuit <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></nav></body>
 </html>

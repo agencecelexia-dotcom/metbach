@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0E1318" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <meta name="theme-color" content="#163C34" />
   <link rel="icon" type="image/png" href="/assets/img/logo/metbach-logo.png" />
   <link rel="apple-touch-icon" href="/assets/img/logo/metbach-logo.png" />
-  <link rel="stylesheet" href="/assets/css/fonts.css" />
-  <link rel="stylesheet" href="/assets/css/tailwind.css" />
-  <link rel="stylesheet" href="/css/styles.css" />
   <script src="/assets/js/lucide.min.js" defer></script>
 
   <title>Zachari Metbach, artisan en Haute-Savoie | Metbach</title>
@@ -94,51 +92,26 @@
   ]
 }
   </script>
+
 </head>
-<body class="bg-page text-ink">
+<body class="bg-page text-ink site-page">
 
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Aller au contenu</a>
 
   <header class="site-header fixed inset-x-0 top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-3 flex items-center justify-between gap-6 min-h-[68px] lg:min-h-[84px]">
-      <a href="/" class="shrink-0" aria-label="Rénovation Metbach — Accueil">
-        <picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp" /><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" class="h-11 md:h-12 lg:h-14 w-auto" loading="eager" decoding="async" width="531" height="282" /></picture>
-      </a>
-      <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium" aria-label="Navigation principale">
-        <a href="/#services" class="nav-link">Services</a>
-        <a href="/#realisations" class="nav-link">Réalisations</a>
-        <a href="/a-propos" class="nav-link">À propos</a>
-        <a href="/#contact" class="nav-link">Contact</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a href="/#contact" class="btn btn-accent hidden md:inline-flex">
-          Devis gratuit <i aria-hidden="true" data-lucide="arrow-up-right" class="w-4 h-4"></i>
-        </a>
-        <button type="button" data-menu-open class="lg:hidden p-3 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Ouvrir le menu">
-          <i aria-hidden="true" data-lucide="menu" class="w-6 h-6"></i>
-        </button>
-      </div>
-    </div>
-  </header>
+ <div class="editorial-container header-inner">
+  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" width="531" height="282" decoding="async"></picture></a>
+  <nav class="desktop-nav" aria-label="Navigation principale"><a href="/services" class="nav-link">Nos métiers</a><a href="/realisations" class="nav-link">Réalisations</a><a href="/a-propos" class="nav-link">L’entreprise</a><a href="/preparer-travaux" class="nav-link">Conseils</a></nav>
+  <div class="header-actions"><a href="tel:+33769136182" class="header-phone">07 69 13 61 82</a><a href="/contact#form" class="btn btn-primary header-quote">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" data-menu-open class="menu-toggle" aria-label="Ouvrir le menu"><i data-lucide="menu" aria-hidden="true"></i></button></div>
+ </div>
+</header>
 
   <!-- Mobile menu -->
-  <aside class="mobile-menu fixed inset-0 z-[60] bg-ink text-white lg:hidden">
-    <div class="flex items-center justify-between p-5 border-b border-white/10">
-      <span class="font-display font-bold">Menu</span>
-      <button type="button" data-menu-close class="p-3 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Fermer le menu">
-        <i aria-hidden="true" data-lucide="x" class="w-6 h-6"></i>
-      </button>
-    </div>
-    <nav class="p-6 flex flex-col gap-1 text-2xl font-display" aria-label="Menu mobile">
-      <a href="/#services" class="py-3 border-b border-white/10">Services</a>
-      <a href="/#realisations" class="py-3 border-b border-white/10">Réalisations</a>
-      <a href="/a-propos" class="py-3 border-b border-white/10">À propos</a>
-      <a href="/#contact" class="py-3 border-b border-white/10">Contact</a>
-    </nav>
-    <div class="absolute inset-x-0 bottom-0 p-6">
-      <a href="/#contact" class="btn btn-accent w-full justify-center">Demander un devis</a>
-    </div>
-  </aside>
+  <div class="mobile-menu fixed inset-0 z-[60] bg-ink text-white lg:hidden">
+ <div class="mobile-menu-top"><span class="font-display text-xl">Rénovation Metbach</span><button type="button" data-menu-close class="menu-toggle" aria-label="Fermer le menu"><i data-lucide="x" aria-hidden="true"></i></button></div>
+ <nav class="mobile-navigation" aria-label="Menu mobile"><a href="/">Accueil</a><a href="/services">Nos métiers</a><a href="/realisations">Réalisations</a><a href="/a-propos">L’entreprise</a><a href="/preparer-travaux">Préparer mes travaux</a><a href="/contact#form">Contact & devis</a></nav>
+ <div class="mobile-menu-bottom"><a href="tel:+33769136182" class="btn btn-glass">Appeler le 07 69 13 61 82</a><a href="/contact#form" class="btn btn-accent">Demander mon devis</a></div>
+</div>
 
   <main id="main" class="pt-16 lg:pt-20">
 
@@ -162,8 +135,8 @@
             <span class="block gradient-text">l'artisan derrière Rénovation Metbach.</span>
           </h1>
           <p class="mt-6 text-lg text-muted leading-relaxed max-w-xl">
-            Une personne, un parcours et une vision claire : faire un travail dont on est fier,
-            livrer ce qu'on a promis, et bâtir une relation de confiance qui dure plus longtemps que le chantier.
+            Un interlocuteur pour préciser votre besoin, préparer le périmètre des travaux
+            et échanger sur les étapes de votre projet.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a href="/#contact" class="btn btn-primary">Discuter de votre projet <i aria-hidden="true" data-lucide="arrow-right" class="w-4 h-4"></i></a>
@@ -172,7 +145,7 @@
         </div>
         <div class="lg:col-span-5 reveal reveal-delay-1">
           <div class="relative">
-            <picture><source srcset="/assets/img/realisations/maison-renovation.webp" type="image/webp" /><img class="rounded-2xl shadow-xl w-full aspect-[4/5] object-cover"
+            <picture><source srcset="/assets/img/responsive/maison-renovation-480.webp 480w, /assets/img/responsive/maison-renovation-768.webp 768w, /assets/img/responsive/maison-renovation-1200.webp 1200w, /assets/img/realisations/maison-renovation.webp 1600w" sizes="(max-width: 1023px) calc(100vw - 48px), (max-width: 1408px) calc((100vw - 96px) / 2), 640px" type="image/webp" /><img class="rounded-2xl shadow-xl w-full aspect-[4/5] object-cover"
                  alt="Maison et travaux de rénovation"
                  src="/assets/img/realisations/maison-renovation.jpg"
                  fetchpriority="high" loading="eager" decoding="async" width="1600" height="1200" /></picture>
@@ -191,44 +164,18 @@
       </div>
     </section>
 
-    <!-- Parcours -->
+    <!-- Approche du projet -->
     <section class="py-20 lg:py-24 bg-white border-y border-line">
       <div class="max-w-7xl-plus mx-auto container-pad grid lg:grid-cols-12 gap-12 items-start">
         <div class="lg:col-span-5 reveal">
-          <p class="h-eyebrow">Mon parcours</p>
-          <h2 class="h-section font-display mt-3">
-            Plus de dix ans
-            <span class="font-serif italic">les mains dans la matière.</span>
-          </h2>
+          <p class="h-eyebrow">Notre approche</p>
+          <h2 class="h-section font-display mt-3">Comprendre votre maison.<br><span class="font-serif italic">Préciser vos travaux.</span></h2>
         </div>
         <div class="lg:col-span-7 space-y-6 text-lg leading-relaxed text-ink reveal reveal-delay-1">
-          <p>
-            J'ai commencé jeune, sur les chantiers, en apprenant chaque corps de métier auprès
-            d'artisans qui m'ont transmis leur exigence. Le <a href="/services/bardage" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">bardage</a>,
-            les <a href="/services/fondations" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">fondations</a>,
-            les <a href="/services/revetement-sol" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">sols</a>,
-            l'<a href="/services/amenagement-paysager" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">aménagement paysager</a>,
-            l'<a href="/services/arboriculture" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">arboriculture</a> —
-            j'ai voulu comprendre chaque étape pour mieux servir mes clients par la suite.
-          </p>
-          <p>
-            Rénovation Metbach est née de ce constat : la plupart des gens jonglent entre
-            trois ou quatre prestataires pour un seul projet, perdent du temps, paient des
-            marges multiples, et finissent par accepter des compromis qu'ils n'auraient
-            jamais validés s'ils avaient eu un seul interlocuteur. Mon offre, c'est cette
-            simplification : <a href="/services" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">un artisan, plusieurs métiers</a>, une seule responsabilité.
-          </p>
-          <p>
-            Aujourd'hui, j'interviens sur l'ensemble de la Haute-Savoie — de
-            <a href="/villes/thonon-les-bains" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">Thonon-les-Bains</a> à
-            <a href="/villes/evian-les-bains" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">Évian</a> en passant par
-            <a href="/villes/annemasse" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">Annemasse</a> et
-            <a href="/villes/douvaine" class="text-accent-dark underline decoration-accent-soft underline-offset-2 hover:text-ink">Douvaine</a> —
-            pour des particuliers comme pour des professionnels (restaurants, gîtes, copropriétés, petites entreprises locales).
-          </p>
-          <p class="text-sm text-muted mt-2">
-            <em>Le siège administratif de l'entreprise est à Talence (Gironde), mais l'atelier et la zone d'intervention sont en Haute-Savoie.</em>
-          </p>
+          <p>La <a href="/services/couverture" class="text-accent-dark underline underline-offset-2">couverture</a>, la <a href="/services/maconnerie" class="text-accent-dark underline underline-offset-2">maçonnerie</a> et l’<a href="/services/isolation-exterieure" class="text-accent-dark underline underline-offset-2">isolation extérieure</a> sont au cœur de l’activité présentée par Rénovation Metbach.</p>
+          <p>Le premier échange sert à comprendre votre objectif, la commune du chantier et les informations déjà disponibles. Les dimensions, l’état des supports et les accès permettent ensuite de préciser ce qui doit être vérifié sur place.</p>
+          <p>Le devis décrit les prestations retenues, les fournitures et les conditions d’intervention. Les points qui nécessitent une étude ou une confirmation sont examinés avant de fixer le périmètre définitif.</p>
+          <p>Pour préparer cet échange, le <a href="/preparer-travaux" class="text-accent-dark underline underline-offset-2">carnet de préparation des travaux</a> rassemble les photos, mesures et questions utiles.</p>
         </div>
       </div>
     </section>
@@ -248,7 +195,7 @@
               <i aria-hidden="true" data-lucide="handshake" class="w-6 h-6"></i>
             </div>
             <h3 class="font-display font-bold text-xl mb-2">La parole donnée</h3>
-            <p class="text-muted leading-relaxed">Ce qu'on dit, on le fait. Délai annoncé = délai tenu. Devis transparent = aucun surcoût caché. C'est la base.</p>
+            <p class="text-muted leading-relaxed">Préciser les prestations, convenir des étapes et vous informer lorsqu’un point du chantier demande un ajustement.</p>
           </article>
           <article class="bg-white border border-line rounded-2xl p-7 reveal reveal-delay-1">
             <div class="w-12 h-12 rounded-xl bg-accent-soft text-accent-dark grid place-items-center mb-4">
@@ -279,23 +226,23 @@
             <span class="font-serif italic text-accent-soft">à quoi vous attendre.</span>
           </h2>
           <p class="text-white/70 mt-5 text-lg leading-relaxed">
-            Quand on travaille ensemble, voici ce que je vous garantis — et sur quoi vous
-            pouvez me tenir responsable.
+            Avant de commencer, nous clarifions les prestations, les documents utiles
+            et l’organisation de votre chantier.
           </p>
         </div>
         <ul class="lg:col-span-6 space-y-4 reveal reveal-delay-1">
           <li class="flex gap-4">
             <div class="w-10 h-10 rounded-lg bg-accent text-white grid place-items-center shrink-0"><i aria-hidden="true" data-lucide="badge-check" class="w-5 h-5"></i></div>
             <div>
-              <h3 class="font-display font-semibold text-lg">Visite et devis gratuits sous 48 h</h3>
+              <h3 class="font-display font-semibold text-lg">Une visite pour préparer votre devis</h3>
               <p class="text-white/65 text-sm leading-relaxed">Pas d'engagement, pas de frais d'étude facturés en douce.</p>
             </div>
           </li>
           <li class="flex gap-4">
             <div class="w-10 h-10 rounded-lg bg-accent text-white grid place-items-center shrink-0"><i aria-hidden="true" data-lucide="shield-check" class="w-5 h-5"></i></div>
             <div>
-              <h3 class="font-display font-semibold text-lg">Garantie décennale & RC pro</h3>
-              <p class="text-white/65 text-sm leading-relaxed">Tous les travaux concernés sont couverts. Attestations fournies sur simple demande.</p>
+              <h3 class="font-display font-semibold text-lg">Assurances à vérifier</h3>
+              <p class="text-white/65 text-sm leading-relaxed">Avant tout engagement, demandez les attestations et vérifiez qu’elles correspondent aux activités prévues et à la période du chantier.</p>
             </div>
           </li>
           <li class="flex gap-4">
@@ -343,7 +290,7 @@
           </a>
           <div class="bg-ink text-white rounded-2xl p-6">
             <i aria-hidden="true" data-lucide="clock" class="w-7 h-7 text-accent-soft mb-3"></i>
-            <p class="text-xs uppercase tracking-wider text-white/50">Horaires</p>
+            <p class="text-xs uppercase tracking-wider text-white/80">Horaires</p>
             <p class="font-display font-bold text-base mt-1">Lun – Sam · 8h – 20h</p>
           </div>
         </div>
@@ -370,78 +317,14 @@
   </main>
 
   <!-- ============== FOOTER ============== -->
-  <footer class="bg-ink text-white pt-16 pb-8">
-    <div class="max-w-7xl-plus mx-auto container-pad">
-      <div class="grid lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
-        <div class="lg:col-span-5">
-          <a href="/" class="inline-flex items-baseline gap-2 font-display font-bold leading-none mb-4">
-            <span class="text-accent-soft uppercase text-[10px] tracking-[0.25em]">Rénovation</span>
-            <span class="text-white text-2xl tracking-tight">Metbach</span>
-          </a>
-          <p class="text-white/65 max-w-sm leading-relaxed">
-            L'artisan tout corps d'état de Haute-Savoie. Bardage, sols, fondations,
-            paysager, clôtures, arboriculture, petits travaux — un seul interlocuteur.
-          </p>
-          <div class="mt-6 flex gap-2">
-            <a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener" class="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-accent transition-colors" aria-label="Google Maps">
-              <i aria-hidden="true" data-lucide="map-pin" class="w-4 h-4"></i>
-            </a>
-            <a href="tel:+33769136182" class="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-accent transition-colors" aria-label="Téléphone">
-              <i aria-hidden="true" data-lucide="phone" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="lg:col-span-3">
-          <h2 class="font-display font-semibold mb-4 text-base">Services</h2>
-          <ul class="space-y-2 text-white/65">
-            <li><a class="hover:text-accent-soft transition-colors" href="/services/bardage">Bardage</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/services/couverture">Couverture</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/services/petits-travaux">Petits travaux</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/services/revetement-sol">Revêtement de sol</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/services/fondations">Fondations</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/services/amenagement-paysager">Aménagement paysager</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/services/clotures">Clôtures</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/services/arboriculture">Arboriculture</a></li>
-          </ul>
-        </div>
-
-        <div class="lg:col-span-2">
-          <h2 class="font-display font-semibold mb-4 text-base">Navigation</h2>
-          <ul class="space-y-2 text-white/65">
-            <li><a class="hover:text-accent-soft transition-colors" href="/a-propos">À propos</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/realisations">Réalisations</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/#avis">Avis</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/#faq">FAQ</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/glossaire">Glossaire</a></li>
-            <li><a class="hover:text-accent-soft transition-colors" href="/#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="lg:col-span-2">
-          <h2 class="font-display font-semibold mb-4 text-base">Contact</h2>
-          <ul class="space-y-2 text-white/65">
-            <li><a class="hover:text-accent-soft transition-colors" href="tel:+33769136182">07 69 13 61 82</a></li>
-            <li>Haute-Savoie · France</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
-        <p>&copy; <span data-year>2026</span> Rénovation Metbach. Tous droits réservés.</p>
-        <nav class="flex flex-wrap gap-x-5 gap-y-2 items-center">
-          <a href="/mentions-legales" class="hover:text-accent-soft">Mentions légales</a>
-          <a href="/politique-confidentialite" class="hover:text-accent-soft">Confidentialité</a>
-          <span class="hidden sm:inline text-white/30">·</span>
-          <span class="flex items-center gap-2">
-            <span>Site conçu avec</span>
-            <i aria-hidden="true" data-lucide="heart" class="w-4 h-4 text-accent"></i>
-            <span>par Celexia</span>
-          </span>
-        </nav>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="editorial-container">
+ <div class="footer-top"><div><p class="eyebrow light">Rénovation Metbach · Haute-Savoie</p><p class="footer-statement">Le soin du détail.<br><em>La solidité du résultat.</em></p></div><a href="/contact#form" class="btn btn-accent">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+ <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a></div>
+ <div><h2>Nos métiers</h2><a href="/services/couverture">Couverture & toiture</a><a href="/services/maconnerie">Maçonnerie</a><a href="/services/isolation-exterieure">Isolation extérieure</a><a href="/services/bardage">Bardage & façades</a><a href="/services">Tous les services</a></div>
+ <div><h2>Votre projet</h2><a href="/realisations">Réalisations</a><a href="/preparer-travaux">Préparer ses travaux</a><a href="/a-propos">L’entreprise</a><a href="/glossaire">Glossaire</a><a href="/contact">Contact & devis</a></div>
+ <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
+ <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
+</div></footer>
 
   <script>
     window.addEventListener('DOMContentLoaded', () => {
@@ -449,5 +332,5 @@
     });
   </script>
   <script src="/js/script.js"></script>
-</body>
+<nav class="mobile-contact-bar" aria-label="Contact rapide"><a href="tel:+33769136182"><i data-lucide="phone" aria-hidden="true"></i> Appeler</a><a href="/contact#form">Mon devis gratuit <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></nav></body>
 </html>

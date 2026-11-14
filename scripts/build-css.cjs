@@ -60,18 +60,32 @@ async function main() {
   await fs.mkdir('assets/css', { recursive: true });
   await fs.mkdir('assets/js', { recursive: true });
 
+  // One minified stylesheet avoids four render-blocking requests. Fonts keep
+  // absolute local URLs so this bundle does not change their origin or license.
+  const [fonts, components, editorial] = await Promise.all([
+    fs.readFile('assets/css/fonts.css', 'utf8'),
+    fs.readFile('css/styles.css', 'utf8'),
+    fs.readFile('css/editorial.css', 'utf8'),
+  ]);
+  const cssInput = `${fonts}\n@tailwind base;\n@tailwind components;\n@tailwind utilities;\n${components}\n${editorial}`;
+
   const result = spawnSync(process.execPath, [
     require.resolve('tailwindcss/lib/cli.js'),
     '--config', 'tailwind.config.cjs',
-    '--output', 'assets/css/tailwind.css',
+    '--input', '-',
+    '--output', 'assets/css/site.css',
     '--minify',
-  ], { stdio: ['pipe', 'inherit', 'inherit'], input: '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n' });
+  ], { stdio: ['pipe', 'inherit', 'inherit'], input: cssInput });
   if (result.error) throw result.error;
   if (result.status !== 0) process.exit(result.status || 1);
+  const compiledCSS = await fs.readFile('assets/css/site.css', 'utf8');
+  if (!compiledCSS.includes('.editorial-container') || !compiledCSS.includes('@font-face')) {
+    throw new Error('The CSS bundle is missing the site theme or local fonts.');
+  }
 
   const lucideRoot = path.dirname(require.resolve('lucide/package.json'));
   await buildIcons(root, lucideRoot);
-  console.log('Assets built: assets/css/tailwind.css, assets/js/lucide.min.js');
+  console.log('Assets built: assets/css/site.css, assets/js/lucide.min.js');
 }
 
 main().catch(error => {

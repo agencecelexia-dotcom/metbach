@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        page: '#F7F4EE', ink: '#0E1318', 'ink-2': '#1B2A3A',
-        accent: '#B8602A', 'accent-dark': '#8A4520', 'accent-soft': '#F3DEC8',
-        forest: '#2D5F3F', line: '#E7E1D5', muted: '#5B6677',
+        page: '#F7F5F0', ink: '#163C34', 'ink-2': '#21483F',
+        accent: '#A84D2C', 'accent-dark': '#8D3F23', 'accent-soft': '#EFE2D2',
+        forest: '#345D48', line: '#DDDCD2', muted: '#5E6862',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

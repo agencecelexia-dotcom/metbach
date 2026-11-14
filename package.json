@@ -6,7 +6,9 @@
   "scripts": {
     "build": "node scripts/build-css.cjs && node scripts/build-site.cjs",
     "check:seo": "python3 scripts/check-seo.py",
-    "preview": "python3 scripts/preview.py"
+    "preview": "python3 scripts/preview.py",
+    "check:contact": "node scripts/check-contact.mjs",
+    "images:apply": "python3 scripts/apply-responsive-images.py"
   },
   "devDependencies": {
     "@tailwindcss/forms": "0.5.10",

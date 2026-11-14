@@ -1,120 +1,109 @@
 # Rénovation Metbach
 
-Site de rénovation à Publier, en Haute-Savoie, sur **https://www.renovationmetbach.fr/**.
-HTML statique, CSS et JavaScript natif. Huit métiers : couverture, bardage, petits travaux,
-revêtement de sol, fondations, aménagement paysager, clôtures et arboriculture.
+Site statique de **https://www.renovationmetbach.fr/** : couverture, maçonnerie et isolation
+extérieure en Haute-Savoie, avec des prestations complémentaires de rénovation et d’aménagement.
+HTML rendu directement, CSS compilé, JavaScript natif et formulaire Vercel → n8n.
 
-## Développement et déploiement
+## Développer et contrôler
 
 ```sh
 npm ci
 npm run build
 npm run check:seo
+npm run check:contact
 npm run preview
 ```
 
-Aperçu : http://127.0.0.1:8000. Le serveur reproduit les URL sans extension et renvoie une
-vraie réponse 404 pour une page absente. Il ne traite pas les formulaires de contact.
+Aperçu : http://127.0.0.1:8000. Le serveur reproduit les URL sans extension, la compression
+gzip, la politique CSP et les réponses 404. Il ne traite pas les formulaires. Les tests de
+contact exécutent le vrai code client/API avec des doublures réseau ; ils n’envoient aucun prospect.
 
-`npm run build` compile Tailwind 3, limite Lucide aux icônes utilisées et exporte uniquement
-les fichiers publics dans `dist/`. Les ressources générées sont aussi conservées dans
-`assets/`. Recompiler après un changement de classes HTML ou d’icônes. Les dépendances de
-construction sont verrouillées dans `package-lock.json` ; aucun compilateur CSS ne tourne
-chez le visiteur. Les polices sont servies localement avec `font-display: swap`.
+Le build produit une seule feuille minifiée `assets/css/site.css` à partir des polices locales,
+de Tailwind 3, de `css/styles.css` et de `css/editorial.css`. Il limite Lucide aux icônes utilisées,
+puis exporte les seules ressources publiques dans `dist/`. Recompiler après un changement de
+HTML, d’icône, de CSS ou de JavaScript. Dépendances verrouillées dans `package-lock.json`.
+Les anciens fichiers CSS restent disponibles pour les pages éventuellement encore en cache.
 
-Vercel est configuré dans `vercel.json` : `framework: null`, commande `npm run build`, sortie
-`dist`, `cleanUrls: true`, sans slash final. L’API existante `api/contact.js` reste une fonction
-Vercel distincte, avec ses variables d’environnement décrites dans `api/README.md`. Ne pas
-copier les fichiers `.env` ou le dossier `api` dans les ressources statiques. Un hébergement
-purement statique de `dist` nécessite un backend équivalent pour que le formulaire fonctionne.
+## Images responsives
 
-Le domaine sans `www` redirige déjà vers `www` sur le site public (HTTP 308 observé le
-14 novembre 2026). Conserver ce réglage de domaine dans Vercel. Les anciennes URL `.html`
-sont prises en charge par `cleanUrls`, les variantes `/index` par les redirections explicites.
+Les photos existantes sont conservées, sans agrandissement ni recadrage des sources. Les variantes
+WebP et AVIF sont versionnées dans `assets/img/responsive/`, avec un manifeste de dimensions, tailles et
+empreintes. Génération facultative avec Pillow : voir [la documentation](scripts/build-images.README.md).
 
-## Améliorations SEO du 14 novembre 2026
+```sh
+python3 scripts/build-images.py
+python3 scripts/build-images.py --avif-hero
+npm run images:apply
+npm run build
+```
 
-- Titres, descriptions, H1 et métadonnées de partage cohérents ; une URL canonique par page.
-- Tous les liens internes utilisent directement les URL sans extension. Couverture ajoutée
-  au catalogue et aux menus de services ; réalisations de toiture reliées à la couverture.
-- Une seule entreprise identifiée par `https://www.renovationmetbach.fr/#business`. Les villes
-  sont des zones desservies, pas des établissements. Les demandes suisses sont présentées
-  comme soumises à étude depuis Publier.
-- Graphes JSON-LD `WebPage`, `Service`, `BreadcrumbList`, catalogue et galerie adaptés aux
-  pages. Suppression des `Article` et `HowTo` inappropriés et des notes agrégées sur sa propre
-  entreprise. Les FAQ décrivent exactement les questions/réponses visibles.
-- Contenu utile propre aux huit métiers et aux neuf villes existantes : préparation du
-  devis, contraintes et liens pertinents. Pas de génération massive de pages locales.
-- Retrait des statistiques, témoignages, économies et temps de trajet non étayés ; lien
-  direct vers la fiche Google pour consulter les avis actuels.
-- Sitemap de 23 pages indexables avec une date réelle de modification ; pages légales, confidentialité, `/merci` et `/404`
-  exclues et marquées `noindex` (exclusion administrative préexistante conservée). `robots.txt` autorise les pages et ressources ; `/api/` exclu.
-- `llms.txt` factuel pour les lecteurs qui l’utilisent, sans garantie de citation IA.
-- CSS compilé, icônes locales limitées aux besoins, polices locales, dimensions d’images
-  réelles et contenu visible sans JavaScript. Cache revalidé pour le CSS/JS sans nom haché.
-- Page 404 dédiée, ancrages robustes, menu mobile avec gestion du focus, animations réduites.
+`images:apply` met à jour `srcset`, `sizes` et les dimensions des photos dans les pages publiques.
+Les petites sources ne sont pas artificiellement agrandies. L’illustration ITE est un schéma CSS
+explicitement légendé ; aucun chantier, date, avis ou certification n’est inventé.
 
-## Contrôles et limites
+## Version éditoriale du 14 novembre 2026
 
-`npm run check:seo` vérifie les 27 pages : titres/descriptions uniques, H1, langue, balises
-canoniques et sociales, directives robots, liens/ancres/assets, JSON-LD, références d’entités,
-FAQ visibles et sitemap. Les 23 pages indexables sont accessibles à deux clics maximum de
-l’accueil. Ce contrôle ne prouve pas que Google les a indexées.
+- Identité visuelle partagée sur toutes les pages : pierre, vert profond, typographie et grandes photos.
+- Accueil recentré sur couverture, maçonnerie et ITE ; pages dédiées aux deux nouveaux métiers.
+- Navigation mobile accessible, actions Appeler/Devis persistantes, formulaires FR/CH et email facultatif.
+- Préselection d’un métier depuis les liens `/contact?service=maconnerie#form` et équivalents autorisés.
+- Une demande est confirmée seulement après une réponse API contenant `ok: true` ; protection contre
+  les doubles envois et messages d’erreur en français.
+- Guide `/preparer-travaux` : 18 points de préparation, trois situations types illustratives,
+  impression et téléchargement texte, sans inscription ni stockage navigateur.
+- Galerie simplifiée, images adaptées à la largeur, labels de formulaires et contrastes revus.
+- Promesses de délai harmonisées : réponse sous 48 h ouvrées, délai du devis précisé après échange.
+- Prix non justifiés remplacés par les facteurs de budget propres aux prestations. Les exemples
+  illustratifs ne servent pas de preuves de réalisations.
 
-La compilation et la vérification syntaxique du JavaScript ont été exécutées.
-`python3 scripts/check-http.py --base http://127.0.0.1:8000` contrôle les URL de
-l’aperçu. Après publication, `python3 scripts/check-http.py` vérifie le site public. L’accueil et
-la navigation vers la couverture ont été inspectés dans Chrome. Le contrôle visuel mobile
-n’a pas pu être terminé en raison d’une interruption de l’outil navigateur ; le menu a pu
-être ouvert pendant l’inspection. Faire un contrôle mobile final avant publication.
+## SEO et structure
 
-Aucun formulaire réel n’a été envoyé. Les Core Web Vitals terrain, les positions et le
-trafic n’ont pas été mesurés. Les améliorations présentes dans ce dossier ne sont pas une
-preuve de déploiement : vérifier la version Vercel publiée avant de soumettre le sitemap.
+30 pages publiques, dont **26 indexables** dans le sitemap. Métadonnées uniques, canoniques HTTPS
+avec `www`, liens internes sans extension, une seule entité d’entreprise `#business`, schémas
+WebPage/Service/Breadcrumb/FAQ cohérents avec le texte. Aucun avis agrégé sur sa propre entreprise.
+Les pages légales, `/merci` et `/404` sont `noindex`. Une URL inexistante renvoie HTTP 404.
 
-## Recherche utilisée
+`npm run check:seo` contrôle les titres, descriptions, H1, langue, canoniques, liens, ancres,
+ressources, JSON-LD, entités, FAQ visibles et sitemap. Il ne prouve pas l’indexation dans Google.
+`python3 scripts/check-http.py --base http://127.0.0.1:8000` contrôle l’aperçu ; sans `--base`,
+la commande contrôle la production en lecture seule.
 
-Les grilles des projets demandés ont été lues et appliquées au code. Aucun score provenant
-d’un moteur qui n’a pas tourné n’est présenté.
+## Formulaire et mesure
 
-| Ressource | Usage et état |
-|---|---|
-| [Claude SEO](https://github.com/AgriciDaniel/claude-seo) | Audit technique, local, contenu et schémas ; critères appliqués et contrôle local reproductible. |
-| [OpenSEO](https://github.com/every-app/open-seo) | Méthode d’audit par familles de pages et priorité aux données Search Console. Connexion proposée, pas encore confirmée. |
-| [Search Console MCP](https://mcpsearchconsole.com/mcp) | Endpoint fourni à connecter avec OAuth Google ; aucun accès aux données de la propriété dans cette session. |
-| [GEO Optimizer](https://github.com/Auriti-Labs/geo-optimizer-skill) | Cohérence d’entité, HTML accessible et `llms.txt` factuel. CLI `geo` absente, aucun score GEO exécuté. |
+Voir [api/README.md](api/README.md). L’URL et le secret du webhook restent côté serveur, dans les
+variables Vercel. Aucun `.env`, export n8n, dossier d’audit ou fichier privé n’entre dans `dist/`.
 
-Références de contrôle : [règles des données structurées Google](https://developers.google.com/search/docs/appearance/structured-data/sd-policies),
-[avis sur sa propre entreprise](https://developers.google.com/search/docs/appearance/structured-data/review-snippet),
-[fonctionnalités IA et SEO](https://developers.google.com/search/docs/appearance/ai-features),
-[sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
-Une FAQ utile ne garantit pas un résultat enrichi. `llms.txt` ne remplace ni l’exploration,
-ni l’indexation, ni les preuves d’expertise.
+La demande consentie inclut une attribution limitée lorsqu’elle est disponible : chemin du formulaire,
+origine du site référent et paramètres `utm_source`, `utm_medium`, `utm_campaign` filtrés. Aucun
+historique inter-pages, cookie ou stockage navigateur n’est utilisé. Les hooks `form_submitted`
+et `tel_click` appellent un collecteur seulement s’il existe déjà ; ils n’installent pas d’analytics.
+Le modèle d’email n8n doit être adapté séparément si cette attribution doit apparaître dans les notifications.
+Un clic téléphonique n’est pas assimilé à un appel abouti, ni une demande reçue à un chantier signé.
 
-## Suite avec Search Console et l’entreprise
+## Publication
 
-1. Connecter la propriété exacte `sc-domain:renovationmetbach.fr` (ou son équivalent préfixe
-   `https://www.renovationmetbach.fr/`) via OAuth ; commencer par un accès en lecture seule.
-   Ne pas coller de jeton Google dans les fichiers du site.
-2. Lire les performances sur 90 jours, par page et requête, puis comparer les 28 derniers
-   jours aux 28 précédents. Séparer les requêtes de marque des recherches de prestations.
-   Prioriser les pages déjà vues par Google ; ne pas inventer de volumes de recherche.
-3. Après déploiement, inspecter accueil, services, couverture, Publier et contact : HTTP 200,
-   canonical sélectionné, indexabilité, mobile. Vérifier une URL inexistante en 404 et la
-   redirection du formulaire vers `/merci` sans envoyer de faux prospect.
-4. Soumettre `https://www.renovationmetbach.fr/sitemap.xml` dans Search Console et examiner
-   les motifs d’exclusion. L’écriture via MCP exige les permissions correspondantes ; la
-   confirmation d’accès au compte n’est pas une preuve de connexion du connecteur.
-5. Faire confirmer par l’entreprise les assurances (assureur, police, métiers couverts),
-   l’adresse opérationnelle publique, les horaires, les prestations et tarifs indicatifs,
-   la provenance/autorisation des photos et les données légales. Les coordonnées reprises
-   proviennent du site existant ; aucun justificatif d’assurance n’était fourni.
-6. Vérifier la fiche Google Business Profile : identité/téléphone/site identiques, base réelle,
-   zones desservies et services. Ajouter des photos de chantiers documentés et recueillir des
-   avis authentiques, sans inventer des agences ni des témoignages.
-7. Documenter les prochains chantiers réels : ville, problème, travaux, matériaux, photos
-   autorisées, date et contraintes. Enrichir les pages existantes avant d’ouvrir de nouvelles
-   pages de ville. Suivre demandes de devis et appels avec un outil de mesure choisi, puis
-   réévaluer impressions, clics et conversions après recrawl ; aucun gain n’est garanti.
+Vercel : `framework: null`, commande `npm run build`, sortie `dist`, `cleanUrls: true`, sans
+slash final. L’API `api/contact.js` reste une fonction Vercel distincte. Les variables d’environnement
+existantes doivent être conservées. Un hébergement purement statique ne traite pas le formulaire.
 
-Le code du site reste distinct des accès Search Console, Google Business Profile et Vercel.
+Après publication : vérifier les 26 URL, les nouvelles pages, les assets, `/merci` et une vraie 404.
+Le parcours de formulaire a été testé par interception locale de l’API, sans envoi réel de notification.
+Les mesures Lighthouse sont des essais de laboratoire ; elles ne remplacent pas les Core Web Vitals terrain.
+
+## Travail externe restant
+
+Le dossier local `renovationmetbach.fr-audit/` contient l’audit initial, le bilan d’implémentation,
+les mesures et une stratégie de backlinks : 37 prospects documentés, un plan sur 90 jours et des messages
+préparés. Aucune inscription, prise de contact, affiliation ou acquisition de lien n’est présumée.
+Les rapports et leurs captures ne sont pas publiés dans les ressources du site.
+
+Search Console et Google Business Profile nécessitent l’accès authentifié à la propriété exacte.
+À vérifier dans ces comptes : indexation réelle, sitemap, requêtes FR/CH, pages d’entrée, liens et
+coordonnées locales. Les assurances, qualifications, affiliations, références de chantiers et
+informations métier doivent être confirmées par l’entreprise ; aucun statut RGE n’est annoncé.
+
+Méthodes utilisées : [Claude SEO](https://github.com/AgriciDaniel/claude-seo),
+[OpenSEO](https://github.com/every-app/open-seo), [Search Console MCP](https://mcpsearchconsole.com/mcp)
+et [GEO Optimizer](https://github.com/Auriti-Labs/geo-optimizer-skill). Aucune donnée Google authentifiée
+ni mesure de visibilité IA n’a été obtenue via ces connecteurs. Les recommandations ont été confrontées
+aux documents officiels actuels et aux contrôles du site réel.
