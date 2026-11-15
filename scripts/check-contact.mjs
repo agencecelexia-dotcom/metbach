@@ -38,16 +38,20 @@ async function request(body, options = {}) {
   return response;
 }
 
-function browser({ search = '', phone = '06 12 34 56 78', referrer = 'https://www.google.com/search?q=private', fetchResult } = {}) {
-  const formEvents = {}, phoneEvents = {}, linkEvents = {};
+function browser({ search = '', phone = '06 12 34 56 78', cityValue = '', serviceValue = '', referrer = 'https://www.google.com/search?q=private', fetchResult } = {}) {
+  const formEvents = {}, phoneEvents = {}, linkEvents = {}, serviceEvents = {};
   const calls = [], events = [];
   const phoneField = {
     value: phone, error: '',
     addEventListener(name, callback) { phoneEvents[name] = callback; },
     setCustomValidity(message) { this.error = message; },
   };
-  const services = ['Couverture', 'Bardage', 'Maçonnerie', 'Isolation thermique extérieure (ITE)'];
-  const service = { value: '', options: services.map(value => ({ value })) };
+  const services = ['Couverture', 'Bardage', 'Maçonnerie', 'Isolation thermique extérieure (ITE)', 'Petits travaux'];
+  const service = { value: serviceValue, options: services.map(value => ({ value })),
+    addEventListener(name, callback) { serviceEvents[name] = callback; } };
+  const cityField = { value: cityValue };
+  const messageField = { value: 'Demande de test locale sans aucun appel réel.', placeholder: 'Votre projet' };
+  const messageHelp = { textContent: '20 à 2 000 caractères.' };
   const submit = { disabled: false, style: {} };
   const honeypot = { value: '' };
   const note = { textContent: '', classList: { add() {} }, setAttribute() {} };
@@ -55,6 +59,7 @@ function browser({ search = '', phone = '06 12 34 56 78', referrer = 'https://ww
     busy: false, reported: false,
     querySelector(selector) {
       return { '[name="tel"]': phoneField, '[name="service"]': service,
+        '[name="city"]': cityField, '[name="message"]': messageField,
         'button[type="submit"]': submit, '[name="website"]': honeypot,
         '#rgpd:checked': {} }[selector] || null;
     },
@@ -69,6 +74,7 @@ function browser({ search = '', phone = '06 12 34 56 78', referrer = 'https://ww
   };
   const document = {
     referrer, documentElement: { clientHeight: 667 }, addEventListener() {},
+    getElementById(id) { return id === 'message-help' ? messageHelp : null; },
     querySelector(selector) { return { '#contact-form': form, '#form-note': note }[selector] || null; },
     querySelectorAll(selector) {
       return selector === 'a[href^="tel:"]' ? [{ addEventListener(name, callback) { linkEvents[name] = callback; } }] : [];
@@ -77,8 +83,8 @@ function browser({ search = '', phone = '06 12 34 56 78', referrer = 'https://ww
   const context = { window, document, location, URL, URLSearchParams, setTimeout() {}, console: { error() {} },
     FormData: class {
       get(key) { return { nom: 'Test local', tel: phoneField.value, email: 'test@example.invalid',
-        service: service.value || 'Couverture', city: 'Publier',
-        message: 'Demande de test locale sans aucun appel réel.', website: honeypot.value, rgpd: 'on' }[key]; }
+        service: service.value || 'Couverture', city: cityField.value,
+        message: messageField.value, website: honeypot.value, rgpd: 'on' }[key]; }
     },
     fetch: async (url, options) => {
       assert.equal(url, '/api/contact');
@@ -87,7 +93,7 @@ function browser({ search = '', phone = '06 12 34 56 78', referrer = 'https://ww
     },
   };
   vm.runInNewContext(browserSource, context, { filename: 'js/script.js' });
-  return { calls, events, form, phoneField, phoneEvents, service, submit, honeypot, note, location,
+  return { calls, events, form, phoneField, phoneEvents, service, serviceEvents, cityField, messageField, messageHelp, submit, honeypot, note, location,
     send: () => formEvents.submit({ preventDefault() {} }),
     call: () => linkEvents.click(),
   };
@@ -155,6 +161,12 @@ await request({ ...valid(), attribution: {
   utm_source: 'private@example.invalid', utm_medium: 'https://private.invalid', utm_campaign: 'phone_0612345678',
 } });
 assert.deepEqual(forwarded.at(-1).attribution, {});
+await request({ ...valid(), attribution: { source_page: '/services/nettoyage-toiture' } });
+assert.deepEqual(forwarded.at(-1).attribution, { source_page: '/services/nettoyage-toiture' });
+for (const source_page of ['/services/private@example.invalid', '/villes/publier?email=private', '/contact', '/unknown', 'https://private.invalid']) {
+  await request({ ...valid(), attribution: { source_page } });
+  assert.deepEqual(forwarded.at(-1).attribution, {}, 'only known public source paths are forwarded');
+}
 
 const originalConsoleError = console.error;
 console.error = () => {};
@@ -179,6 +191,37 @@ assert.deepEqual(Object.keys(attributed.events[1]), ['event', 'page']);
 assert.equal(browser({ search: '?service=maconnerie' }).service.value, 'Maçonnerie');
 assert.equal(browser({ search: '?service=__proto__' }).service.value, '');
 assert.equal(browser({ search: '?service=%3Cscript%3E' }).service.value, '');
+const localProject = browser({
+  search: '?service=maconnerie&city=evian-les-bains',
+  referrer: 'https://www.renovationmetbach.fr/villes/evian-les-bains?private=value#section',
+});
+assert.equal(localProject.cityField.value, 'Évian-les-Bains');
+assert.match(localProject.messageHelp.textContent, /ouvrage à créer/);
+await localProject.send();
+assert.equal(localProject.calls[0].city, 'Évian-les-Bains');
+assert.equal(localProject.calls[0].work_type, 'Maçonnerie');
+assert.deepEqual(JSON.parse(JSON.stringify(localProject.calls[0].attribution)), { page: '/contact', source_page: '/villes/evian-les-bains' });
+const existingValues = browser({ search: '?service=couverture&city=publier', cityValue: 'Autre commune', serviceValue: 'Maçonnerie' });
+assert.equal(existingValues.cityField.value, 'Autre commune', 'do not overwrite visitor/autofill city');
+assert.equal(existingValues.service.value, 'Maçonnerie', 'do not overwrite visitor/autofill service');
+for (const city of ['__proto__', 'constructor', '%3Cscript%3E', 'private@example.invalid']) {
+  assert.equal(browser({ search: `?city=${city}` }).cityField.value, '', 'ignore unknown city parameters');
+}
+const cleaning = browser({ search: '?service=couverture&project=nettoyage-toiture&city=publier' });
+assert.match(cleaning.messageHelp.textContent, /Pour le nettoyage/);
+assert.equal(cleaning.cityField.value, 'Publier / Amphion-les-Bains');
+assert.equal(cleaning.messageField.value, 'Demande de test locale sans aucun appel réel.', 'hints never change the visitor message');
+cleaning.service.value = 'Maçonnerie';
+cleaning.serviceEvents.change();
+assert.match(cleaning.messageHelp.textContent, /ouvrage à créer/);
+assert.doesNotMatch(cleaning.messageHelp.textContent, /nettoyage/);
+cleaning.service.value = 'Petits travaux';
+cleaning.serviceEvents.change();
+assert.equal(cleaning.messageField.placeholder, 'Votre projet');
+assert.equal(cleaning.messageHelp.textContent, '20 à 2 000 caractères.');
+const unknownReferrer = browser({ referrer: 'https://www.renovationmetbach.fr/private/customer-name' });
+await unknownReferrer.send();
+assert.deepEqual(JSON.parse(JSON.stringify(unknownReferrer.calls[0].attribution)), { page: '/contact' });
 
 for (const fetchResult of [
   async () => ({ ok: true, status: 200, json: async () => ({}) }),
@@ -204,4 +247,4 @@ bot.honeypot.value = 'bot.invalid';
 await bot.send();
 assert.equal(bot.calls.length, 0);
 assert.equal(bot.events.length, 0);
-console.log('Contact checks passed: FR/CH/international, validation, attribution filtering, service preselection, confirmed conversions, anti-spam and failures. No network calls.');
+console.log('Contact checks passed: FR/CH/international, validation, attribution filtering, city/service preselection, project hints, confirmed conversions, anti-spam and failures. No network calls.');

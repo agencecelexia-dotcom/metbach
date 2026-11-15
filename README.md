@@ -42,12 +42,16 @@ Les petites sources ne sont pas artificiellement agrandies. Le visuel ITE est un
 pas un chantier réalisé. Source et prompt : [design/ite-image.json](design/ite-image.json).
 Ses variantes se régénèrent avec `python3 scripts/build-ite-image.py` (Pillow 11.3+).
 
-## Version éditoriale du 14 novembre 2026
+## Version éditoriale du 15 novembre 2026
 
 - Identité visuelle partagée sur toutes les pages : pierre, vert profond, typographie et grandes photos.
 - Accueil recentré sur couverture, maçonnerie et ITE ; pages dédiées aux deux nouveaux métiers.
 - Navigation mobile accessible, actions Appeler/Devis persistantes, formulaires FR/CH et email facultatif.
-- Préselection d’un métier depuis les liens `/contact?service=maconnerie#form` et équivalents autorisés.
+- Préselection du métier et de la commune depuis les liens autorisés, par exemple
+  `/contact?service=maconnerie&city=publier#form`, sans écraser les valeurs déjà saisies.
+- Pages Publier, Thonon et Évian recentrées sur les trois métiers ; page dédiée au nettoyage
+  de toiture reliée à la couverture, au catalogue et aux trois pages locales.
+- Conseils de description adaptés au métier et au nettoyage, sans préremplir le message du visiteur.
 - Une demande est confirmée seulement après une réponse API contenant `ok: true` ; protection contre
   les doubles envois et messages d’erreur en français.
 - Guide `/preparer-travaux` : 18 points de préparation, trois situations types illustratives,
@@ -59,7 +63,7 @@ Ses variantes se régénèrent avec `python3 scripts/build-ite-image.py` (Pillow
 
 ## SEO et structure
 
-30 pages publiques, dont **26 indexables** dans le sitemap. Métadonnées uniques, canoniques HTTPS
+31 pages publiques, dont **27 indexables** dans le sitemap. Métadonnées uniques, canoniques HTTPS
 avec `www`, liens internes sans extension, une seule entité d’entreprise `#business`, schémas
 WebPage/Service/Breadcrumb/FAQ cohérents avec le texte. Aucun avis agrégé sur sa propre entreprise.
 Les pages légales, `/merci` et `/404` sont `noindex`. Une URL inexistante renvoie HTTP 404.
@@ -75,7 +79,7 @@ Voir [api/README.md](api/README.md). L’URL et le secret du webhook restent cô
 variables Vercel. Aucun `.env`, export n8n, dossier d’audit ou fichier privé n’entre dans `dist/`.
 
 La demande consentie inclut une attribution limitée lorsqu’elle est disponible : chemin du formulaire,
-origine du site référent et paramètres `utm_source`, `utm_medium`, `utm_campaign` filtrés. Aucun
+page publique du site consultée juste avant le formulaire, origine du site référent extérieur et paramètres `utm_source`, `utm_medium`, `utm_campaign` filtrés. Aucun
 historique inter-pages, cookie ou stockage navigateur n’est utilisé. Les hooks `form_submitted`
 et `tel_click` appellent un collecteur seulement s’il existe déjà ; ils n’installent pas d’analytics.
 Le modèle d’email n8n doit être adapté séparément si cette attribution doit apparaître dans les notifications.
@@ -87,24 +91,30 @@ Vercel : `framework: null`, commande `npm run build`, sortie `dist`, `cleanUrls:
 slash final. L’API `api/contact.js` reste une fonction Vercel distincte. Les variables d’environnement
 existantes doivent être conservées. Un hébergement purement statique ne traite pas le formulaire.
 
-Après publication : vérifier les 26 URL, les nouvelles pages, les assets, `/merci` et une vraie 404.
+Après publication : vérifier les 27 URL, les nouvelles pages, les assets, `/merci` et une vraie 404.
 Le parcours de formulaire a été testé par interception locale de l’API, sans envoi réel de notification.
 Les mesures Lighthouse sont des essais de laboratoire ; elles ne remplacent pas les Core Web Vitals terrain.
 
-## Travail externe restant
+## Audits et suivi
 
-Le dossier local `renovationmetbach.fr-audit/` contient l’audit initial, le bilan d’implémentation,
-les mesures et une stratégie de backlinks : 37 prospects documentés, un plan sur 90 jours et des messages
-préparés. Aucune inscription, prise de contact, affiliation ou acquisition de lien n’est présumée.
-Les rapports et leurs captures ne sont pas publiés dans les ressources du site.
+Le dossier local `renovationmetbach.fr-audit/` contient les preuves, rapports et captures ; il est
+exclu du déploiement. L’étude concurrentielle du 15 novembre couvre 18 sites sélectionnés, avec
+sources et limites explicites : elle ne mesure pas leurs positions géolocalisées, leur trafic ni
+leurs ventes. Voir `competitive-2026-11-15/` et l’inventaire d’outils dans `toolkit/README.md`.
 
-Search Console et Google Business Profile nécessitent l’accès authentifié à la propriété exacte.
-À vérifier dans ces comptes : indexation réelle, sitemap, requêtes FR/CH, pages d’entrée, liens et
-coordonnées locales. Les assurances, qualifications, affiliations, références de chantiers et
-informations métier doivent être confirmées par l’entreprise ; aucun statut RGE n’est annoncé.
+Cinq outils supplémentaires ont été installés dans un environnement d’audit isolé et exécutés :
+SEOmator, GEO Optimizer, advertools, extruct et Trafilatura. Les dépendances du site restent inchangées.
+OpenSEO et les appels à des fournisseurs SERP payants ne sont pas utilisés. Les scores d’audit ne
+prouvent ni un classement Google, ni une citation par une IA.
 
-Méthodes utilisées : [Claude SEO](https://github.com/AgriciDaniel/claude-seo),
-[OpenSEO](https://github.com/every-app/open-seo), [Search Console MCP](https://mcpsearchconsole.com/mcp)
-et [GEO Optimizer](https://github.com/Auriti-Labs/geo-optimizer-skill). Aucune donnée Google authentifiée
-ni mesure de visibilité IA n’a été obtenue via ces connecteurs. Les recommandations ont été confrontées
-aux documents officiels actuels et aux contrôles du site réel.
+Search Console a bien été consultée en accès authentifié le 15 novembre : voir
+`search-console-2026-11-15/ANALYSE.md`. Le relevé des 13–14 novembre est provisoire et trop court
+pour conclure à une progression. L’indexation des nouvelles pages et les demandes qualifiées sont
+à suivre sur des périodes complètes. Aucun suivi automatique récurrent n’est installé.
+
+Google Business Profile a été travaillé dans la session précédente ; l’adresse locale et le téléphone
+confirmés sont repris sur le site. Les qualifications, assurances et références de chantiers doivent
+rester appuyées sur des informations confirmées ; aucun statut RGE n’est annoncé.
+
+Les anciens dossiers de prospection sont conservés uniquement comme archives locales.
+**Les demandes de backlinks et prises de contact ont été annulées par l’utilisateur ; aucun envoi.**

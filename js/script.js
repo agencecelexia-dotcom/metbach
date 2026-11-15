@@ -46,6 +46,8 @@
   // Attribution accompanies a consented enquiry only. No cookie or browser
   // storage, fingerprint, arbitrary query string or referrer path is collected.
   // Without storage, campaign information is available only on this page.
+  // source_page is the preceding public page, not an acquisition/landing page.
+  const publicSourcePath = /^(?:\/|\/(?:services|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|geneve|nyon|lausanne))$/;
   function contactAttribution() {
     const result = {};
     const path = location.pathname;
@@ -54,6 +56,8 @@
       const referrer = new URL(document.referrer);
       if (/^https?:$/.test(referrer.protocol) && referrer.origin !== location.origin) {
         result.referrer_origin = referrer.origin;
+      } else if (referrer.origin === location.origin && publicSourcePath.test(referrer.pathname)) {
+        result.source_page = referrer.pathname;
       }
     } catch { /* Empty or invalid referrer. */ }
     const params = new URLSearchParams(location.search);
@@ -279,8 +283,8 @@
     };
     phoneField?.addEventListener('input', validatePhone);
     phoneField?.addEventListener('change', validatePhone);
-    // No values from the URL are inserted into HTML. Only a known service may
-    // select one of the options already present in the form.
+    // Only known URL keys select fixed labels; arbitrary URL text never enters
+    // the form. Existing visitor/autofill values always take precedence.
     const services = {
       bardage: 'Bardage', couverture: 'Couverture', 'petits-travaux': 'Petits travaux',
       'revetement-sol': 'Revêtement de sol', fondations: 'Fondations',
@@ -289,12 +293,44 @@
       'isolation-exterieure': 'Isolation thermique extérieure (ITE)',
       'projet-global': 'Plusieurs services / projet global',
     };
-    const selectedService = services[new URLSearchParams(location.search).get('service')];
+    const params = new URLSearchParams(location.search);
+    const serviceKey = params.get('service');
+    const selectedService = Object.hasOwn(services, serviceKey) ? services[serviceKey] : '';
     const serviceField = form.querySelector('[name="service"]');
-    if (selectedService && serviceField) {
+    if (selectedService && serviceField && !serviceField.value) {
       const option = Array.from(serviceField.options).find(item => item.value === selectedService);
       if (option) serviceField.value = option.value;
     }
+    const cities = {
+      publier: 'Publier / Amphion-les-Bains', 'thonon-les-bains': 'Thonon-les-Bains',
+      'evian-les-bains': 'Évian-les-Bains', annemasse: 'Annemasse', douvaine: 'Douvaine',
+      'saint-julien-en-genevois': 'Saint-Julien-en-Genevois', geneve: 'Genève',
+      nyon: 'Nyon', lausanne: 'Lausanne',
+    };
+    const cityKey = params.get('city');
+    const cityField = form.querySelector('[name="city"]');
+    if (cityField && !cityField.value && Object.hasOwn(cities, cityKey)) cityField.value = cities[cityKey];
+
+    const messageField = form.querySelector('[name="message"]');
+    const messageHelp = document.getElementById('message-help');
+    const projectHints = {
+      Couverture: 'Décrivez l’état du toit, les signes observés et les accès à la maison. Des photos prises depuis le sol pourront aider lors de l’échange.',
+      Maçonnerie: 'Précisez l’ouvrage à créer ou à reprendre, ses dimensions approximatives et les accès au chantier.',
+      'Isolation thermique extérieure (ITE)': 'Précisez les façades concernées, leur état, le nombre de niveaux et la finition envisagée si vous la connaissez.',
+    };
+    const defaultHelp = messageHelp?.textContent;
+    const defaultPlaceholder = messageField?.placeholder;
+    const updateProjectHint = () => {
+      const hint = Object.hasOwn(projectHints, serviceField?.value) ? projectHints[serviceField.value] : '';
+      const cleaning = serviceField?.value === 'Couverture' && params.get('project') === 'nettoyage-toiture';
+      const text = cleaning
+        ? 'Pour le nettoyage : indiquez le type de couverture si vous le connaissez, les mousses ou traces observées et les accès. En cas de fuite ou de tuile cassée, précisez-le aussi.'
+        : hint;
+      if (messageHelp) messageHelp.textContent = text ? `${text} 20 à 2 000 caractères.` : defaultHelp;
+      if (messageField) messageField.placeholder = text || defaultPlaceholder;
+    };
+    serviceField?.addEventListener('change', updateProjectHint);
+    updateProjectHint();
 
     const showNote = (text, isError = false) => {
       if (!note) return;

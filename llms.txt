@@ -10,6 +10,7 @@
 
 ## Activités principales
 
+- [Couverture](https://www.renovationmetbach.fr/services/couverture) : rénovation, réparation et entretien de toiture à Publier et dans le Chablais.
 - [Maçonnerie](https://www.renovationmetbach.fr/services/maconnerie) : dalles, murs et ouvrages maçonnés, étudiés selon le terrain et le bâti.
 - [Isolation extérieure](https://www.renovationmetbach.fr/services/isolation-exterieure) : étude des façades, de l’isolant et des finitions, sans certification ou aide présumée.
 
@@ -17,7 +18,7 @@
 
 - [Tous les services](https://www.renovationmetbach.fr/services) : présentation des métiers de rénovation et d’aménagement.
 - [Bardage](https://www.renovationmetbach.fr/services/bardage) : habillage et rénovation des façades.
-- [Couverture](https://www.renovationmetbach.fr/services/couverture) : travaux de toiture.
+- [Nettoyage de toiture](https://www.renovationmetbach.fr/services/nettoyage-toiture) : entretien et démoussage après examen de la couverture ; différences avec une réparation et éléments du devis.
 - [Petits travaux](https://www.renovationmetbach.fr/services/petits-travaux) : peinture, reprises et finitions.
 - [Revêtement de sol](https://www.renovationmetbach.fr/services/revetement-sol) : parquet, carrelage et revêtements souples.
 - [Fondations](https://www.renovationmetbach.fr/services/fondations) : terrassement, dalles et soubassements.

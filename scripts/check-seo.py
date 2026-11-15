@@ -86,7 +86,13 @@ def walk(value):
 
 
 def main():
-    files = sorted(p for p in ROOT.rglob('*.html') if not any(x in ('node_modules', 'dist', '.git') or x.startswith('.') for x in p.relative_to(ROOT).parts))
+    # Match the public HTML exported by build-site.cjs, not locally downloaded
+    # competitor pages, third-party packages or audit reports.
+    files = sorted([
+        *ROOT.glob('*.html'),
+        *(p for name in ('services', 'villes', 'contact', 'realisations', 'merci')
+          for p in (ROOT / name).rglob('*.html')),
+    ])
     pages = {route(p): Page(p.read_text()) for p in files}
     errors, warnings = [], []
     def fail(url, message): errors.append(f'{url}: {message}')

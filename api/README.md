@@ -22,9 +22,12 @@ sans prétendre vérifier leur attribution ; espaces, parenthèses, tirets et pr
 Le numéro transmis est normalisé pour faciliter le rappel.
 
 L’attribution autorise seulement le chemin du formulaire (`/` ou `/contact`), l’origine HTTP(S)
-du référent et trois paramètres de campagne filtrés : `utm_source`, `utm_medium`, `utm_campaign`.
+du référent extérieur, la page publique interne précédant immédiatement le formulaire (`source_page`)
+et trois paramètres de campagne filtrés : `utm_source`, `utm_medium`, `utm_campaign`.
+`source_page` est limité à une liste explicite de pages du site, sans paramètres ni fragment.
+Il indique le parcours vers le formulaire, pas la page d’entrée ou le canal d’acquisition initial.
 Les URL complètes, emails et valeurs arbitraires sont rejetés. Aucun cookie ni stockage navigateur.
-L’attribution n’est pas conservée lors de la navigation entre pages. Elle est transmise avec la
+Les paramètres de campagne ne sont pas conservés lors de la navigation entre pages. L’attribution est transmise avec la
 demande consentie ; le modèle d’email n8n peut l’ignorer tant qu’il n’est pas adapté.
 
 ## Résultat et protections
@@ -50,9 +53,14 @@ npm run check:contact
 ```
 
 Les tests exécutent le code client/API avec DOM et réseau simulés : FR/CH, numéros internationaux,
-email vide, mauvais JSON, consentement, filtrage d’attribution, préselection des métiers, succès,
+email vide, mauvais JSON, consentement, filtrage d’attribution, préselection des métiers et communes, succès,
 échec, double envoi et anti-spam. Aucun appel réseau ni prospect de test n’est envoyé.
 
 Les hooks `form_submitted` et `tel_click` utilisent `dataLayer`/Plausible seulement si un collecteur
 est déjà présent. Aucun service de statistiques n’est activé automatiquement. Le suivi d’appels
 aboutis et des demandes qualifiées nécessite une mesure complémentaire.
+
+Les liens locaux peuvent transmettre `?service=couverture&city=publier#form`. Seuls les métiers
+et communes connus sont préremplis, sans écraser une valeur déjà saisie. Les conseils du champ
+message s’adaptent au métier ; `project=nettoyage-toiture` précise le cas de l’entretien. Les
+conseils ne modifient jamais le texte du visiteur et aucun projet n’est soumis automatiquement.

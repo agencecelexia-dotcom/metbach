@@ -87,6 +87,10 @@ function sanitizeAttribution(value) {
   // Enquiry forms are currently on these two public paths only. Never forward
   // a whole URL or an arbitrary path that could contain personal information.
   if (typeof value.page === "string" && /^\/(?:contact)?$/.test(value.page)) result.page = value.page;
+  // Only a preceding public page is retained; no private path/query string and
+  // no claim that this was the visitor's original acquisition/landing page.
+  const publicSourcePath = /^(?:\/|\/(?:services|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|geneve|nyon|lausanne))$/;
+  if (typeof value.source_page === "string" && publicSourcePath.test(value.source_page)) result.source_page = value.source_page;
   if (typeof value.referrer_origin === "string" && value.referrer_origin.length <= 255) {
     try {
       const url = new URL(value.referrer_origin);
