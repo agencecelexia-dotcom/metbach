@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-15",
+  "mode": "Built-in image_gen",
+  "purpose": "Illustration photographique de l’isolation extérieure. Ne documente pas une réalisation de Rénovation Metbach.",
+  "source": "design/sources/isolation-exterieure.png",
+  "published_assets": [
+    "assets/img/illustrations/isolation-exterieure-480.avif",
+    "assets/img/illustrations/isolation-exterieure-768.avif",
+    "assets/img/illustrations/isolation-exterieure-1200.avif",
+    "assets/img/illustrations/isolation-exterieure-480.webp",
+    "assets/img/illustrations/isolation-exterieure-768.webp",
+    "assets/img/illustrations/isolation-exterieure-1200.webp",
+    "assets/img/illustrations/isolation-exterieure.jpg"
+  ],
+  "prompt": "Use case: photorealistic-natural. Asset type: horizontal 3:2 editorial website photograph illustrating exterior wall insulation for a French renovation company. Create a highly realistic, tasteful architectural photograph of a modest detached house facade during exterior thermal insulation installation in a French alpine foothill setting. Eye-level, three-quarter perspective, moderately close crop around the corner of the house and one window. The main subject is thick rigid mineral wool insulation boards attached neatly to the EXTERIOR of an existing masonry wall, with realistic staggered joints and a few round mechanical fixing discs. One adjoining section is already coated in a warm pale ivory render, making the change in surface understandable. Show believable board thickness at an unfinished edge and the window reveal. Authentic subtle imperfections and construction textures, muted warm ochre mineral wool, off-white plaster, brown timber window, natural soft afternoon daylight, restrained garden background. Premium architectural photography, clear detail, no people, no logos, no text, no watermarks, no diagram, no exploded layers, no cutaway, no before-after split, no fictional sign saying this is an actual company's project. Keep the insulation prominent and recognizable even in a small website card. This is an illustrative generated image, not documentation of a real completed job."
+}

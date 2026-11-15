@@ -38,8 +38,9 @@ npm run build
 ```
 
 `images:apply` met à jour `srcset`, `sizes` et les dimensions des photos dans les pages publiques.
-Les petites sources ne sont pas artificiellement agrandies. L’illustration ITE est un schéma CSS
-explicitement légendé ; aucun chantier, date, avis ou certification n’est inventé.
+Les petites sources ne sont pas artificiellement agrandies. Le visuel ITE est une image générée, explicitement légendée comme illustration ; il ne documente
+pas un chantier réalisé. Source et prompt : [design/ite-image.json](design/ite-image.json).
+Ses variantes se régénèrent avec `python3 scripts/build-ite-image.py` (Pillow 11.3+).
 
 ## Version éditoriale du 14 novembre 2026
 
@@ -50,7 +51,7 @@ explicitement légendé ; aucun chantier, date, avis ou certification n’est in
 - Une demande est confirmée seulement après une réponse API contenant `ok: true` ; protection contre
   les doubles envois et messages d’erreur en français.
 - Guide `/preparer-travaux` : 18 points de préparation, trois situations types illustratives,
-  impression et téléchargement texte, sans inscription ni stockage navigateur.
+  progression interactive, sans inscription ni stockage navigateur.
 - Galerie simplifiée, images adaptées à la largeur, labels de formulaires et contrastes revus.
 - Promesses de délai harmonisées : réponse sous 48 h ouvrées, délai du devis précisé après échange.
 - Prix non justifiés remplacés par les facteurs de budget propres aux prestations. Les exemples
