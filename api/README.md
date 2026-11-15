@@ -64,3 +64,6 @@ Les liens locaux peuvent transmettre `?service=couverture&city=publier#form`. Se
 et communes connus sont préremplis, sans écraser une valeur déjà saisie. Les conseils du champ
 message s’adaptent au métier ; `project=nettoyage-toiture` précise le cas de l’entretien. Les
 conseils ne modifient jamais le texte du visiteur et aucun projet n’est soumis automatiquement.
+Pour un projet nettoyage avec le métier Couverture, le champ `work_type` reçu par le webhook
+précise « Couverture — nettoyage et démoussage de toiture ». Ce libellé fixe utilise le champ
+déjà prévu dans la notification ; il disparaît si le visiteur choisit un autre métier.

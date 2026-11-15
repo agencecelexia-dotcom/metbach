@@ -366,11 +366,17 @@
       }
 
       const data = new FormData(form);
+      const service = (data.get('service') || '').toString().trim();
+      // Keep the explicit cleaning context in the existing notification field.
+      // The label is fixed and disappears when the visitor chooses another trade.
+      const workType = service === 'Couverture' && params.get('project') === 'nettoyage-toiture'
+        ? 'Couverture — nettoyage et démoussage de toiture'
+        : service;
       const payload = {
         name:      (data.get('nom') || '').toString().trim(),
         phone:     (data.get('tel') || '').toString().trim(),
         email:     (data.get('email') || '').toString().trim(),
-        work_type: (data.get('service') || '').toString().trim(),
+        work_type: workType,
         city:      (data.get('city') || '').toString().trim(),
         message:   (data.get('message') || '').toString().trim(),
         website:   (data.get('website') || '').toString().trim(),

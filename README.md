@@ -49,9 +49,13 @@ Ses variantes se régénèrent avec `python3 scripts/build-ite-image.py` (Pillow
 - Navigation mobile accessible, actions Appeler/Devis persistantes, formulaires FR/CH et email facultatif.
 - Préselection du métier et de la commune depuis les liens autorisés, par exemple
   `/contact?service=maconnerie&city=publier#form`, sans écraser les valeurs déjà saisies.
-- Pages Publier, Thonon et Évian recentrées sur les trois métiers ; page dédiée au nettoyage
+- Neuf pages locales recentrées sur les trois métiers, Suisse explicitement sur étude ; page dédiée au nettoyage
   de toiture reliée à la couverture, au catalogue et aux trois pages locales.
 - Conseils de description adaptés au métier et au nettoyage, sans préremplir le message du visiteur.
+- Boutons de contact des trois services principaux contextualisés, y compris sur mobile ;
+  le libellé du métier transmis conserve la précision nettoyage lorsque ce projet est choisi.
+- Galerie décrite à partir des éléments visibles ; aucune datation ni prestation cachée non documentée.
+- Parcours de contact décrit sans promettre un traitement direct par l’artisan à chaque étape.
 - Une demande est confirmée seulement après une réponse API contenant `ok: true` ; protection contre
   les doubles envois et messages d’erreur en français.
 - Guide `/preparer-travaux` : 18 points de préparation, trois situations types illustratives,
@@ -99,8 +103,10 @@ Les mesures Lighthouse sont des essais de laboratoire ; elles ne remplacent pas 
 
 Le dossier local `renovationmetbach.fr-audit/` contient les preuves, rapports et captures ; il est
 exclu du déploiement. L’étude concurrentielle du 15 novembre couvre 18 sites sélectionnés, avec
-sources et limites explicites : elle ne mesure pas leurs positions géolocalisées, leur trafic ni
-leurs ventes. Voir `competitive-2026-11-15/` et l’inventaire d’outils dans `toolkit/README.md`.
+sources et limites explicites. Le second passage étudie 17 intentions, 28 pages concurrentes sur
+21 domaines et les 27 URL indexables de Metbach : voir `deep-audit-2026-11-15/`. Ces études
+ne mesurent pas les positions Google géolocalisées, le trafic ou les ventes des concurrents.
+Inventaire d’outils dans `toolkit/README.md`.
 
 Cinq outils supplémentaires ont été installés dans un environnement d’audit isolé et exécutés :
 SEOmator, GEO Optimizer, advertools, extruct et Trafilatura. Les dépendances du site restent inchangées.

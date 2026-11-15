@@ -211,10 +211,21 @@ const cleaning = browser({ search: '?service=couverture&project=nettoyage-toitur
 assert.match(cleaning.messageHelp.textContent, /Pour le nettoyage/);
 assert.equal(cleaning.cityField.value, 'Publier / Amphion-les-Bains');
 assert.equal(cleaning.messageField.value, 'Demande de test locale sans aucun appel réel.', 'hints never change the visitor message');
+const cleaningSubmission = browser({ search: '?service=couverture&project=nettoyage-toiture' });
+await cleaningSubmission.send();
+assert.equal(cleaningSubmission.calls[0].work_type, 'Couverture — nettoyage et démoussage de toiture');
+assert.equal(cleaningSubmission.calls[0].message, 'Demande de test locale sans aucun appel réel.');
 cleaning.service.value = 'Maçonnerie';
 cleaning.serviceEvents.change();
 assert.match(cleaning.messageHelp.textContent, /ouvrage à créer/);
 assert.doesNotMatch(cleaning.messageHelp.textContent, /nettoyage/);
+await cleaning.send();
+assert.equal(cleaning.calls[0].work_type, 'Maçonnerie', 'a visitor changing trade must not keep the cleaning label');
+for (const project of ['__proto__', '%3Cscript%3E', 'other']) {
+  const unknownProject = browser({ search: `?service=couverture&project=${project}` });
+  await unknownProject.send();
+  assert.equal(unknownProject.calls[0].work_type, 'Couverture');
+}
 cleaning.service.value = 'Petits travaux';
 cleaning.serviceEvents.change();
 assert.equal(cleaning.messageField.placeholder, 'Votre projet');
