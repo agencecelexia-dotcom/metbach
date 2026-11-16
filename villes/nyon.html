@@ -4,14 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="preload" href="/assets/fonts/inter-v20-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-v9-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
   <meta name="theme-color" content="#163C34" />
-  <link rel="icon" type="image/png" href="/assets/img/logo/metbach-logo.png" />
-  <link rel="apple-touch-icon" href="/assets/img/logo/metbach-logo.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icons/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
   <script src="/assets/js/lucide.min.js" defer></script>
 
   <title>Toiture, maçonnerie et ITE à Nyon : sur étude | Metbach</title>
   <meta name="description" content="Projet de toiture, maçonnerie ou ITE à Nyon ? Metbach étudie la faisabilité depuis Publier, en France. Conditions et déplacement à confirmer." />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://www.renovationmetbach.fr/villes/nyon" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rénovation Metbach" />
@@ -27,8 +31,7 @@
   <meta name="twitter:title" content="Toiture, maçonnerie et ITE à Nyon : sur étude | Metbach" />
   <meta name="twitter:description" content="Projet de toiture, maçonnerie ou ITE à Nyon ? Metbach étudie la faisabilité depuis Publier, en France. Conditions et déplacement à confirmer." />
   <meta name="twitter:image" content="https://www.renovationmetbach.fr/assets/img/realisations/bardage-bois-terrasse.jpg" />
-  <script type="application/ld+json">
-{
+  <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -54,7 +57,7 @@
     {
       "@type": "Service",
       "@id": "https://www.renovationmetbach.fr/villes/nyon#service",
-      "name": "Un projet de toiture, maçonnerie ou ITE à Nyon ?",
+      "name": "Étude de projets de toiture, maçonnerie et ITE à Nyon",
       "serviceType": "Projets de couverture, maçonnerie et isolation extérieure sur étude préalable",
       "description": "Projet de toiture, maçonnerie ou ITE à Nyon ? Metbach étudie la faisabilité depuis Publier, en France. Conditions et déplacement à confirmer.",
       "url": "https://www.renovationmetbach.fr/villes/nyon",
@@ -87,7 +90,7 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Zones d’intervention",
-          "item": "https://www.renovationmetbach.fr/#zones"
+          "item": "https://www.renovationmetbach.fr/villes"
         },
         {
           "@type": "ListItem",
@@ -114,17 +117,41 @@
         },
         {
           "@type": "Question",
-          "name": "Quelles informations envoyer pour un projet de terrasse et clôture ?",
+          "name": "Quelles informations envoyer pour un projet de toiture ou de maçonnerie à Nyon ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Un croquis du terrain, les dimensions, les accès et des photos d’ensemble sont utiles. Précisez également les matériaux souhaités et les éléments existants à conserver."
+            "text": "Un croquis, les dimensions, les accès et des photos d’ensemble prises depuis le sol sont utiles. Précisez également les matériaux en place et les éléments existants à conserver."
           }
         }
       ]
+    },
+    {
+      "@type": "GeneralContractor",
+      "@id": "https://www.renovationmetbach.fr/#business",
+      "name": "Rénovation Metbach",
+      "url": "https://www.renovationmetbach.fr/",
+      "telephone": "+33769136182",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "862 route de la Dranse",
+        "addressLocality": "Publier",
+        "postalCode": "74500",
+        "addressRegion": "Haute-Savoie",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.renovationmetbach.fr/#website",
+      "url": "https://www.renovationmetbach.fr/",
+      "name": "Rénovation Metbach",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.renovationmetbach.fr/#business"
+      }
     }
   ]
-}
-  </script>
+}</script>
 
 </head>
 <body class="bg-page text-ink site-page">
@@ -133,7 +160,7 @@
 
   <header class="site-header fixed inset-x-0 top-0 z-50">
  <div class="editorial-container header-inner">
-  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" width="531" height="282" decoding="async"></picture></a>
+  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo-330.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo-330.png" alt="Rénovation Metbach" width="330" height="175" decoding="async"></picture></a>
   <nav class="desktop-nav" aria-label="Navigation principale"><a href="/services" class="nav-link">Nos métiers</a><a href="/realisations" class="nav-link">Réalisations</a><a href="/a-propos" class="nav-link">L’entreprise</a><a href="/preparer-travaux" class="nav-link">Conseils</a></nav>
   <div class="header-actions"><a href="tel:+33769136182" class="header-phone">07 69 13 61 82</a><a href="/contact?city=nyon#form" class="btn btn-primary header-quote">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" data-menu-open class="menu-toggle" aria-label="Ouvrir le menu"><i data-lucide="menu" aria-hidden="true"></i></button></div>
  </div>
@@ -153,7 +180,7 @@
         <div class="lg:col-span-7 reveal">
           <nav class="flex flex-wrap items-center gap-2 text-sm text-muted mb-6" aria-label="Fil d’Ariane">
             <a href="/" class="hover:text-accent-dark">Accueil</a><span aria-hidden="true">/</span>
-            <a href="/#zones" class="hover:text-accent-dark">Zones d’intervention</a><span aria-hidden="true">/</span>
+            <a href="/villes" class="hover:text-accent-dark">Zones d’intervention</a><span aria-hidden="true">/</span>
             <span class="text-ink font-medium" aria-current="page">Nyon</span>
           </nav>
           <span class="chip mb-5"><i data-lucide="map-pin" aria-hidden="true" class="w-3.5 h-3.5"></i>Nyon · Canton de Vaud · Suisse</span>
@@ -231,8 +258,8 @@
             <p class="text-muted mt-3 leading-relaxed">Non, les projets sont étudiés depuis la base d’intervention de Publier en Haute-Savoie. La réalisation à Nyon est confirmée après examen du chantier et de ses conditions.</p>
           </details>
           <details class="group rounded-2xl border border-line bg-page p-6">
-            <summary class="font-display font-semibold text-lg cursor-pointer">Quelles informations envoyer pour un projet de terrasse et clôture ?</summary>
-            <p class="text-muted mt-3 leading-relaxed">Un croquis du terrain, les dimensions, les accès et des photos d’ensemble sont utiles. Précisez également les matériaux souhaités et les éléments existants à conserver.</p>
+            <summary class="font-display font-semibold text-lg cursor-pointer">Quelles informations envoyer pour un projet de toiture ou de maçonnerie à Nyon ?</summary>
+            <p class="text-muted mt-3 leading-relaxed">Un croquis, les dimensions, les accès et des photos d’ensemble prises depuis le sol sont utiles. Précisez également les matériaux en place et les éléments existants à conserver.</p>
           </details>
         </div>
       </div>
@@ -263,16 +290,12 @@
 
   <footer class="site-footer"><div class="editorial-container">
  <div class="footer-top"><div><p class="eyebrow light">Rénovation Metbach · Haute-Savoie</p><p class="footer-statement">Le soin du détail.<br><em>La solidité du résultat.</em></p></div><a href="/contact?city=nyon#form" class="btn btn-accent">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
- <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a></div>
+ <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a><p class="footer-address">862 route de la Dranse, 74500 Publier<br>Lun – Sam · 8h – 20h</p></div>
  <div><h2>Nos métiers</h2><a href="/services/couverture">Couverture & toiture</a><a href="/services/maconnerie">Maçonnerie</a><a href="/services/isolation-exterieure">Isolation extérieure</a><a href="/services/bardage">Bardage & façades</a><a href="/services">Tous les services</a></div>
  <div><h2>Votre projet</h2><a href="/realisations">Réalisations</a><a href="/preparer-travaux">Préparer ses travaux</a><a href="/a-propos">L’entreprise</a><a href="/glossaire">Glossaire</a><a href="/contact?city=nyon#form">Contact & devis</a></div>
- <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
- <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
+ <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><a href="/villes">Toutes les zones</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
+ <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach · SIRET 448 464 545 00020</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
 </div></footer>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
-  </script>
   <script src="/js/script.js"></script>
 <nav class="mobile-contact-bar" aria-label="Contact rapide"><a href="tel:+33769136182"><i data-lucide="phone" aria-hidden="true"></i> Appeler</a><a href="/contact?city=nyon#form">Mon devis gratuit <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></nav></body>
 </html>

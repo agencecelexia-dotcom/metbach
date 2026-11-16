@@ -9,6 +9,8 @@ from urllib.parse import urljoin, urlsplit, unquote
 import json
 from datetime import date
 import re
+import shutil
+import subprocess
 import sys
 import xml.etree.ElementTree as ET
 
@@ -77,6 +79,36 @@ class Page(HTMLParser):
         return [a.get('href') for a in self.attrs('link') if a.get('rel') == 'canonical']
 
 
+# Hub pages which must exist and stay indexable (and therefore be in the sitemap).
+REQUIRED_INDEXABLE = ('/', '/services', '/villes', '/realisations', '/contact')
+
+
+def git_lastmod(path):
+    """Expected sitemap lastmod for a source file, or None if git cannot say.
+
+    A file with uncommitted (or untracked) changes is expected to carry
+    today's date; otherwise the date of the last commit touching it.
+    """
+    if not shutil.which('git'):
+        return None
+    rel = path.relative_to(ROOT).as_posix()
+    try:
+        dirty = subprocess.run(['git', 'status', '--porcelain', '--', rel], cwd=ROOT,
+                               capture_output=True, text=True, timeout=10)
+        if dirty.returncode != 0:
+            return None
+        if dirty.stdout.strip():
+            return date.today().isoformat(), 'uncommitted changes'
+        log = subprocess.run(['git', 'log', '-1', '--format=%cs', '--', rel], cwd=ROOT,
+                             capture_output=True, text=True, timeout=10)
+        value = log.stdout.strip()
+        if log.returncode != 0 or not value:
+            return None
+        return value, 'last commit'
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
 def walk(value):
     if isinstance(value, dict):
         yield value
@@ -94,6 +126,7 @@ def main():
           for p in (ROOT / name).rglob('*.html')),
     ])
     pages = {route(p): Page(p.read_text()) for p in files}
+    route_files = {route(p): p for p in files}
     errors, warnings = [], []
     def fail(url, message): errors.append(f'{url}: {message}')
     graph = {r: set() for r in pages}
@@ -119,6 +152,7 @@ def main():
         if page.meta('og:url') != [ORIGIN + r]: fail(r, 'og:url must match canonical')
         if len(page.meta('robots')) != 1: fail(r, 'expected one robots meta tag')
         if r in ('/merci', '/404') and not noindex: fail(r, 'utility page must be noindex')
+        if r in REQUIRED_INDEXABLE and noindex: fail(r, 'hub page must be indexable')
         for name, n in Counter(page.ids).items():
             if n > 1: fail(r, f'duplicate id {name}')
         for a in page.attrs('img'):
@@ -155,9 +189,10 @@ def main():
                 if '@id' in node:
                     (schema_ids if '@type' in node else schema_refs).add(node['@id'])
                 if node.get('@type') in ('Question','Answer'):
-                    visible=' '.join(' '.join(page.text).split())
+                    norm=lambda t: re.sub(r'\s+([.,;:!?)])', r'\1', ' '.join(t.split()))
+                    visible=norm(' '.join(page.text))
                     value=node.get('name') if node.get('@type')=='Question' else node.get('text')
-                    if value and ' '.join(value.split()) not in visible: fail(r, 'FAQ schema differs from visible text')
+                    if value and norm(value) not in visible: fail(r, 'FAQ schema differs from visible text')
                 if 'aggregateRating' in node: fail(r, 'self-serving rating schema')
                 if node.get('@type') in ('HowTo','Article'): fail(r, 'inapplicable tutorial/article schema')
                 if node.get('@type') == 'GeneralContractor' and node.get('@id') != ORIGIN+'/#business': fail(r, 'duplicate business entity')
@@ -176,6 +211,11 @@ def main():
         entries = root.findall('{http://www.sitemaps.org/schemas/sitemap/0.9}url')
         urls = [x.findtext('{http://www.sitemaps.org/schemas/sitemap/0.9}loc') for x in entries]
         expected={ORIGIN+r for r in indexed}
+        for r in REQUIRED_INDEXABLE:
+            if r not in pages: fail(r, 'required hub page is missing')
+        for url in urls:
+            r = url[len(ORIGIN):] if url.startswith(ORIGIN) else None
+            if r in pages and r not in indexed: fail('sitemap', f'noindex page listed: {url}')
         if len(urls)!=len(set(urls)): fail('sitemap','duplicate URLs')
         if set(urls)!=expected: fail('sitemap', f'missing {sorted(expected-set(urls))}; extra {sorted(set(urls)-expected)}')
         for entry in entries:
@@ -184,6 +224,14 @@ def main():
                 try:
                     if date.fromisoformat(lastmod) > date.today(): fail('sitemap', 'future lastmod')
                 except ValueError: fail('sitemap','invalid lastmod')
+                # lastmod should follow the source file's history; a mismatch
+                # is a warning only (dates are maintained by hand).
+                loc = entry.findtext('{http://www.sitemaps.org/schemas/sitemap/0.9}loc') or ''
+                source = route_files.get(loc[len(ORIGIN):]) if loc.startswith(ORIGIN) else None
+                expected_date = git_lastmod(source) if source else None
+                if expected_date and expected_date[0] != lastmod:
+                    warnings.append(f'sitemap: lastmod {lastmod} for {loc} differs from {expected_date[0]} '
+                                    f'({expected_date[1]} of {source.relative_to(ROOT).as_posix()})')
     except (ET.ParseError, FileNotFoundError) as e: fail('sitemap', str(e))
     robots=(ROOT/'robots.txt').read_text()
     if f'Sitemap: {ORIGIN}/sitemap.xml' not in robots: fail('robots','canonical sitemap declaration missing')

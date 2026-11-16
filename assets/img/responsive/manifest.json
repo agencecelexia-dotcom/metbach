@@ -171,15 +171,17 @@
           "url": "/assets/img/responsive/elagage-pin-768.webp",
           "width": 768,
           "height": 576,
-          "bytes": 118660,
-          "generated": true
+          "bytes": 95936,
+          "generated": true,
+          "quality": 68
         },
         {
           "url": "/assets/img/responsive/elagage-pin-1200.webp",
           "width": 1200,
           "height": 900,
-          "bytes": 235238,
-          "generated": true
+          "bytes": 186758,
+          "generated": true,
+          "quality": 68
         },
         {
           "url": "/assets/img/realisations/elagage-pin.webp",
@@ -481,8 +483,9 @@
           "url": "/assets/img/responsive/structure-fondations-768.webp",
           "width": 768,
           "height": 576,
-          "bytes": 84566,
-          "generated": true
+          "bytes": 65286,
+          "generated": true,
+          "quality": 68
         },
         {
           "url": "/assets/img/responsive/structure-fondations-1200.webp",
@@ -585,8 +588,9 @@
           "url": "/assets/img/responsive/toiture-tuiles-768.webp",
           "width": 768,
           "height": 1024,
-          "bytes": 126314,
-          "generated": true
+          "bytes": 96626,
+          "generated": true,
+          "quality": 68
         },
         {
           "url": "/assets/img/realisations/toiture-tuiles.webp",

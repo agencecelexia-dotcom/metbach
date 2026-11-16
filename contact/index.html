@@ -4,9 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="preload" href="/assets/fonts/inter-v20-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-v9-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
   <meta name="theme-color" content="#163C34" />
-  <link rel="icon" type="image/png" href="/assets/img/logo/metbach-logo.png" />
-  <link rel="apple-touch-icon" href="/assets/img/logo/metbach-logo.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icons/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
   <script src="/assets/js/lucide.min.js" defer></script>
 
   <title>Devis rénovation en Haute-Savoie | Rénovation Metbach</title>
@@ -46,6 +50,9 @@
       },
       "breadcrumb": {
         "@id": "https://www.renovationmetbach.fr/contact#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://www.renovationmetbach.fr/#business"
       }
     },
     {
@@ -86,7 +93,7 @@
           "name": "Quels documents préparer ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Photos des lieux, plans si vous en avez, surface approximative, idée du délai souhaité. Pas grave si vous n'avez rien — on verra ça à la visite."
+            "text": "Photos des lieux, plans si vous en avez, surface approximative, idée du délai souhaité. Pas grave si vous n’avez rien : nous ferons le point lors de l’échange ou de la visite."
           }
         },
         {
@@ -102,10 +109,82 @@
           "name": "Le devis est-il gratuit ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui, sans frais ni engagement. La visite est offerte si vous êtes dans notre zone d'intervention."
+            "text": "Oui, le devis est gratuit et sans engagement. Une visite peut être organisée sur demande, selon les travaux à étudier."
           }
         }
       ]
+    },
+    {
+      "@type": "GeneralContractor",
+      "@id": "https://www.renovationmetbach.fr/#business",
+      "name": "Rénovation Metbach",
+      "url": "https://www.renovationmetbach.fr/",
+      "logo": "https://www.renovationmetbach.fr/assets/img/logo/metbach-logo.png",
+      "image": "https://www.renovationmetbach.fr/assets/img/realisations/bardage-bois-terrasse.jpg",
+      "description": "Entreprise de couverture, maçonnerie et isolation extérieure intervenant depuis Publier en Haute-Savoie. Prestations complémentaires de rénovation et d’aménagement.",
+      "telephone": "+33769136182",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "862 route de la Dranse",
+        "addressLocality": "Publier",
+        "postalCode": "74500",
+        "addressRegion": "Haute-Savoie",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.400383,
+        "longitude": 6.520969
+      },
+      "hasMap": "https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9",
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Haute-Savoie"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Chablais"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Genevois français"
+        }
+      ],
+      "sameAs": [
+        "https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9"
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "founder": {
+        "@type": "Person",
+        "@id": "https://www.renovationmetbach.fr/a-propos#zachari-metbach",
+        "name": "Zachari Metbach",
+        "url": "https://www.renovationmetbach.fr/a-propos"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.renovationmetbach.fr/#website",
+      "url": "https://www.renovationmetbach.fr/",
+      "name": "Rénovation Metbach",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.renovationmetbach.fr/#business"
+      }
     }
   ]
 }
@@ -118,7 +197,7 @@
 
   <header class="site-header fixed inset-x-0 top-0 z-50">
  <div class="editorial-container header-inner">
-  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" width="531" height="282" decoding="async"></picture></a>
+  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo-330.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo-330.png" alt="Rénovation Metbach" width="330" height="175" decoding="async"></picture></a>
   <nav class="desktop-nav" aria-label="Navigation principale"><a href="/services" class="nav-link">Nos métiers</a><a href="/realisations" class="nav-link">Réalisations</a><a href="/a-propos" class="nav-link">L’entreprise</a><a href="/preparer-travaux" class="nav-link">Conseils</a></nav>
   <div class="header-actions"><a href="tel:+33769136182" class="header-phone">07 69 13 61 82</a><a href="/contact#form" class="btn btn-primary header-quote">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" data-menu-open class="menu-toggle" aria-label="Ouvrir le menu"><i data-lucide="menu" aria-hidden="true"></i></button></div>
  </div>
@@ -147,7 +226,7 @@
           <span class="block gradient-text">en Haute-Savoie.</span>
         </h1>
         <p class="text-lg text-muted leading-relaxed mt-6 max-w-2xl">
-          Deux façons de me contacter : remplir le formulaire ci-dessous ou appeler directement.
+          Deux façons de nous contacter : remplir le formulaire ci-dessous ou appeler directement.
           Réponse sous 48 h ouvrées.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
@@ -184,7 +263,7 @@
       <div class="max-w-3xl mx-auto container-pad">
         <div class="text-center mb-10">
           <p class="h-eyebrow">Formulaire</p>
-          <h2 class="h-section font-display mt-3">Décrivez-moi votre projet.</h2>
+          <h2 class="h-section font-display mt-3">Décrivez-nous votre projet.</h2>
           <p class="text-muted mt-5">Indiquez le type de travaux, la commune et ce que vous souhaitez améliorer. Réponse sous 48 h ouvrées.</p>
         </div>
 
@@ -263,7 +342,7 @@
       <div class="max-w-3xl mx-auto container-pad">
         <div class="text-center mb-10">
           <p class="h-eyebrow">Questions fréquentes</p>
-          <h2 class="h-section font-display mt-3">Avant de me contacter…</h2>
+          <h2 class="h-section font-display mt-3">Avant de nous contacter…</h2>
         </div>
         <div class="divide-y divide-line border-y border-line">
           <details class="group py-6">
@@ -278,7 +357,7 @@
               <span class="font-display font-semibold text-lg">Quels documents préparer ?</span>
               <i aria-hidden="true" data-lucide="plus" class="w-5 h-5 text-accent-dark shrink-0"></i>
             </summary>
-            <p class="text-muted mt-3 leading-relaxed">Photos des lieux, plans si vous en avez, surface approximative, idée du délai souhaité. Pas grave si vous n'avez rien — on verra ça à la visite.</p>
+            <p class="text-muted mt-3 leading-relaxed">Photos des lieux, plans si vous en avez, surface approximative, idée du délai souhaité. Pas grave si vous n’avez rien : nous ferons le point lors de l’échange ou de la visite.</p>
           </details>
           <details class="group py-6">
             <summary class="flex items-center justify-between cursor-pointer list-none gap-6">
@@ -292,7 +371,7 @@
               <span class="font-display font-semibold text-lg">Le devis est-il gratuit ?</span>
               <i aria-hidden="true" data-lucide="plus" class="w-5 h-5 text-accent-dark shrink-0"></i>
             </summary>
-            <p class="text-muted mt-3 leading-relaxed">Oui, sans frais ni engagement. La visite est offerte si vous êtes dans notre zone d'intervention.</p>
+            <p class="text-muted mt-3 leading-relaxed">Oui, le devis est gratuit et sans engagement. Une visite peut être organisée sur demande, selon les travaux à étudier.</p>
           </details>
         </div>
       </div>
@@ -302,11 +381,12 @@
     <section class="py-16">
       <div class="max-w-7xl-plus mx-auto container-pad">
         <p class="h-eyebrow mb-3">Zone d'intervention</p>
-        <h2 class="h-section font-display mb-6">Bord du Léman & Chablais.</h2>
+        <h2 class="h-section font-display mb-6">Chablais et Genevois.</h2>
+        <p class="text-muted leading-relaxed mb-6 max-w-3xl">Nous étudions les demandes dans le Chablais et le Genevois, notamment à <a href="/villes/publier" class="text-accent-dark underline hover:text-ink">Publier et Amphion-les-Bains</a>, <a href="/villes/thonon-les-bains" class="text-accent-dark underline hover:text-ink">Thonon-les-Bains</a> et <a href="/villes/evian-les-bains" class="text-accent-dark underline hover:text-ink">Évian-les-Bains</a>.</p>
         <iframe
           class="map-frame w-full"
           loading="lazy"
-          title="Localisation Rénovation Metbach sur le Lac Léman"
+          title="Carte : Rénovation Metbach à Publier, dans le Chablais"
           src="https://www.openstreetmap.org/export/embed.html?bbox=6.3%2C46.2%2C6.7%2C46.55&layer=mapnik&marker=46.400383%2C6.520969"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
         <p class="mt-3 text-sm text-muted">
@@ -320,16 +400,12 @@
 
   <footer class="site-footer"><div class="editorial-container">
  <div class="footer-top"><div><p class="eyebrow light">Rénovation Metbach · Haute-Savoie</p><p class="footer-statement">Le soin du détail.<br><em>La solidité du résultat.</em></p></div><a href="/contact#form" class="btn btn-accent">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
- <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a></div>
+ <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a><p class="footer-address">862 route de la Dranse, 74500 Publier<br>Lun – Sam · 8h – 20h</p></div>
  <div><h2>Nos métiers</h2><a href="/services/couverture">Couverture & toiture</a><a href="/services/maconnerie">Maçonnerie</a><a href="/services/isolation-exterieure">Isolation extérieure</a><a href="/services/bardage">Bardage & façades</a><a href="/services">Tous les services</a></div>
  <div><h2>Votre projet</h2><a href="/realisations">Réalisations</a><a href="/preparer-travaux">Préparer ses travaux</a><a href="/a-propos">L’entreprise</a><a href="/glossaire">Glossaire</a><a href="/contact">Contact & devis</a></div>
- <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
- <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
+ <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><a href="/villes">Toutes les zones</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
+ <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach · SIRET 448 464 545 00020</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
 </div></footer>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
-  </script>
   <script src="/js/script.js"></script>
 <nav class="mobile-contact-bar" aria-label="Contact rapide"><a href="tel:+33769136182"><i data-lucide="phone" aria-hidden="true"></i> Appeler</a><a href="/contact#form">Mon devis gratuit <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></nav></body>
 </html>

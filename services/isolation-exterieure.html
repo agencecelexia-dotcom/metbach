@@ -4,13 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/assets/css/site.css" />
-  <link rel="preload" as="image" type="image/avif" imagesrcset="/assets/img/illustrations/isolation-exterieure-480.avif 480w, /assets/img/illustrations/isolation-exterieure-768.avif 768w, /assets/img/illustrations/isolation-exterieure-1200.avif 1200w" imagesizes="(max-width: 1023px) calc(100vw - 40px), (max-width: 1408px) calc((100vw - 112px) / 2), 640px">
+  <link rel="preload" href="/assets/fonts/inter-v20-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-v9-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" as="image" type="image/avif" imagesrcset="/assets/img/illustrations/isolation-exterieure-480.avif 480w, /assets/img/illustrations/isolation-exterieure-768.avif 768w, /assets/img/illustrations/isolation-exterieure-1200.avif 1200w" imagesizes="(max-width: 1023px) calc(100vw - 40px), (max-width: 1408px) calc((100vw - 112px) / 2), 640px" fetchpriority="high">
   <title>Isolation extérieure à Publier (74) | Metbach</title>
   <meta name="description" content="Projet d’isolation thermique par l’extérieur en Haute-Savoie : murs, finitions et points à vérifier. Rénovation Metbach étudie votre façade depuis Publier.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.renovationmetbach.fr/services/isolation-exterieure">
-  <link rel="icon" type="image/png" href="/assets/img/logo/metbach-logo.png">
-  <link rel="apple-touch-icon" href="/assets/img/logo/metbach-logo.png">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icons/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rénovation Metbach">
   <meta property="og:locale" content="fr_FR">
@@ -74,7 +78,8 @@
           "@type": "AdministrativeArea",
           "name": "Genevois français"
         }
-      ]
+      ],
+      "image": "https://www.renovationmetbach.fr/assets/img/illustrations/isolation-exterieure.jpg"
     },
     {
       "@type": "BreadcrumbList",
@@ -89,13 +94,13 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Nos métiers",
+          "name": "Services",
           "item": "https://www.renovationmetbach.fr/services"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Isolation thermique par l’extérieur",
+          "name": "Isolation extérieure",
           "item": "https://www.renovationmetbach.fr/services/isolation-exterieure"
         }
       ]
@@ -140,6 +145,31 @@
           }
         }
       ]
+    },
+    {
+      "@type": "GeneralContractor",
+      "@id": "https://www.renovationmetbach.fr/#business",
+      "name": "Rénovation Metbach",
+      "url": "https://www.renovationmetbach.fr/",
+      "telephone": "+33769136182",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "862 route de la Dranse",
+        "addressLocality": "Publier",
+        "postalCode": "74500",
+        "addressRegion": "Haute-Savoie",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.renovationmetbach.fr/#website",
+      "url": "https://www.renovationmetbach.fr/",
+      "name": "Rénovation Metbach",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.renovationmetbach.fr/#business"
+      }
     }
   ]
 }</script>
@@ -149,7 +179,7 @@
 <body class="bg-page text-ink site-page"><a href="#main-content" class="skip-link">Aller au contenu</a>
 <header class="site-header fixed inset-x-0 top-0 z-50">
  <div class="editorial-container header-inner">
-  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" width="531" height="282" decoding="async"></picture></a>
+  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo-330.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo-330.png" alt="Rénovation Metbach" width="330" height="175" decoding="async"></picture></a>
   <nav class="desktop-nav" aria-label="Navigation principale"><a href="/services" class="nav-link">Nos métiers</a><a href="/realisations" class="nav-link">Réalisations</a><a href="/a-propos" class="nav-link">L’entreprise</a><a href="/preparer-travaux" class="nav-link">Conseils</a></nav>
   <div class="header-actions"><a href="tel:+33769136182" class="header-phone">07 69 13 61 82</a><a href="/contact?service=isolation-exterieure#form" class="btn btn-primary header-quote">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" data-menu-open class="menu-toggle" aria-label="Ouvrir le menu"><i data-lucide="menu" aria-hidden="true"></i></button></div>
  </div>
@@ -160,7 +190,7 @@
  <div class="mobile-menu-bottom"><a href="tel:+33769136182" class="btn btn-glass">Appeler le 07 69 13 61 82</a><a href="/contact?service=isolation-exterieure#form" class="btn btn-accent">Demander mon devis</a></div>
 </div>
 <main id="main-content" class="pt-20 lg:pt-24">
-<section class="py-12 lg:py-20"><div class="editorial-container"><nav class="flex flex-wrap items-center gap-2 text-sm text-muted mb-8" aria-label="Fil d’Ariane"><a href="/">Accueil</a><span aria-hidden="true">/</span><a href="/services">Nos métiers</a><span aria-hidden="true">/</span><span aria-current="page">Isolation extérieure</span></nav><div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"><div><p class="h-eyebrow">L’un de nos trois métiers principaux</p><h1 class="font-display font-bold text-4xl lg:text-6xl leading-tight mt-4">Isolation extérieure à Publier.<br><span class="font-serif italic text-accent-dark">Penser toute la façade.</span></h1><p class="text-lg text-muted leading-relaxed mt-6">Vous envisagez une isolation thermique par l’extérieur, ou ITE, en Haute-Savoie ? Depuis Publier, Rénovation Metbach étudie votre projet en tenant compte des murs, des ouvertures, de la toiture et de la finition souhaitée.</p><div class="flex flex-wrap gap-3 mt-8"><a href="/contact?service=isolation-exterieure#form" class="btn btn-primary">Étudier mon projet d’ITE <i data-lucide="arrow-up-right" aria-hidden="true" class="w-4 h-4"></i></a><a href="tel:+33769136182" class="btn btn-ghost">07 69 13 61 82</a></div></div><figure class="service-hero-photo"><picture><source type="image/avif" srcset="/assets/img/illustrations/isolation-exterieure-480.avif 480w, /assets/img/illustrations/isolation-exterieure-768.avif 768w, /assets/img/illustrations/isolation-exterieure-1200.avif 1200w" sizes="(max-width: 1023px) calc(100vw - 40px), (max-width: 1408px) calc((100vw - 112px) / 2), 640px"><source type="image/webp" srcset="/assets/img/illustrations/isolation-exterieure-480.webp 480w, /assets/img/illustrations/isolation-exterieure-768.webp 768w, /assets/img/illustrations/isolation-exterieure-1200.webp 1200w" sizes="(max-width: 1023px) calc(100vw - 40px), (max-width: 1408px) calc((100vw - 112px) / 2), 640px"><img src="/assets/img/illustrations/isolation-exterieure-1200.webp" alt="Illustration : panneaux isolants posés sur le mur extérieur d’une maison, autour d’une fenêtre" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async"></picture><figcaption>Illustration d’une façade en cours d’isolation extérieure.</figcaption></figure></div></div></section>
+<section class="py-12 lg:py-20"><div class="editorial-container"><nav class="flex flex-wrap items-center gap-2 text-sm text-muted mb-8" aria-label="Fil d’Ariane"><a href="/">Accueil</a><span aria-hidden="true">/</span><a href="/services">Services</a><span aria-hidden="true">/</span><span aria-current="page">Isolation extérieure</span></nav><div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"><div><p class="h-eyebrow">L’un de nos trois métiers principaux</p><h1 class="font-display font-bold text-4xl lg:text-6xl leading-tight mt-4">Isolation extérieure à Publier.<br><span class="font-serif italic text-accent-dark">Penser toute la façade.</span></h1><p class="text-lg text-muted leading-relaxed mt-6">Vous envisagez une isolation thermique par l’extérieur, ou ITE, en Haute-Savoie ? Depuis Publier, Rénovation Metbach étudie votre projet en tenant compte des murs, des ouvertures, de la toiture et de la finition souhaitée.</p><div class="flex flex-wrap gap-3 mt-8"><a href="/contact?service=isolation-exterieure#form" class="btn btn-primary">Étudier mon projet d’ITE <i data-lucide="arrow-up-right" aria-hidden="true" class="w-4 h-4"></i></a><a href="tel:+33769136182" class="btn btn-ghost">07 69 13 61 82</a></div></div><figure class="service-hero-photo"><picture><source type="image/avif" srcset="/assets/img/illustrations/isolation-exterieure-480.avif 480w, /assets/img/illustrations/isolation-exterieure-768.avif 768w, /assets/img/illustrations/isolation-exterieure-1200.avif 1200w" sizes="(max-width: 1023px) calc(100vw - 40px), (max-width: 1408px) calc((100vw - 112px) / 2), 640px"><source type="image/webp" srcset="/assets/img/illustrations/isolation-exterieure-480.webp 480w, /assets/img/illustrations/isolation-exterieure-768.webp 768w, /assets/img/illustrations/isolation-exterieure-1200.webp 1200w" sizes="(max-width: 1023px) calc(100vw - 40px), (max-width: 1408px) calc((100vw - 112px) / 2), 640px"><img src="/assets/img/illustrations/isolation-exterieure-1200.webp" alt="Illustration : panneaux isolants posés sur le mur extérieur d’une maison, autour d’une fenêtre" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async"></picture><figcaption>Illustration d’une façade en cours d’isolation extérieure.</figcaption></figure></div></div></section>
 <section class="py-16 lg:py-20 bg-white border-y border-line"><div class="editorial-container grid lg:grid-cols-2 gap-10 lg:gap-16"><div><p class="h-eyebrow">Le rôle de l’ITE</p><h2 class="font-display text-3xl lg:text-4xl font-bold mt-3">Isoler les murs.<br>Préserver l’espace intérieur.</h2><p class="text-muted mt-6 leading-relaxed">L’ITE consiste à placer l’isolant du côté extérieur des murs. Elle permet de travailler sur l’enveloppe du logement sans réduire la surface des pièces. La continuité de l’isolation et le traitement des raccords participent au résultat.</p><p class="text-muted mt-4 leading-relaxed">Le système peut recevoir une finition sous enduit ou un parement, selon sa conception. Le choix se fait avec l’état de la façade, son exposition et l’aspect recherché. Un <a class="underline text-accent-dark" href="/services/bardage">bardage extérieur</a> ne signifie pas, à lui seul, que le mur est isolé.</p><p class="text-sm text-muted mt-5">Pour comprendre les solutions : <a class="underline" href="https://france-renov.gouv.fr/renovation/isolation/murs-maison">le guide de France Rénov’ sur l’isolation des murs</a>.</p></div><div class="bg-page border border-line rounded-2xl p-7 lg:p-9"><h3 class="font-display text-2xl font-bold">Les points à regarder sur place</h3><ul class="space-y-4 text-muted leading-relaxed mt-6"><li>L’état du support et les éventuelles traces d’humidité.</li><li>Les appuis de fenêtres, les volets et les équipements en façade.</li><li>Les débords de toit, les descentes d’eau et les soubassements.</li><li>L’accès à l’échafaudage et les limites de propriété.</li></ul><p class="text-muted mt-6 leading-relaxed">Ces détails évitent de réduire le projet à un choix d’épaisseur ou de couleur. Les reprises de support peuvent être étudiées avec la <a class="underline text-accent-dark" href="/services/maconnerie">maçonnerie</a>, et les raccords supérieurs avec la <a class="underline text-accent-dark" href="/services/couverture">couverture</a>.</p></div></div></section>
 <section class="py-16 lg:py-24"><div class="editorial-container grid lg:grid-cols-2 gap-10 lg:gap-16"><div><p class="h-eyebrow">Préparer le devis</p><h2 class="font-display text-3xl lg:text-4xl font-bold mt-3">Des choix expliqués.<br>Un périmètre précis.</h2><p class="text-muted mt-6 leading-relaxed">Le budget dépend des surfaces, de la hauteur, des accès, du système retenu et du travail autour des ouvertures. La préparation du support, l’échafaudage et les adaptations d’équipements peuvent peser autant que la seule fourniture d’isolant.</p><p class="text-muted mt-4 leading-relaxed">Rassemblez quelques photos d’ensemble, les dimensions connues et, si vous en disposez, les plans ou le diagnostic du logement. Indiquez les autres travaux envisagés pour organiser leur enchaînement. Notre <a class="underline text-accent-dark" href="/preparer-travaux#ite">guide de préparation</a> vous aide à réunir ces informations.</p></div><div class="border-l-4 border-accent pl-7"><h3 class="font-display text-2xl font-bold">Façade et démarches</h3><p class="text-muted mt-5 leading-relaxed">Avant de retenir une finition, vérifiez les prescriptions locales et les autorisations. L’ITE modifie l’aspect extérieur : une déclaration préalable est nécessaire. Des accords peuvent également être à prévoir en copropriété ou lorsque le projet touche une limite de propriété.</p><p class="text-sm text-muted mt-5">Le détail des démarches est disponible sur <a class="underline" href="https://www.service-public.gouv.fr/particuliers/vosdroits/F37924">Service Public : règles d’urbanisme pour une ITE</a>.</p></div></div></section>
 <section class="py-16 lg:py-20 bg-white border-y border-line" aria-labelledby="comparer-devis-ite"><div class="editorial-container"><p class="h-eyebrow">Comparer les propositions</p><h2 id="comparer-devis-ite" class="font-display text-3xl lg:text-4xl font-bold mt-3">Regarder au-delà de l’épaisseur d’isolant.</h2><div class="grid md:grid-cols-3 gap-6 mt-10"><article class="border border-line rounded-2xl p-7"><h3 class="font-display text-xl font-bold">Le système retenu</h3><p class="text-muted mt-4 leading-relaxed">Repérez la référence de l’isolant, son épaisseur, la performance annoncée et la finition prévue. Demandez quels composants, préparations et fixations font partie de la proposition.</p></article><article class="border border-line rounded-2xl p-7"><h3 class="font-display text-xl font-bold">Les raccords de façade</h3><p class="text-muted mt-4 leading-relaxed">Comparez les prestations autour des fenêtres, des volets, des soubassements et des descentes d’eau. Ces adaptations doivent être identifiées pour comprendre ce que couvre chaque devis.</p></article><article class="border border-line rounded-2xl p-7"><h3 class="font-display text-xl font-bold">L’organisation du chantier</h3><p class="text-muted mt-4 leading-relaxed">Vérifiez les surfaces prises en compte, l’échafaudage, les protections, la dépose des équipements concernés et la remise en état prévue. Les options et les exclusions doivent rester lisibles.</p></article></div><p class="text-muted mt-6 leading-relaxed">Notre <a href="/preparer-travaux#devis" class="text-accent-dark underline">grille de lecture d’un devis de travaux</a> aide à préparer les questions avant de comparer les montants.</p></div></section>
@@ -168,19 +198,18 @@
 <details class="group py-6"><summary class="flex items-center justify-between cursor-pointer list-none gap-6"><span class="font-display font-semibold text-lg">Peut-on isoler tous les murs par l’extérieur ?</span><i data-lucide="plus" aria-hidden="true" class="w-5 h-5 shrink-0"></i></summary><p class="text-muted mt-4 leading-relaxed">La faisabilité dépend de l’état du mur, de l’humidité, des détails de façade, des limites de propriété et des accès. Les fenêtres, les débords de toiture et les raccords au soubassement doivent être examinés. Une visite permet d’identifier les points à résoudre avant de choisir le système.</p></details>
 <details class="group py-6"><summary class="flex items-center justify-between cursor-pointer list-none gap-6"><span class="font-display font-semibold text-lg">Quelles démarches vérifier avant une ITE ?</span><i data-lucide="plus" aria-hidden="true" class="w-5 h-5 shrink-0"></i></summary><p class="text-muted mt-4 leading-relaxed">Une isolation thermique par l’extérieur modifie l’aspect du bâtiment et nécessite une déclaration préalable. Consultez le service urbanisme de votre mairie avant les travaux pour vérifier les règles applicables, ainsi que les accords nécessaires en copropriété ou en limite de propriété.</p></details>
 <details class="group py-6"><summary class="flex items-center justify-between cursor-pointer list-none gap-6"><span class="font-display font-semibold text-lg">Comment connaître les aides possibles pour mon projet ?</span><i data-lucide="plus" aria-hidden="true" class="w-5 h-5 shrink-0"></i></summary><p class="text-muted mt-4 leading-relaxed">Les conditions dépendent de votre logement, de votre situation, des travaux et des qualifications requises. Un conseiller France Rénov’ peut vous orienter avant tout engagement. Une aide ou une éligibilité ne peut pas être déduite de cette page ou d’une simple estimation de travaux.</p></details></div></div></section>
-<section class="py-12"><div class="editorial-container"><p class="text-muted leading-relaxed max-w-3xl">Pour un projet d’isolation extérieure à <a class="underline" href="/villes/publier">Publier ou Amphion-les-Bains</a>, <a class="underline" href="/villes/thonon-les-bains">Thonon-les-Bains</a> ou <a class="underline" href="/villes/evian-les-bains">Évian-les-Bains</a>, précisez la commune, le type de maison et les façades concernées. Les demandes dans le Chablais et le Genevois sont étudiées selon le chantier et ses accès.</p></div></section>
+<section class="py-12"><div class="editorial-container"><p class="text-muted leading-relaxed max-w-3xl">Pour un projet d’isolation extérieure à <a class="underline" href="/villes/publier">Publier ou Amphion-les-Bains</a>, <a class="underline" href="/villes/thonon-les-bains">Thonon-les-Bains</a> ou <a class="underline" href="/villes/evian-les-bains">Évian-les-Bains</a>, précisez la commune, le type de maison et les façades concernées. Les demandes dans le Chablais et le Genevois sont étudiées selon le chantier et ses accès. Votre interlocuteur est <a class="underline" href="/a-propos">Zachari Metbach</a>.</p></div></section>
 <section class="py-16 lg:py-20"><div class="editorial-container"><div class="bg-ink text-white rounded-2xl p-8 lg:p-12 grid lg:grid-cols-12 gap-8 items-center"><div class="lg:col-span-8"><p class="h-eyebrow text-accent-soft">Votre projet commence ici</p><h2 class="font-display text-3xl lg:text-4xl font-bold mt-3">Votre façade mérite une étude d’ensemble.</h2><p class="text-white/70 mt-4 leading-relaxed">Décrivez votre maison, sa commune et votre objectif. Nous préciserons les informations utiles pour examiner votre projet.</p><ol class="mt-6 space-y-3 text-white/80 leading-relaxed"><li><strong class="text-white">1. Le premier échange.</strong> Nous précisons les façades concernées, les autres travaux envisagés et les documents disponibles.</li><li><strong class="text-white">2. L’étude de la façade.</strong> L’état des murs, les ouvertures et les accès permettent d’examiner la faisabilité et les adaptations nécessaires.</li><li><strong class="text-white">3. Le périmètre du devis.</strong> Le système, la finition, les raccords et les conditions d’intervention sont précisés avant votre décision.</li></ol></div><div class="lg:col-span-4 flex flex-col gap-3"><a href="/contact?service=isolation-exterieure#form" class="btn btn-accent justify-center">Demander mon devis <i data-lucide="arrow-up-right" aria-hidden="true" class="w-4 h-4"></i></a><a href="tel:+33769136182" class="btn btn-glass justify-center">07 69 13 61 82</a></div></div></div></section>
 </main>
 <footer class="site-footer"><div class="editorial-container">
  <div class="footer-top"><div><p class="eyebrow light">Rénovation Metbach · Haute-Savoie</p><p class="footer-statement">Le soin du détail.<br><em>La solidité du résultat.</em></p></div><a href="/contact?service=isolation-exterieure#form" class="btn btn-accent">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
- <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a></div>
+ <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a><p class="footer-address">862 route de la Dranse, 74500 Publier<br>Lun – Sam · 8h – 20h</p></div>
  <div><h2>Nos métiers</h2><a href="/services/couverture">Couverture & toiture</a><a href="/services/maconnerie">Maçonnerie</a><a href="/services/isolation-exterieure">Isolation extérieure</a><a href="/services/bardage">Bardage & façades</a><a href="/services">Tous les services</a></div>
  <div><h2>Votre projet</h2><a href="/realisations">Réalisations</a><a href="/preparer-travaux">Préparer ses travaux</a><a href="/a-propos">L’entreprise</a><a href="/glossaire">Glossaire</a><a href="/contact?service=isolation-exterieure#form">Contact & devis</a></div>
- <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
- <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
+ <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><a href="/villes">Toutes les zones</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
+ <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach · SIRET 448 464 545 00020</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
 </div></footer>
 <nav class="mobile-contact-bar" aria-label="Contact rapide"><a href="tel:+33769136182"><i data-lucide="phone" aria-hidden="true"></i> Appeler</a><a href="/contact?service=isolation-exterieure#form">Mon devis gratuit <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></nav>
-<script>window.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });</script>
 <script src="/js/script.js"></script>
 </body>
 </html>

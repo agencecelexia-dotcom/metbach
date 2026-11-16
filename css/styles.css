@@ -143,6 +143,7 @@ body {
   display: inline-flex; align-items: center; gap: .4rem;
   padding: .4rem .85rem; border-radius: 999px;
   font-size: .78rem; font-weight: 700;
+  max-width: 100%;
   background: rgba(184,96,42,.14);
   color: #6E3617;
   border: 1px solid rgba(138,69,32,.30);
@@ -267,7 +268,7 @@ body {
 }
 
 /* Form */
-.field-label { font-size: .78rem; font-weight: 600; color: var(--muted); margin-bottom: .35rem; letter-spacing: .05em; text-transform: uppercase; }
+.field-label { font-size: .8125rem; font-weight: 600; color: var(--muted); margin-bottom: .35rem; letter-spacing: .05em; text-transform: uppercase; }
 .field {
   width: 100%;
   padding: .85rem 1rem;

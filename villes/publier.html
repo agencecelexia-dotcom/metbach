@@ -4,8 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/assets/css/site.css" />
-  <link rel="icon" type="image/png" href="/assets/img/logo/metbach-logo.png" />
-  <link rel="apple-touch-icon" href="/assets/img/logo/metbach-logo.png" />
+  <link rel="preload" href="/assets/fonts/inter-v20-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-v9-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icons/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
   <script src="/assets/js/lucide.min.js" defer></script>
 
   <title>Couvreur à Publier · Maçonnerie &amp; ITE | Metbach</title>
@@ -26,8 +30,7 @@
   <meta name="twitter:title" content="Couvreur à Publier · Maçonnerie &amp; ITE | Metbach" />
   <meta name="twitter:description" content="Couverture, maçonnerie et isolation extérieure à Publier et Amphion-les-Bains. Décrivez vos travaux à Rénovation Metbach pour un devis gratuit." />
   <meta name="twitter:image" content="https://www.renovationmetbach.fr/assets/img/realisations/bardage-bois-terrasse.jpg" />
-  <script type="application/ld+json">
-{
+  <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -90,7 +93,7 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Zones d’intervention",
-          "item": "https://www.renovationmetbach.fr/#zones"
+          "item": "https://www.renovationmetbach.fr/villes"
         },
         {
           "@type": "ListItem",
@@ -132,10 +135,34 @@
           }
         }
       ]
+    },
+    {
+      "@type": "GeneralContractor",
+      "@id": "https://www.renovationmetbach.fr/#business",
+      "name": "Rénovation Metbach",
+      "url": "https://www.renovationmetbach.fr/",
+      "telephone": "+33769136182",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "862 route de la Dranse",
+        "addressLocality": "Publier",
+        "postalCode": "74500",
+        "addressRegion": "Haute-Savoie",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.renovationmetbach.fr/#website",
+      "url": "https://www.renovationmetbach.fr/",
+      "name": "Rénovation Metbach",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.renovationmetbach.fr/#business"
+      }
     }
   ]
-}
-  </script>
+}</script>
 
 </head>
 <body class="bg-page text-ink site-page">
@@ -144,7 +171,7 @@
 
   <header class="site-header fixed inset-x-0 top-0 z-50">
  <div class="editorial-container header-inner">
-  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" width="531" height="282" decoding="async"></picture></a>
+  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo-330.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo-330.png" alt="Rénovation Metbach" width="330" height="175" decoding="async"></picture></a>
   <nav class="desktop-nav" aria-label="Navigation principale"><a href="/services" class="nav-link">Nos métiers</a><a href="/realisations" class="nav-link">Réalisations</a><a href="/a-propos" class="nav-link">L’entreprise</a><a href="/preparer-travaux" class="nav-link">Conseils</a></nav>
   <div class="header-actions"><a href="tel:+33769136182" class="header-phone">07 69 13 61 82</a><a href="/contact#form" class="btn btn-primary header-quote">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" data-menu-open class="menu-toggle" aria-label="Ouvrir le menu"><i data-lucide="menu" aria-hidden="true"></i></button></div>
  </div>
@@ -164,11 +191,11 @@
         <div class="lg:col-span-7 reveal">
           <nav class="flex flex-wrap items-center gap-2 text-sm text-muted mb-6" aria-label="Fil d’Ariane">
             <a href="/" class="hover:text-accent-dark">Accueil</a><span aria-hidden="true">/</span>
-            <a href="/#zones" class="hover:text-accent-dark">Zones d’intervention</a><span aria-hidden="true">/</span>
+            <a href="/villes" class="hover:text-accent-dark">Zones d’intervention</a><span aria-hidden="true">/</span>
             <span class="text-ink font-medium" aria-current="page">Publier</span>
           </nav>
           <span class="chip mb-5"><i data-lucide="map-pin" aria-hidden="true" class="w-3.5 h-3.5"></i>Publier · 74500 · Haute-Savoie</span>
-          <h1 class="font-display font-bold text-4xl lg:text-5xl leading-tight">Couverture, maçonnerie et ITE à Publier</h1>
+          <h1 class="font-display font-bold text-4xl lg:text-5xl leading-tight">Couvreur à Publier : toiture, maçonnerie et isolation extérieure</h1>
           <p class="mt-6 text-lg text-muted leading-relaxed max-w-2xl">Une toiture à reprendre, un mur à rénover ou une façade à isoler à Publier ou Amphion-les-Bains ? Rénovation Metbach étudie vos travaux de couverture, de maçonnerie et d’isolation extérieure depuis sa base de Publier. Précisez votre besoin pour préparer un devis adapté à votre maison.</p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a href="/contact?city=publier#form" class="btn btn-primary">Demander un devis pour Publier <i data-lucide="arrow-right" aria-hidden="true" class="w-4 h-4"></i></a>
@@ -196,6 +223,8 @@
           <article class="bg-page rounded-2xl border border-line p-7 reveal">
             <h3 class="font-display font-bold text-xl mb-3">Couverture et toiture à Publier</h3>
             <p class="text-muted leading-relaxed">Tuile abîmée, infiltration, gouttière qui déborde ou entretien à prévoir : décrivez le problème et depuis quand vous l’observez. L’état du toit permet de distinguer réparation, nettoyage et réfection.</p>
+            <p class="text-muted leading-relaxed mt-4">Pour une maison à Publier ou à Amphion-les-Bains, indiquez d’abord où elle se situe : près du lac ou plus haut sur le coteau, dans un lotissement ou au bout d’un chemin étroit. Précisez ensuite le matériau de couverture si vous le connaissez (tuiles, ardoises, zinc), le nombre de pans et la présence d’une cheminée, de fenêtres de toit ou de panneaux solaires : les raccords autour de ces éléments font partie des premiers points examinés.</p>
+            <p class="text-muted leading-relaxed mt-4">Notez aussi ce que vous voyez à l’intérieur : tache au plafond, bois humide dans les combles, trace qui réapparaît après la pluie ou par grand vent. Dites si l’eau est apparue après un épisode précis et si une réparation a déjà été tentée. La base d’intervention étant à Publier, la visite se convient directement avec vous ; pour vos photos, restez au sol.</p>
             <a href="/services/couverture" class="inline-flex items-center gap-2 mt-5 text-accent-dark font-semibold">Comprendre les travaux <i data-lucide="arrow-right" aria-hidden="true" class="w-4 h-4"></i></a>
             <div class="mt-5"><a href="/contact?service=couverture&amp;city=publier#form" class="btn btn-primary">Étudier ma toiture</a></div>
           </article>
@@ -255,16 +284,12 @@
 
   <footer class="site-footer"><div class="editorial-container">
  <div class="footer-top"><div><p class="eyebrow light">Rénovation Metbach · Haute-Savoie</p><p class="footer-statement">Le soin du détail.<br><em>La solidité du résultat.</em></p></div><a href="/contact#form" class="btn btn-accent">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
- <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a></div>
+ <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a><p class="footer-address">862 route de la Dranse, 74500 Publier<br>Lun – Sam · 8h – 20h</p></div>
  <div><h2>Nos métiers</h2><a href="/services/couverture">Couverture & toiture</a><a href="/services/maconnerie">Maçonnerie</a><a href="/services/isolation-exterieure">Isolation extérieure</a><a href="/services/bardage">Bardage & façades</a><a href="/services">Tous les services</a></div>
  <div><h2>Votre projet</h2><a href="/realisations">Réalisations</a><a href="/preparer-travaux">Préparer ses travaux</a><a href="/a-propos">L’entreprise</a><a href="/glossaire">Glossaire</a><a href="/contact">Contact & devis</a></div>
- <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
- <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
+ <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><a href="/villes">Toutes les zones</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
+ <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach · SIRET 448 464 545 00020</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
 </div></footer>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
-  </script>
   <script src="/js/script.js"></script>
 <nav class="mobile-contact-bar" aria-label="Contact rapide"><a href="tel:+33769136182"><i data-lucide="phone" aria-hidden="true"></i> Appeler</a><a href="/contact#form">Mon devis gratuit <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></nav></body>
 </html>

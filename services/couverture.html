@@ -4,9 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="preload" href="/assets/fonts/inter-v20-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-v9-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/responsive/toiture-tuiles-768.webp" imagesrcset="/assets/img/responsive/toiture-tuiles-480.webp 480w, /assets/img/responsive/toiture-tuiles-768.webp 768w, /assets/img/realisations/toiture-tuiles.webp 1200w" imagesizes="(max-width: 1023px) calc(100vw - 48px), (max-width: 1408px) calc((100vw - 96px) / 2), 640px" fetchpriority="high" />
   <meta name="theme-color" content="#163C34" />
-  <link rel="icon" type="image/png" href="/assets/img/logo/metbach-logo.png" />
-  <link rel="apple-touch-icon" href="/assets/img/logo/metbach-logo.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icons/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
   <script src="/assets/js/lucide.min.js" defer></script>
 
   <title>Couvreur à Publier et en Haute-Savoie | Metbach</title>
@@ -27,8 +32,7 @@
   <meta name="twitter:title" content="Couvreur à Publier et en Haute-Savoie | Metbach" />
   <meta name="twitter:description" content="Réparation, entretien et rénovation de toiture à Publier, Amphion et en Haute-Savoie. Rénovation Metbach étudie votre couverture et prépare un devis adapté." />
   <meta name="twitter:image" content="https://www.renovationmetbach.fr/assets/img/realisations/toiture-tuiles.jpg" />
-  <script type="application/ld+json">
-{
+  <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -180,7 +184,7 @@
           "name": "Garantie décennale obligatoire pour une toiture ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Les garanties applicables dépendent de la nature des travaux. Avant de signer, demandez l’attestation d’assurance et vérifiez qu’elle couvre les activités et la période du chantier. Une intervention d’entretien et une réfection de couverture ne doivent pas être assimilées sans examen de leur périmètre."
+            "text": "Les garanties applicables dépendent de la nature des travaux : une intervention d’entretien et une réfection de couverture ne relèvent pas du même périmètre. Les attestations d’assurance couvrant les travaux prévus sont fournies avec le devis, sur demande. Demandez-les avant de signer."
           }
         },
         {
@@ -192,10 +196,34 @@
           }
         }
       ]
+    },
+    {
+      "@type": "GeneralContractor",
+      "@id": "https://www.renovationmetbach.fr/#business",
+      "name": "Rénovation Metbach",
+      "url": "https://www.renovationmetbach.fr/",
+      "telephone": "+33769136182",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "862 route de la Dranse",
+        "addressLocality": "Publier",
+        "postalCode": "74500",
+        "addressRegion": "Haute-Savoie",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.renovationmetbach.fr/#website",
+      "url": "https://www.renovationmetbach.fr/",
+      "name": "Rénovation Metbach",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.renovationmetbach.fr/#business"
+      }
     }
   ]
-}
-  </script>
+}</script>
 
 </head>
 <body class="bg-page text-ink site-page">
@@ -204,7 +232,7 @@
 
   <header class="site-header fixed inset-x-0 top-0 z-50">
  <div class="editorial-container header-inner">
-  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" width="531" height="282" decoding="async"></picture></a>
+  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo-330.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo-330.png" alt="Rénovation Metbach" width="330" height="175" decoding="async"></picture></a>
   <nav class="desktop-nav" aria-label="Navigation principale"><a href="/services" class="nav-link">Nos métiers</a><a href="/realisations" class="nav-link">Réalisations</a><a href="/a-propos" class="nav-link">L’entreprise</a><a href="/preparer-travaux" class="nav-link">Conseils</a></nav>
   <div class="header-actions"><a href="tel:+33769136182" class="header-phone">07 69 13 61 82</a><a href="/contact?service=couverture#form" class="btn btn-primary header-quote">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" data-menu-open class="menu-toggle" aria-label="Ouvrir le menu"><i data-lucide="menu" aria-hidden="true"></i></button></div>
  </div>
@@ -320,59 +348,9 @@
     <!-- Comparatif matériaux toiture -->
     <section class="py-12 lg:py-16">
       <div class="max-w-5xl mx-auto container-pad">
-        <p class="h-eyebrow">Comparatif</p>
-        <h2 class="h-section font-display mt-3 mb-8">Quel matériau de couverture choisir ?</h2>
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm border-collapse">
-            <thead>
-              <tr class="bg-ink text-white text-left">
-                <th class="font-display font-bold text-base px-4 py-3 rounded-tl-xl">Matériau</th>
-
-                <th class="font-display font-bold text-base px-4 py-3">Pente à vérifier</th>
-                <th class="font-display font-bold text-base px-4 py-3">Entretien</th>
-
-              </tr>
-            </thead>
-            <tbody class="bg-white">
-              <tr class="border-b border-line">
-                <td class="px-4 py-4 font-display font-semibold">Tuile terre cuite canal</td>
-
-                <td class="px-4 py-4">Selon produit et exposition</td>
-                <td class="px-4 py-4">Selon l’état et les dépôts</td>
-
-              </tr>
-              <tr class="border-b border-line">
-                <td class="px-4 py-4 font-display font-semibold">Tuile plate mécanique</td>
-
-                <td class="px-4 py-4">Selon produit et exposition</td>
-                <td class="px-4 py-4">Selon l’état et les dépôts</td>
-
-              </tr>
-              <tr class="border-b border-line">
-                <td class="px-4 py-4 font-display font-semibold">Ardoise naturelle</td>
-
-                <td class="px-4 py-4">Selon produit et exposition</td>
-                <td class="px-4 py-4">Contrôle régulier</td>
-
-              </tr>
-              <tr class="border-b border-line">
-                <td class="px-4 py-4 font-display font-semibold">Fibrociment</td>
-
-                <td class="px-4 py-4">Selon produit et exposition</td>
-                <td class="px-4 py-4">Selon l’état et les dépôts</td>
-
-              </tr>
-              <tr>
-                <td class="px-4 py-4 font-display font-semibold">Zinc joint debout</td>
-
-                <td class="px-4 py-4">Selon produit et exposition</td>
-                <td class="px-4 py-4">Contrôle régulier</td>
-
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-xs text-muted mt-4">Le choix dépend du bâtiment, de l’exposition et du système retenu. La pente admissible et les prescriptions de pose doivent être vérifiées pour le produit choisi. Pour les démarches : <a href="https://www.service-public.fr/particuliers/vosdroits/F36767" class="text-accent-dark underline underline-offset-2 hover:text-ink">autorisations de travaux de toiture</a>.</p>
+        <p class="h-eyebrow">Matériaux et démarches</p>
+        <h2 class="h-section font-display mt-3 mb-6">Choisir un matériau de couverture.</h2>
+        <p class="text-muted leading-relaxed">Tuile, ardoise ou zinc : le choix dépend du bâtiment, de l’exposition et du système retenu. La pente admissible et les prescriptions de pose doivent être vérifiées pour le produit choisi. Pour les démarches : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F36767" class="text-accent-dark underline underline-offset-2 hover:text-ink">autorisations de travaux de toiture</a>.</p>
       </div>
     </section>
 
@@ -506,7 +484,7 @@
               <span class="font-display font-semibold text-lg">Garantie décennale obligatoire pour une toiture ?</span>
               <i aria-hidden="true" data-lucide="plus" class="w-5 h-5 text-accent-dark transition-transform group-open:rotate-45 shrink-0"></i>
             </summary>
-            <p class="text-muted mt-3 leading-relaxed">Les garanties applicables dépendent de la nature des travaux. Avant de signer, demandez l’attestation d’assurance et vérifiez qu’elle couvre les activités et la période du chantier. Une intervention d’entretien et une réfection de couverture ne doivent pas être assimilées sans examen de leur périmètre.</p>
+            <p class="text-muted mt-3 leading-relaxed">Les garanties applicables dépendent de la nature des travaux : une intervention d’entretien et une réfection de couverture ne relèvent pas du même périmètre. Les attestations d’assurance couvrant les travaux prévus sont fournies avec le devis, sur demande. Demandez-les avant de signer.</p>
           </details>
           <details class="group py-6 reveal reveal-delay-4">
             <summary class="flex items-center justify-between cursor-pointer list-none gap-6">
@@ -572,16 +550,12 @@
 
   <footer class="site-footer"><div class="editorial-container">
  <div class="footer-top"><div><p class="eyebrow light">Rénovation Metbach · Haute-Savoie</p><p class="footer-statement">Le soin du détail.<br><em>La solidité du résultat.</em></p></div><a href="/contact?service=couverture#form" class="btn btn-accent">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
- <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a></div>
+ <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a><p class="footer-address">862 route de la Dranse, 74500 Publier<br>Lun – Sam · 8h – 20h</p></div>
  <div><h2>Nos métiers</h2><a href="/services/couverture">Couverture & toiture</a><a href="/services/maconnerie">Maçonnerie</a><a href="/services/isolation-exterieure">Isolation extérieure</a><a href="/services/bardage">Bardage & façades</a><a href="/services">Tous les services</a></div>
  <div><h2>Votre projet</h2><a href="/realisations">Réalisations</a><a href="/preparer-travaux">Préparer ses travaux</a><a href="/a-propos">L’entreprise</a><a href="/glossaire">Glossaire</a><a href="/contact?service=couverture#form">Contact & devis</a></div>
- <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
- <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
+ <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><a href="/villes">Toutes les zones</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
+ <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach · SIRET 448 464 545 00020</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
 </div></footer>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
-  </script>
   <script src="/js/script.js"></script>
 <nav class="mobile-contact-bar" aria-label="Contact rapide"><a href="tel:+33769136182"><i data-lucide="phone" aria-hidden="true"></i> Appeler</a><a href="/contact?service=couverture#form">Mon devis gratuit <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></nav></body>
 </html>

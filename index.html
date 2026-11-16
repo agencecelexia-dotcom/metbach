@@ -4,11 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="preload" href="/assets/fonts/inter-v20-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-v9-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" as="image" type="image/avif" href="/assets/img/responsive/bardage-bois-terrasse-768.avif" imagesrcset="/assets/img/responsive/bardage-bois-terrasse-480.avif 480w, /assets/img/responsive/bardage-bois-terrasse-768.avif 768w, /assets/img/responsive/bardage-bois-terrasse-1200.avif 1200w" imagesizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1200px) calc((100vw - 104px) / 2), 640px" fetchpriority="high" />
   <meta name="theme-color" content="#163C34" />
 
-  <link rel="icon" type="image/png" href="/assets/img/logo/metbach-logo.png" />
-  <link rel="apple-touch-icon" href="/assets/img/logo/metbach-logo.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icons/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
 
   <!-- Fonts -->
 
@@ -70,6 +74,12 @@
         "addressRegion": "Haute-Savoie",
         "addressCountry": "FR"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.400383,
+        "longitude": 6.520969
+      },
+      "hasMap": "https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9",
       "areaServed": [
         {
           "@type": "AdministrativeArea",
@@ -102,6 +112,12 @@
           "closes": "20:00"
         }
       ],
+      "founder": {
+        "@type": "Person",
+        "@id": "https://www.renovationmetbach.fr/a-propos#zachari-metbach",
+        "name": "Zachari Metbach",
+        "url": "https://www.renovationmetbach.fr/a-propos"
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Services de rénovation et d’aménagement",
@@ -110,78 +126,19 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "@id": "https://www.renovationmetbach.fr/services/bardage#service",
-              "name": "Bardage extérieur",
-              "url": "https://www.renovationmetbach.fr/services/bardage"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
               "@id": "https://www.renovationmetbach.fr/services/couverture#service",
               "name": "Couverture et toiture",
-              "url": "https://www.renovationmetbach.fr/services/couverture"
+              "url": "https://www.renovationmetbach.fr/services/couverture",
+              "provider": {
+                "@id": "https://www.renovationmetbach.fr/#business"
+              }
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "@id": "https://www.renovationmetbach.fr/services/petits-travaux#service",
-              "name": "Petits travaux",
-              "url": "https://www.renovationmetbach.fr/services/petits-travaux"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "@id": "https://www.renovationmetbach.fr/services/revetement-sol#service",
-              "name": "Revêtement de sol",
-              "url": "https://www.renovationmetbach.fr/services/revetement-sol"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "@id": "https://www.renovationmetbach.fr/services/fondations#service",
-              "name": "Fondations et terrassement",
-              "url": "https://www.renovationmetbach.fr/services/fondations"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "@id": "https://www.renovationmetbach.fr/services/amenagement-paysager#service",
-              "name": "Aménagement paysager",
-              "url": "https://www.renovationmetbach.fr/services/amenagement-paysager"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "@id": "https://www.renovationmetbach.fr/services/clotures#service",
-              "name": "Clôtures et portails",
-              "url": "https://www.renovationmetbach.fr/services/clotures"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "@id": "https://www.renovationmetbach.fr/services/arboriculture#service",
-              "name": "Élagage et arboriculture",
-              "url": "https://www.renovationmetbach.fr/services/arboriculture"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
+              "@id": "https://www.renovationmetbach.fr/services/maconnerie#service",
               "name": "Maçonnerie",
               "url": "https://www.renovationmetbach.fr/services/maconnerie",
               "provider": {
@@ -193,8 +150,105 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "@id": "https://www.renovationmetbach.fr/services/isolation-exterieure#service",
               "name": "Isolation thermique extérieure",
               "url": "https://www.renovationmetbach.fr/services/isolation-exterieure",
+              "provider": {
+                "@id": "https://www.renovationmetbach.fr/#business"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.renovationmetbach.fr/services/bardage#service",
+              "name": "Bardage et façades",
+              "url": "https://www.renovationmetbach.fr/services/bardage",
+              "provider": {
+                "@id": "https://www.renovationmetbach.fr/#business"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.renovationmetbach.fr/services/fondations#service",
+              "name": "Fondations et dalles béton",
+              "url": "https://www.renovationmetbach.fr/services/fondations",
+              "provider": {
+                "@id": "https://www.renovationmetbach.fr/#business"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.renovationmetbach.fr/services/revetement-sol#service",
+              "name": "Revêtements de sol",
+              "url": "https://www.renovationmetbach.fr/services/revetement-sol",
+              "provider": {
+                "@id": "https://www.renovationmetbach.fr/#business"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.renovationmetbach.fr/services/amenagement-paysager#service",
+              "name": "Aménagement paysager",
+              "url": "https://www.renovationmetbach.fr/services/amenagement-paysager",
+              "provider": {
+                "@id": "https://www.renovationmetbach.fr/#business"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.renovationmetbach.fr/services/clotures#service",
+              "name": "Clôtures et portails",
+              "url": "https://www.renovationmetbach.fr/services/clotures",
+              "provider": {
+                "@id": "https://www.renovationmetbach.fr/#business"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.renovationmetbach.fr/services/arboriculture#service",
+              "name": "Élagage et arboriculture",
+              "url": "https://www.renovationmetbach.fr/services/arboriculture",
+              "provider": {
+                "@id": "https://www.renovationmetbach.fr/#business"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.renovationmetbach.fr/services/petits-travaux#service",
+              "name": "Petits travaux",
+              "url": "https://www.renovationmetbach.fr/services/petits-travaux",
+              "provider": {
+                "@id": "https://www.renovationmetbach.fr/#business"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://www.renovationmetbach.fr/services/nettoyage-toiture#service",
+              "name": "Nettoyage et démoussage de toiture",
+              "url": "https://www.renovationmetbach.fr/services/nettoyage-toiture",
               "provider": {
                 "@id": "https://www.renovationmetbach.fr/#business"
               }
@@ -241,7 +295,7 @@
           "name": "Êtes-vous assurés ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Les attestations d’assurance correspondant aux activités et à la période de votre chantier sont à vérifier avant engagement. Demandez-les lors de la préparation du devis."
+            "text": "Les attestations d’assurance couvrant les travaux prévus sont fournies avec le devis, sur demande. Demandez-les avant de signer."
           }
         },
         {
@@ -249,7 +303,7 @@
           "name": "Peut-on grouper plusieurs services dans un même devis ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui — c'est même notre force. Bardage + sol + clôture, par exemple, peuvent être pensés ensemble pour un planning et un budget optimisés."
+            "text": "Oui. Couverture, reprises de maçonnerie, isolation ou aménagements peuvent être examinés ensemble. Le devis précise les prestations retenues, leurs limites et les étapes prévues."
           }
         },
         {
@@ -257,7 +311,7 @@
           "name": "Travaillez-vous pour les professionnels ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui : commerces, restaurants, bureaux, gîtes, copropriétés. Devis adaptés aux exigences pro (planning, facturation, sécurité chantier)."
+            "text": "Les demandes de professionnels et de copropriétés sont étudiées comme celles des particuliers. Décrivez le bâtiment, les travaux envisagés et vos contraintes de planning : le devis précise ensuite les prestations proposées."
           }
         }
       ]
@@ -270,7 +324,7 @@
 <a href="#top" class="skip-link">Aller au contenu</a>
 <header class="site-header fixed inset-x-0 top-0 z-50">
  <div class="editorial-container header-inner">
-  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" width="531" height="282" decoding="async"></picture></a>
+  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo-330.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo-330.png" alt="Rénovation Metbach" width="330" height="175" decoding="async"></picture></a>
   <nav class="desktop-nav" aria-label="Navigation principale"><a href="/services" class="nav-link">Nos métiers</a><a href="/realisations" class="nav-link">Réalisations</a><a href="/a-propos" class="nav-link">L’entreprise</a><a href="/preparer-travaux" class="nav-link">Conseils</a></nav>
   <div class="header-actions"><a href="tel:+33769136182" class="header-phone">07 69 13 61 82</a><a href="/contact#form" class="btn btn-primary header-quote">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" data-menu-open class="menu-toggle" aria-label="Ouvrir le menu"><i data-lucide="menu" aria-hidden="true"></i></button></div>
  </div>
@@ -280,7 +334,7 @@
  <div class="mobile-menu-bottom"><a href="tel:+33769136182" class="btn btn-glass">Appeler le 07 69 13 61 82</a><a href="/contact#form" class="btn btn-accent">Demander mon devis</a></div>
 </div><main id="top">
 <section class="home-hero"><div class="editorial-container hero-grid">
- <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-rule"></span> Couverture · Maçonnerie · ITE</p><h1>Votre maison,<br><em>bien pensée.</em><span>Rénovation en Haute-Savoie.</span></h1><p class="hero-intro">Une toiture qui protège. Des murs qui durent. Un intérieur plus confortable. Avec Rénovation Metbach, donnons une nouvelle vie à votre maison.</p><div class="hero-actions"><a href="#contact" class="btn btn-primary">Parlons de vos travaux <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><a href="/realisations" class="text-link">Voir les réalisations <i data-lucide="arrow-right" aria-hidden="true"></i></a></div><p class="hero-reassurance">Devis gratuit · Un projet étudié avec l’artisan</p><div class="hero-location"><i data-lucide="map-pin" aria-hidden="true"></i> Depuis Publier, dans le Chablais et le Genevois.</div></div>
+ <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-rule"></span> Couverture · Maçonnerie · ITE</p><h1>Votre maison,<br><em>bien pensée.</em><span>Couverture, maçonnerie et isolation extérieure à Publier, Haute-Savoie.</span></h1><p class="hero-intro">Une toiture qui protège. Des murs qui durent. Un intérieur plus confortable. Avec Rénovation Metbach, donnons une nouvelle vie à votre maison.</p><div class="hero-actions"><a href="#contact" class="btn btn-primary">Parlons de vos travaux <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><a href="/realisations" class="text-link">Voir les réalisations <i data-lucide="arrow-right" aria-hidden="true"></i></a></div><p class="hero-reassurance">Devis gratuit · Un projet étudié avec l’artisan</p><div class="hero-location"><i data-lucide="map-pin" aria-hidden="true"></i> Depuis Publier, dans le Chablais et le Genevois.</div></div>
  <figure class="hero-visual"><picture><source srcset="/assets/img/responsive/bardage-bois-terrasse-480.avif 480w, /assets/img/responsive/bardage-bois-terrasse-768.avif 768w, /assets/img/responsive/bardage-bois-terrasse-1200.avif 1200w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1200px) calc((100vw - 104px) / 2), 640px" type="image/avif" /><source srcset="/assets/img/responsive/bardage-bois-terrasse-480.webp 480w, /assets/img/responsive/bardage-bois-terrasse-768.webp 768w, /assets/img/responsive/bardage-bois-terrasse-1200.webp 1200w, /assets/img/realisations/bardage-bois-terrasse.webp 1600w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1200px) calc((100vw - 104px) / 2), 640px" type="image/webp" /><img src="/assets/img/realisations/bardage-bois-terrasse.jpg" alt="Façade en bardage bois et terrasse pavée" class="" loading="eager" fetchpriority="high" decoding="async" width="1600" height="1066" /></picture><figcaption><span>Le goût du travail soigné.</span><a href="/services/bardage" aria-label="Découvrir le bardage"><i data-lucide="arrow-up-right" aria-hidden="true"></i></a></figcaption><span class="photo-index" aria-hidden="true">MATIÈRES · DÉTAILS · FINITIONS</span></figure>
 </div></section>
 <div class="proof-strip"><div class="editorial-container proof-items"><p><i data-lucide="message-circle" aria-hidden="true"></i> Votre besoin précisé dès le départ</p><p><i data-lucide="clipboard-check" aria-hidden="true"></i> Un devis adapté à votre projet</p><p><i data-lucide="map-pin" aria-hidden="true"></i> Un artisan en Haute-Savoie</p></div></div>
@@ -315,21 +369,21 @@
               <span class="font-display font-semibold text-lg">Êtes-vous assurés ?</span>
               <i aria-hidden="true" data-lucide="plus" class="w-5 h-5 text-accent transition-transform group-open:rotate-45"></i>
             </summary>
-            <p class="text-muted mt-3 leading-relaxed">Les attestations d’assurance correspondant aux activités et à la période de votre chantier sont à vérifier avant engagement. Demandez-les lors de la préparation du devis.</p>
+            <p class="text-muted mt-3 leading-relaxed">Les attestations d’assurance couvrant les travaux prévus sont fournies avec le devis, sur demande. Demandez-les avant de signer.</p>
           </details>
 <details class="group py-6 reveal reveal-delay-3">
             <summary class="flex items-center justify-between cursor-pointer list-none">
               <span class="font-display font-semibold text-lg">Peut-on grouper plusieurs services dans un même devis ?</span>
               <i aria-hidden="true" data-lucide="plus" class="w-5 h-5 text-accent transition-transform group-open:rotate-45"></i>
             </summary>
-            <p class="text-muted mt-3 leading-relaxed">Oui — c'est même notre force. Bardage + sol + clôture, par exemple, peuvent être pensés ensemble pour un planning et un budget optimisés.</p>
+            <p class="text-muted mt-3 leading-relaxed">Oui. Couverture, reprises de maçonnerie, isolation ou aménagements peuvent être examinés ensemble. Le devis précise les prestations retenues, leurs limites et les étapes prévues.</p>
           </details>
 <details class="group py-6 reveal reveal-delay-4">
             <summary class="flex items-center justify-between cursor-pointer list-none">
               <span class="font-display font-semibold text-lg">Travaillez-vous pour les professionnels ?</span>
               <i aria-hidden="true" data-lucide="plus" class="w-5 h-5 text-accent transition-transform group-open:rotate-45"></i>
             </summary>
-            <p class="text-muted mt-3 leading-relaxed">Oui : commerces, restaurants, bureaux, gîtes, copropriétés. Devis adaptés aux exigences pro (planning, facturation, sécurité chantier).</p>
+            <p class="text-muted mt-3 leading-relaxed">Les demandes de professionnels et de copropriétés sont étudiées comme celles des particuliers. Décrivez le bâtiment, les travaux envisagés et vos contraintes de planning : le devis précise ensuite les prestations proposées.</p>
           </details></div></div></section>
 <section id="contact" class="quote-section"><div class="editorial-container quote-grid"><div class="quote-intro"><p class="eyebrow">Commençons par votre projet</p><h2 id="contact-title">Quelques mots.<br><em>Et on en parle.</em></h2><p>Décrivez vos travaux et indiquez la commune du chantier. Nous revenons vers vous pour préciser votre besoin et la prochaine étape.</p><a class="quote-phone" href="tel:+33769136182">07 69 13 61 82 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><p class="quote-small">Devis gratuit, sans engagement.<br>Réponse sous 48 h ouvrées.<br>Délai du devis précisé après échange.</p><div class="quote-tips"><strong>Pour un premier échange utile</strong><p>Le type de travaux, la commune, une surface approximative et votre calendrier souhaité suffisent pour commencer.</p></div></div><form id="contact-form" class="quote-form"
                 action="/api/contact" method="post"
@@ -405,11 +459,11 @@
           </form></div></section>
 </main><footer class="site-footer"><div class="editorial-container">
  <div class="footer-top"><div><p class="eyebrow light">Rénovation Metbach · Haute-Savoie</p><p class="footer-statement">Le soin du détail.<br><em>La solidité du résultat.</em></p></div><a href="/contact#form" class="btn btn-accent">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
- <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a></div>
+ <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a><p class="footer-address">862 route de la Dranse, 74500 Publier<br>Lun – Sam · 8h – 20h</p></div>
  <div><h2>Nos métiers</h2><a href="/services/couverture">Couverture & toiture</a><a href="/services/maconnerie">Maçonnerie</a><a href="/services/isolation-exterieure">Isolation extérieure</a><a href="/services/bardage">Bardage & façades</a><a href="/services">Tous les services</a></div>
  <div><h2>Votre projet</h2><a href="/realisations">Réalisations</a><a href="/preparer-travaux">Préparer ses travaux</a><a href="/a-propos">L’entreprise</a><a href="/glossaire">Glossaire</a><a href="/contact">Contact & devis</a></div>
- <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
- <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
+ <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><a href="/villes">Toutes les zones</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
+ <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach · SIRET 448 464 545 00020</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
 </div></footer><nav class="mobile-contact-bar" aria-label="Contact rapide"><a href="tel:+33769136182"><i data-lucide="phone" aria-hidden="true"></i> Appeler</a><a href="/contact#form">Mon devis gratuit <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></nav><script src="/js/script.js" defer></script>
 </body>
 </html>

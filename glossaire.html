@@ -4,9 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="preload" href="/assets/fonts/inter-v20-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-v9-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
   <meta name="theme-color" content="#163C34" />
-  <link rel="icon" type="image/png" href="/assets/img/logo/metbach-logo.png" />
-  <link rel="apple-touch-icon" href="/assets/img/logo/metbach-logo.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icons/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
   <script src="/assets/js/lucide.min.js" defer></script>
 
   <title>Glossaire rénovation, toiture et jardin | Metbach</title>
@@ -27,8 +31,7 @@
   <meta name="twitter:title" content="Glossaire rénovation, toiture et jardin | Metbach" />
   <meta name="twitter:description" content="Comprenez les termes de vos travaux : bardage, couverture, fondations, revêtements et jardin. Le lexique de Rénovation Metbach pour préparer votre projet." />
   <meta name="twitter:image" content="https://www.renovationmetbach.fr/assets/img/realisations/bardage-bois-terrasse.jpg" />
-  <script type="application/ld+json">
-{
+  <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -54,13 +57,445 @@
     {
       "@type": "DefinedTermSet",
       "name": "Glossaire — Lexique des métiers de la rénovation",
-      "description": "Définitions des termes techniques de l'artisanat du bâtiment, de la couverture, du paysagisme et de la rénovation, par Rénovation Metbach.",
+      "description": "Définitions des termes techniques de l’artisanat du bâtiment, de la couverture, du paysagisme et de la rénovation, par Rénovation Metbach.",
       "url": "https://www.renovationmetbach.fr/glossaire",
       "inLanguage": "fr-FR",
       "publisher": {
         "@id": "https://www.renovationmetbach.fr/#business"
       },
-      "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+      "@id": "https://www.renovationmetbach.fr/glossaire#lexique",
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#aretier",
+          "name": "Arêtier",
+          "description": "Élément de toiture formant l’arête saillante à la jonction de deux versants.",
+          "url": "https://www.renovationmetbach.fr/glossaire#aretier",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#abergement",
+          "name": "Abergement",
+          "description": "Ouvrage d’étanchéité aux points singuliers d’une toiture (cheminée, lucarne, mur).",
+          "url": "https://www.renovationmetbach.fr/glossaire#abergement",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#abf",
+          "name": "ABF",
+          "description": "Architecte des Bâtiments de France. Son avis peut être requis pour des travaux situés dans un secteur protégé ou aux abords d’un monument historique ; la mairie vous indique si votre adresse est concernée.",
+          "url": "https://www.renovationmetbach.fr/glossaire#abf",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#arasement",
+          "name": "Arasement",
+          "description": "Mise à niveau du dessus d’un mur ou d’un sol avant pose d’un élément (chape, couvertine, dalle). Voir page Maçonnerie.",
+          "url": "https://www.renovationmetbach.fr/glossaire#arasement",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#bardage",
+          "name": "Bardage",
+          "description": "Revêtement de façade extérieur fixé sur ossature, généralement avec une lame d’air ventilée. Un bardage ne signifie pas, à lui seul, que le mur est isolé. Voir page Bardage.",
+          "url": "https://www.renovationmetbach.fr/glossaire#bardage",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#beton-ferraille",
+          "name": "Béton ferraillé",
+          "description": "Béton armé d’un treillis ou de fers à béton, utilisé notamment en fondations et en dalles.",
+          "url": "https://www.renovationmetbach.fr/glossaire#beton-ferraille",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#bavette",
+          "name": "Bavette",
+          "description": "Élément métallique (plomb, zinc) assurant l’étanchéité au pied d’un bardage ou autour d’un solin.",
+          "url": "https://www.renovationmetbach.fr/glossaire#bavette",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#cee",
+          "name": "CEE",
+          "description": "Certificats d’Économies d’Énergie. Dispositif par lequel les fournisseurs d’énergie participent au financement de certains travaux d’économies d’énergie. Les conditions et l’éligibilité se vérifient auprès de France Rénov’ avant tout engagement.",
+          "url": "https://www.renovationmetbach.fr/glossaire#cee",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#charpente",
+          "name": "Charpente",
+          "description": "Structure portante de la toiture (chevrons, pannes, fermes). Bois ou métal.",
+          "url": "https://www.renovationmetbach.fr/glossaire#charpente",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#couverture",
+          "name": "Couverture",
+          "description": "Ensemble des éléments protégeant la toiture (tuiles, ardoises, zinc, écran sous-toiture, faîtage). Voir page Couverture et, pour l’entretien, page Nettoyage de toiture.",
+          "url": "https://www.renovationmetbach.fr/glossaire#couverture",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#declaration-prealable-dp",
+          "name": "Déclaration préalable (DP)",
+          "description": "Autorisation d’urbanisme demandée pour certains travaux modifiant l’aspect extérieur d’un bâtiment (façade, ouvertures, isolation par l’extérieur). Les pièces à fournir et le délai d’instruction se vérifient auprès du service urbanisme de la mairie.",
+          "url": "https://www.renovationmetbach.fr/glossaire#declaration-prealable-dp",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#dtu",
+          "name": "DTU",
+          "description": "Document Technique Unifié. Texte de référence décrivant les règles de mise en œuvre d’un type d’ouvrage (fondations, couverture, maçonnerie…). Le devis peut préciser les documents auxquels les travaux se réfèrent.",
+          "url": "https://www.renovationmetbach.fr/glossaire#dtu",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#echafaudage",
+          "name": "Échafaudage",
+          "description": "Structure temporaire permettant de travailler en hauteur en sécurité.",
+          "url": "https://www.renovationmetbach.fr/glossaire#echafaudage",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#elagage",
+          "name": "Élagage",
+          "description": "Taille d’un arbre pour son entretien ou la sécurité. La période d’intervention dépend de l’essence, de l’état de l’arbre et de la taille envisagée.",
+          "url": "https://www.renovationmetbach.fr/glossaire#elagage",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#espaces-verts",
+          "name": "Espaces verts",
+          "description": "Aménagement et entretien de jardins, de terrains et de plantations.",
+          "url": "https://www.renovationmetbach.fr/glossaire#espaces-verts",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#faitage",
+          "name": "Faîtage",
+          "description": "Ligne supérieure d’une toiture formant l’arête sommitale. Recouverte de tuiles ou de pièces spécifiques.",
+          "url": "https://www.renovationmetbach.fr/glossaire#faitage",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#fibrociment",
+          "name": "Fibrociment",
+          "description": "Matériau composite (ciment et fibres) utilisé en bardage et en toiture. Sa tenue dans le temps dépend du produit, de la pose et de l’exposition.",
+          "url": "https://www.renovationmetbach.fr/glossaire#fibrociment",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#garantie-decennale",
+          "name": "Garantie décennale",
+          "description": "Responsabilité du constructeur (article 1792 du Code civil) pendant dix ans après la réception des travaux, pour les dommages compromettant la solidité de l’ouvrage ou le rendant impropre à sa destination. Demandez l’attestation d’assurance correspondant aux travaux prévus.",
+          "url": "https://www.renovationmetbach.fr/glossaire#garantie-decennale",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#genie-civil",
+          "name": "Génie civil",
+          "description": "Branche de la construction couvrant les ouvrages d’infrastructure (fondations, voirie, soutènements).",
+          "url": "https://www.renovationmetbach.fr/glossaire#genie-civil",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#gouttiere",
+          "name": "Gouttière",
+          "description": "Conduit horizontal recueillant les eaux pluviales en pied de toiture, raccordé aux descentes d’eau.",
+          "url": "https://www.renovationmetbach.fr/glossaire#gouttiere",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#hors-gel",
+          "name": "Hors-gel",
+          "description": "Profondeur à laquelle une fondation est mise à l’abri du gel, pour éviter son soulèvement. Il n’existe pas de valeur unique : elle dépend de l’altitude, de la commune et du sol. Voir page Fondations.",
+          "url": "https://www.renovationmetbach.fr/glossaire#hors-gel",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#hpv",
+          "name": "HPV",
+          "description": "Haute Perméabilité à la Vapeur. Qualifie un écran de sous-toiture qui laisse s’évacuer la vapeur d’eau.",
+          "url": "https://www.renovationmetbach.fr/glossaire#hpv",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#ite",
+          "name": "ITE",
+          "description": "Isolation Thermique par l’Extérieur. L’isolant est fixé du côté extérieur des murs, puis protégé par une finition sous enduit ou par un parement, par exemple un bardage. Les aides éventuelles dépendent du logement, de votre situation et des qualifications requises : elles ne peuvent pas être présumées. Voir page Isolation extérieure.",
+          "url": "https://www.renovationmetbach.fr/glossaire#ite",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#ipe",
+          "name": "Ipé",
+          "description": "Bois exotique très dur et dense, utilisé en terrasse extérieure.",
+          "url": "https://www.renovationmetbach.fr/glossaire#ipe",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#lambourde",
+          "name": "Lambourde",
+          "description": "Pièce de bois ou de composite servant de support à un plancher ou à une terrasse.",
+          "url": "https://www.renovationmetbach.fr/glossaire#lambourde",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#lasure",
+          "name": "Lasure",
+          "description": "Finition translucide pour le bois, à renouveler en extérieur selon l’exposition et l’état du support.",
+          "url": "https://www.renovationmetbach.fr/glossaire#lasure",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#maprimerenov",
+          "name": "MaPrimeRénov’",
+          "description": "Aide publique à la rénovation énergétique des logements. Les conditions dépendent du logement, du foyer, des travaux et des qualifications de l’entreprise : à vérifier auprès de France Rénov’ avant tout engagement.",
+          "url": "https://www.renovationmetbach.fr/glossaire#maprimerenov",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#meleze",
+          "name": "Mélèze",
+          "description": "Essence de bois résineux naturellement durable, utilisée en bardage. Sans finition, il grise avec le temps.",
+          "url": "https://www.renovationmetbach.fr/glossaire#meleze",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#noue",
+          "name": "Noue",
+          "description": "Angle rentrant entre deux pans de toiture, où s’écoulent les eaux. Point sensible pour l’étanchéité.",
+          "url": "https://www.renovationmetbach.fr/glossaire#noue",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#pare-pluie",
+          "name": "Pare-pluie",
+          "description": "Membrane posée sous un bardage ou une couverture pour protéger la paroi des infiltrations d’eau.",
+          "url": "https://www.renovationmetbach.fr/glossaire#pare-pluie",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#patine",
+          "name": "Patine",
+          "description": "Évolution naturelle de la couleur d’un matériau (bois, cuivre) au fil des années sous l’effet du climat.",
+          "url": "https://www.renovationmetbach.fr/glossaire#patine",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#pureau",
+          "name": "Pureau",
+          "description": "Partie visible d’une tuile ou d’une ardoise, une fois recouverte par la pièce supérieure.",
+          "url": "https://www.renovationmetbach.fr/glossaire#pureau",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#ragreage",
+          "name": "Ragréage",
+          "description": "Mise à niveau et lissage d’un support avant pose d’un revêtement de sol.",
+          "url": "https://www.renovationmetbach.fr/glossaire#ragreage",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#rc-pro",
+          "name": "RC pro",
+          "description": "Responsabilité Civile Professionnelle. Assurance couvrant les dommages causés à des tiers dans l’exercice de l’activité.",
+          "url": "https://www.renovationmetbach.fr/glossaire#rc-pro",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#red-cedar",
+          "name": "Red cedar",
+          "description": "Bois résineux nord-américain utilisé en bardage. Sans finition, il grise avec le temps.",
+          "url": "https://www.renovationmetbach.fr/glossaire#red-cedar",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#redan",
+          "name": "Redan",
+          "description": "Étagement horizontal d’une fondation ou d’une clôture sur terrain en pente.",
+          "url": "https://www.renovationmetbach.fr/glossaire#redan",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#sarking",
+          "name": "Sarking",
+          "description": "Méthode d’isolation de la toiture par l’extérieur, posée sur les chevrons, sous la couverture.",
+          "url": "https://www.renovationmetbach.fr/glossaire#sarking",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#semelle-filante",
+          "name": "Semelle filante",
+          "description": "Fondation continue sous un mur porteur, plus large que le mur pour répartir les charges. Voir page Fondations.",
+          "url": "https://www.renovationmetbach.fr/glossaire#semelle-filante",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#solins",
+          "name": "Solins",
+          "description": "Bandes d’étanchéité aux jonctions entre la toiture et un mur ou une cheminée.",
+          "url": "https://www.renovationmetbach.fr/glossaire#solins",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#sous-toiture",
+          "name": "Sous-toiture",
+          "description": "Écran posé sous la couverture, qui protège l’isolation et la charpente des infiltrations et aide à gérer la condensation.",
+          "url": "https://www.renovationmetbach.fr/glossaire#sous-toiture",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#tuile-canal",
+          "name": "Tuile canal",
+          "description": "Tuile en forme de demi-cylindre, posée en alternant tuiles de dessous et tuiles de dessus. Traditionnelle dans le Sud de la France.",
+          "url": "https://www.renovationmetbach.fr/glossaire#tuile-canal",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#terrassement",
+          "name": "Terrassement",
+          "description": "Travaux de mouvement de terres préparatoires à la construction (fouilles, décapage, mise à niveau).",
+          "url": "https://www.renovationmetbach.fr/glossaire#terrassement",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.renovationmetbach.fr/glossaire#zinc",
+          "name": "Zinc",
+          "description": "Métal utilisé en couverture (joint debout, tasseaux), en gouttières et en habillages. Son entretien et sa tenue dépendent de la pose et de l’exposition.",
+          "url": "https://www.renovationmetbach.fr/glossaire#zinc",
+          "inDefinedTermSet": {
+            "@id": "https://www.renovationmetbach.fr/glossaire#lexique"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -79,10 +514,34 @@
         }
       ],
       "@id": "https://www.renovationmetbach.fr/glossaire#breadcrumb"
+    },
+    {
+      "@type": "GeneralContractor",
+      "@id": "https://www.renovationmetbach.fr/#business",
+      "name": "Rénovation Metbach",
+      "url": "https://www.renovationmetbach.fr/",
+      "telephone": "+33769136182",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "862 route de la Dranse",
+        "addressLocality": "Publier",
+        "postalCode": "74500",
+        "addressRegion": "Haute-Savoie",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.renovationmetbach.fr/#website",
+      "url": "https://www.renovationmetbach.fr/",
+      "name": "Rénovation Metbach",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.renovationmetbach.fr/#business"
+      }
     }
   ]
-}
-  </script>
+}</script>
 
 </head>
 <body class="bg-page text-ink site-page">
@@ -91,7 +550,7 @@
 
   <header class="site-header fixed inset-x-0 top-0 z-50">
  <div class="editorial-container header-inner">
-  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" width="531" height="282" decoding="async"></picture></a>
+  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo-330.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo-330.png" alt="Rénovation Metbach" width="330" height="175" decoding="async"></picture></a>
   <nav class="desktop-nav" aria-label="Navigation principale"><a href="/services" class="nav-link">Nos métiers</a><a href="/realisations" class="nav-link">Réalisations</a><a href="/a-propos" class="nav-link">L’entreprise</a><a href="/preparer-travaux" class="nav-link">Conseils</a></nav>
   <div class="header-actions"><a href="tel:+33769136182" class="header-phone">07 69 13 61 82</a><a href="/contact#form" class="btn btn-primary header-quote">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" data-menu-open class="menu-toggle" aria-label="Ouvrir le menu"><i data-lucide="menu" aria-hidden="true"></i></button></div>
  </div>
@@ -113,11 +572,11 @@
           <span class="text-ink font-medium" aria-current="page">Glossaire</span>
         </nav>
         <p class="h-eyebrow">Lexique</p>
-        <h1 class="font-display font-bold text-4xl lg:text-5xl mt-3 mb-6 leading-tight">Glossaire de la rénovation et de l'artisanat.</h1>
+        <h1 class="font-display font-bold text-4xl lg:text-5xl mt-3 mb-6 leading-tight">Glossaire de la rénovation et de l’artisanat.</h1>
         <p class="text-lg text-muted leading-relaxed">
           Les termes techniques du bâtiment, de la couverture, du paysagisme et de la rénovation
-          décryptés simplement par un artisan. 50+ définitions concrètes, avec les normes, les
-          durées de vie et les ordres de prix.
+          décryptés simplement par un artisan. 43 définitions pour comprendre un devis et
+          préparer vos travaux.
         </p>
       </div>
     </section>
@@ -131,14 +590,14 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">A</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Arêtier</dt>
-              <dd class="text-muted leading-relaxed mt-1">Élément de toiture formant l'arête saillante à la jonction de deux versants de pente différente.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Abergement</dt>
-              <dd class="text-muted leading-relaxed mt-1">Ouvrage d'étanchéité aux points singuliers d'une toiture (cheminée, lucarne, mur).</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">ABF</dt>
-              <dd class="text-muted leading-relaxed mt-1">Architecte des Bâtiments de France. Autorité consultative obligatoire en secteur sauvegardé.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Arasement</dt>
-              <dd class="text-muted leading-relaxed mt-1">Mise à niveau d'un mur ou d'un sol avant pose d'un élément (chape, couvertine, dalle).</dd>
+              <dt id="aretier" class="font-display font-bold text-lg mt-6 text-ink">Arêtier</dt>
+              <dd class="text-muted leading-relaxed mt-1">Élément de toiture formant l’arête saillante à la jonction de deux versants.</dd>
+              <dt id="abergement" class="font-display font-bold text-lg mt-6 text-ink">Abergement</dt>
+              <dd class="text-muted leading-relaxed mt-1">Ouvrage d’étanchéité aux points singuliers d’une toiture (cheminée, lucarne, mur).</dd>
+              <dt id="abf" class="font-display font-bold text-lg mt-6 text-ink">ABF</dt>
+              <dd class="text-muted leading-relaxed mt-1">Architecte des Bâtiments de France. Son avis peut être requis pour des travaux situés dans un secteur protégé ou aux abords d’un monument historique ; la mairie vous indique si votre adresse est concernée.</dd>
+              <dt id="arasement" class="font-display font-bold text-lg mt-6 text-ink">Arasement</dt>
+              <dd class="text-muted leading-relaxed mt-1">Mise à niveau du dessus d’un mur ou d’un sol avant pose d’un élément (chape, couvertine, dalle). Voir <a href="/services/maconnerie" class="text-accent-dark underline">page Maçonnerie</a>.</dd>
         </dl>
       </div>
     </section>
@@ -147,12 +606,12 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">B</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Bardage</dt>
-              <dd class="text-muted leading-relaxed mt-1">Revêtement de façade extérieur fixé sur ossature, créant une lame d'air ventilée. Voir <a href="/services/bardage" class="text-accent-dark underline">page Bardage</a>.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Béton ferraillé</dt>
-              <dd class="text-muted leading-relaxed mt-1">Béton armé d'un treillis ou de fers à béton, utilisé en fondations et dalles selon DTU 13.11.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Bavette</dt>
-              <dd class="text-muted leading-relaxed mt-1">Élément métallique (plomb, zinc) assurant l'étanchéité au pied d'un bardage ou autour d'un solin.</dd>
+              <dt id="bardage" class="font-display font-bold text-lg mt-6 text-ink">Bardage</dt>
+              <dd class="text-muted leading-relaxed mt-1">Revêtement de façade extérieur fixé sur ossature, généralement avec une lame d’air ventilée. Un bardage ne signifie pas, à lui seul, que le mur est isolé. Voir <a href="/services/bardage" class="text-accent-dark underline">page Bardage</a>.</dd>
+              <dt id="beton-ferraille" class="font-display font-bold text-lg mt-6 text-ink">Béton ferraillé</dt>
+              <dd class="text-muted leading-relaxed mt-1">Béton armé d’un treillis ou de fers à béton, utilisé notamment en fondations et en dalles.</dd>
+              <dt id="bavette" class="font-display font-bold text-lg mt-6 text-ink">Bavette</dt>
+              <dd class="text-muted leading-relaxed mt-1">Élément métallique (plomb, zinc) assurant l’étanchéité au pied d’un bardage ou autour d’un solin.</dd>
         </dl>
       </div>
     </section>
@@ -161,16 +620,12 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">C</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Cabaña</dt>
-              <dd class="text-muted leading-relaxed mt-1">Voir Hors-gel.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">CCT</dt>
-              <dd class="text-muted leading-relaxed mt-1">Clauses Contractuelles Types — garanties RGPD pour transferts de données hors UE (article 46 RGPD).</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">CEE</dt>
-              <dd class="text-muted leading-relaxed mt-1">Certificats d'Économies d'Énergie. Prime versée par les fournisseurs d'énergie pour travaux d'isolation. Cumulable avec MaPrimeRénov'.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Charpente</dt>
+              <dt id="cee" class="font-display font-bold text-lg mt-6 text-ink">CEE</dt>
+              <dd class="text-muted leading-relaxed mt-1">Certificats d’Économies d’Énergie. Dispositif par lequel les fournisseurs d’énergie participent au financement de certains travaux d’économies d’énergie. Les conditions et l’éligibilité se vérifient auprès de <a href="https://france-renov.gouv.fr/" class="text-accent-dark underline" target="_blank" rel="noopener">France Rénov’</a> avant tout engagement.</dd>
+              <dt id="charpente" class="font-display font-bold text-lg mt-6 text-ink">Charpente</dt>
               <dd class="text-muted leading-relaxed mt-1">Structure portante de la toiture (chevrons, pannes, fermes). Bois ou métal.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Couverture</dt>
-              <dd class="text-muted leading-relaxed mt-1">Ensemble des éléments protégeant la toiture (tuiles, ardoises, zinc, écran sous-toiture, faîtage). Voir <a href="/services/couverture" class="text-accent-dark underline">page Couverture</a>.</dd>
+              <dt id="couverture" class="font-display font-bold text-lg mt-6 text-ink">Couverture</dt>
+              <dd class="text-muted leading-relaxed mt-1">Ensemble des éléments protégeant la toiture (tuiles, ardoises, zinc, écran sous-toiture, faîtage). Voir <a href="/services/couverture" class="text-accent-dark underline">page Couverture</a> et, pour l’entretien, <a href="/services/nettoyage-toiture" class="text-accent-dark underline">page Nettoyage de toiture</a>.</dd>
         </dl>
       </div>
     </section>
@@ -179,12 +634,10 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">D</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Déclaration préalable (DP)</dt>
-              <dd class="text-muted leading-relaxed mt-1">Autorisation d'urbanisme requise pour modifier l'aspect extérieur (bardage, clôture, ouvertures). Délai d'instruction 1 mois.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">DTU 13.11</dt>
-              <dd class="text-muted leading-relaxed mt-1">Document Technique Unifié encadrant les fondations superficielles. Norme française obligatoire en construction neuve.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">DPF</dt>
-              <dd class="text-muted leading-relaxed mt-1">Data Privacy Framework UE-USA. Cadre légal de transfert de données vers les États-Unis (Vercel, Google).</dd>
+              <dt id="declaration-prealable-dp" class="font-display font-bold text-lg mt-6 text-ink">Déclaration préalable (DP)</dt>
+              <dd class="text-muted leading-relaxed mt-1">Autorisation d’urbanisme demandée pour certains travaux modifiant l’aspect extérieur d’un bâtiment (façade, ouvertures, isolation par l’extérieur). Les pièces à fournir et le délai d’instruction se vérifient auprès du service urbanisme de la mairie.</dd>
+              <dt id="dtu" class="font-display font-bold text-lg mt-6 text-ink">DTU</dt>
+              <dd class="text-muted leading-relaxed mt-1">Document Technique Unifié. Texte de référence décrivant les règles de mise en œuvre d’un type d’ouvrage (fondations, couverture, maçonnerie…). Le devis peut préciser les documents auxquels les travaux se réfèrent.</dd>
         </dl>
       </div>
     </section>
@@ -193,12 +646,12 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">E</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Échafaudage</dt>
-              <dd class="text-muted leading-relaxed mt-1">Structure temporaire permettant le travail en hauteur en sécurité. Norme NF P 93-355.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Élagage</dt>
-              <dd class="text-muted leading-relaxed mt-1">Taille douce et raisonnée d'un arbre pour entretien ou sécurité. Saison optimale : novembre-mars hors essences à montée de sève précoce.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Espaces verts</dt>
-              <dd class="text-muted leading-relaxed mt-1">Aménagement et entretien de jardins, terrains, plantations. Une des 4 activités SIRET de Rénovation Metbach.</dd>
+              <dt id="echafaudage" class="font-display font-bold text-lg mt-6 text-ink">Échafaudage</dt>
+              <dd class="text-muted leading-relaxed mt-1">Structure temporaire permettant de travailler en hauteur en sécurité.</dd>
+              <dt id="elagage" class="font-display font-bold text-lg mt-6 text-ink">Élagage</dt>
+              <dd class="text-muted leading-relaxed mt-1">Taille d’un arbre pour son entretien ou la sécurité. La période d’intervention dépend de l’essence, de l’état de l’arbre et de la taille envisagée.</dd>
+              <dt id="espaces-verts" class="font-display font-bold text-lg mt-6 text-ink">Espaces verts</dt>
+              <dd class="text-muted leading-relaxed mt-1">Aménagement et entretien de jardins, de terrains et de plantations.</dd>
         </dl>
       </div>
     </section>
@@ -207,12 +660,10 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">F</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Faîtage</dt>
-              <dd class="text-muted leading-relaxed mt-1">Ligne supérieure d'une toiture formant l'arête sommitale. Recouverte de tuiles ou pièces spécifiques.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Fibrociment</dt>
-              <dd class="text-muted leading-relaxed mt-1">Matériau composite (ciment + fibres) utilisé en bardage et en toiture. Durée de vie 40-50 ans, sans entretien.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Franchise en base de TVA</dt>
-              <dd class="text-muted leading-relaxed mt-1">Régime fiscal article 293 B du CGI : non assujettissement à la TVA pour les artisans sous certains seuils. Mention obligatoire en facturation : "TVA non applicable, article 293 B du CGI".</dd>
+              <dt id="faitage" class="font-display font-bold text-lg mt-6 text-ink">Faîtage</dt>
+              <dd class="text-muted leading-relaxed mt-1">Ligne supérieure d’une toiture formant l’arête sommitale. Recouverte de tuiles ou de pièces spécifiques.</dd>
+              <dt id="fibrociment" class="font-display font-bold text-lg mt-6 text-ink">Fibrociment</dt>
+              <dd class="text-muted leading-relaxed mt-1">Matériau composite (ciment et fibres) utilisé en bardage et en toiture. Sa tenue dans le temps dépend du produit, de la pose et de l’exposition.</dd>
         </dl>
       </div>
     </section>
@@ -221,12 +672,12 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">G</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Garantie décennale</dt>
-              <dd class="text-muted leading-relaxed mt-1">Couverture obligatoire (article 1792 du Code civil) sur 10 ans pour les défauts compromettant la solidité ou la destination de l'ouvrage (gros œuvre, fondations, couverture, ITE).</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Génie civil</dt>
-              <dd class="text-muted leading-relaxed mt-1">Branche du bâtiment couvrant les ouvrages d'infrastructure (fondations, voirie, soutènements).</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Gouttière</dt>
-              <dd class="text-muted leading-relaxed mt-1">Conduit horizontal recueillant les eaux pluviales en pied de toiture, raccordé aux descentes EP.</dd>
+              <dt id="garantie-decennale" class="font-display font-bold text-lg mt-6 text-ink">Garantie décennale</dt>
+              <dd class="text-muted leading-relaxed mt-1">Responsabilité du constructeur (article 1792 du Code civil) pendant dix ans après la réception des travaux, pour les dommages compromettant la solidité de l’ouvrage ou le rendant impropre à sa destination. Demandez l’attestation d’assurance correspondant aux travaux prévus.</dd>
+              <dt id="genie-civil" class="font-display font-bold text-lg mt-6 text-ink">Génie civil</dt>
+              <dd class="text-muted leading-relaxed mt-1">Branche de la construction couvrant les ouvrages d’infrastructure (fondations, voirie, soutènements).</dd>
+              <dt id="gouttiere" class="font-display font-bold text-lg mt-6 text-ink">Gouttière</dt>
+              <dd class="text-muted leading-relaxed mt-1">Conduit horizontal recueillant les eaux pluviales en pied de toiture, raccordé aux descentes d’eau.</dd>
         </dl>
       </div>
     </section>
@@ -235,10 +686,10 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">H</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Hors-gel</dt>
-              <dd class="text-muted leading-relaxed mt-1">Profondeur minimale d'une fondation pour éviter le soulèvement par le gel. En Haute-Savoie, 80 cm minimum, 1 m+ en altitude.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">HPV</dt>
-              <dd class="text-muted leading-relaxed mt-1">Haute Perméabilité à la Vapeur. Écran sous-toiture moderne laissant s'évacuer l'humidité.</dd>
+              <dt id="hors-gel" class="font-display font-bold text-lg mt-6 text-ink">Hors-gel</dt>
+              <dd class="text-muted leading-relaxed mt-1">Profondeur à laquelle une fondation est mise à l’abri du gel, pour éviter son soulèvement. Il n’existe pas de valeur unique : elle dépend de l’altitude, de la commune et du sol. Voir <a href="/services/fondations" class="text-accent-dark underline">page Fondations</a>.</dd>
+              <dt id="hpv" class="font-display font-bold text-lg mt-6 text-ink">HPV</dt>
+              <dd class="text-muted leading-relaxed mt-1">Haute Perméabilité à la Vapeur. Qualifie un écran de sous-toiture qui laisse s’évacuer la vapeur d’eau.</dd>
         </dl>
       </div>
     </section>
@@ -247,10 +698,10 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">I</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">ITE</dt>
-              <dd class="text-muted leading-relaxed mt-1">Isolation Thermique par l'Extérieur. Pose d'un isolant + bardage sur la façade existante. Éligible MaPrimeRénov' + CEE.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Ipé</dt>
-              <dd class="text-muted leading-relaxed mt-1">Bois exotique très dur et imputrescible, utilisé en terrasse extérieure (durée 25-30 ans sans traitement).</dd>
+              <dt id="ite" class="font-display font-bold text-lg mt-6 text-ink">ITE</dt>
+              <dd class="text-muted leading-relaxed mt-1">Isolation Thermique par l’Extérieur. L’isolant est fixé du côté extérieur des murs, puis protégé par une finition sous enduit ou par un parement, par exemple un bardage. Les aides éventuelles dépendent du logement, de votre situation et des qualifications requises : elles ne peuvent pas être présumées. Voir <a href="/services/isolation-exterieure" class="text-accent-dark underline">page Isolation extérieure</a>.</dd>
+              <dt id="ipe" class="font-display font-bold text-lg mt-6 text-ink">Ipé</dt>
+              <dd class="text-muted leading-relaxed mt-1">Bois exotique très dur et dense, utilisé en terrasse extérieure.</dd>
         </dl>
       </div>
     </section>
@@ -259,12 +710,10 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">L</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Lambourde</dt>
-              <dd class="text-muted leading-relaxed mt-1">Pièce de bois ou de composite servant de support à un plancher ou une terrasse.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Lasure</dt>
-              <dd class="text-muted leading-relaxed mt-1">Finition de surface bois translucide, à renouveler tous les 5-8 ans en extérieur.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">LCEN</dt>
-              <dd class="text-muted leading-relaxed mt-1">Loi pour la Confiance dans l'Économie Numérique (n°2004-575 du 21 juin 2004). Encadre les mentions légales obligatoires des sites web.</dd>
+              <dt id="lambourde" class="font-display font-bold text-lg mt-6 text-ink">Lambourde</dt>
+              <dd class="text-muted leading-relaxed mt-1">Pièce de bois ou de composite servant de support à un plancher ou à une terrasse.</dd>
+              <dt id="lasure" class="font-display font-bold text-lg mt-6 text-ink">Lasure</dt>
+              <dd class="text-muted leading-relaxed mt-1">Finition translucide pour le bois, à renouveler en extérieur selon l’exposition et l’état du support.</dd>
         </dl>
       </div>
     </section>
@@ -273,12 +722,10 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">M</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">MaPrimeRénov'</dt>
-              <dd class="text-muted leading-relaxed mt-1">Aide de l'État pour la rénovation énergétique des logements. Cumulable CEE.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Médiateur de la consommation</dt>
-              <dd class="text-muted leading-relaxed mt-1">Tiers indépendant proposant une résolution amiable en cas de litige B2C (obligation L611-1 Code conso). Rénovation Metbach : CM2C.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Mélèze des Alpes</dt>
-              <dd class="text-muted leading-relaxed mt-1">Essence de bois locale naturellement durable, référence en bardage haut-savoyard. Patine grise en 2-3 ans, sans entretien obligatoire. Durée 40-50 ans.</dd>
+              <dt id="maprimerenov" class="font-display font-bold text-lg mt-6 text-ink">MaPrimeRénov’</dt>
+              <dd class="text-muted leading-relaxed mt-1">Aide publique à la rénovation énergétique des logements. Les conditions dépendent du logement, du foyer, des travaux et des qualifications de l’entreprise : à vérifier auprès de <a href="https://france-renov.gouv.fr/" class="text-accent-dark underline" target="_blank" rel="noopener">France Rénov’</a> avant tout engagement.</dd>
+              <dt id="meleze" class="font-display font-bold text-lg mt-6 text-ink">Mélèze</dt>
+              <dd class="text-muted leading-relaxed mt-1">Essence de bois résineux naturellement durable, utilisée en bardage. Sans finition, il grise avec le temps.</dd>
         </dl>
       </div>
     </section>
@@ -287,8 +734,8 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">N</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Noue</dt>
-              <dd class="text-muted leading-relaxed mt-1">Angle rentrant entre deux pans de toiture, où s'écoulent les eaux. Étanchéité critique.</dd>
+              <dt id="noue" class="font-display font-bold text-lg mt-6 text-ink">Noue</dt>
+              <dd class="text-muted leading-relaxed mt-1">Angle rentrant entre deux pans de toiture, où s’écoulent les eaux. Point sensible pour l’étanchéité.</dd>
         </dl>
       </div>
     </section>
@@ -297,12 +744,12 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">P</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Pare-pluie</dt>
-              <dd class="text-muted leading-relaxed mt-1">Membrane HPV posée sous bardage ou couverture pour empêcher l'eau d'infiltrer la paroi.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Patine</dt>
-              <dd class="text-muted leading-relaxed mt-1">Évolution naturelle de la couleur d'un matériau (bois, cuivre) au fil des années sous l'effet du climat.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Pureau</dt>
-              <dd class="text-muted leading-relaxed mt-1">Partie visible d'une tuile ou ardoise après recouvrement de la pièce supérieure.</dd>
+              <dt id="pare-pluie" class="font-display font-bold text-lg mt-6 text-ink">Pare-pluie</dt>
+              <dd class="text-muted leading-relaxed mt-1">Membrane posée sous un bardage ou une couverture pour protéger la paroi des infiltrations d’eau.</dd>
+              <dt id="patine" class="font-display font-bold text-lg mt-6 text-ink">Patine</dt>
+              <dd class="text-muted leading-relaxed mt-1">Évolution naturelle de la couleur d’un matériau (bois, cuivre) au fil des années sous l’effet du climat.</dd>
+              <dt id="pureau" class="font-display font-bold text-lg mt-6 text-ink">Pureau</dt>
+              <dd class="text-muted leading-relaxed mt-1">Partie visible d’une tuile ou d’une ardoise, une fois recouverte par la pièce supérieure.</dd>
         </dl>
       </div>
     </section>
@@ -311,14 +758,14 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">R</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Ragréage</dt>
-              <dd class="text-muted leading-relaxed mt-1">Mise à niveau et lissage d'un support avant pose d'un revêtement de sol.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">RC pro</dt>
-              <dd class="text-muted leading-relaxed mt-1">Responsabilité Civile Professionnelle. Assurance couvrant les dommages causés à des tiers dans l'exercice de l'activité.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Red cedar</dt>
-              <dd class="text-muted leading-relaxed mt-1">Bois nord-américain durable utilisé en bardage. Patine grise, longévité 35-50 ans.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Redan</dt>
-              <dd class="text-muted leading-relaxed mt-1">Étagement horizontal d'une fondation ou d'une clôture sur terrain en pente.</dd>
+              <dt id="ragreage" class="font-display font-bold text-lg mt-6 text-ink">Ragréage</dt>
+              <dd class="text-muted leading-relaxed mt-1">Mise à niveau et lissage d’un support avant pose d’un revêtement de sol.</dd>
+              <dt id="rc-pro" class="font-display font-bold text-lg mt-6 text-ink">RC pro</dt>
+              <dd class="text-muted leading-relaxed mt-1">Responsabilité Civile Professionnelle. Assurance couvrant les dommages causés à des tiers dans l’exercice de l’activité.</dd>
+              <dt id="red-cedar" class="font-display font-bold text-lg mt-6 text-ink">Red cedar</dt>
+              <dd class="text-muted leading-relaxed mt-1">Bois résineux nord-américain utilisé en bardage. Sans finition, il grise avec le temps.</dd>
+              <dt id="redan" class="font-display font-bold text-lg mt-6 text-ink">Redan</dt>
+              <dd class="text-muted leading-relaxed mt-1">Étagement horizontal d’une fondation ou d’une clôture sur terrain en pente.</dd>
         </dl>
       </div>
     </section>
@@ -327,14 +774,14 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">S</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Sarking</dt>
-              <dd class="text-muted leading-relaxed mt-1">Méthode d'isolation par l'extérieur de la toiture, posée sur chevrons sous la couverture.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Semelle filante</dt>
-              <dd class="text-muted leading-relaxed mt-1">Fondation continue sous un mur porteur, largeur supérieure à celle du mur pour répartir les charges.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Solins</dt>
-              <dd class="text-muted leading-relaxed mt-1">Bandes d'étanchéité métalliques aux jonctions de toiture (mur, cheminée).</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Sous-toiture</dt>
-              <dd class="text-muted leading-relaxed mt-1">Écran HPV posé entre la couverture et l'isolation, gérant condensation et infiltrations.</dd>
+              <dt id="sarking" class="font-display font-bold text-lg mt-6 text-ink">Sarking</dt>
+              <dd class="text-muted leading-relaxed mt-1">Méthode d’isolation de la toiture par l’extérieur, posée sur les chevrons, sous la couverture.</dd>
+              <dt id="semelle-filante" class="font-display font-bold text-lg mt-6 text-ink">Semelle filante</dt>
+              <dd class="text-muted leading-relaxed mt-1">Fondation continue sous un mur porteur, plus large que le mur pour répartir les charges. Voir <a href="/services/fondations" class="text-accent-dark underline">page Fondations</a>.</dd>
+              <dt id="solins" class="font-display font-bold text-lg mt-6 text-ink">Solins</dt>
+              <dd class="text-muted leading-relaxed mt-1">Bandes d’étanchéité aux jonctions entre la toiture et un mur ou une cheminée.</dd>
+              <dt id="sous-toiture" class="font-display font-bold text-lg mt-6 text-ink">Sous-toiture</dt>
+              <dd class="text-muted leading-relaxed mt-1">Écran posé sous la couverture, qui protège l’isolation et la charpente des infiltrations et aide à gérer la condensation.</dd>
         </dl>
       </div>
     </section>
@@ -343,10 +790,10 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">T</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Tuile canal</dt>
-              <dd class="text-muted leading-relaxed mt-1">Tuile en forme de demi-cylindre, traditionnelle dans le Sud et utilisée en Chablais sur certaines toitures basses.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Terrassement</dt>
-              <dd class="text-muted leading-relaxed mt-1">Travaux de mouvement de terres préparatoires à la construction (fouilles, décapage, mise à niveau). Une des 4 activités SIRET.</dd>
+              <dt id="tuile-canal" class="font-display font-bold text-lg mt-6 text-ink">Tuile canal</dt>
+              <dd class="text-muted leading-relaxed mt-1">Tuile en forme de demi-cylindre, posée en alternant tuiles de dessous et tuiles de dessus. Traditionnelle dans le Sud de la France.</dd>
+              <dt id="terrassement" class="font-display font-bold text-lg mt-6 text-ink">Terrassement</dt>
+              <dd class="text-muted leading-relaxed mt-1">Travaux de mouvement de terres préparatoires à la construction (fouilles, décapage, mise à niveau).</dd>
         </dl>
       </div>
     </section>
@@ -355,10 +802,8 @@
       <div class="max-w-3xl mx-auto container-pad">
         <h2 class="font-display font-bold text-3xl text-accent-dark border-b border-line pb-3 mb-2">Z</h2>
         <dl>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Zinc</dt>
-              <dd class="text-muted leading-relaxed mt-1">Métal utilisé en couverture (joint debout, à tasseaux) pour toitures à faible pente ou architecture contemporaine. Durée 70-100 ans, sans entretien.</dd>
-              <dt class="font-display font-bold text-lg mt-6 text-ink">Zone de plomb</dt>
-              <dd class="text-muted leading-relaxed mt-1">Bande métallique en plomb assurant l'étanchéité d'un solin ou d'un raccord (cheminée, mur).</dd>
+              <dt id="zinc" class="font-display font-bold text-lg mt-6 text-ink">Zinc</dt>
+              <dd class="text-muted leading-relaxed mt-1">Métal utilisé en couverture (joint debout, tasseaux), en gouttières et en habillages. Son entretien et sa tenue dépendent de la pose et de l’exposition.</dd>
         </dl>
       </div>
     </section>
@@ -379,16 +824,12 @@
 
   <footer class="site-footer"><div class="editorial-container">
  <div class="footer-top"><div><p class="eyebrow light">Rénovation Metbach · Haute-Savoie</p><p class="footer-statement">Le soin du détail.<br><em>La solidité du résultat.</em></p></div><a href="/contact#form" class="btn btn-accent">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
- <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a></div>
+ <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a><p class="footer-address">862 route de la Dranse, 74500 Publier<br>Lun – Sam · 8h – 20h</p></div>
  <div><h2>Nos métiers</h2><a href="/services/couverture">Couverture & toiture</a><a href="/services/maconnerie">Maçonnerie</a><a href="/services/isolation-exterieure">Isolation extérieure</a><a href="/services/bardage">Bardage & façades</a><a href="/services">Tous les services</a></div>
  <div><h2>Votre projet</h2><a href="/realisations">Réalisations</a><a href="/preparer-travaux">Préparer ses travaux</a><a href="/a-propos">L’entreprise</a><a href="/glossaire">Glossaire</a><a href="/contact">Contact & devis</a></div>
- <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
- <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
+ <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><a href="/villes">Toutes les zones</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
+ <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach · SIRET 448 464 545 00020</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
 </div></footer>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
-  </script>
   <script src="/js/script.js"></script>
 <nav class="mobile-contact-bar" aria-label="Contact rapide"><a href="tel:+33769136182"><i data-lucide="phone" aria-hidden="true"></i> Appeler</a><a href="/contact#form">Mon devis gratuit <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></nav></body>
 </html>

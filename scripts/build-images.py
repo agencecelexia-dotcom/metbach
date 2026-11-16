@@ -19,6 +19,14 @@ SOURCE = ROOT / "assets/img/realisations"
 OUTPUT = ROOT / "assets/img/responsive"
 WIDTHS = (480, 768, 1200)
 QUALITY = 80
+# Detailed photographs (tiles, foliage, gravel) stayed heavy at the default
+# quality; these variants were checked side by side at a lower setting.
+QUALITY_OVERRIDES = {
+    "toiture-tuiles-768.webp": 68,
+    "elagage-pin-768.webp": 68,
+    "elagage-pin-1200.webp": 68,
+    "structure-fondations-768.webp": 68,
+}
 AVIF_QUALITY = 60
 AVIF_SPEED = 5
 
@@ -69,7 +77,8 @@ def generate():
                 (candidate_width, candidate_height), Image.Resampling.LANCZOS
             )
             # Do not copy EXIF, camera metadata, thumbnails or location metadata.
-            resized.save(variant, "WEBP", quality=QUALITY, method=6)
+            quality = QUALITY_OVERRIDES.get(variant.name, QUALITY)
+            resized.save(variant, "WEBP", quality=quality, method=6)
             if candidate_width == width and variant.stat().st_size >= webp.stat().st_size * 0.95:
                 # At the native width, preserve the original if recompression
                 # would not provide a meaningful reduction in transfer size.
@@ -79,6 +88,8 @@ def generate():
                 candidates[candidate_width] = describe(
                     variant, candidate_width, candidate_height, True
                 )
+                if quality != QUALITY:
+                    candidates[candidate_width]["quality"] = quality
         if width not in candidates and width <= 1600:
             candidates[width] = describe(webp, width, height, False)
         if not candidates:

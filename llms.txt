@@ -1,6 +1,6 @@
 # Rénovation Metbach
 
-> Entreprise de rénovation exploitée par Zachari Metbach. Base d’intervention opérationnelle à Publier, en Haute-Savoie. Prestations de rénovation intérieure, de façade, de toiture et d’aménagement extérieur pour particuliers et professionnels.
+> Couverture, maçonnerie et isolation extérieure : entreprise de rénovation exploitée par Zachari Metbach, entrepreneur individuel. Base d’intervention opérationnelle à Publier, en Haute-Savoie ; intervient d’abord dans le Chablais, puis dans le Genevois français. Projets en Suisse étudiés uniquement sur demande, sans établissement suisse.
 
 ## Contact et entreprise
 
@@ -28,20 +28,21 @@
 
 ## Zones d’intervention en Haute-Savoie
 
-- [Publier](https://www.renovationmetbach.fr/villes/publier) : base d’intervention, projets à Publier et Amphion-les-Bains.
-- [Thonon-les-Bains](https://www.renovationmetbach.fr/villes/thonon-les-bains) : rénovation d’appartements, de maisons et d’extérieurs.
-- [Évian-les-Bains](https://www.renovationmetbach.fr/villes/evian-les-bains) : résidences principales et secondaires.
-- [Annemasse](https://www.renovationmetbach.fr/villes/annemasse) : rénovation de logements et de maisons dans l’agglomération.
-- [Douvaine](https://www.renovationmetbach.fr/villes/douvaine) : maisons et aménagements extérieurs du Bas-Chablais.
-- [Saint-Julien-en-Genevois](https://www.renovationmetbach.fr/villes/saint-julien-en-genevois) : projets dans le Genevois français.
+- [Zones d’intervention](https://www.renovationmetbach.fr/villes) : page récapitulative des communes desservies depuis Publier et des projets suisses étudiés sur demande.
+- [Publier](https://www.renovationmetbach.fr/villes/publier) : couvreur, maçonnerie et isolation extérieure à Publier et Amphion-les-Bains ; base d’intervention de l’entreprise.
+- [Thonon-les-Bains](https://www.renovationmetbach.fr/villes/thonon-les-bains) : toiture, maçonnerie et isolation extérieure pour maisons et immeubles en copropriété.
+- [Évian-les-Bains](https://www.renovationmetbach.fr/villes/evian-les-bains) : toiture, maçonnerie et isolation extérieure, y compris pour une résidence secondaire suivie à distance.
+- [Annemasse](https://www.renovationmetbach.fr/villes/annemasse) : toiture, maçonnerie et isolation extérieure dans l’agglomération (Ambilly, Gaillard, Étrembières, Vétraz-Monthoux).
+- [Douvaine](https://www.renovationmetbach.fr/villes/douvaine) : toiture, maçonnerie et isolation extérieure pour les maisons du Bas-Chablais.
+- [Saint-Julien-en-Genevois](https://www.renovationmetbach.fr/villes/saint-julien-en-genevois) : toiture, maçonnerie et isolation extérieure dans le Genevois français.
 
 ## Projets en Suisse étudiés sur demande
 
 Les demandes sont étudiées depuis Publier. Les pages suivantes ne représentent pas des agences suisses. La faisabilité, les déplacements, la facturation et les conditions applicables sont confirmés pour chaque chantier avant engagement.
 
-- [Genève](https://www.renovationmetbach.fr/villes/geneve) : préparation des demandes de travaux dans le canton.
-- [Nyon](https://www.renovationmetbach.fr/villes/nyon) : rénovation et aménagement de propriétés.
-- [Lausanne](https://www.renovationmetbach.fr/villes/lausanne) : étude de projets de rénovation et d’aménagement.
+- [Genève](https://www.renovationmetbach.fr/villes/geneve) : préparation d’une demande de toiture, maçonnerie ou isolation extérieure, étudiée sur demande.
+- [Nyon](https://www.renovationmetbach.fr/villes/nyon) : demandes de toiture, maçonnerie ou isolation extérieure étudiées sur demande.
+- [Lausanne](https://www.renovationmetbach.fr/villes/lausanne) : premier examen à distance d’un projet de toiture, maçonnerie ou isolation extérieure.
 
 ## Ressources
 

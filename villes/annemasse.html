@@ -4,8 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/assets/css/site.css" />
-  <link rel="icon" type="image/png" href="/assets/img/logo/metbach-logo.png" />
-  <link rel="apple-touch-icon" href="/assets/img/logo/metbach-logo.png" />
+  <link rel="preload" href="/assets/fonts/inter-v20-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-v9-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icons/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
   <script src="/assets/js/lucide.min.js" defer></script>
 
   <title>Couvreur à Annemasse · Maçonnerie &amp; ITE | Metbach</title>
@@ -26,8 +30,7 @@
   <meta name="twitter:title" content="Couvreur à Annemasse · Maçonnerie &amp; ITE | Metbach" />
   <meta name="twitter:description" content="Toiture, maçonnerie et isolation extérieure à Annemasse. Décrivez votre projet à Metbach, basé à Publier, pour préparer un devis adapté." />
   <meta name="twitter:image" content="https://www.renovationmetbach.fr/assets/img/realisations/bardage-bois-terrasse.jpg" />
-  <script type="application/ld+json">
-{
+  <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -86,7 +89,7 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Zones d’intervention",
-          "item": "https://www.renovationmetbach.fr/#zones"
+          "item": "https://www.renovationmetbach.fr/villes"
         },
         {
           "@type": "ListItem",
@@ -113,17 +116,41 @@
         },
         {
           "@type": "Question",
-          "name": "Que faut-il préciser pour rénover un appartement en copropriété ?",
+          "name": "Que faut-il préciser pour une toiture ou une façade en copropriété à Annemasse ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "L’étage, l’ascenseur, les surfaces, les conditions d’accès et les consignes de la copropriété sont utiles. Mentionnez aussi les parties communes ou les éléments extérieurs concernés."
+            "text": "Indiquez qui porte la demande (syndic, conseil syndical ou copropriétaire), les parties du toit ou des façades concernées et les consignes d’accès aux parties communes. Les décisions déjà prises par la copropriété et les contraintes de stationnement sont utiles pour préparer l’étude."
           }
         }
       ]
+    },
+    {
+      "@type": "GeneralContractor",
+      "@id": "https://www.renovationmetbach.fr/#business",
+      "name": "Rénovation Metbach",
+      "url": "https://www.renovationmetbach.fr/",
+      "telephone": "+33769136182",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "862 route de la Dranse",
+        "addressLocality": "Publier",
+        "postalCode": "74500",
+        "addressRegion": "Haute-Savoie",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.renovationmetbach.fr/#website",
+      "url": "https://www.renovationmetbach.fr/",
+      "name": "Rénovation Metbach",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.renovationmetbach.fr/#business"
+      }
     }
   ]
-}
-  </script>
+}</script>
 
 </head>
 <body class="bg-page text-ink site-page">
@@ -132,7 +159,7 @@
 
   <header class="site-header fixed inset-x-0 top-0 z-50">
  <div class="editorial-container header-inner">
-  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo.png" alt="Rénovation Metbach" width="531" height="282" decoding="async"></picture></a>
+  <a href="/" class="brand-home" aria-label="Rénovation Metbach — Accueil"><picture><source srcset="/assets/img/logo/metbach-logo-330.webp" type="image/webp"><img src="/assets/img/logo/metbach-logo-330.png" alt="Rénovation Metbach" width="330" height="175" decoding="async"></picture></a>
   <nav class="desktop-nav" aria-label="Navigation principale"><a href="/services" class="nav-link">Nos métiers</a><a href="/realisations" class="nav-link">Réalisations</a><a href="/a-propos" class="nav-link">L’entreprise</a><a href="/preparer-travaux" class="nav-link">Conseils</a></nav>
   <div class="header-actions"><a href="tel:+33769136182" class="header-phone">07 69 13 61 82</a><a href="/contact?city=annemasse#form" class="btn btn-primary header-quote">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button type="button" data-menu-open class="menu-toggle" aria-label="Ouvrir le menu"><i data-lucide="menu" aria-hidden="true"></i></button></div>
  </div>
@@ -152,11 +179,11 @@
         <div class="lg:col-span-7 reveal">
           <nav class="flex flex-wrap items-center gap-2 text-sm text-muted mb-6" aria-label="Fil d’Ariane">
             <a href="/" class="hover:text-accent-dark">Accueil</a><span aria-hidden="true">/</span>
-            <a href="/#zones" class="hover:text-accent-dark">Zones d’intervention</a><span aria-hidden="true">/</span>
+            <a href="/villes" class="hover:text-accent-dark">Zones d’intervention</a><span aria-hidden="true">/</span>
             <span class="text-ink font-medium" aria-current="page">Annemasse</span>
           </nav>
           <span class="chip mb-5"><i data-lucide="map-pin" aria-hidden="true" class="w-3.5 h-3.5"></i>Annemasse · 74100 · Haute-Savoie</span>
-          <h1 class="font-display font-bold text-4xl lg:text-5xl leading-tight">Couverture, maçonnerie et ITE à Annemasse</h1>
+          <h1 class="font-display font-bold text-4xl lg:text-5xl leading-tight">Couvreur à Annemasse : toiture, maçonnerie et isolation extérieure</h1>
           <p class="mt-6 text-lg text-muted leading-relaxed max-w-2xl">Une couverture à reprendre, un ouvrage maçonné à réaliser ou des façades à isoler à Annemasse ? Rénovation Metbach étudie votre projet depuis Publier. Précisez le type de bâtiment, les travaux envisagés et les conditions d’accès pour préparer un devis adapté.</p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a href="/contact?city=annemasse#form" class="btn btn-primary">Demander un devis pour Annemasse <i data-lucide="arrow-right" aria-hidden="true" class="w-4 h-4"></i></a>
@@ -183,6 +210,8 @@
           <article class="bg-page rounded-2xl border border-line p-7 reveal">
             <h3 class="font-display font-bold text-xl mb-3">Couverture et toiture à Annemasse</h3>
             <p class="text-muted leading-relaxed">Pour une maison ou un bâtiment partagé, indiquez la zone concernée, les traces d’humidité et les réparations précédentes. Les accès au toit et l’organisation de la copropriété, s’il y en a une, font partie des points à examiner.</p>
+            <p class="text-muted leading-relaxed mt-4">À Annemasse comme à Ambilly, Gaillard, Étrembières ou Vétraz-Monthoux, commencez par l’adresse exacte et le type de construction : pavillon, maison de ville accolée à ses voisines ou petit immeuble. Lorsque le toit est mitoyen, précisez de quel côté se situe le problème et si le voisin est concerné ou déjà informé.</p>
+            <p class="text-muted leading-relaxed mt-4">Indiquez la nature de la couverture si vous la connaissez (tuiles, ardoises, zinc) et ce que vous constatez : fuite localisée, tuiles déplacées, gouttière percée, mousses. Expliquez comment on atteint le toit — par les combles, une trappe ou une échelle depuis une cour — et si une rue passante ou une cour commune longe le bâtiment. Si vos disponibilités sont réduites en semaine, donnez vos créneaux dès la demande.</p>
             <a href="/services/couverture" class="inline-flex items-center gap-2 mt-5 text-accent-dark font-semibold">Comprendre les travaux <i data-lucide="arrow-right" aria-hidden="true" class="w-4 h-4"></i></a>
             <div class="mt-5"><a href="/contact?service=couverture&amp;city=annemasse#form" class="btn btn-primary">Décrire ma toiture</a></div>
           </article>
@@ -230,8 +259,8 @@
             <p class="text-muted mt-3 leading-relaxed">Les demandes dans l’agglomération d’Annemasse, notamment à Ambilly, Gaillard, Étrembières et Vétraz-Monthoux, sont étudiées. Indiquez l’adresse exacte et la nature des travaux.</p>
           </details>
           <details class="group rounded-2xl border border-line bg-page p-6">
-            <summary class="font-display font-semibold text-lg cursor-pointer">Que faut-il préciser pour rénover un appartement en copropriété ?</summary>
-            <p class="text-muted mt-3 leading-relaxed">L’étage, l’ascenseur, les surfaces, les conditions d’accès et les consignes de la copropriété sont utiles. Mentionnez aussi les parties communes ou les éléments extérieurs concernés.</p>
+            <summary class="font-display font-semibold text-lg cursor-pointer">Que faut-il préciser pour une toiture ou une façade en copropriété à Annemasse ?</summary>
+            <p class="text-muted mt-3 leading-relaxed">Indiquez qui porte la demande (syndic, conseil syndical ou copropriétaire), les parties du toit ou des façades concernées et les consignes d’accès aux parties communes. Les décisions déjà prises par la copropriété et les contraintes de stationnement sont utiles pour préparer l’étude.</p>
           </details>
         </div>
       </div>
@@ -262,16 +291,12 @@
 
   <footer class="site-footer"><div class="editorial-container">
  <div class="footer-top"><div><p class="eyebrow light">Rénovation Metbach · Haute-Savoie</p><p class="footer-statement">Le soin du détail.<br><em>La solidité du résultat.</em></p></div><a href="/contact?city=annemasse#form" class="btn btn-accent">Parlons de votre projet <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
- <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a></div>
+ <div class="footer-columns"><div><a href="/" class="footer-brand">METBACH<span>Rénovation & aménagement</span></a><p>Des travaux de couverture, de maçonnerie et d’isolation extérieure, étudiés selon votre maison.</p><a href="tel:+33769136182" class="footer-phone">07 69 13 61 82</a><p class="footer-address">862 route de la Dranse, 74500 Publier<br>Lun – Sam · 8h – 20h</p></div>
  <div><h2>Nos métiers</h2><a href="/services/couverture">Couverture & toiture</a><a href="/services/maconnerie">Maçonnerie</a><a href="/services/isolation-exterieure">Isolation extérieure</a><a href="/services/bardage">Bardage & façades</a><a href="/services">Tous les services</a></div>
  <div><h2>Votre projet</h2><a href="/realisations">Réalisations</a><a href="/preparer-travaux">Préparer ses travaux</a><a href="/a-propos">L’entreprise</a><a href="/glossaire">Glossaire</a><a href="/contact?city=annemasse#form">Contact & devis</a></div>
- <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
- <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
+ <div><h2>Près de chez vous</h2><a href="/villes/publier">Publier</a><a href="/villes/thonon-les-bains">Thonon-les-Bains</a><a href="/villes/evian-les-bains">Évian-les-Bains</a><a href="/villes/annemasse">Annemasse</a><a href="/villes">Toutes les zones</a><p>Chablais & Genevois.<br>Suisse voisine sur étude.</p></div></div>
+ <div class="footer-bottom"><p>© <span data-year>2026</span> Rénovation Metbach · SIRET 448 464 545 00020</p><div><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9" target="_blank" rel="noopener">Fiche Google ↗</a></div></div>
 </div></footer>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
-  </script>
   <script src="/js/script.js"></script>
 <nav class="mobile-contact-bar" aria-label="Contact rapide"><a href="tel:+33769136182"><i data-lucide="phone" aria-hidden="true"></i> Appeler</a><a href="/contact?city=annemasse#form">Mon devis gratuit <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></nav></body>
 </html>
