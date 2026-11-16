@@ -28,6 +28,9 @@ for path in files:
    elif 'expertise-image' in context:sizes='(max-width: 767px) calc(100vw - 40px), (max-width: 1408px) calc((100vw - 146px) / 3), 427px'
    else:sizes='(max-width: 767px) calc(100vw - 40px), (max-width: 1408px) calc((100vw - 126px) / 2), 655px'
   elif path.parent.name=='realisations':sizes='(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) calc((100vw - 64px) / 2), 427px'
+  # A hand-tuned sizes attribute on the existing WebP source wins over the defaults.
+  existing=re.search(r'<source\b[^>]*type="image/webp"[^>]*\ssizes="([^"]*)"|<source\b[^>]*\ssizes="([^"]*)"[^>]*type="image/webp"',block)
+  if existing:sizes=existing[1] or existing[2]
   new_source=f'<source srcset="{info["srcset"]}" sizes="{sizes}" type="image/webp" />'
   block=re.sub(r'<source\b[^>]*type="image/avif"[^>]*>', '', block)
   if key in avif_manifest:

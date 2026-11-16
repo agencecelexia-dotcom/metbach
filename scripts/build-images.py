@@ -29,6 +29,7 @@ QUALITY_OVERRIDES = {
 }
 AVIF_QUALITY = 60
 AVIF_SPEED = 5
+MIN_SAVING = 0.05
 
 
 def public_url(path):
@@ -154,34 +155,48 @@ def verify():
     )
 
 
-def generate_avif_hero():
-    """Generate AVIF only for the primary bardage photograph; keep WebP intact."""
+def generate_avif():
+    """Generate AVIF twins of every WebP candidate in manifest.json.
+
+    Each photograph gets AVIF at exactly the widths of its WebP srcset, from the
+    JPEG source. A photograph is kept only when every AVIF variant is at least
+    MIN_SAVING smaller than its WebP twin, so a browser that picks the AVIF
+    <source> never downloads more. WebP files are never touched.
+    """
     if not features.check("avif"):
         raise RuntimeError("Pillow requires AVIF encoding support")
-    OUTPUT.mkdir(parents=True, exist_ok=True)
-    source = SOURCE / "bardage-bois-terrasse.jpg"
-    fallback = source.with_suffix(".webp")
-    with Image.open(source) as file:
-        image = ImageOps.exif_transpose(file).convert("RGB")
-    variants = []
-    for width in WIDTHS:
-        if width > image.width:
+    webp_manifest = json.loads((OUTPUT / "manifest.json").read_text())["images"]
+    images, skipped = {}, []
+    for key, record in sorted(webp_manifest.items()):
+        source = ROOT / record["source"].lstrip("/")
+        with Image.open(source) as file:
+            image = ImageOps.exif_transpose(file).convert("RGB")
+        variants, ok = [], True
+        for webp in record["variants"]:
+            width, height = webp["width"], webp["height"]
+            variant = OUTPUT / f"{source.stem}-{width}.avif"
+            resized = image if (width, height) == image.size else image.resize((width, height), Image.Resampling.LANCZOS)
+            resized.save(variant, "AVIF", quality=AVIF_QUALITY, speed=AVIF_SPEED, subsampling="4:2:0", max_threads=2)
+            if variant.stat().st_size > webp["bytes"] * (1 - MIN_SAVING):
+                ok = False
+            variants.append(describe(variant, width, height, True))
+        if not ok:
+            for v in variants:
+                (ROOT / v["url"].lstrip("/")).unlink()
+            skipped.append(key)
             continue
-        height = round(image.height * width / image.width)
-        variant = OUTPUT / f"{source.stem}-{width}.avif"
-        resized = image.resize((width, height), Image.Resampling.LANCZOS)
-        resized.save(
-            variant,
-            "AVIF",
-            quality=AVIF_QUALITY,
-            speed=AVIF_SPEED,
-            subsampling="4:2:0",
-            max_threads=2,
-        )
-        variants.append(describe(variant, width, height, True))
+        images[key] = {
+            "source": record["source"],
+            "source_sha256": sha256(source),
+            "width": image.width,
+            "height": image.height,
+            "fallback_webp": key,
+            "variants": variants,
+            "srcset": ", ".join(f"{v['url']} {v['width']}w" for v in variants),
+        }
     manifest = {
-        "version": 1,
-        "generator": "scripts/build-images.py --avif-hero",
+        "version": 2,
+        "generator": "scripts/build-images.py --avif",
         "pillow_version": Image.__version__,
         "libavif_version": features.version("avif"),
         "format": "image/avif",
@@ -192,25 +207,15 @@ def generate_avif_hero():
         "resampling": "Lanczos",
         "upscaling": False,
         "cropping": False,
-        "images": {
-            public_url(fallback): {
-                "source": public_url(source),
-                "source_sha256": sha256(source),
-                "width": image.width,
-                "height": image.height,
-                "fallback_webp": public_url(fallback),
-                "variants": variants,
-                "srcset": ", ".join(f"{v['url']} {v['width']}w" for v in variants),
-            }
-        },
+        "min_saving_vs_webp": MIN_SAVING,
+        "skipped": skipped,
+        "images": images,
     }
-    (OUTPUT / "manifest-avif.json").write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
-    )
-    verify_avif_hero()
+    (OUTPUT / "manifest-avif.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
+    verify_avif()
 
 
-def verify_avif_hero():
+def verify_avif():
     manifest = json.loads((OUTPUT / "manifest-avif.json").read_text())
     total = 0
     for record in manifest["images"].values():
@@ -229,15 +234,15 @@ def verify_avif_hero():
             total += variant["bytes"]
             widths.append(variant["width"])
         assert widths == sorted(set(widths))
-    print(f"Verified hero AVIF variants: {total:,} bytes; WebP fallbacks unchanged.")
+    print(f"Verified AVIF for {len(manifest['images'])} photographs: {total:,} bytes; skipped {len(manifest.get('skipped', []))}; WebP fallbacks unchanged.")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--verify", action="store_true", help="Verify committed files only")
-    parser.add_argument("--avif-hero", action="store_true", help="Build or verify only the primary hero AVIF variants")
+    parser.add_argument("--avif", "--avif-hero", dest="avif", action="store_true", help="Build or verify the AVIF twins of every WebP photograph")
     args = parser.parse_args()
-    if args.avif_hero:
-        verify_avif_hero() if args.verify else generate_avif_hero()
+    if args.avif:
+        verify_avif() if args.verify else generate_avif()
     else:
         verify() if args.verify else generate()

@@ -1,6 +1,6 @@
 # Images adaptées à la largeur d’écran
 
-`build-images.py` produit les variantes WebP des photographies déjà présentes dans `assets/img/realisations/`. Les fichiers sources sont conservés. Aucun recadrage, agrandissement ou contenu généré n’est appliqué.
+`build-images.py` produit les variantes WebP et AVIF des photographies déjà présentes dans `assets/img/realisations/`. Les fichiers sources sont conservés. Aucun recadrage, agrandissement ou contenu généré n’est appliqué.
 
 ## Régénération
 
@@ -43,8 +43,8 @@ Les poids du manifeste décrivent les fichiers, pas une mesure de transfert init
 Le bardage bois possède également des variantes AVIF de 480, 768 et 1200 pixels :
 
 ```sh
-python scripts/build-images.py --avif-hero
-python scripts/build-images.py --avif-hero --verify
+python scripts/build-images.py --avif
+python scripts/build-images.py --avif --verify
 ```
 
 Cette option ne régénère et ne modifie aucun WebP. Elle écrit `assets/img/responsive/manifest-avif.json`, avec la même clé d’image que le manifeste WebP. Ajouter le `<source type="image/avif">` avant le `<source type="image/webp">` et conserver les mêmes `sizes` ainsi que le fallback JPEG.
