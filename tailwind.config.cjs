@@ -13,7 +13,7 @@ module.exports = {
         display: ['"Bricolage Grotesque"', 'sans-serif'],
         serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
-      maxWidth: { '7xl-plus': '84rem' },
+      maxWidth: { '7xl-plus': '91.75rem' },
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],

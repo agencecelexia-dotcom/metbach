@@ -283,6 +283,70 @@
     };
     phoneField?.addEventListener('input', validatePhone);
     phoneField?.addEventListener('change', validatePhone);
+
+    // Visible, accessible error messages under each field (the form is novalidate).
+    const validatableFields = Array.from(form.querySelectorAll('input, select, textarea'))
+      .filter(field => field.name && field.name !== 'website' && field.willValidate);
+    const fieldName = (field) => {
+      if (field.type === 'checkbox') return 'Consentement';
+      const label = form.querySelector(`label[for="${field.id}"]`);
+      return label ? label.childNodes[0].textContent.trim() : field.name;
+    };
+    const fieldMessage = (field) => {
+      const v = field.validity;
+      if (v.customError) return field.validationMessage;
+      if (v.valueMissing) {
+        if (field.type === 'checkbox') return 'Cochez cette case pour que nous puissions vous recontacter.';
+        if (field.tagName === 'SELECT') return 'Choisissez le service concerné.';
+        return 'Ce champ est obligatoire.';
+      }
+      if (v.typeMismatch && field.type === 'email') return 'Adresse email invalide, par exemple vous@exemple.fr.';
+      if (v.tooShort) return `${field.minLength} caractères minimum (actuellement ${field.value.trim().length}).`;
+      if (v.tooLong) return `${field.maxLength} caractères maximum.`;
+      return 'Valeur invalide.';
+    };
+    const setFieldError = (field, message) => {
+      const id = `${field.id || field.name}-error`;
+      let error = document.getElementById(id);
+      const describedBy = (field.getAttribute('aria-describedby') || '').split(' ').filter(x => x && x !== id);
+      if (message) {
+        if (!error) {
+          error = document.createElement('p');
+          error.id = id;
+          error.className = 'field-error';
+          const anchor = field.type === 'checkbox' ? field.closest('label') : field;
+          const help = anchor.nextElementSibling?.classList.contains('field-help') ? anchor.nextElementSibling : anchor;
+          help.insertAdjacentElement('afterend', error);
+        }
+        error.textContent = message;
+        field.setAttribute('aria-invalid', 'true');
+        field.setAttribute('aria-describedby', [...describedBy, id].join(' '));
+      } else {
+        error?.remove();
+        field.removeAttribute('aria-invalid');
+        if (describedBy.length) field.setAttribute('aria-describedby', describedBy.join(' '));
+        else field.removeAttribute('aria-describedby');
+      }
+    };
+    const checkField = (field) => {
+      const ok = field.checkValidity();
+      setFieldError(field, ok ? '' : fieldMessage(field));
+      return ok;
+    };
+    // Pressing the submit button blurs the current field before the click lands.
+    // Skipping that blur check stops a new message from pushing the button away
+    // mid-click; the submit handler validates every field anyway.
+    let submitPressed = false;
+    submitBtn?.addEventListener('pointerdown', () => {
+      submitPressed = true;
+      setTimeout(() => { submitPressed = false; }, 800);
+    });
+    validatableFields.forEach(field => {
+      const recheck = () => { if (field.getAttribute('aria-invalid') === 'true') checkField(field); };
+      field.addEventListener('input', recheck);
+      field.addEventListener('change', recheck);
+      if (field.type !== 'checkbox') field.addEventListener('blur', () => { if (!submitPressed && field.value.trim()) checkField(field); });
+    });
     // Only known URL keys select fixed labels; arbitrary URL text never enters
     // the form. Existing visitor/autofill values always take precedence.
     const services = {
@@ -358,10 +422,15 @@
         return;
       }
 
-      // Native HTML5 validation first
+      // Validate every field and show the errors next to them
       validatePhone();
-      if (!form.checkValidity()) {
-        form.reportValidity();
+      const invalid = validatableFields.filter(field => !checkField(field));
+      if (invalid.length) {
+        const names = invalid.map(fieldName).filter(Boolean);
+        showNote(invalid.length === 1
+          ? `Vérifiez le champ « ${names[0]} » avant d’envoyer votre demande.`
+          : `Vérifiez les ${invalid.length} champs signalés : ${names.join(', ')}.`, true);
+        invalid[0].focus();
         return;
       }
 
