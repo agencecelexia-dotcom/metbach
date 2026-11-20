@@ -42,6 +42,16 @@
 - [Margencel](https://www.renovationmetbach.fr/villes/margencel) : toiture et maçonnerie entre Thonon-les-Bains, Anthy-sur-Léman et Sciez.
 - [Marin (74200)](https://www.renovationmetbach.fr/villes/marin) : couvreur dans la commune voisine de Publier, entre Thonon-les-Bains et Évian-les-Bains.
 - [Neuvecelle](https://www.renovationmetbach.fr/villes/neuvecelle) : toiture et maçonnerie sur les hauteurs d’Évian-les-Bains (74500).
+- [Veigy-Foncenex](https://www.renovationmetbach.fr/villes/veigy-foncenex) : toiture, maçonnerie et isolation extérieure. Commune frontalière du Bas-Chablais, entre Douvaine et Genève.
+- [Chens-sur-Léman](https://www.renovationmetbach.fr/villes/chens-sur-leman) : toiture, maçonnerie et isolation extérieure. Commune riveraine du Léman, à la frontière suisse.
+- [Messery](https://www.renovationmetbach.fr/villes/messery) : toiture, maçonnerie et isolation extérieure. Commune riveraine du Léman dans le Bas-Chablais.
+- [Massongy](https://www.renovationmetbach.fr/villes/massongy) : toiture, maçonnerie et isolation extérieure. Entre Douvaine et Sciez, dans le Bas-Chablais.
+- [Perrignier](https://www.renovationmetbach.fr/villes/perrignier) : toiture, maçonnerie et isolation extérieure. Entre Thonon et Bons-en-Chablais, desservie par le Léman Express.
+- [Lugrin](https://www.renovationmetbach.fr/villes/lugrin) : toiture, maçonnerie et isolation extérieure. Du bord du lac aux hauteurs, à l’est d’Évian.
+- [Saint-Paul-en-Chablais](https://www.renovationmetbach.fr/villes/saint-paul-en-chablais) : toiture, maçonnerie et isolation extérieure. Sur le plateau de Gavot, au-dessus d’Évian.
+- [Larringes](https://www.renovationmetbach.fr/villes/larringes) : toiture, maçonnerie et isolation extérieure. Sur le plateau de Gavot, au-dessus d’Évian.
+- [Armoy](https://www.renovationmetbach.fr/villes/armoy) : toiture, maçonnerie et isolation extérieure. Sur les hauteurs au sud-est de Thonon.
+- [Le Lyaud](https://www.renovationmetbach.fr/villes/le-lyaud) : toiture, maçonnerie et isolation extérieure. Sur les hauteurs au sud-est de Thonon, voisine d’Allinges.
 
 Suisse voisine (Genève, Nyon, Lausanne) : étude au cas par cas, sans établissement en Suisse.
 

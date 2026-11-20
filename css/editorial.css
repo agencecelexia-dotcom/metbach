@@ -237,3 +237,11 @@ body.site-page{padding-top:88px;background:var(--page)}
 
 @media(max-width:1023px){.footer-bottom{display:block;line-height:1.8}.footer-bottom>div{margin-top:15px}}
 .area-actions{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+/* Bandeau de consentement : Accepter et Refuser ont le même poids visuel (CNIL). */
+.consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;max-width:560px;margin-inline:auto;display:grid;gap:14px;padding:18px 20px;background:var(--page);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 12px 40px #163c3426;font-size:14px;line-height:1.6}
+.consent-banner a{color:var(--accent-dark);text-decoration:underline;text-underline-offset:3px}
+.consent-actions{display:flex;gap:10px;justify-content:flex-end}
+.consent-actions .btn{min-height:44px;padding:10px 22px;font-size:14px}
+.consent-manage{font-size:14px;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.consent-manage:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:767px){.consent-banner{bottom:calc(78px + env(safe-area-inset-bottom));font-size:13px}.consent-actions .btn{flex:1}}

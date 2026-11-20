@@ -96,8 +96,28 @@ const htmlFiles = [];
     else if (entry.name.endsWith('.html')) htmlFiles.push(full);
   }
 })(output);
+// Google Tag Manager on every published page, behind Google Consent Mode v2:
+// storage is denied by default and analytics_storage is granted only after the
+// visitor accepts in the banner (js/script.js, key "metbach-consent", 6 months).
+// Advertising signals stay denied: the site runs no ads.
+const GTM_ID = 'GTM-KCB7W56H';
+const gtmHead = `
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+    try { var c = JSON.parse(localStorage.getItem('metbach-consent') || 'null'); if (c && c.analytics === true && Date.now() - c.at < 15552000000) gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');
+  </script>`;
+const gtmBody = `\n  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>`;
+function addGtm(html) {
+  if (html.includes('googletagmanager.com/gtm.js')) return html;
+  const viewport = html.match(/<meta name="viewport"[^>]*>/);
+  html = viewport ? html.replace(viewport[0], viewport[0] + gtmHead) : html.replace(/<head>/, '<head>' + gtmHead);
+  return html.replace(/<body[^>]*>/, m => m + gtmBody);
+}
 for (const file of htmlFiles) {
-  fs.writeFileSync(file, typesetHtml(fs.readFileSync(file, 'utf8')));
+  fs.writeFileSync(file, addGtm(typesetHtml(fs.readFileSync(file, 'utf8'))));
 }
 
 // Responsive image folder: publish only files a page, stylesheet or script

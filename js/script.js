@@ -47,7 +47,7 @@
   // storage, fingerprint, arbitrary query string or referrer path is collected.
   // Without storage, campaign information is available only on this page.
   // source_page is the preceding public page, not an acquisition/landing page.
-  const publicSourcePath = /^(?:\/|\/(?:services|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|geneve|nyon|lausanne))$/;
+  const publicSourcePath = /^(?:\/|\/(?:services|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|veigy-foncenex|chens-sur-leman|messery|massongy|perrignier|lugrin|saint-paul-en-chablais|larringes|armoy|le-lyaud|geneve|nyon|lausanne))$/;
   function contactAttribution() {
     const result = {};
     const path = location.pathname;
@@ -372,6 +372,10 @@
       sciez: 'Sciez', 'bons-en-chablais': 'Bons-en-Chablais', allinges: 'Allinges',
       neuvecelle: 'Neuvecelle', 'anthy-sur-leman': 'Anthy-sur-Léman', margencel: 'Margencel',
       marin: 'Marin (74200)',
+      'veigy-foncenex': 'Veigy-Foncenex', 'chens-sur-leman': 'Chens-sur-Léman', messery: 'Messery',
+      massongy: 'Massongy', perrignier: 'Perrignier', lugrin: 'Lugrin',
+      'saint-paul-en-chablais': 'Saint-Paul-en-Chablais', larringes: 'Larringes', armoy: 'Armoy',
+      'le-lyaud': 'Le Lyaud',
       nyon: 'Nyon', lausanne: 'Lausanne',
     };
     const cityKey = params.get('city');
@@ -528,4 +532,66 @@
     });
   });
 
+})();
+
+/* ---- Consentement à la mesure d’audience (Google Consent Mode v2) ----
+   Le <head> de chaque page (ajouté au build) refuse tout stockage par défaut.
+   Ce bandeau enregistre le choix pour 6 mois dans localStorage
+   ("metbach-consent") et n’accorde que analytics_storage. Le lien
+   « Gérer les cookies » du pied de page permet de changer d’avis. */
+(() => {
+  const KEY = 'metbach-consent';
+  const MAX_AGE = 15552000000; // 180 jours
+  const gtag = window.gtag || function () { (window.dataLayer = window.dataLayer || []).push(arguments); };
+  let stored = null;
+  try {
+    stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (stored && !(Date.now() - stored.at < MAX_AGE)) stored = null;
+  } catch { stored = null; }
+
+  function save(analytics) {
+    try { localStorage.setItem(KEY, JSON.stringify({ analytics, at: Date.now() })); } catch { /* choix gardé pour cette page seulement */ }
+    gtag('consent', 'update', { analytics_storage: analytics ? 'granted' : 'denied' });
+    if (!analytics) {
+      // Retire les cookies Google Analytics déjà déposés sur ce domaine.
+      document.cookie.split(';').map(c => c.trim().split('=')[0]).filter(n => /^_ga/.test(n)).forEach(n => {
+        for (const domain of ['', `; domain=${location.hostname}`, `; domain=.${location.hostname.replace(/^www\./, '')}`]) {
+          document.cookie = `${n}=; Max-Age=0; path=/${domain}`;
+        }
+      });
+    }
+    window.dataLayer?.push({ event: analytics ? 'consent_granted' : 'consent_denied' });
+  }
+
+  function showBanner() {
+    if (document.querySelector('.consent-banner')) return;
+    const box = document.createElement('section');
+    box.className = 'consent-banner';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-label', 'Mesure d’audience');
+    box.innerHTML = '<p>Avec votre accord, nous mesurons la fréquentation du site avec Google Analytics pour savoir quelles pages sont utiles. Aucune publicité. <a href="/politique-confidentialite#sec-10">En savoir plus</a></p>'
+      + '<div class="consent-actions"><button type="button" class="btn btn-ghost" data-consent="deny">Refuser</button>'
+      + '<button type="button" class="btn btn-ghost" data-consent="accept">Accepter</button></div>';
+    box.addEventListener('click', e => {
+      const choice = e.target.closest('[data-consent]')?.dataset.consent;
+      if (!choice) return;
+      save(choice === 'accept');
+      box.remove();
+    });
+    document.body.appendChild(box);
+  }
+
+  // Lien permanent pour modifier son choix, dans le pied de page.
+  const legal = document.querySelector('.footer-bottom > div');
+  if (legal) {
+    const manage = document.createElement('button');
+    manage.type = 'button';
+    manage.className = 'consent-manage';
+    manage.textContent = 'Gérer les cookies';
+    manage.addEventListener('click', showBanner);
+    legal.appendChild(manage);
+  }
+  document.querySelectorAll('[data-consent-open]').forEach(el => el.addEventListener('click', showBanner));
+
+  if (!stored) showBanner();
 })();

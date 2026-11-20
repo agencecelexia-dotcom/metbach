@@ -50,18 +50,20 @@ réponses des IA** dans le Chablais et le Genevois français, pour générer des
 
 ## Structure SEO actuelle
 
-- 32 URL dans `sitemap.xml` : accueil, 11 services `/services/*`, hub `/services`, hub `/villes`, 13 villes
-  françaises (publier, thonon-les-bains, evian-les-bains, annemasse, douvaine, saint-julien-en-genevois, puis
-  la vague 1 du 20/11 : sciez, bons-en-chablais, allinges, anthy-sur-leman, margencel, marin, neuvecelle),
-  `/a-propos`, `/contact`, `/realisations`, `/glossaire`, `/preparer-travaux`.
-- Pages ville de la vague 1 : gabarit `villes/sciez.html` (encadré « en bref » avec chiffres INSEE, règles
-  d'urbanisme, monuments historiques de la base Mérimée, zone de sismicité 4 de Géorisques, 3 FAQ locales).
-  Une nouvelle ville = ajouter son slug à `publicSourcePath` dans `js/script.js` **et** `api/contact.js`, à la
-  table `cities` de `js/script.js`, au hub `/villes` (carte + ItemList), au sitemap, à `llms.txt` et aux liens
-  « Autres zones » des villes voisines. Marin : toujours « Marin (74200) » (homonymes dans les recherches).
-- Vagues suivantes prévues (audit du 20/11) : vague 2 Veigy-Foncenex, Chens-sur-Léman, Lugrin,
-  Saint-Paul-en-Chablais, Messery, Perrignier, Lyaud, Massongy, Larringes, Armoy ; vague 3 (Genevois,
-  conditionnelle) Vétraz-Monthoux, Gaillard, Ville-la-Grand, Cranves-Sales, Ambilly, Saint-Cergues.
+- 42 URL dans `sitemap.xml` : accueil, 11 services `/services/*`, hub `/services`, hub `/villes`, 23 villes
+  françaises (publier, thonon-les-bains, evian-les-bains, annemasse, douvaine, saint-julien-en-genevois ;
+  vague 1 du 20/11 : sciez, bons-en-chablais, allinges, anthy-sur-leman, margencel, marin, neuvecelle ;
+  vague 2 du 20/11 : veigy-foncenex, chens-sur-leman, messery, massongy, perrignier, lugrin,
+  saint-paul-en-chablais, larringes, armoy, le-lyaud), `/a-propos`, `/contact`, `/realisations`, `/glossaire`,
+  `/preparer-travaux`.
+- Pages ville des vagues 1 et 2 : gabarit `villes/sciez.html` (encadré « en bref » avec chiffres INSEE,
+  altitude IGN, règles d'urbanisme, monuments historiques de la base Mérimée, zone de sismicité 4 de Géorisques,
+  3 FAQ locales). Une nouvelle ville = ajouter son slug à `publicSourcePath` dans `js/script.js` **et**
+  `api/contact.js`, à la table `cities` de `js/script.js`, au hub `/villes` (carte + ItemList), au sitemap,
+  à `llms.txt` et aux liens « Autres zones » / « Autour de » des villes voisines. Marin : toujours
+  « Marin (74200) » (homonymes). Le Lyaud : « au Lyaud », jamais « à Le Lyaud ».
+- Vague 3 prévue (Genevois, conditionnelle) : Vétraz-Monthoux, Gaillard, Ville-la-Grand, Cranves-Sales,
+  Ambilly, Saint-Cergues. À lancer seulement si les vagues 1 et 2 s'indexent (Search Console).
 - JSON-LD : nœud `GeneralContractor` `#business` complet sur `/` et `/contact` (avec `iso6523Code`
   0009:44846454500020), nœud court sur les autres pages ; `WebSite` `#website` ; un `Service` par page service
   avec un seul `name` par `@id` (même libellé dans le catalogue de l'accueil et l'ItemList de `/services`).
@@ -72,7 +74,19 @@ réponses des IA** dans le Chablais et le Genevois français, pour générer des
 Dossier `renovationmetbach.fr-audit/` (**jamais commité** : `git add -A -- . ':!renovationmetbach.fr-audit'`).
 Audits claude-seo du 15/11 (74/100), du 16/11 (81/100), puis le grand audit de visibilité du 20/11.
 Données Search Console au 18/11/2026 : 252 impressions, 2 clics, position moyenne 20,5, 15 pages indexées,
-22 non indexées (dont 15 « Détectée, actuellement non indexée »). Aucun tag Analytics sur le site.
+22 non indexées (dont 15 « Détectée, actuellement non indexée »).
+
+## Mesure d'audience
+
+- Google Tag Manager `GTM-KCB7W56H` (contient la balise GA4 `G-4PSV7TSL8Y`), injecté **au build** par
+  `scripts/build-site.cjs` dans chaque page de `dist/` (ne pas le coller dans les sources HTML).
+- Google Consent Mode v2 : tout refusé par défaut ; `analytics_storage` accordé seulement après « Accepter » dans
+  le bandeau (`js/script.js`, clé localStorage `metbach-consent`, 6 mois). Lien « Gérer les cookies » ajouté en
+  JS dans le pied de page. Publicité toujours refusée. Politique de confidentialité, section 10, à tenir à jour.
+- CSP (`vercel.json`) : googletagmanager.com en script-src/frame-src, *.google-analytics.com,
+  *.analytics.google.com et *.googletagmanager.com en connect-src.
+- Événements `dataLayer` existants pour les conversions : `tel_click`, `form_submitted` (avec `page`),
+  plus `consent_granted` / `consent_denied`.
 
 ## Git
 
