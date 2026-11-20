@@ -50,9 +50,18 @@ réponses des IA** dans le Chablais et le Genevois français, pour générer des
 
 ## Structure SEO actuelle
 
-- 25 URL dans `sitemap.xml` : accueil, 11 services `/services/*`, hub `/services`, hub `/villes`, 6 villes
-  françaises (publier, thonon-les-bains, evian-les-bains, annemasse, douvaine, saint-julien-en-genevois),
+- 32 URL dans `sitemap.xml` : accueil, 11 services `/services/*`, hub `/services`, hub `/villes`, 13 villes
+  françaises (publier, thonon-les-bains, evian-les-bains, annemasse, douvaine, saint-julien-en-genevois, puis
+  la vague 1 du 20/11 : sciez, bons-en-chablais, allinges, anthy-sur-leman, margencel, marin, neuvecelle),
   `/a-propos`, `/contact`, `/realisations`, `/glossaire`, `/preparer-travaux`.
+- Pages ville de la vague 1 : gabarit `villes/sciez.html` (encadré « en bref » avec chiffres INSEE, règles
+  d'urbanisme, monuments historiques de la base Mérimée, zone de sismicité 4 de Géorisques, 3 FAQ locales).
+  Une nouvelle ville = ajouter son slug à `publicSourcePath` dans `js/script.js` **et** `api/contact.js`, à la
+  table `cities` de `js/script.js`, au hub `/villes` (carte + ItemList), au sitemap, à `llms.txt` et aux liens
+  « Autres zones » des villes voisines. Marin : toujours « Marin (74200) » (homonymes dans les recherches).
+- Vagues suivantes prévues (audit du 20/11) : vague 2 Veigy-Foncenex, Chens-sur-Léman, Lugrin,
+  Saint-Paul-en-Chablais, Messery, Perrignier, Lyaud, Massongy, Larringes, Armoy ; vague 3 (Genevois,
+  conditionnelle) Vétraz-Monthoux, Gaillard, Ville-la-Grand, Cranves-Sales, Ambilly, Saint-Cergues.
 - JSON-LD : nœud `GeneralContractor` `#business` complet sur `/` et `/contact` (avec `iso6523Code`
   0009:44846454500020), nœud court sur les autres pages ; `WebSite` `#website` ; un `Service` par page service
   avec un seul `name` par `@id` (même libellé dans le catalogue de l'accueil et l'ItemList de `/services`).
