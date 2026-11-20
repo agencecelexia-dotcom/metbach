@@ -47,7 +47,7 @@
   // storage, fingerprint, arbitrary query string or referrer path is collected.
   // Without storage, campaign information is available only on this page.
   // source_page is the preceding public page, not an acquisition/landing page.
-  const publicSourcePath = /^(?:\/|\/(?:services|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|geneve|nyon|lausanne))$/;
+  const publicSourcePath = /^(?:\/|\/(?:services|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|geneve|nyon|lausanne))$/;
   function contactAttribution() {
     const result = {};
     const path = location.pathname;
@@ -369,6 +369,9 @@
       publier: 'Publier / Amphion-les-Bains', 'thonon-les-bains': 'Thonon-les-Bains',
       'evian-les-bains': 'Évian-les-Bains', annemasse: 'Annemasse', douvaine: 'Douvaine',
       'saint-julien-en-genevois': 'Saint-Julien-en-Genevois', geneve: 'Genève',
+      sciez: 'Sciez', 'bons-en-chablais': 'Bons-en-Chablais', allinges: 'Allinges',
+      neuvecelle: 'Neuvecelle', 'anthy-sur-leman': 'Anthy-sur-Léman', margencel: 'Margencel',
+      marin: 'Marin (74200)',
       nyon: 'Nyon', lausanne: 'Lausanne',
     };
     const cityKey = params.get('city');

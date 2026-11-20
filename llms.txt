@@ -35,6 +35,13 @@
 - [Annemasse](https://www.renovationmetbach.fr/villes/annemasse) : toiture, maçonnerie et isolation extérieure dans l’agglomération (Ambilly, Gaillard, Étrembières, Vétraz-Monthoux).
 - [Douvaine](https://www.renovationmetbach.fr/villes/douvaine) : toiture, maçonnerie et isolation extérieure pour les maisons du Bas-Chablais.
 - [Saint-Julien-en-Genevois](https://www.renovationmetbach.fr/villes/saint-julien-en-genevois) : toiture, maçonnerie et isolation extérieure dans le Genevois français.
+- [Sciez](https://www.renovationmetbach.fr/villes/sciez) : couvreur, démoussage et maçonnerie dans une commune riveraine du Léman, entre Thonon-les-Bains et Douvaine.
+- [Bons-en-Chablais](https://www.renovationmetbach.fr/villes/bons-en-chablais) : toiture et maçonnerie au pied des Voirons, terrains en pente.
+- [Allinges](https://www.renovationmetbach.fr/villes/allinges) : toiture et maçonnerie autour de la colline des châteaux d’Allinges, monument historique.
+- [Anthy-sur-Léman](https://www.renovationmetbach.fr/villes/anthy-sur-leman) : toiture et maçonnerie dans une commune riveraine du Léman soumise à la loi Littoral.
+- [Margencel](https://www.renovationmetbach.fr/villes/margencel) : toiture et maçonnerie entre Thonon-les-Bains, Anthy-sur-Léman et Sciez.
+- [Marin (74200)](https://www.renovationmetbach.fr/villes/marin) : couvreur dans la commune voisine de Publier, entre Thonon-les-Bains et Évian-les-Bains.
+- [Neuvecelle](https://www.renovationmetbach.fr/villes/neuvecelle) : toiture et maçonnerie sur les hauteurs d’Évian-les-Bains (74500).
 
 Suisse voisine (Genève, Nyon, Lausanne) : étude au cas par cas, sans établissement en Suisse.
 
