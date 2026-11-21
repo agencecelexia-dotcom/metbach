@@ -11,7 +11,11 @@ réponses des IA** dans le Chablais et le Genevois français, pour générer des
   Haute-Savoie au registre SIRENE (vérifié le 16/11/2026).
 - Base d'intervention affichée et fiche Google : 862 route de la Dranse, 74500 Publier.
   Coordonnées : 46.400383, 6.520969. Fiche Google : https://maps.app.goo.gl/mu6Nbfsgyvrt49AM9
-- Téléphone : 07 69 13 61 82 (+33 7 69 13 61 82). Horaires : lundi à samedi, 8 h à 20 h. Aucun e-mail publié.
+- Téléphone : 07 69 13 61 82 (+33 7 69 13 61 82). Réception des demandes : 24 h/24 et 7 j/7,
+  confirmée explicitement par l’utilisateur le 21/11/2026. Aucun e-mail publié.
+  Cette disponibilité concerne la réception et la prise en charge des demandes ; elle ne constitue pas
+  une promesse d’intervention immédiate ou de dépannage sur place 24 h/24. Le délai d’intervention
+  est confirmé selon le projet.
 - Code APE 43.34Z (peinture et vitrerie). Activités déclarées dans les mentions légales : peinture, couverture,
   terrassement, espaces verts. **Maçonnerie et ITE ne sont pas confirmées** par un extrait d'immatriculation.
 - **Non RGE.** Aucune certification, aucun assureur, aucun avis client, aucun chantier documenté connus.
