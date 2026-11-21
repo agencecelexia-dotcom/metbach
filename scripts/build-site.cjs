@@ -10,7 +10,7 @@ fs.mkdirSync(output);
 // Pages load /assets/css/site.css only. The css/ sources and the two build
 // inputs below are bundled into it and are not published on their own.
 const unpublished = new Set(['assets/css/tailwind.css', 'assets/css/fonts.css']);
-const directories = ['assets', 'js', 'services', 'villes', 'contact', 'realisations', 'merci'];
+const directories = ['assets', 'js', 'services', 'villes', 'conseils', 'contact', 'realisations', 'merci'];
 for (const dir of directories) {
   fs.cpSync(path.join(root, dir), path.join(output, dir), {
     recursive: true,
@@ -106,7 +106,7 @@ const gtmHead = `
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
-    try { var c = JSON.parse(localStorage.getItem('metbach-consent') || 'null'); if (c && c.analytics === true && Date.now() - c.at < 15552000000) gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
+    try { var c = JSON.parse(localStorage.getItem('metbach-consent') || 'null'); if (c && c.analytics === true && typeof c.at === 'number' && Number.isFinite(c.at) && Date.now() - c.at >= 0 && Date.now() - c.at < 15552000000) gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');
   </script>`;
 const gtmBody = `\n  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>`;

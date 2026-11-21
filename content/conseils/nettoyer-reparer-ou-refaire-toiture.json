@@ -1,0 +1,82 @@
+{
+  "slug": "nettoyer-reparer-ou-refaire-toiture",
+  "category": "toiture",
+  "title": "Nettoyer, réparer ou refaire sa toiture ? | Metbach",
+  "description": "Mousses, tuiles abîmées ou fuites : distinguez entretien, réparation et réfection. Les points à vérifier pour demander un devis adapté à votre toiture.",
+  "h1": "Nettoyer, réparer ou refaire sa toiture : comment choisir ?",
+  "eyebrow": "Toiture · Préparer le devis",
+  "lead": "Un toit couvert de dépôts et un toit qui laisse entrer l’eau ne posent pas la même question. Avant de comparer des prix, il faut préciser le résultat attendu et ce que le professionnel doit examiner.",
+  "answer": "Le nettoyage traite les dépôts. La réparation concerne un défaut identifié. La réfection reprend une partie plus importante de la couverture. Le choix vient de l’examen du toit et de ses raccords : son âge ou son aspect, pris seuls, ne suffisent pas.",
+  "service": {
+    "url": "/services/couverture",
+    "label": "Couverture, réparation et réfection",
+    "form": "couverture",
+    "cta": "Quel besoin pour votre toiture ?",
+    "button": "Préparer mon devis toiture",
+    "intro": "Décrivez votre commune, ce que vous observez et votre objectif : entretien, fuite ou projet de rénovation. Ces informations nous aident à préparer le premier échange et à préciser les points à vérifier."
+  },
+  "related": [
+    "fuite-toiture-que-faire",
+    "comparer-devis-isolation-exterieure"
+  ],
+  "sections": [
+    {
+      "id": "trois-besoins",
+      "toc": "Trois besoins différents",
+      "h2": "Commencer par la question à résoudre",
+      "html": "<div class=\"table-wrap\" role=\"region\" aria-label=\"Entretien réparation ou réfection de toiture\" tabindex=\"0\"><table><caption class=\"sr-only\">Trois périmètres à distinguer avant le devis</caption><thead><tr><th scope=\"col\">Besoin à étudier</th><th scope=\"col\">Ce que la proposition doit expliquer</th><th scope=\"col\">Question à poser</th></tr></thead><tbody><tr><th scope=\"row\">Entretenir</th><td>Zones à nettoyer, méthode adaptée et protections prévues.</td><td>La couverture présente-t-elle aussi des éléments à réparer ?</td></tr><tr><th scope=\"row\">Réparer</th><td>Défaut constaté, reprise envisagée et limites de l’intervention.</td><td>Comment cette reprise traite-t-elle le problème observé ?</td></tr><tr><th scope=\"row\">Refaire</th><td>Partie déposée, support conservé ou repris, nouvelle couverture et raccords.</td><td>Qu’est-ce qui justifie ce périmètre plutôt qu’une réparation ?</td></tr></tbody></table></div><p>Ces travaux peuvent se combiner. Le devis doit alors séparer les postes pour que vous compreniez ce qui relève de l’entretien et ce qui répond à une dégradation.</p><p>Si l’eau entre actuellement dans le logement, commencez par les <a href=\"/conseils/fuite-toiture-que-faire\">premiers gestes face à une fuite</a>, avant de planifier un simple nettoyage.</p>"
+    },
+    {
+      "id": "controle",
+      "toc": "Ce qui mérite un contrôle",
+      "h2": "Observer le toit, mais aussi ses raccords",
+      "html": "<p>L’<a href=\"https://qualiteconstruction.com/wp-content/uploads/2024/05/Fiche-Pathologie-Batiment-G09-Entretien-Maintenance-Couvertures-AQC.pdf\" target=\"_blank\" rel=\"noopener\">Agence Qualité Construction</a> souligne que l’entretien concerne la couverture et ses points singuliers : évacuations d’eau, raccords et ventilation. Un contrôle ne se résume donc pas à l’aspect des tuiles.</p><p>Vous pouvez préparer des observations prises depuis le sol : dépôts visibles, élément déplacé, débordement d’une gouttière, trace apparue après un épisode météo. Notez aussi les interventions précédentes et ce qui a changé depuis.</p><p>Ne montez pas sur le toit pour compléter les photos. Les <a href=\"https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html\" target=\"_blank\" rel=\"noopener\">risques de chute et les conditions d’accès</a> doivent être pris en compte, même pour une intervention courte.</p><p>Pour un projet à Publier, Thonon ou Évian, indiquez les accès disponibles et les contraintes autour de la maison. Une photographie prise de loin peut situer le pan concerné ; elle ne remplace pas un examen rapproché réalisé en sécurité.</p>"
+    },
+    {
+      "id": "nettoyage",
+      "toc": "Un devis de nettoyage",
+      "h2": "Pour l’entretien : demander une méthode expliquée",
+      "html": "<p>Une offre de nettoyage doit préciser la surface ou les zones traitées, la méthode retenue, les produits éventuels et les protections des abords. Demandez aussi ce qui est prévu pour les dépôts évacués et les gouttières.</p><p>Une méthode proposée avant de connaître le matériau et l’état du toit mérite des précisions. Faites distinguer les options : nettoyage, traitement complémentaire et réparation ne sont pas une seule prestation interchangeable.</p><p>Notre page <a href=\"/services/nettoyage-toiture\">nettoyage et démoussage de toiture</a> présente les informations à réunir pour une demande d’entretien. Si c’est votre besoin principal, vous pouvez <a href=\"/contact?service=nettoyage-toiture#form\">présenter directement votre projet de nettoyage</a>.</p>"
+    },
+    {
+      "id": "reparation-refection",
+      "toc": "Réparer ou reprendre davantage",
+      "h2": "Comparer deux périmètres, pas seulement deux totaux",
+      "html": "<p>Pour une réparation, demandez quels éléments seront repris, comment les raccords avec l’existant seront traités et quelles zones restent hors intervention. Si une solution provisoire est proposée, faites préciser sa place dans la suite du projet.</p><p>Pour une réfection, la proposition doit rendre lisibles la dépose, les matériaux retenus, les travaux sur le support et les évacuations d’eau. Demandez ce qui est inclus et comment seront traitées les découvertes impossibles à confirmer avant la dépose.</p><div class=\"callout\">Avant de comparer les montants, écrivez une phrase commune aux deux offres : « Nous demandons une intervention sur cette partie du toit, pour résoudre ce besoin, avec ces travaux compris. » Si cette phrase change, les devis ne répondent pas au même projet.</div><p>Un projet d’isolation ou de façade doit être annoncé au premier échange pour examiner les raccords entre les ouvrages. Cela ne signifie pas que tous les travaux doivent être engagés ensemble.</p>"
+    },
+    {
+      "id": "demande",
+      "toc": "Préparer la demande",
+      "h2": "Les cinq informations utiles au premier échange",
+      "html": "<ol><li><strong>Le lieu :</strong> commune, accès et contraintes de passage.</li><li><strong>Le besoin :</strong> entretien souhaité, défaut observé ou rénovation envisagée.</li><li><strong>L’existant :</strong> matériau et âge approximatif, seulement si vous les connaissez.</li><li><strong>Les preuves disponibles :</strong> photos prises en sécurité, factures ou documents de travaux antérieurs.</li><li><strong>Les autres projets :</strong> isolation, fenêtre de toit ou façade, pour signaler les interfaces.</li></ol><p>Vous n’avez pas besoin de connaître chaque terme technique. Une description précise est plus utile qu’un diagnostic supposé. Le <a href=\"/glossaire\">glossaire du bâtiment</a> et la <a href=\"/preparer-travaux#devis\">grille de lecture d’un devis</a> complètent cette préparation.</p>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "La présence de mousse impose-t-elle de refaire le toit ?",
+      "a": "La présence de mousse ne détermine pas, à elle seule, le périmètre des travaux. Il faut distinguer les dépôts, l’état des éléments de couverture et les éventuels défauts de raccordement."
+    },
+    {
+      "q": "Un nettoyage peut-il remplacer une réparation de fuite ?",
+      "a": "Une offre d’entretien ne suffit pas à conclure qu’une fuite sera résolue. L’origine de l’eau doit être recherchée et le devis doit identifier les reprises nécessaires."
+    },
+    {
+      "q": "Peut-on choisir uniquement avec le prix au mètre carré ?",
+      "a": "Un prix au mètre carré ne décrit pas les accès, les préparations, les raccords ou les exclusions. Comparez d’abord les zones et prestations prévues, puis les quantités et les montants."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Agence Qualité Construction — Entretien et maintenance des couvertures",
+      "url": "https://qualiteconstruction.com/wp-content/uploads/2024/05/Fiche-Pathologie-Batiment-G09-Entretien-Maintenance-Couvertures-AQC.pdf"
+    },
+    {
+      "label": "INRS — Risques liés aux chutes de hauteur",
+      "url": "https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html"
+    }
+  ],
+  "status": "publishable",
+  "published": "2026-11-21",
+  "modified": "2026-11-21",
+  "reviewed": "2026-11-21"
+}

@@ -115,12 +115,12 @@
       "permanent": true
     },
     {
-      "source": "/:section(services|villes|realisations|contact|merci)/index",
+      "source": "/:section(services|villes|realisations|contact|merci|conseils)/index",
       "destination": "/:section",
       "permanent": true
     },
     {
-      "source": "/:section(services|villes|realisations|contact|merci)/index.html",
+      "source": "/:section(services|villes|realisations|contact|merci|conseils)/index.html",
       "destination": "/:section",
       "permanent": true
     }

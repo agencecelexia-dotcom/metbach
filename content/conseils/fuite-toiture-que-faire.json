@@ -1,0 +1,81 @@
+{
+  "slug": "fuite-toiture-que-faire",
+  "category": "toiture",
+  "title": "Fuite de toiture : que faire et qui appeler ? | Metbach",
+  "description": "Une fuite au plafond ? Protégez les occupants, notez les signes utiles et préparez l’appel au couvreur et à l’assureur. Les premiers gestes expliqués.",
+  "h1": "Fuite de toiture : les premiers gestes et le bon interlocuteur",
+  "eyebrow": "Toiture · Infiltration",
+  "lead": "De l’eau au plafond, une tache qui grandit après la pluie : le premier objectif est de protéger les occupants. Ensuite, quelques observations permettent de préparer l’intervention sans essayer de réparer le toit soi-même.",
+  "answer": "Ne montez pas sur la toiture. Éloignez les personnes et les biens de la zone touchée. Si l’eau approche d’une installation électrique, ne la touchez pas ; ne coupez le courant que depuis un tableau accessible au sec, sans vous exposer. Appelez un professionnel et prévenez votre assureur sans attendre.",
+  "service": {
+    "url": "/services/couverture",
+    "label": "Réparation et rénovation de toiture",
+    "form": "couverture",
+    "cta": "Une infiltration à faire examiner ?",
+    "button": "Décrire ma fuite",
+    "intro": "Indiquez votre commune, depuis quand l’eau apparaît et ce que vous avez observé. Nous précisons avec vous les informations utiles et les disponibilités. Une fuite active mérite un appel ; le formulaire permet de décrire la situation."
+  },
+  "related": [
+    "nettoyer-reparer-ou-refaire-toiture"
+  ],
+  "sections": [
+    {
+      "id": "securiser",
+      "toc": "Protéger les occupants",
+      "h2": "D’abord, rester dans une zone sûre",
+      "html": "<p>Évitez la pièce si le plafond se déforme, si des éléments tombent ou si de l’eau atteint les équipements électriques. Ne touchez ni une prise mouillée ni un tableau humide.</p><ul><li>Déplacez les meubles et les objets seulement si vous pouvez le faire sans danger.</li><li>Placez un récipient sous les gouttes si la zone reste sûre.</li><li>Photographiez les traces depuis une pièce accessible, sans échelle ni accès en toiture.</li></ul><p>Le toit et les moyens d’accès exposent à des chutes, même à faible hauteur : l’<a href=\"https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html\" target=\"_blank\" rel=\"noopener\">INRS détaille ces risques</a>. Un professionnel doit organiser ses protections avant d’intervenir. Un harnais acheté seul ne rend pas une intervention improvisée sûre.</p>"
+    },
+    {
+      "id": "observations",
+      "toc": "Noter les circonstances",
+      "h2": "Les informations qui aideront à rechercher la fuite",
+      "html": "<p>La position de la tache ne suffit pas à identifier l’entrée d’eau. Décrivez ce que vous voyez, sans retirer de tuiles ni démonter de raccord.</p><div class=\"table-wrap\" role=\"region\" aria-label=\"Observations utiles pour une fuite\" tabindex=\"0\"><table><caption class=\"sr-only\">Ce qu’il faut noter avant l’intervention</caption><thead><tr><th scope=\"col\">Ce que vous observez</th><th scope=\"col\">À transmettre au couvreur</th></tr></thead><tbody><tr><th scope=\"row\">L’eau apparaît après une pluie</th><td>Date, durée, présence de vent et pièce concernée.</td></tr><tr><th scope=\"row\">La trace se trouve près d’un conduit ou d’une fenêtre</th><td>Photo d’ensemble et détail, avec emplacement dans la pièce.</td></tr><tr><th scope=\"row\">Une gouttière déborde</th><td>Endroit visible depuis le sol et moment où le débordement se produit.</td></tr><tr><th scope=\"row\">L’humidité persiste par temps sec</th><td>Évolution de la trace, présence de canalisations ou d’autres équipements à proximité.</td></tr></tbody></table></div><p>Ces indices orientent le contrôle. Ils ne permettent pas de trancher à distance entre une infiltration de toiture et une autre origine d’humidité.</p>"
+    },
+    {
+      "id": "assurance",
+      "toc": "Informer l’assurance",
+      "h2": "Déclarer les dégâts et conserver les preuves",
+      "html": "<p>Pour un dégât des eaux, <a href=\"https://www.service-public.gouv.fr/particuliers/vosdroits/F1352\" target=\"_blank\" rel=\"noopener\">Service Public</a> recommande de prévenir l’assureur dès la découverte. Le délai prévu au contrat ne peut pas être inférieur à cinq jours ouvrés.</p><p>Conservez les photos, les justificatifs des biens endommagés et les factures d’intervention. Faire arrêter la fuite limite l’aggravation du sinistre ; attendez l’accord de l’assureur avant la remise en état des peintures, sols ou plafonds.</p><p>La couverture et les exclusions dépendent du contrat et de l’origine du dommage. La réparation du toit et les dégâts dans le logement ne sont pas nécessairement indemnisés de la même façon. Demandez à votre assureur quelles démarches s’appliquent.</p>"
+    },
+    {
+      "id": "interlocuteur",
+      "toc": "Choisir l’interlocuteur",
+      "h2": "Qui contacter, et avec quelles informations ?",
+      "html": "<p>Si l’eau paraît liée au toit ou à ses raccords, contactez un couvreur. Si l’origine reste incertaine, expliquez-le d’emblée : la recherche doit précéder le choix des travaux. En location ou en copropriété, informez également le propriétaire ou le syndic des parties concernées.</p><p>Pour préparer le premier échange, rassemblez :</p><ol><li>la commune et les accès à la maison ;</li><li>la pièce touchée, la date d’apparition et les circonstances ;</li><li>les photos prises sans vous exposer ;</li><li>le matériau de couverture, si vous le connaissez ;</li><li>les réparations ou travaux récents, avec leurs documents.</li></ol><p>À Publier, Thonon-les-Bains ou Évian-les-Bains, précisez aussi les contraintes d’accès : cour étroite, stationnement, façade mitoyenne ou passage à conserver. Elles aident à préparer la visite, sans préjuger du délai d’intervention.</p>"
+    },
+    {
+      "id": "travaux",
+      "toc": "Définir la suite",
+      "h2": "Une réparation ciblée ou un chantier plus large ?",
+      "html": "<p>Une mesure provisoire peut être nécessaire avant les travaux définitifs. La solution dépend de la cause constatée, de l’état de la couverture et des conditions d’intervention. Une tache ne signifie pas, à elle seule, qu’il faut refaire tout le toit.</p><p>Demandez que la proposition distingue la recherche de l’origine, la protection éventuelle et les réparations retenues. Si plusieurs options sont envisagées, faites préciser ce que chacune traite et ce qui reste à surveiller.</p><p>Notre guide <a href=\"/conseils/nettoyer-reparer-ou-refaire-toiture\">nettoyer, réparer ou refaire sa toiture</a> aide à distinguer ces besoins. Pour préparer la visite, consultez aussi les <a href=\"/preparer-travaux#toiture\">informations utiles pour vos travaux de toiture</a>.</p>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Puis-je monter sur le toit pour chercher la fuite ?",
+      "a": "Ne montez pas sur le toit pour rechercher la fuite. Notez ce qui est visible depuis un endroit sûr et laissez le professionnel prévoir les accès et les protections nécessaires."
+    },
+    {
+      "q": "Quel délai respecter pour prévenir mon assurance ?",
+      "a": "Prévenez votre assureur dès la découverte du dégât des eaux. Le délai de déclaration fixé par le contrat est au minimum de cinq jours ouvrés ; vérifiez les démarches prévues dans votre contrat."
+    },
+    {
+      "q": "Une fuite oblige-t-elle à refaire toute la toiture ?",
+      "a": "Pas nécessairement. Le choix dépend de l’origine de l’eau, des éléments endommagés et de l’état général du toit. Une réparation localisée peut être envisagée après contrôle ; une photo seule ne permet pas de le confirmer."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Service Public — Assurance dégâts des eaux",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1352"
+    },
+    {
+      "label": "INRS — Risques liés aux chutes de hauteur",
+      "url": "https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html"
+    }
+  ],
+  "status": "publishable",
+  "published": "2026-11-21",
+  "modified": "2026-11-21",
+  "reviewed": "2026-11-21"
+}

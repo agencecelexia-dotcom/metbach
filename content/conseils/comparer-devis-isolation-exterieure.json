@@ -1,0 +1,89 @@
+{
+  "slug": "comparer-devis-isolation-exterieure",
+  "category": "isolation",
+  "title": "Devis d’isolation extérieure : que comparer ? | Metbach",
+  "description": "Comparez vos devis d’ITE : surfaces, système isolant, raccords, échafaudage et finitions. Une grille concrète pour préparer votre projet de façade.",
+  "h1": "Devis d’isolation extérieure : comparer les travaux prévus",
+  "eyebrow": "Isolation extérieure · Lecture du devis",
+  "lead": "Deux propositions pour la même maison peuvent couvrir des travaux différents. Avant de retenir un total, vérifiez ce qui sera isolé, les raccords prévus et les éléments laissés à votre charge.",
+  "answer": "Comparez les surfaces, le système isolant, la préparation des murs, les raccords autour des ouvertures, les moyens d’accès et les finitions. Demandez une explication pour chaque exclusion. Les aides éventuelles doivent être distinguées du prix des travaux, avec leurs conditions vérifiées séparément.",
+  "service": {
+    "url": "/services/isolation-exterieure",
+    "label": "Préparer un projet d’isolation extérieure",
+    "form": "isolation-exterieure",
+    "cta": "Une façade à étudier ?",
+    "button": "Présenter mon projet de façade",
+    "intro": "Précisez votre commune, les façades concernées et les autres travaux envisagés. Le premier échange permet de clarifier votre besoin, les documents utiles et les points à vérifier avant toute proposition."
+  },
+  "related": [
+    "nettoyer-reparer-ou-refaire-toiture"
+  ],
+  "sections": [
+    {
+      "id": "meme-projet",
+      "toc": "Définir le même projet",
+      "h2": "D’abord, vérifier ce qui est réellement comparé",
+      "html": "<p>Notez les façades concernées et demandez comment les surfaces ont été calculées. Une offre qui couvre seulement deux pans ne se compare pas directement à une proposition pour toute la maison. Les ouvertures et les parties non traitées doivent être identifiables.</p><p><a href=\"https://france-renov.gouv.fr/renovation/isolation/murs-maison\" target=\"_blank\" rel=\"noopener\">France Rénov’</a> décrit notamment l’ITE sous enduit et l’isolation associée à un bardage. La finition visible ne suffit pas à caractériser l’ensemble du système. Un parement de bardage peut aussi être posé sans isolant : faites préciser la composition proposée.</p>"
+    },
+    {
+      "id": "grille",
+      "toc": "Les postes à comparer",
+      "h2": "Une grille pour relire chaque proposition",
+      "html": "<div class=\"table-wrap\" role=\"region\" aria-label=\"Comparer les postes d’un devis ITE\" tabindex=\"0\"><table><caption class=\"sr-only\">Questions à poser avant de comparer des devis d’isolation extérieure</caption><thead><tr><th scope=\"col\">Poste</th><th scope=\"col\">Ce que vous cherchez</th><th scope=\"col\">Question utile</th></tr></thead><tbody><tr><th scope=\"row\">Surfaces</th><td>Façades incluses, quantités et parties exclues.</td><td>Quels murs et retours sont compris ?</td></tr><tr><th scope=\"row\">Système</th><td>Références de l’isolant, épaisseur, performance annoncée et finition.</td><td>Quels documents décrivent les composants retenus ?</td></tr><tr><th scope=\"row\">Support</th><td>Contrôle, préparation et reprises prévues.</td><td>Que reste-t-il à vérifier avant la pose ?</td></tr><tr><th scope=\"row\">Ouvertures</th><td>Traitement des tableaux, appuis et équipements voisins.</td><td>Quels raccords sont chiffrés autour des fenêtres ?</td></tr><tr><th scope=\"row\">Équipements</th><td>Descentes d’eau, volets, luminaires ou fixations à adapter.</td><td>Qui dépose, adapte et repose chaque élément ?</td></tr><tr><th scope=\"row\">Accès</th><td>Échafaudage, protections, installations et repli.</td><td>Quelles contraintes de terrain ont été prises en compte ?</td></tr><tr><th scope=\"row\">Fin du chantier</th><td>Finitions, nettoyage, évacuation et limites de remise en état.</td><td>Dans quel état les abords seront-ils rendus ?</td></tr></tbody></table></div><p>Pour une ligne absente, demandez si la prestation est incluse ailleurs, optionnelle ou hors devis. Une réponse écrite évite de comparer un total complet avec un montant qui laisse plusieurs travaux à organiser.</p>"
+    },
+    {
+      "id": "raccords",
+      "toc": "Regarder les détails",
+      "h2": "Les photos utiles montrent aussi les raccords",
+      "html": "<p>Une vue générale de la maison situe le projet. Ajoutez des vues des fenêtres, volets, descentes d’eau, pieds de murs et débords de toit, prises depuis un endroit sûr. Ces éléments aident à repérer les questions que la visite devra résoudre.</p><p>Signalez les traces d’humidité, les fissures ou les enduits qui se détachent. Le <a href=\"https://qualiteconstruction.com/wp-content/uploads/2021/07/Rapport-REX-BP-ITE-Isolation-Thermique-Exterieur-Renovation-AQC.pdf\" target=\"_blank\" rel=\"noopener\">retour d’expérience de l’Agence Qualité Construction sur l’ITE en rénovation</a> souligne l’importance de préparer les supports et de traiter les causes des désordres avant la pose.</p><p>Si des fenêtres ou la toiture doivent également être reprises, indiquez-le dès le départ. Demandez comment seront réparties les interventions et qui traite leurs jonctions. La <a href=\"/services/isolation-exterieure\">page consacrée à l’isolation extérieure</a> présente les points à préparer pour cet échange.</p>"
+    },
+    {
+      "id": "demarches",
+      "toc": "Démarches et aides",
+      "h2": "Séparer le chantier, les autorisations et le financement",
+      "html": "<p>L’ITE modifie l’aspect extérieur du bâtiment : une déclaration préalable est nécessaire. Les règles locales et, selon la situation, les accords de copropriété ou les questions de limite de propriété sont à examiner. Consultez la <a href=\"https://www.service-public.gouv.fr/particuliers/vosdroits/F37924\" target=\"_blank\" rel=\"noopener\">fiche Service Public sur les démarches d’ITE</a> et la mairie avant de fixer le projet.</p><p>Pour les aides, la <a href=\"https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/conseils-pour-reussir-la-renovation-energetique-de-son-logement\" target=\"_blank\" rel=\"noopener\">DGCCRF recommande de consulter France Rénov’ et de comparer plusieurs devis</a>. Vérifiez les critères du dispositif, les qualifications requises et l’ordre des démarches avant de vous engager. Une aide supposée ne doit pas être présentée comme déjà acquise.</p><p>Dans votre comparaison, gardez deux lignes distinctes : le montant des travaux et les financements confirmés. Demandez qui accompagne les démarches, si cet accompagnement est compris et quelles décisions dépendent d’un organisme extérieur.</p>"
+    },
+    {
+      "id": "premier-echange",
+      "toc": "Préparer les documents",
+      "h2": "Ce que vous pouvez réunir avant la visite",
+      "html": "<ul><li>Votre commune et une description des façades à traiter.</li><li>Quelques photos générales et des détails utiles, sans monter en hauteur.</li><li>Les plans, diagnostics ou documents de travaux dont vous disposez.</li><li>Les contraintes d’accès, les passages à préserver et les limites voisines.</li><li>Votre objectif et les autres projets envisagés pour la maison.</li></ul><p>Il n’est pas nécessaire de mesurer chaque détail vous-même. Signalez ce qui est approximatif ou inconnu. À Publier, Thonon et Évian comme dans les autres communes desservies, les règles et l’accès se vérifient pour l’adresse du projet.</p><p>La rubrique <a href=\"/preparer-travaux#ite\">préparer son projet d’ITE</a> permet de rassembler ces informations. La <a href=\"/preparer-travaux#devis\">grille générale de lecture d’un devis</a> complète les points propres à la façade.</p>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Deux devis avec la même épaisseur d’isolant sont-ils équivalents ?",
+      "a": "Pas nécessairement. Vérifiez aussi le système et sa performance annoncée, les surfaces, la préparation du support, les raccords, les finitions et les prestations exclues."
+    },
+    {
+      "q": "Faut-il comparer le prix avant ou après les aides ?",
+      "a": "Comparez d’abord le prix des travaux pour un périmètre identique. Examinez ensuite les financements effectivement confirmés et leurs conditions, séparément des promesses ou estimations."
+    },
+    {
+      "q": "Un devis peut-il être confirmé uniquement avec des photos ?",
+      "a": "Les photos préparent l’échange mais ne permettent pas de vérifier tous les supports, dimensions et accès. Demandez quels points nécessitent une visite et lesquels restent à confirmer avant la proposition définitive."
+    }
+  ],
+  "sources": [
+    {
+      "label": "France Rénov’ — Isoler les murs de votre maison",
+      "url": "https://france-renov.gouv.fr/renovation/isolation/murs-maison"
+    },
+    {
+      "label": "Agence Qualité Construction — L’ITE en rénovation",
+      "url": "https://qualiteconstruction.com/wp-content/uploads/2021/07/Rapport-REX-BP-ITE-Isolation-Thermique-Exterieur-Renovation-AQC.pdf"
+    },
+    {
+      "label": "Service Public — Règles d’urbanisme pour une ITE",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F37924"
+    },
+    {
+      "label": "DGCCRF — Préparer une rénovation énergétique",
+      "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/conseils-pour-reussir-la-renovation-energetique-de-son-logement"
+    }
+  ],
+  "status": "publishable",
+  "published": "2026-11-21",
+  "modified": "2026-11-21",
+  "reviewed": "2026-11-21"
+}

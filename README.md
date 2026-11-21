@@ -9,6 +9,7 @@ HTML rendu directement, CSS compilé, JavaScript natif et formulaire Vercel → 
 ```sh
 npm ci
 npm run build
+npm run check:content
 npm run check:seo
 npm run check:contact
 npm run preview
@@ -61,13 +62,13 @@ Ses variantes se régénèrent avec `python3 scripts/build-ite-image.py` (Pillow
 - Guide `/preparer-travaux` : 18 points de préparation, trois situations types illustratives,
   progression interactive, sans inscription ni stockage navigateur.
 - Galerie simplifiée, images adaptées à la largeur, labels de formulaires et contrastes revus.
-- Promesses de délai harmonisées : réponse sous 48 h ouvrées, délai du devis précisé après échange.
+- Le délai du devis est précisé après échange ; aucun délai de réponse non confirmé n’est promis.
 - Prix non justifiés remplacés par les facteurs de budget propres aux prestations. Les exemples
   illustratifs ne servent pas de preuves de réalisations.
 
 ## SEO et structure
 
-31 pages publiques, dont **27 indexables** dans le sitemap. Métadonnées uniques, canoniques HTTPS
+53 pages HTML, dont **46 indexables** dans le sitemap. Métadonnées uniques, canoniques HTTPS
 avec `www`, liens internes sans extension, une seule entité d’entreprise `#business`, schémas
 WebPage/Service/Breadcrumb/FAQ cohérents avec le texte. Aucun avis agrégé sur sa propre entreprise.
 Les pages légales, `/merci` et `/404` sont `noindex`. Une URL inexistante renvoie HTTP 404.
@@ -82,12 +83,25 @@ la commande contrôle la production en lecture seule.
 Voir [api/README.md](api/README.md). L’URL et le secret du webhook restent côté serveur, dans les
 variables Vercel. Aucun `.env`, export n8n, dossier d’audit ou fichier privé n’entre dans `dist/`.
 
-La demande consentie inclut une attribution limitée lorsqu’elle est disponible : chemin du formulaire,
-page publique du site consultée juste avant le formulaire, origine du site référent extérieur et paramètres `utm_source`, `utm_medium`, `utm_campaign` filtrés. Aucun
-historique inter-pages, cookie ou stockage navigateur n’est utilisé. Les hooks `form_submitted`
-et `tel_click` appellent un collecteur seulement s’il existe déjà ; ils n’installent pas d’analytics.
-Le modèle d’email n8n doit être adapté séparément si cette attribution doit apparaître dans les notifications.
+Le build injecte le conteneur GTM `GTM-KCB7W56H` et le Consent Mode (refus par défaut).
+La mesure GA4 utilise `G-4PSV7TSL8Y`. Après consentement analytics, les paramètres de campagne
+filtrés et la page d’entrée publique sont conservés dans `sessionStorage` pour la session, avec
+expiration de sécurité. Le refus ou le retrait efface cette attribution. Aucun stockage de campagne
+n’est réalisé avant l’accord. La page précédente et la page d’entrée sont distinctes.
+
+`form_submitted` n’est émis qu’après `ok: true` de l’API ; `tel_click` mesure un clic, pas un appel.
+Dans la propriété GA4 Metbach `565292050`, `form_submitted` est un événement clé depuis le
+21 novembre 2026, comptabilisé une fois par session et sans valeur financière par défaut.
+La réception de l’événement dans GA4 et la livraison de la notification restent à contrôler sur un
+parcours réel identifié. Le modèle n8n doit être adapté séparément pour afficher l’attribution dans l’email.
 Un clic téléphonique n’est pas assimilé à un appel abouti, ni une demande reçue à un chantier signé.
+
+## Conseils éditoriaux
+
+Les sources sont dans `content/conseils/*.json`. `npm run build` régénère les trois articles
+publiables et leur hub ; les brouillons restent exclus. `npm run check:content` contrôle les sources,
+liens et ancres. Ne pas modifier le HTML généré seul. Ajouter un nouvel article publiable au sitemap,
+au maillage des services concernés et aux chemins d’attribution autorisés côté JS/API.
 
 ## Publication
 
@@ -95,7 +109,7 @@ Vercel : `framework: null`, commande `npm run build`, sortie `dist`, `cleanUrls:
 slash final. L’API `api/contact.js` reste une fonction Vercel distincte. Les variables d’environnement
 existantes doivent être conservées. Un hébergement purement statique ne traite pas le formulaire.
 
-Après publication : vérifier les 27 URL, les nouvelles pages, les assets, `/merci` et une vraie 404.
+Après publication : vérifier les 46 URL, les nouvelles pages, les assets, `/merci` et une vraie 404.
 Le parcours de formulaire a été testé par interception locale de l’API, sans envoi réel de notification.
 Les mesures Lighthouse sont des essais de laboratoire ; elles ne remplacent pas les Core Web Vitals terrain.
 

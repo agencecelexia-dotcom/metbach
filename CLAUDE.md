@@ -37,11 +37,12 @@ réponses des IA** dans le Chablais et le Genevois français, pour générer des
   JS natif (`js/script.js`). Formulaire : `api/contact.js` (Vercel) → n8n.
 - Hébergement Vercel, `cleanUrls`, sortie `dist/` (ignorée par git). Config : `vercel.json` (en-têtes, cache,
   CSP, redirections). Le push sur `main` déploie la production.
-- `npm run build` : CSS + icônes Lucide + export `dist/`. Le build applique aussi la typographie française
+- `npm run build` : génération des conseils (`scripts/build-conseils.py`) + CSS + icônes Lucide + export `dist/`. Le build applique aussi la typographie française
   (espaces insécables avant `: ; ? !`, noms composés insécables dans les titres) et retire de `dist/` les images
   responsives non référencées. **Toujours rebuild après une modification de HTML, CSS ou JS.**
 - `npm run check:seo` (`scripts/check-seo.py`) : titres, H1, canoniques, JSON-LD, FAQ, dates du sitemap
   comparées à git. Doit finir à 0 erreur. Après modification d'une page, mettre son `<lastmod>` à la date du jour.
+- `npm run check:content` valide les sources, liens et ancres des conseils ; les brouillons sont exclus du rendu.
 - `npm run check:contact`, `npm run preview` (`python3 scripts/preview.py --port 8765` sert `dist/`).
 - `npm run indexnow` : envoie toutes les URL du sitemap à IndexNow (clé `767b0dff704140da60b1ad5cd741c563.txt`).
 - Images : `scripts/build-images.py --avif` (Pillow) puis `npm run images:apply`, qui conserve les `sizes`
@@ -50,12 +51,12 @@ réponses des IA** dans le Chablais et le Genevois français, pour générer des
 
 ## Structure SEO actuelle
 
-- 42 URL dans `sitemap.xml` : accueil, 11 services `/services/*`, hub `/services`, hub `/villes`, 23 villes
+- 46 URL dans `sitemap.xml` : accueil, 11 services `/services/*`, hub `/services`, hub `/villes`, 23 villes
   françaises (publier, thonon-les-bains, evian-les-bains, annemasse, douvaine, saint-julien-en-genevois ;
   vague 1 du 20/11 : sciez, bons-en-chablais, allinges, anthy-sur-leman, margencel, marin, neuvecelle ;
   vague 2 du 20/11 : veigy-foncenex, chens-sur-leman, messery, massongy, perrignier, lugrin,
   saint-paul-en-chablais, larringes, armoy, le-lyaud), `/a-propos`, `/contact`, `/realisations`, `/glossaire`,
-  `/preparer-travaux`.
+  `/preparer-travaux`, le hub `/conseils` et ses trois articles publiables.
 - Pages ville des vagues 1 et 2 : gabarit `villes/sciez.html` (encadré « en bref » avec chiffres INSEE,
   altitude IGN, règles d'urbanisme, monuments historiques de la base Mérimée, zone de sismicité 4 de Géorisques,
   3 FAQ locales). Une nouvelle ville = ajouter son slug à `publicSourcePath` dans `js/script.js` **et**
@@ -73,8 +74,9 @@ réponses des IA** dans le Chablais et le Genevois français, pour générer des
 
 Dossier `renovationmetbach.fr-audit/` (**jamais commité** : `git add -A -- . ':!renovationmetbach.fr-audit'`).
 Audits claude-seo du 15/11 (74/100), du 16/11 (81/100), puis le grand audit de visibilité du 20/11.
-Données Search Console au 18/11/2026 : 252 impressions, 2 clics, position moyenne 20,5, 15 pages indexées,
-22 non indexées (dont 15 « Détectée, actuellement non indexée »).
+Données Search Console au 18/11/2026 : 252 impressions, 2 clics, position moyenne 20,5.
+L’ancien total d’indexation ne couvre pas les 46 URL actuelles ; ne pas le présenter comme un état courant.
+Au contrôle du 21/11, la maçonnerie était encore inconnue de Google malgré son HTTP 200.
 
 ## Mesure d'audience
 
@@ -92,3 +94,11 @@ Données Search Console au 18/11/2026 : 252 impressions, 2 clics, position moyen
 
 Commit et push uniquement à la demande de l'utilisateur. Message en anglais, terminé par la ligne
 `Co-Authored-By` demandée par l'environnement.
+
+## Acquisition — changements du 21 novembre 2026
+
+- Couverture : requête Haute-Savoie, avec zone réelle Chablais/Genevois depuis Publier ; pas de pages départementales ou villes en doublon.
+- Trois conseils publiables : fuite-toiture-que-faire, nettoyer-reparer-ou-refaire-toiture, comparer-devis-isolation-exterieure.
+- Nettoyage explicite dans le formulaire : `service=nettoyage-toiture`.
+- Attribution de campagne conservée en session uniquement après consentement analytics, effacée au retrait.
+- GA4 `form_submitted` marqué événement clé, une fois par session, sans valeur financière par défaut. Il mesure une demande acceptée par l’API, pas sa qualification ni la livraison email.

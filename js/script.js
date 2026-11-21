@@ -43,31 +43,95 @@
     return /^0[1-9]\d{8}$/.test(phone) || /^\+[1-9]\d{7,14}$/.test(phone);
   }
 
-  // Attribution accompanies a consented enquiry only. No cookie or browser
-  // storage, fingerprint, arbitrary query string or referrer path is collected.
-  // Without storage, campaign information is available only on this page.
-  // source_page is the preceding public page, not an acquisition/landing page.
-  const publicSourcePath = /^(?:\/|\/(?:services|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|veigy-foncenex|chens-sur-leman|messery|massongy|perrignier|lugrin|saint-paul-en-chablais|larringes|armoy|le-lyaud|geneve|nyon|lausanne))$/;
-  function contactAttribution() {
-    const result = {};
-    const path = location.pathname;
-    if (/^\/(?:contact)?$/.test(path)) result.page = path;
+  // A consented enquiry can include its current public context. Remembering
+  // an entry page/campaign between pages additionally requires analytics consent.
+  // Only this tab's last observed entry is retained, for at most 30 idle minutes.
+  const publicSourcePath = /^(?:\/|\/(?:services|villes|contact|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/conseils(?:\/(?:fuite-toiture-que-faire|nettoyer-reparer-ou-refaire-toiture|comparer-devis-isolation-exterieure))?|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|veigy-foncenex|chens-sur-leman|messery|massongy|perrignier|lugrin|saint-paul-en-chablais|larringes|armoy|le-lyaud|geneve|nyon|lausanne))$/;
+  const ATTRIBUTION_KEY = 'metbach-attribution';
+  const ATTRIBUTION_MAX_AGE = 30 * 60 * 1000;
+  const CONSENT_MAX_AGE = 15552000000;
+  const campaignKeys = ['utm_source', 'utm_medium', 'utm_campaign'];
+  let pageConsent;
+  let memoryEntry = null;
+  const recent = (at, maxAge) => typeof at === 'number' && Number.isFinite(at)
+    && Date.now() - at >= 0 && Date.now() - at < maxAge;
+  function analyticsAccepted() {
+    if (pageConsent !== undefined) return pageConsent;
     try {
-      const referrer = new URL(document.referrer);
-      if (/^https?:$/.test(referrer.protocol) && referrer.origin !== location.origin) {
-        result.referrer_origin = referrer.origin;
-      } else if (referrer.origin === location.origin && publicSourcePath.test(referrer.pathname)) {
-        result.source_page = referrer.pathname;
-      }
-    } catch { /* Empty or invalid referrer. */ }
-    const params = new URLSearchParams(location.search);
-    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(key => {
-      const value = params.get(key);
-      if (value && /^[a-zA-Z][a-zA-Z0-9_-]{0,79}$/.test(value) && !/\d{7}/.test(value)) {
-        result[key] = value;
-      }
+      const choice = JSON.parse(localStorage.getItem('metbach-consent') || 'null');
+      return choice?.analytics === true && recent(choice.at, CONSENT_MAX_AGE);
+    } catch { return false; }
+  }
+  function campaignFrom(value) {
+    const result = {};
+    campaignKeys.forEach(key => {
+      const item = value?.[key];
+      if (typeof item === 'string' && /^[a-zA-Z][a-zA-Z0-9_-]{0,79}$/.test(item) && !/\d{7}/.test(item)) result[key] = item;
     });
     return result;
+  }
+  function externalOrigin(value) {
+    try {
+      const url = new URL(value);
+      return /^https?:$/.test(url.protocol) && url.origin !== location.origin
+        && !['renovationmetbach.fr', 'www.renovationmetbach.fr'].includes(url.hostname) ? url.origin : '';
+    } catch { return ''; }
+  }
+  function cleanEntry(value) {
+    if (!value || typeof value !== 'object' || typeof value.landing_page !== 'string' || !publicSourcePath.test(value.landing_page)) return null;
+    const entry = { landing_page: value.landing_page, ...campaignFrom(value) };
+    const origin = externalOrigin(value.referrer_origin);
+    if (origin) entry.referrer_origin = origin;
+    return entry;
+  }
+  function clearEntry() {
+    memoryEntry = null;
+    try { sessionStorage.removeItem(ATTRIBUTION_KEY); } catch { /* Storage may be unavailable. */ }
+  }
+  function rememberEntry() {
+    if (!analyticsAccepted()) { clearEntry(); return {}; }
+    let saved = null;
+    try { saved = JSON.parse(sessionStorage.getItem(ATTRIBUTION_KEY) || 'null'); } catch { /* Use page memory only. */ }
+    if (!saved) saved = memoryEntry;
+    const previous = saved && recent(saved.at, ATTRIBUTION_MAX_AGE) ? cleanEntry(saved.entry) : null;
+    const campaign = campaignFrom(Object.fromEntries(new URLSearchParams(location.search)));
+    const origin = externalOrigin(document.referrer);
+    const freshCampaign = campaignKeys.some(key => Object.hasOwn(campaign, key))
+      && campaignKeys.some(key => campaign[key] !== previous?.[key]);
+    const current = publicSourcePath.test(location.pathname)
+      ? cleanEntry({ landing_page: location.pathname, ...campaign, referrer_origin: origin }) : null;
+    // A new external entry or campaign replaces the previous one, never merges
+    // a new campaign with stale source/medium fields from an earlier campaign.
+    const entry = current && (!previous || freshCampaign || origin) ? current : previous;
+    if (!entry) { clearEntry(); return {}; }
+    memoryEntry = { at: Date.now(), entry };
+    try { sessionStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(memoryEntry)); } catch { /* Contact must still work. */ }
+    return entry;
+  }
+  window.addEventListener('metbach:consent-change', event => {
+    if (typeof event.detail?.analytics !== 'boolean') return;
+    pageConsent = event.detail.analytics;
+    rememberEntry();
+  });
+  window.addEventListener('storage', event => {
+    if (event.key !== 'metbach-consent' && event.key !== null) return;
+    pageConsent = undefined;
+    rememberEntry();
+  });
+  rememberEntry();
+
+  function contactAttribution() {
+    const result = { ...rememberEntry() };
+    if (/^\/(?:contact)?$/.test(location.pathname)) result.page = location.pathname;
+    try {
+      const referrer = new URL(document.referrer);
+      const origin = externalOrigin(document.referrer);
+      if (origin) result.referrer_origin = origin;
+      else if (referrer.origin === location.origin && publicSourcePath.test(referrer.pathname)) result.source_page = referrer.pathname;
+    } catch { /* Empty or invalid referrer. */ }
+    // Without analytics consent, only context available on the submission page
+    // accompanies the enquiry; it is never persisted across navigation.
+    return { ...result, ...campaignFrom(Object.fromEntries(new URLSearchParams(location.search))) };
   }
 
   // Optional adapters only: these do not load an analytics service. A telephone
@@ -350,7 +414,8 @@
     // Only known URL keys select fixed labels; arbitrary URL text never enters
     // the form. Existing visitor/autofill values always take precedence.
     const services = {
-      bardage: 'Bardage', couverture: 'Couverture', 'petits-travaux': 'Petits travaux',
+      bardage: 'Bardage', couverture: 'Couverture', 'nettoyage-toiture': 'Nettoyage et démoussage de toiture',
+      'petits-travaux': 'Petits travaux',
       'revetement-sol': 'Revêtement de sol', fondations: 'Fondations',
       'amenagement-paysager': 'Aménagement paysager', clotures: 'Clôtures',
       arboriculture: 'Arboriculture', maconnerie: 'Maçonnerie',
@@ -359,8 +424,12 @@
     };
     const params = new URLSearchParams(location.search);
     const serviceKey = params.get('service');
-    const selectedService = Object.hasOwn(services, serviceKey) ? services[serviceKey] : '';
     const serviceField = form.querySelector('[name="service"]');
+    const cleaningLabel = services['nettoyage-toiture'];
+    const hasCleaningOption = Array.from(serviceField?.options || []).some(option => option.value === cleaningLabel);
+    const legacyCleaning = serviceKey === 'couverture' && params.get('project') === 'nettoyage-toiture';
+    const selectedService = legacyCleaning && hasCleaningOption ? cleaningLabel
+      : Object.hasOwn(services, serviceKey) ? services[serviceKey] : '';
     if (selectedService && serviceField && !serviceField.value) {
       const option = Array.from(serviceField.options).find(item => item.value === selectedService);
       if (option) serviceField.value = option.value;
@@ -393,7 +462,8 @@
     const defaultPlaceholder = messageField?.placeholder;
     const updateProjectHint = () => {
       const hint = Object.hasOwn(projectHints, serviceField?.value) ? projectHints[serviceField.value] : '';
-      const cleaning = serviceField?.value === 'Couverture' && params.get('project') === 'nettoyage-toiture';
+      const cleaning = serviceField?.value === cleaningLabel
+        || (!hasCleaningOption && serviceField?.value === 'Couverture' && params.get('project') === 'nettoyage-toiture');
       const text = cleaning
         ? 'Pour le nettoyage : indiquez le type de couverture si vous le connaissez, les mousses ou traces observées et les accès. En cas de fuite ou de tuile cassée, précisez-le aussi.'
         : hint;
@@ -445,7 +515,7 @@
       const service = (data.get('service') || '').toString().trim();
       // Keep the explicit cleaning context in the existing notification field.
       // The label is fixed and disappears when the visitor chooses another trade.
-      const workType = service === 'Couverture' && params.get('project') === 'nettoyage-toiture'
+      const workType = !hasCleaningOption && service === 'Couverture' && params.get('project') === 'nettoyage-toiture'
         ? 'Couverture — nettoyage et démoussage de toiture'
         : service;
       const payload = {
@@ -496,6 +566,7 @@
             invalid_email: 'Vérifiez votre adresse email, par exemple vous@exemple.fr.',
             invalid_name: 'Indiquez votre nom pour que nous puissions vous répondre.',
             invalid_message: 'Décrivez votre projet en 20 caractères minimum.',
+            invalid_work_type: 'Choisissez le service concerné par votre projet.',
             phone_or_email_required: 'Indiquez un téléphone ou une adresse email pour être recontacté.',
             consent_required: 'Cochez la case autorisant le traitement de votre demande.',
           };
@@ -546,7 +617,8 @@
   let stored = null;
   try {
     stored = JSON.parse(localStorage.getItem(KEY) || 'null');
-    if (stored && !(Date.now() - stored.at < MAX_AGE)) stored = null;
+    if (stored && (typeof stored.analytics !== 'boolean' || typeof stored.at !== 'number'
+      || !Number.isFinite(stored.at) || Date.now() - stored.at < 0 || Date.now() - stored.at >= MAX_AGE)) stored = null;
   } catch { stored = null; }
 
   function save(analytics) {
@@ -560,6 +632,7 @@
         }
       });
     }
+    window.dispatchEvent(new CustomEvent('metbach:consent-change', { detail: { analytics } }));
     window.dataLayer?.push({ event: analytics ? 'consent_granted' : 'consent_denied' });
   }
 

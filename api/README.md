@@ -17,18 +17,33 @@ Le corps JSON contient `name`, `phone`, `email`, `work_type`, `city`, `message`,
 
 Le navigateur demande nom, téléphone, métier et message ; l’email est facultatif. L’API vérifie
 un nom d’au moins 2 caractères, un message d’au moins 20 caractères, au moins un téléphone ou email
-valide et un consentement explicitement booléen. Les numéros FR/CH et internationaux sont validés
+valide, un métier figurant dans la liste des options proposées et un consentement explicitement booléen. Les numéros FR/CH et internationaux sont validés
 sans prétendre vérifier leur attribution ; espaces, parenthèses, tirets et préfixe00 sont acceptés.
 Le numéro transmis est normalisé pour faciliter le rappel.
 
-L’attribution autorise seulement le chemin du formulaire (`/` ou `/contact`), l’origine HTTP(S)
-du référent extérieur, la page publique interne précédant immédiatement le formulaire (`source_page`)
-et trois paramètres de campagne filtrés : `utm_source`, `utm_medium`, `utm_campaign`.
-`source_page` est limité à une liste explicite de pages du site, sans paramètres ni fragment.
-Il indique le parcours vers le formulaire, pas la page d’entrée ou le canal d’acquisition initial.
-Les URL complètes, emails et valeurs arbitraires sont rejetés. Aucun cookie ni stockage navigateur.
-Les paramètres de campagne ne sont pas conservés lors de la navigation entre pages. L’attribution est transmise avec la
-demande consentie ; le modèle d’email n8n peut l’ignorer tant qu’il n’est pas adapté.
+L’attribution peut inclure le chemin du formulaire (`/` ou `/contact`), l’origine HTTP(S)
+du référent extérieur, la page publique immédiatement précédente (`source_page`), la page d’entrée
+observée pendant la session consentie (`landing_page`) et trois paramètres filtrés : `utm_source`,
+`utm_medium`, `utm_campaign`. Les chemins sont limités à une liste explicite identique côté navigateur
+et API, qui comprend les pages services/villes et les trois conseils publiables. Aucun chemin libre,
+URL complète ni identifiant publicitaire n’est mémorisé pour l’attribution. Les champs de coordonnées
+et le message du formulaire ne sont jamais copiés dans ce stockage. Les libellés de campagne doivent
+rester non personnels.
+
+Sans accord à la mesure d’audience, seul le contexte encore disponible sur la page de soumission
+accompagne la demande consentie ; rien n’est conservé entre les pages. Après acceptation, la clé
+`metbach-attribution` de `sessionStorage` conserve la dernière entrée/campagne observée dans cet onglet.
+Elle expire après 30 minutes sans mise à jour et est effacée au refus/retrait (y compris un changement
+de consentement provenant d’un autre onglet). Une nouvelle campagne ou entrée externe remplace
+l’ancienne sans mélanger leurs paramètres. Si l’accord est donné en cours de parcours, `landing_page`
+est la première page observée après cet accord, pas une reconstitution des pages antérieures.
+Le choix d’audience reste dans `metbach-consent` pendant 180 jours. Si le stockage est indisponible,
+le formulaire fonctionne et aucun suivi interpages n’est garanti.
+
+L’attribution est transmise dans le JSON au webhook n8n ; le modèle d’email local ne l’affiche pas encore.
+Sa mise à jour et la vérification du workflow réellement déployé restent nécessaires pour voir la source
+dans la notification interne. Cette modification du site ne crée pas de registre de prospects ni de
+confirmation de livraison email.
 
 ## Résultat et protections
 
@@ -54,16 +69,20 @@ npm run check:contact
 
 Les tests exécutent le code client/API avec DOM et réseau simulés : FR/CH, numéros internationaux,
 email vide, mauvais JSON, consentement, filtrage d’attribution, préselection des métiers et communes, succès,
-échec, double envoi et anti-spam. Aucun appel réseau ni prospect de test n’est envoyé.
+échec, double envoi et anti-spam. Ils couvrent aussi acceptation/refus, persistance service → contact,
+expiration, retrait inter-onglets, stockage indisponible et compatibilité des demandes de nettoyage. Aucun appel réseau ni prospect de test n’est envoyé.
 
 Les hooks `form_submitted` et `tel_click` utilisent `dataLayer`/Plausible seulement si un collecteur
-est déjà présent. Aucun service de statistiques n’est activé automatiquement. Le suivi d’appels
+est déjà présent. GTM est injecté par le build ; ces hooks ne chargent pas eux-mêmes de collecteur.
+La page `/merci` charge aussi le JS commun pour la gestion du consentement et les clics téléphone,
+sans déclencher `form_submitted` à la simple visite. Le suivi d’appels
 aboutis et des demandes qualifiées nécessite une mesure complémentaire.
 
 Les liens locaux peuvent transmettre `?service=couverture&city=publier#form`. Seuls les métiers
 et communes connus sont préremplis, sans écraser une valeur déjà saisie. Les conseils du champ
-message s’adaptent au métier ; `project=nettoyage-toiture` précise le cas de l’entretien. Les
-conseils ne modifient jamais le texte du visiteur et aucun projet n’est soumis automatiquement.
-Pour un projet nettoyage avec le métier Couverture, le champ `work_type` reçu par le webhook
-précise « Couverture — nettoyage et démoussage de toiture ». Ce libellé fixe utilise le champ
-déjà prévu dans la notification ; il disparaît si le visiteur choisit un autre métier.
+message s’adaptent au métier. `?service=nettoyage-toiture` sélectionne explicitement
+« Nettoyage et démoussage de toiture » ; le champ `work_type` garde ce libellé dans la notification.
+Les anciens liens `?service=couverture&project=nettoyage-toiture` sélectionnent aussi cette option
+lorsqu’elle existe. L’API continue d’accepter « Couverture — nettoyage et démoussage de toiture »
+pour les formulaires déjà ouverts. Un changement de métier fait disparaître ce contexte de nettoyage.
+Les conseils ne modifient jamais le texte du visiteur et aucun projet n’est soumis automatiquement.

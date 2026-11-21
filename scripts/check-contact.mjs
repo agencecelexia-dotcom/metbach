@@ -38,64 +38,117 @@ async function request(body, options = {}) {
   return response;
 }
 
-function browser({ search = '', phone = '06 12 34 56 78', cityValue = '', serviceValue = '', referrer = 'https://www.google.com/search?q=private', fetchResult } = {}) {
-  const formEvents = {}, phoneEvents = {}, linkEvents = {}, serviceEvents = {};
-  const calls = [], events = [];
-  const phoneField = {
-    value: phone, error: '',
-    addEventListener(name, callback) { phoneEvents[name] = callback; },
-    setCustomValidity(message) { this.error = message; },
-  };
+function memoryStorage(initial = {}) {
+  const values = new Map(Object.entries(initial));
+  return { values, writes: [], getItem(key) { return values.get(key) ?? null; },
+    setItem(key, value) { this.writes.push(key); values.set(key, String(value)); },
+    removeItem(key) { values.delete(key); } };
+}
+
+// Small DOM fixture modelling the interfaces used by the contact UI, including
+// browser constraint validity, inline errors, consent events and storage. Network
+// stays mocked. Full browser validation can additionally run against local HTML.
+function browser({ search = '', pathname = '/contact', phone = '06 12 34 56 78',
+  cityValue = '', serviceValue, referrer = 'https://www.google.com/search?q=private',
+  fetchResult, local = memoryStorage(), session = memoryStorage(), withForm = true,
+  email = 'test@example.invalid', name = 'Test local', message = 'Demande de test locale sans aucun appel réel.',
+  consent = true, legacyOptions = false } = {}) {
+  const registry = new Map(), windowEvents = {};
+  const calls = [], events = [], gtagCalls = [];
+  function element(tag = 'div', id = '') {
+    const attrs = new Map();
+    const el = { id, tagName: tag.toUpperCase(), children: [], events: {}, style: {}, className: '', textContent: '',
+      classList: { add() {}, remove() {}, toggle() {} },
+      addEventListener(type, fn) { (this.events[type] ||= []).push(fn); },
+      trigger(type, event = {}) { return this.events[type]?.at(-1)?.(event); },
+      setAttribute(key, value) { attrs.set(key, String(value)); }, getAttribute(key) { return attrs.get(key) ?? null; },
+      removeAttribute(key) { attrs.delete(key); },
+      appendChild(child) { this.children.push(child); child.parent = this; if (child.id) registry.set(child.id, child); },
+      insertAdjacentElement(_, child) { if (child.id) registry.set(child.id, child); },
+      remove() { registry.delete(this.id); if (this.parent) this.parent.children = this.parent.children.filter(x => x !== this); },
+      closest() { return this; }, focus() { this.focused = true; },
+    };
+    if (id) registry.set(id, el);
+    return el;
+  }
+  function field(id, value, { type = 'text', required = false, minLength = 0, tag = 'input' } = {}) {
+    const el = element(tag, id);
+    Object.defineProperties(el, Object.getOwnPropertyDescriptors({ name: id, value, type, required, minLength, willValidate: true, checked: true, error: '',
+      setCustomValidity(text) { this.error = text; },
+      get validity() { return { customError: !!this.error,
+        valueMissing: this.required && (this.type === 'checkbox' ? !this.checked : !this.value),
+        typeMismatch: this.type === 'email' && !!this.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value),
+        tooShort: !!this.value && this.value.length < this.minLength, tooLong: false }; },
+      get validationMessage() { return this.error; },
+      checkValidity() { return !Object.values(this.validity).some(Boolean); },
+    }));
+    return el;
+  }
+  const nameField = field('nom', name, { required: true, minLength: 2 });
+  const phoneField = field('tel', phone, { type: 'tel', required: true });
+  const emailField = field('email', email, { type: 'email' });
+  const service = field('service', serviceValue ?? (new URLSearchParams(search).has('service') ? '' : 'Couverture'), { tag: 'select', required: true });
   const services = ['Couverture', 'Bardage', 'Maçonnerie', 'Isolation thermique extérieure (ITE)', 'Petits travaux'];
-  const service = { value: serviceValue, options: services.map(value => ({ value })),
-    addEventListener(name, callback) { serviceEvents[name] = callback; } };
-  const cityField = { value: cityValue };
-  const messageField = { value: 'Demande de test locale sans aucun appel réel.', placeholder: 'Votre projet' };
-  const messageHelp = { textContent: '20 à 2 000 caractères.' };
-  const submit = { disabled: false, style: {} };
-  const honeypot = { value: '' };
-  const note = { textContent: '', classList: { add() {} }, setAttribute() {} };
-  const form = {
-    busy: false, reported: false,
-    querySelector(selector) {
-      return { '[name="tel"]': phoneField, '[name="service"]': service,
-        '[name="city"]': cityField, '[name="message"]': messageField,
-        'button[type="submit"]': submit, '[name="website"]': honeypot,
-        '#rgpd:checked': {} }[selector] || null;
-    },
-    addEventListener(name, callback) { formEvents[name] = callback; },
-    setAttribute() { this.busy = true; }, removeAttribute() { this.busy = false; },
-    checkValidity() { return !phoneField.error; }, reportValidity() { this.reported = true; },
+  if (!legacyOptions) services.push('Nettoyage et démoussage de toiture');
+  service.options = services.map(value => ({ value }));
+  const cityField = field('city', cityValue);
+  const messageField = Object.assign(field('message', message, { tag: 'textarea', required: true, minLength: 20 }), { placeholder: 'Votre projet' });
+  const rgpdField = field('rgpd', '', { type: 'checkbox', required: true }); rgpdField.checked = consent;
+  const messageHelp = element('p', 'message-help'); messageHelp.textContent = '20 à 2 000 caractères.';
+  const submit = Object.assign(element('button'), { disabled: false });
+  const honeypot = field('website', '');
+  const note = element('p', 'form-note');
+  const form = element('form', 'contact-form');
+  const fields = [nameField, phoneField, emailField, service, cityField, messageField, rgpdField, honeypot];
+  form.querySelector = selector => {
+    const fieldMatch = selector.match(/^\[name="(.+)"\]$/);
+    if (fieldMatch) return fields.find(f => f.name === fieldMatch[1]) || null;
+    const labelMatch = selector.match(/^label\[for="(.+)"\]$/);
+    if (labelMatch) return { childNodes: [{ textContent: labelMatch[1] }] };
+    if (selector === 'button[type="submit"]') return submit;
+    if (selector === '#rgpd:checked') return rgpdField.checked ? rgpdField : null;
+    return null;
   };
-  const location = { pathname: '/contact', origin: 'https://www.renovationmetbach.fr', search, hash: '', href: '/contact' };
+  form.querySelectorAll = () => fields;
+  Object.defineProperty(form, 'busy', { get: () => form.getAttribute('aria-busy') === 'true' });
+  const location = { pathname, origin: 'https://www.renovationmetbach.fr', hostname: 'www.renovationmetbach.fr', search, hash: '', href: pathname };
+  const link = element('a'), footer = element('div'), body = element('body');
   const window = {
-    matchMedia: () => ({ matches: true }), addEventListener() {}, innerHeight: 667,
-    dataLayer: events,
+    matchMedia: () => ({ matches: true }), innerHeight: 667, dataLayer: events,
+    gtag: (...args) => gtagCalls.push(args),
+    addEventListener(type, fn) { (windowEvents[type] ||= []).push(fn); },
+    dispatchEvent(event) { (windowEvents[event.type] || []).forEach(fn => fn(event)); },
   };
   const document = {
-    referrer, documentElement: { clientHeight: 667 }, addEventListener() {},
-    getElementById(id) { return id === 'message-help' ? messageHelp : null; },
-    querySelector(selector) { return { '#contact-form': form, '#form-note': note }[selector] || null; },
-    querySelectorAll(selector) {
-      return selector === 'a[href^="tel:"]' ? [{ addEventListener(name, callback) { linkEvents[name] = callback; } }] : [];
+    referrer, readyState: 'complete', cookie: '', body, documentElement: { clientHeight: 667 }, addEventListener() {},
+    getElementById: id => registry.get(id) || null,
+    querySelector(selector) {
+      if (selector === '.consent-banner') return body.children.find(x => x.className === 'consent-banner') || null;
+      return { '#contact-form': withForm ? form : null, '#form-note': note, '.footer-bottom > div': footer }[selector] || null;
     },
+    querySelectorAll: selector => selector === 'a[href^="tel:"]' ? [link] : [],
+    createElement: tag => element(tag),
   };
-  const context = { window, document, location, URL, URLSearchParams, setTimeout() {}, console: { error() {} },
-    FormData: class {
-      get(key) { return { nom: 'Test local', tel: phoneField.value, email: 'test@example.invalid',
-        service: service.value || 'Couverture', city: cityField.value,
-        message: messageField.value, website: honeypot.value, rgpd: 'on' }[key]; }
-    },
+  const context = { window, document, location, localStorage: local, sessionStorage: session, URL, URLSearchParams,
+    CustomEvent: class { constructor(type, options = {}) { this.type = type; this.detail = options.detail; } },
+    setTimeout() {}, console: { error() {} },
+    FormData: class { get(key) { const f = fields.find(x => x.name === key); return f?.type === 'checkbox' ? f.checked ? 'on' : null : f?.value; } },
     fetch: async (url, options) => {
-      assert.equal(url, '/api/contact');
-      calls.push(JSON.parse(options.body));
+      assert.equal(url, '/api/contact'); calls.push(JSON.parse(options.body));
       return fetchResult ? fetchResult() : { ok: true, status: 200, json: async () => ({ ok: true }) };
     },
   };
   vm.runInNewContext(browserSource, context, { filename: 'js/script.js' });
-  return { calls, events, form, phoneField, phoneEvents, service, serviceEvents, cityField, messageField, messageHelp, submit, honeypot, note, location,
-    send: () => formEvents.submit({ preventDefault() {} }),
-    call: () => linkEvents.click(),
+  const handlers = el => Object.fromEntries(Object.entries(el.events).map(([key]) => [key, event => el.trigger(key, event)]));
+  return { calls, events, gtagCalls, form, phoneField, phoneEvents: handlers(phoneField), service,
+    serviceEvents: handlers(service), cityField, messageField, messageHelp, nameField, emailField, rgpdField,
+    submit, honeypot, note, location, local, session, document, window,
+    send: () => form.trigger('submit', { preventDefault() {} }), call: () => link.trigger('click'),
+    chooseConsent(accept) {
+      if (!document.querySelector('.consent-banner')) footer.children.find(x => x.className === 'consent-manage').trigger('click');
+      const banner = document.querySelector('.consent-banner');
+      banner.trigger('click', { target: { closest: () => ({ dataset: { consent: accept ? 'accept' : 'deny' } }) } });
+    },
   };
 }
 
@@ -123,7 +176,8 @@ for (const phone of invalidPhones) {
   const page = browser({ phone });
   await page.send();
   assert.equal(page.calls.length, 0, `browser rejects ${JSON.stringify(phone)}`);
-  assert.equal(page.form.reported, true);
+  assert.equal(page.phoneField.focused, true);
+  assert.equal(page.phoneField.getAttribute('aria-invalid'), 'true');
 }
 
 assert.equal((await request('{broken')).body.details, 'invalid_json');
@@ -163,7 +217,7 @@ await request({ ...valid(), attribution: {
 assert.deepEqual(forwarded.at(-1).attribution, {});
 await request({ ...valid(), attribution: { source_page: '/services/nettoyage-toiture' } });
 assert.deepEqual(forwarded.at(-1).attribution, { source_page: '/services/nettoyage-toiture' });
-for (const source_page of ['/services/private@example.invalid', '/villes/publier?email=private', '/contact', '/unknown', 'https://private.invalid']) {
+for (const source_page of ['/services/private@example.invalid', '/villes/publier?email=private', '/merci', '/unknown', 'https://private.invalid']) {
   await request({ ...valid(), attribution: { source_page } });
   assert.deepEqual(forwarded.at(-1).attribution, {}, 'only known public source paths are forwarded');
 }
@@ -213,7 +267,7 @@ assert.equal(cleaning.cityField.value, 'Publier / Amphion-les-Bains');
 assert.equal(cleaning.messageField.value, 'Demande de test locale sans aucun appel réel.', 'hints never change the visitor message');
 const cleaningSubmission = browser({ search: '?service=couverture&project=nettoyage-toiture' });
 await cleaningSubmission.send();
-assert.equal(cleaningSubmission.calls[0].work_type, 'Couverture — nettoyage et démoussage de toiture');
+assert.equal(cleaningSubmission.calls[0].work_type, 'Nettoyage et démoussage de toiture');
 assert.equal(cleaningSubmission.calls[0].message, 'Demande de test locale sans aucun appel réel.');
 cleaning.service.value = 'Maçonnerie';
 cleaning.serviceEvents.change();
@@ -258,4 +312,120 @@ bot.honeypot.value = 'bot.invalid';
 await bot.send();
 assert.equal(bot.calls.length, 0);
 assert.equal(bot.events.length, 0);
-console.log('Contact checks passed: FR/CH/international, validation, attribution filtering, city/service preselection, project hints, confirmed conversions, anti-spam and failures. No network calls.');
+
+// Current form requirements are exercised before any request or success event.
+for (const options of [{ phone: '' }, { email: 'invalid' }, { name: 'x' }, { message: 'short' }, { consent: false }, { serviceValue: '' }]) {
+  const page = browser(options);
+  await page.send();
+  assert.equal(page.calls.length, 0, 'invalid required field must not send');
+  assert.equal(page.events.length, 0, 'invalid form must not count a lead');
+  assert.match(page.note.textContent, /Vérifiez/);
+}
+
+const cleaningExplicit = browser({ search: '?service=nettoyage-toiture' });
+assert.equal(cleaningExplicit.service.value, 'Nettoyage et démoussage de toiture');
+await cleaningExplicit.send();
+assert.equal(cleaningExplicit.calls[0].work_type, 'Nettoyage et démoussage de toiture');
+const cleaningLegacy = browser({ search: '?service=couverture&project=nettoyage-toiture', legacyOptions: true });
+await cleaningLegacy.send();
+assert.equal(cleaningLegacy.calls[0].work_type, 'Couverture — nettoyage et démoussage de toiture', 'old HTML remains compatible');
+const cleaningChanged = browser({ search: '?service=couverture&project=nettoyage-toiture' });
+cleaningChanged.service.value = 'Couverture';
+await cleaningChanged.send();
+assert.equal(cleaningChanged.calls[0].work_type, 'Couverture', 'visitor choice overrides migrated cleaning context');
+
+upstream = async () => ({ ok: true, status: 200 });
+for (const work_type of ['Nettoyage et démoussage de toiture', 'Couverture — nettoyage et démoussage de toiture', 'Plusieurs services / projet global']) {
+  assert.equal((await request({ ...valid(), work_type })).statusCode, 200);
+}
+for (const work_type of ['', 'unsupported', '__proto__']) {
+  assert.equal((await request({ ...valid(), work_type })).body.details, 'invalid_work_type');
+}
+for (const path of ['/contact', '/villes', '/conseils', '/conseils/fuite-toiture-que-faire', '/conseils/nettoyer-reparer-ou-refaire-toiture', '/conseils/comparer-devis-isolation-exterieure']) {
+  await request({ ...valid(), attribution: { source_page: path, landing_page: path } });
+  assert.deepEqual(forwarded.at(-1).attribution, { source_page: path, landing_page: path });
+}
+for (const landing_page of ['/contact?name=private', '/conseils/private-person', '/merci', ['/contact'], 'https://private.invalid']) {
+  await request({ ...valid(), attribution: { landing_page } });
+  assert.deepEqual(forwarded.at(-1).attribution, {}, 'reject unknown or non-string landing pages');
+}
+
+const consentKey = 'metbach-consent', attributionKey = 'metbach-attribution';
+const allowAnalytics = () => memoryStorage({ [consentKey]: JSON.stringify({ analytics: true, at: Date.now() }) });
+const campaignSearch = '?utm_source=google&utm_medium=cpc&utm_campaign=toiture_chablais&email=private@example.invalid&gclid=not-retained';
+const local = allowAnalytics(), session = memoryStorage();
+browser({ pathname: '/services/couverture', search: campaignSearch, withForm: false, local, session });
+const contact = browser({ local, session, referrer: 'https://www.renovationmetbach.fr/services/couverture', search: '?service=couverture' });
+await contact.send();
+assert.deepEqual(contact.calls[0].attribution, {
+  landing_page: '/services/couverture', utm_source: 'google', utm_medium: 'cpc', utm_campaign: 'toiture_chablais',
+  referrer_origin: 'https://www.google.com', page: '/contact', source_page: '/services/couverture',
+});
+assert.doesNotMatch(session.getItem(attributionKey), /private|gclid/);
+assert.deepEqual(JSON.parse(JSON.stringify(contact.events)), [{ event: 'form_submitted', page: '/contact' }], 'accepted enquiry counted once, no attribution or PII added to analytics event');
+
+// No analytics choice: no attribution stored or recovered after navigation.
+const withoutConsent = memoryStorage(), noSession = memoryStorage();
+browser({ pathname: '/services/couverture', search: campaignSearch, withForm: false, local: withoutConsent, session: noSession });
+assert.deepEqual(noSession.writes, []);
+const noConsentContact = browser({ local: withoutConsent, session: noSession, referrer: 'https://www.renovationmetbach.fr/services/couverture' });
+await noConsentContact.send();
+assert.deepEqual(noConsentContact.calls[0].attribution, { page: '/contact', source_page: '/services/couverture' });
+
+// Consent granted on the landing page captures it then; withdrawal clears it.
+const grantLocal = memoryStorage(), grantSession = memoryStorage();
+const landing = browser({ pathname: '/services/nettoyage-toiture', search: campaignSearch, withForm: false, local: grantLocal, session: grantSession });
+assert.equal(grantSession.getItem(attributionKey), null);
+landing.chooseConsent(true);
+assert.equal(JSON.parse(grantSession.getItem(attributionKey)).entry.landing_page, '/services/nettoyage-toiture');
+landing.chooseConsent(false);
+assert.equal(grantSession.getItem(attributionKey), null);
+assert.equal(JSON.parse(grantLocal.getItem(consentKey)).analytics, false);
+assert.equal(landing.document.querySelector('.consent-banner'), null);
+
+const crossTab = browser({ local: allowAnalytics(), session: memoryStorage(), search: campaignSearch });
+crossTab.local.setItem(consentKey, JSON.stringify({ analytics: false, at: Date.now() }));
+crossTab.window.dispatchEvent({ type: 'storage', key: consentKey });
+assert.equal(crossTab.session.getItem(attributionKey), null, 'withdrawal in another tab clears this tab attribution');
+
+for (const choice of [{ analytics: true, at: Date.now() + 60000 }, { analytics: true, at: Date.now() - 15552000000 }, { analytics: true, at: 'today' }, { analytics: 'true', at: Date.now() }]) {
+  const page = browser({ local: memoryStorage({ [consentKey]: JSON.stringify(choice) }), search: campaignSearch });
+  assert.equal(page.session.getItem(attributionKey), null, 'invalid/expired consent never authorizes persistence');
+  assert.ok(page.document.querySelector('.consent-banner'), 'invalid/expired consent offers a new choice');
+}
+for (const saved of [
+  { at: Date.now() - 31 * 60 * 1000, entry: { landing_page: '/services/couverture', utm_source: 'old' } },
+  { at: Date.now() + 60000, entry: { landing_page: '/services/couverture', utm_source: 'future' } },
+  { at: Date.now(), entry: { landing_page: '/conseils/private-person', utm_source: 'private' } },
+]) {
+  const page = browser({ local: allowAnalytics(), session: memoryStorage({ [attributionKey]: JSON.stringify(saved) }), referrer: '' });
+  await page.send();
+  assert.deepEqual(page.calls[0].attribution, { landing_page: '/contact', page: '/contact' }, 'expired, future or unsafe stored entry discarded');
+}
+
+// A partial campaign must not inherit stale medium/campaign, even if source matches.
+const partialCampaign = browser({ local, session, pathname: '/services/bardage', withForm: false, referrer: '', search: '?utm_source=google' });
+assert.deepEqual(JSON.parse(partialCampaign.session.getItem(attributionKey)).entry, { landing_page: '/services/bardage', utm_source: 'google' });
+
+// New campaign replaces the whole attribution rather than inheriting old UTM.
+const replacement = browser({ local, session, pathname: '/services/bardage', withForm: false, referrer: '', search: '?utm_source=partner' });
+assert.deepEqual(JSON.parse(replacement.session.getItem(attributionKey)).entry, { landing_page: '/services/bardage', utm_source: 'partner' });
+
+// Storage unavailable: enquiries and the in-page consent choice still function.
+const unavailable = { getItem() { throw new Error('blocked storage'); }, setItem() { throw new Error('blocked storage'); }, removeItem() { throw new Error('blocked storage'); } };
+const blockedStorage = browser({ local: unavailable, session: unavailable, search: campaignSearch });
+blockedStorage.chooseConsent(true);
+await blockedStorage.send();
+assert.equal(blockedStorage.calls.length, 1);
+assert.equal(blockedStorage.location.href, '/merci');
+
+const merci = browser({ pathname: '/merci', withForm: false });
+merci.chooseConsent(false);
+merci.call();
+assert.equal(merci.events.filter(x => x.event === 'tel_click').length, 1);
+assert.equal(merci.events.filter(x => x.event === 'form_submitted').length, 0, 'visiting merci is not a lead event');
+const merciHtml = await fs.readFile(new URL('merci/index.html', root), 'utf8');
+assert.match(merciHtml, /<script src="\/js\/script\.js" defer><\/script>/);
+assert.doesNotMatch(merciHtml, /48 heures|48 h|vient de m.arriver/);
+
+console.log('Contact checks passed: validation, explicit/legacy cleaning, accepted-only events, anti-spam, attribution consent/persistence/expiry/withdrawal, allowlists and storage failures. All requests mocked; no real enquiry.');

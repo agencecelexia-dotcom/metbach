@@ -87,10 +87,12 @@ function sanitizeAttribution(value) {
   // Enquiry forms are currently on these two public paths only. Never forward
   // a whole URL or an arbitrary path that could contain personal information.
   if (typeof value.page === "string" && /^\/(?:contact)?$/.test(value.page)) result.page = value.page;
-  // Only a preceding public page is retained; no private path/query string and
-  // no claim that this was the visitor's original acquisition/landing page.
-  const publicSourcePath = /^(?:\/|\/(?:services|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|veigy-foncenex|chens-sur-leman|messery|massongy|perrignier|lugrin|saint-paul-en-chablais|larringes|armoy|le-lyaud|geneve|nyon|lausanne))$/;
-  if (typeof value.source_page === "string" && publicSourcePath.test(value.source_page)) result.source_page = value.source_page;
+  // Only known public paths are retained: immediate source page and the entry
+  // observed during the consented session. No private path or query string.
+  const publicSourcePath = /^(?:\/|\/(?:services|villes|contact|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/conseils(?:\/(?:fuite-toiture-que-faire|nettoyer-reparer-ou-refaire-toiture|comparer-devis-isolation-exterieure))?|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|veigy-foncenex|chens-sur-leman|messery|massongy|perrignier|lugrin|saint-paul-en-chablais|larringes|armoy|le-lyaud|geneve|nyon|lausanne))$/;
+  for (const key of ["source_page", "landing_page"]) {
+    if (typeof value[key] === "string" && publicSourcePath.test(value[key])) result[key] = value[key];
+  }
   if (typeof value.referrer_origin === "string" && value.referrer_origin.length <= 255) {
     try {
       const url = new URL(value.referrer_origin);
@@ -107,6 +109,14 @@ function sanitizeAttribution(value) {
   }
   return result;
 }
+
+const ALLOWED_WORK_TYPES = new Set([
+  "Couverture", "Nettoyage et démoussage de toiture",
+  "Couverture — nettoyage et démoussage de toiture", // Legacy forms already open.
+  "Maçonnerie", "Isolation thermique extérieure (ITE)", "Bardage", "Petits travaux",
+  "Revêtement de sol", "Fondations", "Aménagement paysager", "Clôtures", "Arboriculture",
+  "Plusieurs services / projet global",
+]);
 
 export default async function handler(req, res) {
   // Only POST
@@ -146,6 +156,9 @@ export default async function handler(req, res) {
 
   if (name.length < 2) {
     return res.status(400).json({ error: "validation_failed", details: "invalid_name" });
+  }
+  if (!ALLOWED_WORK_TYPES.has(work_type)) {
+    return res.status(400).json({ error: "validation_failed", details: "invalid_work_type" });
   }
   if (message.length < 20) {
     return res.status(400).json({ error: "validation_failed", details: "invalid_message" });

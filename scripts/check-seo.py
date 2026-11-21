@@ -122,7 +122,7 @@ def main():
     # competitor pages, third-party packages or audit reports.
     files = sorted([
         *ROOT.glob('*.html'),
-        *(p for name in ('services', 'villes', 'contact', 'realisations', 'merci')
+        *(p for name in ('services', 'villes', 'conseils', 'contact', 'realisations', 'merci')
           for p in (ROOT / name).rglob('*.html')),
     ])
     pages = {route(p): Page(p.read_text()) for p in files}
@@ -194,7 +194,7 @@ def main():
                     value=node.get('name') if node.get('@type')=='Question' else node.get('text')
                     if value and norm(value) not in visible: fail(r, 'FAQ schema differs from visible text')
                 if 'aggregateRating' in node: fail(r, 'self-serving rating schema')
-                if node.get('@type') in ('HowTo','Article'): fail(r, 'inapplicable tutorial/article schema')
+                if node.get('@type') == 'HowTo' or (node.get('@type') == 'Article' and not r.startswith('/conseils/')): fail(r, 'inapplicable tutorial/article schema')
                 if node.get('@type') == 'GeneralContractor' and node.get('@id') != ORIGIN+'/#business': fail(r, 'duplicate business entity')
                 for key in ('url','item','contentUrl','image','logo'):
                     value=node.get(key)
