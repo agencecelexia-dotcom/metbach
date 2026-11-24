@@ -67,6 +67,9 @@ réponses des IA** dans le Chablais et le Genevois français, pour générer des
   `api/contact.js`, à la table `cities` de `js/script.js`, au hub `/villes` (carte + ItemList), au sitemap,
   à `llms.txt` et aux liens « Autres zones » / « Autour de » des villes voisines. Marin : toujours
   « Marin (74200) » (homonymes). Le Lyaud : « au Lyaud », jamais « à Le Lyaud ».
+  Depuis le 24/11, le pied de page de toutes les pages liste les 23 communes (bloc `<!-- communes:start -->`
+  … `<!-- communes:end -->`, à compléter pour chaque nouvelle ville, sur toutes les pages ; les conseils le
+  reprennent de `villes/sciez.html`).
 - Vague 3 prévue (Genevois, conditionnelle) : Vétraz-Monthoux, Gaillard, Ville-la-Grand, Cranves-Sales,
   Ambilly, Saint-Cergues. À lancer seulement si les vagues 1 et 2 s'indexent (Search Console).
 - JSON-LD : nœud `GeneralContractor` `#business` complet sur `/` et `/contact` (avec `iso6523Code`
@@ -81,11 +84,20 @@ Audits claude-seo du 15/11 (74/100), du 16/11 (81/100), puis le grand audit de v
 Données Search Console au 18/11/2026 : 252 impressions, 2 clics, position moyenne 20,5.
 L’ancien total d’indexation ne couvre pas les 46 URL actuelles ; ne pas le présenter comme un état courant.
 Au contrôle du 21/11, la maçonnerie était encore inconnue de Google malgré son HTTP 200.
+Audit OpenSEO + DataForSEO des 23–24/11 : dossier local `audit seo/` (brief IA + données JSON, **non commité**).
+Constats : site techniquement bon, blocage hors site (1 domaine référent contre une médiane de 88, 14 avis
+Google, aucun entre juillet et octobre) ; 54 % des recherches « couvreur thonon » de décembre à mars.
+Appliqué le 24/11 : accueil « Couvreur à Publier, Thonon-les-Bains et Évian », titre Couverture « (74) »,
+FAQ démoussage (saison, haute pression), liens vers les conseils, communes en pied de page, GTM différé.
+En attente de Zachari : prix (page prix du démoussage), délai de rappel, attestation d'assurance, vrais
+chantiers, vérification des avis, pages Thonon démoussage/réparation.
 
 ## Mesure d'audience
 
 - Google Tag Manager `GTM-KCB7W56H` (contient la balise GA4 `G-4PSV7TSL8Y`), injecté **au build** par
   `scripts/build-site.cjs` dans chaque page de `dist/` (ne pas le coller dans les sources HTML).
+  Depuis le 24/11, `gtm.js` n'est chargé que 1,5 s après l'événement `load` ou dès la première interaction
+  (scroll, clic, touche) : il ne pèse plus sur le LCP mobile.
 - Google Consent Mode v2 : tout refusé par défaut ; `analytics_storage` accordé seulement après « Accepter » dans
   le bandeau (`js/script.js`, clé localStorage `metbach-consent`, 6 mois). Lien « Gérer les cookies » ajouté en
   JS dans le pied de page. Publicité toujours refusée. Politique de confidentialité, section 10, à tenir à jour.
@@ -106,3 +118,12 @@ Commit et push uniquement à la demande de l'utilisateur. Message en anglais, te
 - Nettoyage explicite dans le formulaire : `service=nettoyage-toiture`.
 - Attribution de campagne conservée en session uniquement après consentement analytics, effacée au retrait.
 - GA4 `form_submitted` marqué événement clé, une fois par session, sans valeur financière par défaut. Il mesure une demande acceptée par l’API, pas sa qualification ni la livraison email.
+
+## Mémoire projet — backlinks (21 novembre 2026)
+
+- L’utilisateur a demandé de conserver les **81 pistes** et de reporter les démarches à un autre jour.
+- Liste complète et ordre conservés dans `renovationmetbach.fr-audit/backlinks/prospects-81-retrouves-2026-11-21.json`.
+- Source retrouvée dans ChatGPT : « Liste backlinks importants », https://chatgpt.com/c/6b00c298-abd8-83eb-95a8-755ec36d3744.
+- Cette liste de 81 est distincte de l’ancienne liste locale de 37 prospects et de la discussion sur 80 dépôts GitHub.
+- Aucune démarche backlinks à lancer maintenant : ni inscription, ni prise de contact, ni achat, ni relance automatique. Attendre une demande explicite de reprise.
+- Les conditions, tarifs, liens et qualifications doivent être vérifiés à la reprise ; les 81 pistes ne sont pas 81 backlinks garantis.

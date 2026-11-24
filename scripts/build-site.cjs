@@ -100,6 +100,10 @@ const htmlFiles = [];
 // storage is denied by default and analytics_storage is granted only after the
 // visitor accepts in the banner (js/script.js, key "metbach-consent", 6 months).
 // Advertising signals stay denied: the site runs no ads.
+// The container itself (≈75 KiB of script) is fetched only after the page has
+// loaded, or at the visitor's first interaction if that comes sooner, so it
+// never competes with the first render (mobile LCP). Events pushed to the
+// dataLayer before that (tel_click, consent_*) are processed once it loads.
 const GTM_ID = 'GTM-KCB7W56H';
 const gtmHead = `
   <script>
@@ -107,7 +111,7 @@ const gtmHead = `
     function gtag(){dataLayer.push(arguments);}
     gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
     try { var c = JSON.parse(localStorage.getItem('metbach-consent') || 'null'); if (c && c.analytics === true && typeof c.at === 'number' && Number.isFinite(c.at) && Date.now() - c.at >= 0 && Date.now() - c.at < 15552000000) gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');
+    (function(w,d,s,l,i){var done=false,ev=['pointerdown','keydown','touchstart','scroll'];function go(){if(done)return;done=true;ev.forEach(function(e){w.removeEventListener(e,go,true);});w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}ev.forEach(function(e){w.addEventListener(e,go,{capture:true,passive:true});});if(d.readyState==='complete')setTimeout(go,1500);else w.addEventListener('load',function(){setTimeout(go,1500);});})(window,document,'script','dataLayer','${GTM_ID}');
   </script>`;
 const gtmBody = `\n  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>`;
 function addGtm(html) {
