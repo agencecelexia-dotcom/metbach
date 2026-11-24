@@ -25,12 +25,15 @@
 - [Aménagement paysager](https://www.renovationmetbach.fr/services/amenagement-paysager) : jardins, terrasses et allées.
 - [Clôtures](https://www.renovationmetbach.fr/services/clotures) : clôtures et portails.
 - [Arboriculture](https://www.renovationmetbach.fr/services/arboriculture) : taille, élagage et abattage.
+- [Construction de piscine](https://www.renovationmetbach.fr/services/piscine) : piscines enterrées ou hors-sol, filtration, margelles, dispositif de sécurité ; prix indicatifs et démarches.
 
 ## Zones d’intervention en Haute-Savoie
 
 - [Zones d’intervention](https://www.renovationmetbach.fr/villes) : page récapitulative des communes desservies depuis Publier, dans le Chablais et le Genevois français.
 - [Publier](https://www.renovationmetbach.fr/villes/publier) : couvreur, maçonnerie et isolation extérieure à Publier et Amphion-les-Bains ; base d’intervention de l’entreprise.
 - [Thonon-les-Bains](https://www.renovationmetbach.fr/villes/thonon-les-bains) : toiture, maçonnerie et isolation extérieure pour maisons et immeubles en copropriété.
+  - [Démoussage de toiture à Thonon-les-Bains](https://www.renovationmetbach.fr/villes/demoussage-toiture-thonon-les-bains) : prix indicatifs au m², méthode, période et règles locales.
+  - [Réparation de toiture et fuite à Thonon-les-Bains](https://www.renovationmetbach.fr/villes/reparation-toiture-thonon-les-bains) : réparations de couverture, premiers gestes en cas de fuite, prix indicatifs.
 - [Évian-les-Bains](https://www.renovationmetbach.fr/villes/evian-les-bains) : toiture, maçonnerie et isolation extérieure, y compris pour une résidence secondaire suivie à distance.
 - [Annemasse](https://www.renovationmetbach.fr/villes/annemasse) : toiture, maçonnerie et isolation extérieure dans l’agglomération (Ambilly, Gaillard, Étrembières, Vétraz-Monthoux).
 - [Douvaine](https://www.renovationmetbach.fr/villes/douvaine) : toiture, maçonnerie et isolation extérieure pour les maisons du Bas-Chablais.
@@ -61,6 +64,11 @@ Suisse voisine (Genève, Nyon, Lausanne) : étude au cas par cas, sans établiss
 - [Fuite de toiture : que faire](https://www.renovationmetbach.fr/conseils/fuite-toiture-que-faire) : premières démarches et informations à préparer pour l’examen de la toiture.
 - [Nettoyer, réparer ou refaire sa toiture](https://www.renovationmetbach.fr/conseils/nettoyer-reparer-ou-refaire-toiture) : distinguer entretien et rénovation avant le devis.
 - [Comparer les devis d’isolation extérieure](https://www.renovationmetbach.fr/conseils/comparer-devis-isolation-exterieure) : surfaces, système et finitions à vérifier.
+- [Prix du démoussage de toiture en Haute-Savoie](https://www.renovationmetbach.fr/conseils/prix-demoussage-toiture-haute-savoie) : fourchettes au m² relevées en 2026 (nettoyage, démoussage, hydrofuge) et ce qui fait varier le prix.
+- [Neige sur le toit : risques et bons réflexes](https://www.renovationmetbach.fr/conseils/neige-toiture-que-faire) : signes à surveiller, arrêts de neige, assurance.
+- [Gouttière qui déborde : causes et solutions](https://www.renovationmetbach.fr/conseils/gouttiere-qui-deborde) : diagnostic depuis le sol, entretien annuel.
+- [Toiture abîmée par une tempête ou la grêle](https://www.renovationmetbach.fr/conseils/toiture-tempete-grele-que-faire) : premiers gestes, bâchage, déclaration sous cinq jours ouvrés.
+- [Construire une piscine : autorisation, sécurité et impôts](https://www.renovationmetbach.fr/conseils/construire-piscine-demarches-securite) : déclaration préalable ou permis, dispositif obligatoire, déclaration aux impôts.
 
 - [Préparer ses travaux](https://www.renovationmetbach.fr/preparer-travaux) : checklist gratuite et interactive pour la couverture, la maçonnerie et l’isolation extérieure. Les exemples sont illustratifs.
 

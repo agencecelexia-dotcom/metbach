@@ -1,0 +1,87 @@
+{
+  "slug": "toiture-tempete-grele-que-faire",
+  "category": "hiver",
+  "title": "Toiture abîmée par une tempête ou la grêle | Metbach",
+  "description": "Tuiles arrachées, grêle, branche tombée : les premiers gestes, la déclaration à l’assurance sous cinq jours ouvrés et la réparation de votre toiture.",
+  "h1": "Toiture abîmée par une tempête ou la grêle : que faire ?",
+  "eyebrow": "Intempéries · Assurance",
+  "lead": "Après un coup de vent ou un orage de grêle, des tuiles peuvent être déplacées, cassées ou arrachées. Trois priorités : se mettre en sécurité, limiter l’aggravation des dégâts et déclarer le sinistre à temps.",
+  "answer": "Éloignez-vous des zones où des éléments peuvent tomber et ne montez pas sur le toit. Photographiez les dégâts, faites protéger provisoirement la toiture par un professionnel et déclarez le sinistre à votre assureur habitation : selon l’ANIL, le délai est de cinq jours ouvrés après la constatation des dégâts en cas de tempête.",
+  "service": {
+    "url": "/services/couverture",
+    "label": "Réparation et rénovation de toiture",
+    "form": "couverture",
+    "cta": "Une toiture abîmée par les intempéries ?",
+    "button": "Décrire les dégâts",
+    "intro": "Indiquez votre commune, ce que vous observez et depuis quand, avec des photos prises depuis le sol. Nous répondons sous 24 h en général, 48 h au plus."
+  },
+  "related": [
+    "fuite-toiture-que-faire",
+    "neige-toiture-que-faire",
+    "nettoyer-reparer-ou-refaire-toiture"
+  ],
+  "sections": [
+    {
+      "id": "securite",
+      "toc": "Se mettre en sécurité",
+      "h2": "D’abord, se mettre en sécurité",
+      "html": "<p>Après une tempête, des tuiles, des éléments de cheminée ou des branches peuvent encore tomber. Éloignez les personnes et les véhicules des façades touchées et balisez les passages si besoin. Si l’eau entre près d’une installation électrique, n’y touchez pas.</p><p>Ne montez pas sur le toit, même pour poser une bâche : la couverture peut être instable et l’<a href=\"https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html\" target=\"_blank\" rel=\"noopener\">INRS</a> rappelle la gravité des chutes de hauteur.</p>"
+    },
+    {
+      "id": "constater",
+      "toc": "Constater les dégâts",
+      "h2": "Constater et conserver les preuves",
+      "html": "<p>Photographiez les dégâts depuis le sol et à l’intérieur : tuiles au sol, trous visibles, traces d’eau, objets abîmés. Notez la date et l’heure de l’événement.</p><p>Selon l’<a href=\"https://www.anil.org/votre-besoin/gerer-un-bien/intemperies-et-assurances/\" target=\"_blank\" rel=\"noopener\">ANIL</a>, il faut pouvoir prouver une intensité anormale du vent : les assureurs demandent souvent une attestation de la station météorologique la plus proche, ou que d’autres bâtiments aient été endommagés dans un rayon de 5 km. Conservez tout élément de preuve.</p>"
+    },
+    {
+      "id": "proteger",
+      "toc": "Protéger le toit",
+      "h2": "Faire protéger la toiture sans attendre",
+      "html": "<p>Une toiture ouverte laisse entrer la pluie suivante. L’ANIL conseille de prendre des précautions pour éviter l’aggravation des dommages, notamment par un bâchage ou une couverture provisoire. Ces frais sont en principe pris en charge par l’assurance.</p><p>Faites intervenir un professionnel, gardez la facture et prenez des photos avant et après la protection.</p>"
+    },
+    {
+      "id": "declarer",
+      "toc": "Déclarer à l’assurance",
+      "h2": "Déclarer le sinistre à votre assureur",
+      "html": "<p>Selon l’<a href=\"https://www.anil.org/votre-besoin/gerer-un-bien/intemperies-et-assurances/\" target=\"_blank\" rel=\"noopener\">ANIL</a>, une assurance multirisque habitation couvre obligatoirement les dégâts dus à la tempête. La garantie couvre notamment :</p><ul><li>l’action directe du vent ou d’un objet projeté : tuiles arrachées, chute d’un arbre ou d’une cheminée voisine ;</li><li>le poids de la neige ou de la glace accumulée sur les toitures et les chéneaux ;</li><li>le choc de la grêle sur les toitures ;</li><li>l’humidité due à la pluie, la neige ou la grêle qui pénètre dans le bâtiment endommagé.</li></ul><p>Déclarez le sinistre dès que vous en avez connaissance : le délai est de cinq jours ouvrés après la constatation des dégâts en cas de tempête. En cas de catastrophe naturelle reconnue, il est de trente jours après la publication de l’arrêté au Journal officiel (voir <a href=\"https://www.service-public.gouv.fr/particuliers/vosdroits/F3076\" target=\"_blank\" rel=\"noopener\">Service Public</a>).</p><p>Les dommages dus à un défaut d’entretien sont en général exclus. Les conditions exactes dépendent de votre contrat.</p>"
+    },
+    {
+      "id": "reparer",
+      "toc": "Faire réparer",
+      "h2": "Faire réparer la toiture",
+      "html": "<p>Demandez un devis qui distingue la protection provisoire, la recherche des dégâts et les réparations retenues : tuiles, faîtage, raccords, zinguerie. Demandez à votre assureur s’il souhaite faire constater les dégâts avant les réparations définitives, et transmettez-lui le devis.</p><p>À Thonon-les-Bains, consultez notre page <a href=\"/villes/reparation-toiture-thonon-les-bains\">réparation de toiture et fuite à Thonon</a>. Pour choisir entre réparation et réfection, voyez <a href=\"/conseils/nettoyer-reparer-ou-refaire-toiture\">nettoyer, réparer ou refaire sa toiture</a>.</p>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Quel est le délai pour déclarer une tempête à l’assurance ?",
+      "a": "Selon l’ANIL, cinq jours ouvrés après la constatation des dégâts en cas de tempête, et trente jours après la publication de l’arrêté au Journal officiel pour une catastrophe naturelle. Déclarez le sinistre dès que vous en avez connaissance."
+    },
+    {
+      "q": "La grêle sur la toiture est-elle couverte ?",
+      "a": "Selon l’ANIL, la garantie tempête des contrats multirisques habitation couvre le choc de la grêle sur les toitures et l’humidité qui entre ensuite dans le bâtiment endommagé. Vérifiez les conditions de votre contrat."
+    },
+    {
+      "q": "Le bâchage d’urgence est-il remboursé ?",
+      "a": "Selon l’ANIL, les précautions prises pour éviter l’aggravation des dégâts, comme un bâchage ou une couverture provisoire, sont en principe prises en charge par l’assurance. Gardez la facture et des photos avant et après."
+    }
+  ],
+  "sources": [
+    {
+      "label": "ANIL — Les assurances liées aux intempéries",
+      "url": "https://www.anil.org/votre-besoin/gerer-un-bien/intemperies-et-assurances/"
+    },
+    {
+      "label": "Service Public — Catastrophe naturelle ou technologique : indemnisation par l’assurance",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F3076"
+    },
+    {
+      "label": "INRS — Risques liés aux chutes de hauteur",
+      "url": "https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html"
+    }
+  ],
+  "status": "publishable",
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "reviewed": "2026-11-24"
+}

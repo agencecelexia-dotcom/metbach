@@ -46,7 +46,7 @@
   // A consented enquiry can include its current public context. Remembering
   // an entry page/campaign between pages additionally requires analytics consent.
   // Only this tab's last observed entry is retained, for at most 30 idle minutes.
-  const publicSourcePath = /^(?:\/|\/(?:services|villes|contact|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/conseils(?:\/(?:fuite-toiture-que-faire|nettoyer-reparer-ou-refaire-toiture|comparer-devis-isolation-exterieure))?|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|veigy-foncenex|chens-sur-leman|messery|massongy|perrignier|lugrin|saint-paul-en-chablais|larringes|armoy|le-lyaud|geneve|nyon|lausanne))$/;
+  const publicSourcePath = /^(?:\/|\/(?:services|villes|contact|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture|piscine)|\/conseils(?:\/(?:fuite-toiture-que-faire|nettoyer-reparer-ou-refaire-toiture|comparer-devis-isolation-exterieure|prix-demoussage-toiture-haute-savoie|neige-toiture-que-faire|gouttiere-qui-deborde|toiture-tempete-grele-que-faire|construire-piscine-demarches-securite))?|\/villes\/(?:demoussage-toiture-thonon-les-bains|reparation-toiture-thonon-les-bains|publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|veigy-foncenex|chens-sur-leman|messery|massongy|perrignier|lugrin|saint-paul-en-chablais|larringes|armoy|le-lyaud|geneve|nyon|lausanne))$/;
   const ATTRIBUTION_KEY = 'metbach-attribution';
   const ATTRIBUTION_MAX_AGE = 30 * 60 * 1000;
   const CONSENT_MAX_AGE = 15552000000;
@@ -418,7 +418,7 @@
       'petits-travaux': 'Petits travaux',
       'revetement-sol': 'Revêtement de sol', fondations: 'Fondations',
       'amenagement-paysager': 'Aménagement paysager', clotures: 'Clôtures',
-      arboriculture: 'Arboriculture', maconnerie: 'Maçonnerie',
+      arboriculture: 'Arboriculture', piscine: 'Piscine', maconnerie: 'Maçonnerie',
       'isolation-exterieure': 'Isolation thermique extérieure (ITE)',
       'projet-global': 'Plusieurs services / projet global',
     };
@@ -667,4 +667,74 @@
   document.querySelectorAll('[data-consent-open]').forEach(el => el.addEventListener('click', showBanner));
 
   if (!stored) showBanner();
+})();
+
+// Avis Google : note, nombre d'avis et extraits servis par /api/avis (cache CDN
+// de 6 h). Le HTML contient déjà le dernier relevé et le lien vers la fiche ;
+// ce script le remplace par les données de Google quand elles sont disponibles.
+// Pas de balisage Review/AggregateRating (règle CLAUDE.md).
+(() => {
+  const sections = document.querySelectorAll('[data-reviews]');
+  if (!sections.length || !window.fetch) return;
+  const fr = n => n.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const stars = n => '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5 - n);
+  const el = (tag, className, text) => {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text) node.textContent = text;
+    return node;
+  };
+  function render(section, data) {
+    const rating = section.querySelector('[data-reviews-rating]');
+    const count = section.querySelector('[data-reviews-count]');
+    if (rating) rating.textContent = fr(data.rating);
+    if (count) count.textContent = `${data.count} avis`;
+    const summaryStars = section.querySelector('[data-reviews-stars]');
+    if (summaryStars) summaryStars.textContent = stars(Math.max(0, Math.min(5, Math.round(data.rating))));
+    const summary = section.querySelector('.reviews-summary');
+    if (summary) summary.setAttribute('aria-label', `Note de ${fr(data.rating)} sur 5, ${data.count} avis sur Google`);
+    if (data.source === 'google') section.querySelector('[data-reviews-asof]')?.remove();
+    section.querySelectorAll('[data-reviews-maps]').forEach(a => { if (/^https:\/\//.test(data.mapsUrl || '')) a.href = data.mapsUrl; });
+    const write = section.querySelector('[data-reviews-write]');
+    if (write && /^https:\/\/search\.google\.com\//.test(data.writeReviewUrl || '')) { write.href = data.writeReviewUrl; write.hidden = false; }
+    const list = section.querySelector('[data-reviews-list]');
+    const reviews = Array.isArray(data.reviews) ? data.reviews.slice(0, Number(list?.dataset.max) || 3) : [];
+    if (!list || !reviews.length) return;
+    list.replaceChildren(...reviews.map(r => {
+      const item = el('li', 'review-card');
+      const note = el('p', 'review-stars', stars(r.rating));
+      note.setAttribute('aria-label', `${r.rating} sur 5`);
+      const quote = el('blockquote', 'review-text');
+      quote.append(el('p', '', r.text));
+      const by = el('p', 'review-author');
+      if (r.authorUrl) {
+        const link = el('a', '', r.author);
+        link.href = r.authorUrl; link.target = '_blank'; link.rel = 'noopener nofollow';
+        by.append(link);
+      } else by.append(el('span', '', r.author));
+      if (r.when) by.append(el('span', 'review-when', ` · ${r.when}`));
+      item.append(note, quote, by);
+      return item;
+    }));
+    list.hidden = false;
+    section.querySelector('[data-reviews-note]')?.removeAttribute('hidden');
+  }
+  let started = false;
+  function load() {
+    if (started) return;
+    started = true;
+    fetch('/api/avis', { headers: { Accept: 'application/json' } })
+      .then(r => (r.ok ? r.json() : null))
+      .then(data => {
+        if (!data || typeof data.rating !== 'number' || typeof data.count !== 'number') return;
+        sections.forEach(s => render(s, data));
+      })
+      .catch(() => {});
+  }
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      if (entries.some(e => e.isIntersecting)) { io.disconnect(); load(); }
+    }, { rootMargin: '600px 0px' });
+    sections.forEach(s => io.observe(s));
+  } else load();
 })();

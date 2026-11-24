@@ -16,6 +16,7 @@
     "intro": "Décrivez votre commune, ce que vous observez et votre objectif : entretien, fuite ou projet de rénovation. Ces informations nous aident à préparer le premier échange et à préciser les points à vérifier."
   },
   "related": [
+    "prix-demoussage-toiture-haute-savoie",
     "fuite-toiture-que-faire",
     "comparer-devis-isolation-exterieure"
   ],
@@ -43,6 +44,12 @@
       "toc": "Réparer ou reprendre davantage",
       "h2": "Comparer deux périmètres, pas seulement deux totaux",
       "html": "<p>Pour une réparation, demandez quels éléments seront repris, comment les raccords avec l’existant seront traités et quelles zones restent hors intervention. Si une solution provisoire est proposée, faites préciser sa place dans la suite du projet.</p><p>Pour une réfection, la proposition doit rendre lisibles la dépose, les matériaux retenus, les travaux sur le support et les évacuations d’eau. Demandez ce qui est inclus et comment seront traitées les découvertes impossibles à confirmer avant la dépose.</p><div class=\"callout\">Avant de comparer les montants, écrivez une phrase commune aux deux offres : « Nous demandons une intervention sur cette partie du toit, pour résoudre ce besoin, avec ces travaux compris. » Si cette phrase change, les devis ne répondent pas au même projet.</div><p>Un projet d’isolation ou de façade doit être annoncé au premier échange pour examiner les raccords entre les ouvrages. Cela ne signifie pas que tous les travaux doivent être engagés ensemble.</p>"
+    },
+    {
+      "id": "prix",
+      "toc": "Repères de prix",
+      "h2": "Quels prix au m² pour entretenir, réparer ou refaire ?",
+      "html": "<p>Voici des prix indicatifs au mètre carré pour une toiture en tuiles. Ils peuvent varier selon le chantier : surface, pente, accès, matériau, état de la charpente et travaux associés. Chaque devis se fait au cas par cas.</p><div class=\"table-wrap\" role=\"region\" aria-label=\"Repères de prix pour les travaux de toiture\" tabindex=\"0\"><table><caption class=\"sr-only\">Prix indicatifs en 2026 pour une toiture en tuiles</caption><thead><tr><th scope=\"col\">Travaux</th><th scope=\"col\">Prix indicatif (2026)</th></tr></thead><tbody><tr><th scope=\"row\">Nettoyage ou démoussage</th><td>8 à 25 € le m², plus 8 à 15 € le m² pour un hydrofuge</td></tr><tr><th scope=\"row\">Réparation ponctuelle (tuiles, raccords)</th><td>25 à 140 € le m² selon l’étendue ; 150 à 600 € pour une fuite localisée</td></tr><tr><th scope=\"row\">Réfection complète en tuiles (dépose et pose)</th><td>100 à 220 € le m²</td></tr><tr><th scope=\"row\">Réfection avec reprise de charpente</th><td>jusqu’à environ 320 € le m²</td></tr></tbody></table></div><p>Un échafaudage, la zinguerie ou l’isolation peuvent s’ajouter selon le chantier. Pour l’entretien, voir le détail dans notre guide <a href=\"/conseils/prix-demoussage-toiture-haute-savoie\">prix du démoussage de toiture</a>.</p>"
     },
     {
       "id": "demande",
@@ -73,10 +80,22 @@
     {
       "label": "INRS — Risques liés aux chutes de hauteur",
       "url": "https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html"
+    },
+    {
+      "label": "Bischoff Couverture — Prix couvreur 2026 (réparation et rénovation au m²)",
+      "url": "https://bischoff-couverture.fr/prix-couvreur/"
+    },
+    {
+      "label": "Prix-travaux-m2.com — Prix d’une réparation de toiture",
+      "url": "https://www.prix-travaux-m2.com/prix-reparation-toiture.php"
+    },
+    {
+      "label": "Habitatpresto — Prix au m² d’une toiture en tuiles (6 novembre 2026)",
+      "url": "https://www.habitatpresto.com/mag/toiture/prix-toiture-tuiles"
     }
   ],
   "status": "publishable",
   "published": "2026-11-21",
-  "modified": "2026-11-21",
-  "reviewed": "2026-11-21"
+  "modified": "2026-11-24",
+  "reviewed": "2026-11-24"
 }

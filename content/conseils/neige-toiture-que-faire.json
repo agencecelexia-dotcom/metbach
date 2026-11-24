@@ -1,0 +1,87 @@
+{
+  "slug": "neige-toiture-que-faire",
+  "category": "hiver",
+  "title": "Neige sur le toit : risques et bons réflexes | Metbach",
+  "description": "Neige accumulée, glace en bas de pente, fuite au dégel : les signes à surveiller, ce qu’il ne faut pas faire et quand faire contrôler votre toiture.",
+  "h1": "Neige sur le toit : les signes à surveiller et les bons réflexes",
+  "eyebrow": "Neige · Toiture",
+  "lead": "En Haute-Savoie, la neige fait partie de l’hiver. Une toiture en bon état est faite pour la recevoir, mais certaines situations méritent attention : glace en bas de pente, gouttières chargées, traces d’eau au moment du dégel.",
+  "answer": "Ne montez jamais sur un toit enneigé pour le déneiger. Surveillez depuis le sol les plaques de neige qui menacent de glisser et les gouttières déformées, et, à l’intérieur, les traces d’humidité au redoux. Après de fortes chutes de neige ou la fonte, faites contrôler la couverture si vous constatez un désordre.",
+  "service": {
+    "url": "/services/couverture",
+    "label": "Couverture et toiture",
+    "form": "couverture",
+    "cta": "Un désordre après la neige ?",
+    "button": "Décrire le problème",
+    "intro": "Indiquez votre commune, ce que vous observez et depuis quand, avec des photos prises depuis le sol. Nous répondons sous 24 h en général, 48 h au plus."
+  },
+  "related": [
+    "toiture-tempete-grele-que-faire",
+    "gouttiere-qui-deborde",
+    "fuite-toiture-que-faire"
+  ],
+  "sections": [
+    {
+      "id": "effets",
+      "toc": "Ce que la neige fait au toit",
+      "h2": "Ce que la neige et le gel font à une toiture",
+      "html": "<p>La neige pèse sur la couverture, la glace bloque l’écoulement de l’eau et le gel fragilise certains matériaux. L’<a href=\"https://qualiteconstruction.com/wp-content/uploads/2024/05/Fiche-Pathologie-Batiment-G09-Entretien-Maintenance-Couvertures-AQC.pdf\" target=\"_blank\" rel=\"noopener\">Agence Qualité Construction</a> rappelle que la pierre et la terre cuite peuvent casser sous l’effet du gel, et recommande un examen complémentaire après de fortes chutes de neige et après la fonte.</p><ul><li><strong>Le poids de la neige</strong> s’ajoute à celui de la couverture, surtout quand elle se tasse ou regèle.</li><li><strong>La glace en bas de pente</strong> ou dans les chéneaux peut retenir l’eau de fonte et la faire refouler sous les tuiles.</li><li><strong>Les gouttières et leurs crochets</strong> supportent mal une charge de neige ou de glace prolongée.</li><li><strong>Les plaques de neige</strong> qui glissent du toit peuvent tomber sur une entrée, un passage ou une voiture.</li></ul>"
+    },
+    {
+      "id": "ne-pas-monter",
+      "toc": "Ne pas déneiger soi-même",
+      "h2": "Déneiger soi-même : pourquoi l’éviter",
+      "html": "<p>Un toit enneigé ou verglacé est glissant, et une chute de hauteur peut être grave même depuis un rez-de-chaussée surélevé : l’<a href=\"https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html\" target=\"_blank\" rel=\"noopener\">INRS</a> détaille ces risques. L’Agence Qualité Construction rappelle aussi qu’une toiture n’est destinée ni à la circulation ni à supporter des charges.</p><p>Ne cassez pas la glace au marteau ou à la pelle : vous risquez de briser les tuiles ou de déformer la gouttière. Si une plaque de neige menace un passage, interdisez l’accès en dessous et faites appel à un professionnel équipé.</p>"
+    },
+    {
+      "id": "surveiller",
+      "toc": "Les signes à surveiller",
+      "h2": "Les signes à surveiller depuis le sol et à l’intérieur",
+      "html": "<p>La plupart des désordres se repèrent sans monter sur le toit :</p><div class=\"table-wrap\" role=\"region\" aria-label=\"Signes à surveiller après la neige\" tabindex=\"0\"><table><caption class=\"sr-only\">Signes à surveiller après la neige</caption><thead><tr><th scope=\"col\">Ce que vous observez</th><th scope=\"col\">Ce qu’il faut faire</th></tr></thead><tbody><tr><th scope=\"row\">Une gouttière déformée ou décrochée</th><td>Éloigner les passages en dessous et la faire contrôler après la fonte.</td></tr><tr><th scope=\"row\">Une plaque de neige en surplomb d’une entrée</th><td>Interdire l’accès en dessous ; faire intervenir un professionnel si besoin.</td></tr><tr><th scope=\"row\">Une trace d’humidité au plafond au redoux</th><td>Noter la pièce et le moment, protéger les biens, faire rechercher l’origine.</td></tr><tr><th scope=\"row\">Une tuile déplacée ou cassée visible après la fonte</th><td>La faire remplacer sans attendre la prochaine pluie.</td></tr></tbody></table></div><p>Si de l’eau entre déjà, suivez les <a href=\"/conseils/fuite-toiture-que-faire\">premiers gestes en cas de fuite de toiture</a>.</p>"
+    },
+    {
+      "id": "arrets-de-neige",
+      "toc": "Les arrêts de neige",
+      "h2": "Les arrêts de neige : à quoi servent-ils ?",
+      "html": "<p>Les arrêts de neige, crochets ou barres pare-neige fixés sur la couverture, retiennent la neige sur le toit. Ils limitent les chutes de plaques sur les entrées, les passages, les véhicules et les gouttières.</p><p>Leur type, leur nombre et leur emplacement dépendent de la pente, du matériau de couverture et des zones à protéger. Ils se fixent sur une couverture en bon état, de préférence hors période de neige. Demandez qu’ils figurent sur le devis avec leur position.</p>"
+    },
+    {
+      "id": "assurance",
+      "toc": "Dégâts et assurance",
+      "h2": "Dégâts dus à la neige : ce que prévoit l’assurance",
+      "html": "<p>Selon l’<a href=\"https://www.anil.org/votre-besoin/gerer-un-bien/intemperies-et-assurances/\" target=\"_blank\" rel=\"noopener\">ANIL</a>, la garantie tempête des contrats multirisques habitation couvre aussi les dommages causés par la neige : le poids de la neige ou de la glace accumulée sur les toitures et les chéneaux, et l’humidité qui pénètre dans un bâtiment endommagé par ces phénomènes.</p><p>Déclarez le sinistre dès que vous le constatez et conservez les photos. Les dommages qui résultent d’un défaut d’entretien sont en général exclus : d’où l’intérêt d’un contrôle régulier de la toiture. Les conditions exactes dépendent de votre contrat. Voir aussi notre guide <a href=\"/conseils/toiture-tempete-grele-que-faire\">toiture abîmée par une tempête ou la grêle</a>.</p>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Faut-il déneiger son toit ?",
+      "a": "En général non : une toiture en bon état est faite pour recevoir la neige de la région. Si la charge vous inquiète ou si des plaques menacent un passage, faites appel à un professionnel équipé plutôt que de monter vous-même."
+    },
+    {
+      "q": "Pourquoi de l’eau apparaît-elle au plafond au moment du dégel ?",
+      "a": "L’eau de fonte peut passer par une tuile déplacée ou un raccord abîmé, ou refouler derrière de la glace en bas de pente. Notez la pièce et le moment où l’eau apparaît, puis faites rechercher l’origine."
+    },
+    {
+      "q": "Les dégâts de neige sont-ils couverts par l’assurance habitation ?",
+      "a": "Selon l’ANIL, la garantie tempête des contrats multirisques habitation couvre le poids de la neige ou de la glace accumulée sur les toitures. Les conditions dépendent de votre contrat : déclarez le sinistre dès que vous le constatez."
+    }
+  ],
+  "sources": [
+    {
+      "label": "ANIL — Les assurances liées aux intempéries",
+      "url": "https://www.anil.org/votre-besoin/gerer-un-bien/intemperies-et-assurances/"
+    },
+    {
+      "label": "Agence Qualité Construction — Entretien et maintenance des couvertures (fiche G.09)",
+      "url": "https://qualiteconstruction.com/wp-content/uploads/2024/05/Fiche-Pathologie-Batiment-G09-Entretien-Maintenance-Couvertures-AQC.pdf"
+    },
+    {
+      "label": "INRS — Risques liés aux chutes de hauteur",
+      "url": "https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html"
+    }
+  ],
+  "status": "publishable",
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "reviewed": "2026-11-24"
+}

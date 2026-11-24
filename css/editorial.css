@@ -129,12 +129,6 @@ body.site-page{padding-top:88px;background:var(--page)}
 .area-links>a:hover{color:var(--accent-dark)}
 .swiss-links{font-size:12px;line-height:1.7;margin-top:22px;color:var(--muted)}
 .swiss-links a{text-decoration:underline;text-underline-offset:4px;margin-inline:7px}
-.review-band{border-block:1px solid var(--line);padding:35px 0;background:#EEEDE4}
-.review-band>.editorial-container{display:flex;align-items:center;justify-content:space-between;gap:30px}
-.review-band>.editorial-container>div{display:flex;gap:24px;align-items:center}
-.review-band>.editorial-container>div>svg{width:32px;height:32px;stroke-width:1;flex-shrink:0}
-.review-band h2{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;letter-spacing:-.03em;margin:8px 0}
-.review-band p:not(.eyebrow){font-size:12px;color:var(--muted)}
 .faq-layout{display:grid;grid-template-columns:.7fr 1fr;gap:100px}
 .faq-layout>div>p:not(.eyebrow){font-size:13px;line-height:1.8;color:var(--muted);margin-top:25px}
 .site-page .faq-list details{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:21px 0}
@@ -311,3 +305,27 @@ body.site-page{padding-top:88px;background:var(--page)}
 .home-page .hero-actions .text-link{font-size:15px}
 @media(max-width:1100px){.need-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:767px){.project-needs{padding:28px 0 32px}.need-grid{grid-template-columns:1fr;gap:10px}.need-link{padding:17px 18px}.need-link small{margin-top:4px}.advice-grid{grid-template-columns:1fr;gap:32px}.home-page .hero-copy h1{font-size:clamp(40px,10vw,58px)}.home-page .hero-copy h1>span{font-size:15px}.home-page .hero-actions .btn{font-size:14px}.home-page .hero-reassurance{font-size:14px}}
+/* Avis Google (widget alimenté par /api/avis) */
+.reviews-section{padding:80px 0;background:#EEEDE4;border-block:1px solid var(--line)}
+.reviews-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.reviews-section h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(32px,3.4vw,48px);font-weight:500;letter-spacing:-.045em;line-height:1.1;margin-top:14px;color:var(--ink)}
+.reviews-section h2 em{font-family:'Instrument Serif',Georgia,serif;font-weight:400;color:#698066;letter-spacing:-.035em}
+.reviews-summary{text-align:right}
+.reviews-score{font-family:'Bricolage Grotesque',sans-serif;font-size:54px;font-weight:500;letter-spacing:-.05em;line-height:1;color:var(--ink)}
+.reviews-max{font-size:22px;color:var(--muted);margin-left:4px;letter-spacing:0}
+.reviews-stars,.review-stars{color:#C98A1E;letter-spacing:.12em}
+.reviews-stars{font-size:22px;margin-top:6px}
+.reviews-count{font-size:14px;color:var(--muted);margin-top:4px}
+.reviews-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:44px}
+.reviews-list[hidden]{display:none}
+.review-card{display:flex;flex-direction:column;gap:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
+.review-stars{font-size:16px}
+.review-text p{font-size:15px;line-height:1.7;color:var(--ink);display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden}
+.review-author{margin-top:auto;font-size:13px;color:var(--muted)}
+.review-author a,.review-author>span:first-child{font-weight:600;color:var(--ink)}
+.review-author a:hover{text-decoration:underline;text-underline-offset:3px}
+.reviews-actions{display:flex;align-items:center;gap:16px 28px;flex-wrap:wrap;margin-top:36px}
+.reviews-actions [hidden]{display:none}
+.reviews-note{font-size:12px;color:var(--muted);margin-top:18px;max-width:720px}
+@media(max-width:1023px){.reviews-list{grid-template-columns:1fr}}
+@media(max-width:767px){.reviews-section{padding:56px 0}.reviews-summary{text-align:left}.reviews-score{font-size:44px}}

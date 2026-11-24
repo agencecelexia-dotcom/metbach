@@ -89,7 +89,7 @@ function sanitizeAttribution(value) {
   if (typeof value.page === "string" && /^\/(?:contact)?$/.test(value.page)) result.page = value.page;
   // Only known public paths are retained: immediate source page and the entry
   // observed during the consented session. No private path or query string.
-  const publicSourcePath = /^(?:\/|\/(?:services|villes|contact|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture)|\/conseils(?:\/(?:fuite-toiture-que-faire|nettoyer-reparer-ou-refaire-toiture|comparer-devis-isolation-exterieure))?|\/villes\/(?:publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|veigy-foncenex|chens-sur-leman|messery|massongy|perrignier|lugrin|saint-paul-en-chablais|larringes|armoy|le-lyaud|geneve|nyon|lausanne))$/;
+  const publicSourcePath = /^(?:\/|\/(?:services|villes|contact|realisations|a-propos|preparer-travaux|glossaire)|\/services\/(?:couverture|nettoyage-toiture|maconnerie|isolation-exterieure|bardage|petits-travaux|revetement-sol|fondations|amenagement-paysager|clotures|arboriculture|piscine)|\/conseils(?:\/(?:fuite-toiture-que-faire|nettoyer-reparer-ou-refaire-toiture|comparer-devis-isolation-exterieure|prix-demoussage-toiture-haute-savoie|neige-toiture-que-faire|gouttiere-qui-deborde|toiture-tempete-grele-que-faire|construire-piscine-demarches-securite))?|\/villes\/(?:demoussage-toiture-thonon-les-bains|reparation-toiture-thonon-les-bains|publier|thonon-les-bains|evian-les-bains|annemasse|douvaine|saint-julien-en-genevois|sciez|bons-en-chablais|allinges|neuvecelle|anthy-sur-leman|margencel|marin|veigy-foncenex|chens-sur-leman|messery|massongy|perrignier|lugrin|saint-paul-en-chablais|larringes|armoy|le-lyaud|geneve|nyon|lausanne))$/;
   for (const key of ["source_page", "landing_page"]) {
     if (typeof value[key] === "string" && publicSourcePath.test(value[key])) result[key] = value[key];
   }
@@ -114,7 +114,7 @@ const ALLOWED_WORK_TYPES = new Set([
   "Couverture", "Nettoyage et démoussage de toiture",
   "Couverture — nettoyage et démoussage de toiture", // Legacy forms already open.
   "Maçonnerie", "Isolation thermique extérieure (ITE)", "Bardage", "Petits travaux",
-  "Revêtement de sol", "Fondations", "Aménagement paysager", "Clôtures", "Arboriculture",
+  "Revêtement de sol", "Fondations", "Aménagement paysager", "Clôtures", "Arboriculture", "Piscine",
   "Plusieurs services / projet global",
 ]);
 

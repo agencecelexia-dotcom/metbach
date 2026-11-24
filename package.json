@@ -8,6 +8,7 @@
     "check:seo": "python3 scripts/check-seo.py",
     "preview": "python3 scripts/preview.py",
     "check:contact": "node scripts/check-contact.mjs",
+    "check:avis": "node scripts/check-avis.mjs",
     "images:apply": "python3 scripts/apply-responsive-images.py",
     "indexnow": "python3 scripts/indexnow-submit.py",
     "check:content": "python3 scripts/build-conseils.py --check"

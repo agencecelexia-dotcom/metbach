@@ -426,6 +426,8 @@ assert.equal(merci.events.filter(x => x.event === 'tel_click').length, 1);
 assert.equal(merci.events.filter(x => x.event === 'form_submitted').length, 0, 'visiting merci is not a lead event');
 const merciHtml = await fs.readFile(new URL('merci/index.html', root), 'utf8');
 assert.match(merciHtml, /<script src="\/js\/script\.js" defer><\/script>/);
-assert.doesNotMatch(merciHtml, /48 heures|48 h|vient de m.arriver/);
+// The shared footer states the response time confirmed on 24/11/2026 ("sous 24 h en général,
+// 48 h au plus"); the thank-you message itself must not add any other promise.
+assert.doesNotMatch(merciHtml.split('<footer')[0], /48 heures|48 h|vient de m.arriver/);
 
 console.log('Contact checks passed: validation, explicit/legacy cleaning, accepted-only events, anti-spam, attribution consent/persistence/expiry/withdrawal, allowlists and storage failures. All requests mocked; no real enquiry.');

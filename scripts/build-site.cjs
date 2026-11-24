@@ -50,7 +50,10 @@ function typeset(text, nowrap) {
     .replace(/\b0\d(?: \d\d){4}\b/g, m => m.replace(/ /g, NBSP))
     .replace(/\+\d{2}(?: \d{1,3}){4}\b/g, m => m.replace(/ /g, NBSP))
     .replace(/\b\d{3} \d{3} \d{3} \d{5}\b/g, m => m.replace(/ /g, NBSP))
-    .replace(/\b(\d{5}) (Publier|Thonon|Évian|Annemasse|Douvaine|Saint-Julien|Talence)/g, `$1${NBSP}$2`);
+    .replace(/\b(\d{5}) (Publier|Thonon|Évian|Annemasse|Douvaine|Saint-Julien|Talence)/g, `$1${NBSP}$2`)
+    // Amounts never break: "1 610 €", "37 628", "25 €", "12 m²", "30 %".
+    .replace(/\b(\d{1,3}) (?=\d{3}\b)/g, `$1${NNBSP}`)
+    .replace(/(\d) (€|m²|%)/g, `$1${NBSP}$2`);
   if (nowrap) {
     // Long names (Saint-Julien-en-Genevois) would overflow a phone screen at
     // heading size: they stay together from tablet width only.

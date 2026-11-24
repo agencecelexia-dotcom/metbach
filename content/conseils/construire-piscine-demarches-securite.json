@@ -1,0 +1,87 @@
+{
+  "slug": "construire-piscine-demarches-securite",
+  "category": "piscine",
+  "title": "Construire une piscine : autorisation et sécurité | Metbach",
+  "description": "Déclaration préalable ou permis, dispositif de sécurité obligatoire, impôts locaux : les démarches pour construire une piscine enterrée en Haute-Savoie.",
+  "h1": "Construire une piscine : autorisation, sécurité et impôts",
+  "eyebrow": "Piscine · Démarches",
+  "lead": "Avant le premier coup de pelle, une piscine enterrée demande de vérifier trois points : l’autorisation d’urbanisme, le dispositif de sécurité et les conséquences fiscales. Voici les règles générales, à confirmer auprès de votre mairie.",
+  "answer": "Jusqu’à 10 m² de bassin, une piscine enterrée ne demande pas d’autorisation dans le cas général. De 10 à 100 m², il faut une déclaration préalable ; au-delà, ou avec un abri de plus de 1,80 m, un permis de construire. Un dispositif de sécurité normalisé est obligatoire, et la piscine se déclare aux impôts dans les 90 jours suivant la fin des travaux.",
+  "service": {
+    "url": "/services/piscine",
+    "label": "Construction de piscine",
+    "form": "piscine",
+    "cta": "Un projet de piscine ?",
+    "button": "Présenter mon projet",
+    "intro": "Indiquez votre commune, la surface du jardin, l’accès et le bassin souhaité. Nous répondons sous 24 h en général, 48 h au plus, puis nous visitons le terrain pour établir un devis gratuit."
+  },
+  "related": [],
+  "sections": [
+    {
+      "id": "autorisation",
+      "toc": "L’autorisation d’urbanisme",
+      "h2": "Déclaration préalable ou permis de construire ?",
+      "html": "<p>Selon <a href=\"https://www.service-public.gouv.fr/particuliers/vosdroits/F35108\" target=\"_blank\" rel=\"noopener\">Service Public</a>, l’autorisation d’une piscine enterrée dépend de la surface du bassin et de la hauteur de son éventuel abri :</p><div class=\"table-wrap\" role=\"region\" aria-label=\"Autorisation d’urbanisme selon la piscine\" tabindex=\"0\"><table><caption class=\"sr-only\">Autorisation d’urbanisme selon la piscine</caption><thead><tr><th scope=\"col\">Votre piscine enterrée</th><th scope=\"col\">Démarche</th></tr></thead><tbody><tr><th scope=\"row\">Bassin jusqu’à 10 m²</th><td>Aucune autorisation dans le cas général ; le PLU peut imposer des règles</td></tr><tr><th scope=\"row\">Bassin de 10 à 100 m², sans abri ou avec un abri jusqu’à 1,80 m</th><td>Déclaration préalable en mairie</td></tr><tr><th scope=\"row\">Abri de plus de 1,80 m de haut</th><td>Permis de construire</td></tr><tr><th scope=\"row\">Bassin de plus de 100 m²</th><td>Permis de construire</td></tr></tbody></table></div><p>Le plan local d’urbanisme peut fixer des règles d’implantation ou d’aspect : il se consulte sur le <a href=\"https://www.geoportail-urbanisme.gouv.fr/\" target=\"_blank\" rel=\"noopener\">Géoportail de l’urbanisme</a> ou auprès du service urbanisme de la mairie. Aux abords d’un monument historique, l’architecte des Bâtiments de France donne son avis.</p>"
+    },
+    {
+      "id": "securite",
+      "toc": "La sécurité",
+      "h2": "Le dispositif de sécurité obligatoire",
+      "html": "<p>Toute piscine enterrée non couverte et privée, neuve ou existante, à usage familial ou collectif, doit être équipée d’au moins un des quatre dispositifs suivants (<a href=\"https://www.service-public.gouv.fr/particuliers/actualites/A16519\" target=\"_blank\" rel=\"noopener\">Service Public</a>) :</p><ul><li>une barrière de protection, conforme à la norme NF P90-306 ;</li><li>une alarme, conforme à la norme NF P90-307 ;</li><li>une couverture de sécurité, conforme à la norme NF P90-308 ;</li><li>un abri, conforme à la norme NF P90-309.</li></ul><p>Chaque dispositif doit empêcher ou signaler l’accès d’un enfant de moins de 5 ans. Sans dispositif, le propriétaire s’expose à une amende de 45 000 €. Il est aussi recommandé de garder près du bassin une perche, une bouée et un téléphone.</p>"
+    },
+    {
+      "id": "impots",
+      "toc": "Impôts et taxe",
+      "h2": "Impôts locaux et taxe d’aménagement",
+      "html": "<p>Une piscine peut augmenter vos impôts locaux. Elle se déclare dans les 90 jours suivant la fin des travaux. Lorsqu’une autorisation d’urbanisme est nécessaire, la taxe d’aménagement s’applique également.</p><p>Gardez le dossier d’autorisation, les factures et la date d’achèvement des travaux : ces informations servent à la déclaration.</p>"
+    },
+    {
+      "id": "budget",
+      "toc": "Le budget",
+      "h2": "Quel budget prévoir pour une piscine enterrée ?",
+      "html": "<p>Prix indicatifs pour un bassin de 8 × 4 m (32 m²), pose comprise :</p><div class=\"table-wrap\" role=\"region\" aria-label=\"Prix indicatifs d’une piscine enterrée de 8 × 4 m\" tabindex=\"0\"><table><caption class=\"sr-only\">Prix indicatifs d’une piscine enterrée de 8 × 4 m</caption><thead><tr><th scope=\"col\">Type de piscine</th><th scope=\"col\">Prix indicatif (2026)</th><th scope=\"col\">Par m² de bassin</th></tr></thead><tbody><tr><th scope=\"row\">Kit (panneaux ou coffrages modulaires)</th><td>11 000 à 22 000 €</td><td>environ 340 à 690 €</td></tr><tr><th scope=\"row\">Coque polyester</th><td>12 000 à 24 000 €</td><td>environ 375 à 750 €</td></tr><tr><th scope=\"row\">Bassin en béton (maçonné ou coulé)</th><td>13 000 à 31 000 €</td><td>environ 400 à 970 €</td></tr><tr><th scope=\"row\">Piscine béton complète (terrassement, filtration, margelles, sécurité)</th><td>23 000 à 51 500 €</td><td>environ 720 à 1 610 €</td></tr></tbody></table></div><p>Ces prix peuvent varier selon le chantier : nature du sol, pente, accès des engins, forme et profondeur, revêtement, filtration et abords. Chaque devis est établi au cas par cas, après une visite du terrain. Découvrez notre page <a href=\"/services/piscine\">construction de piscine</a>.</p>"
+    },
+    {
+      "id": "etapes",
+      "toc": "Les étapes",
+      "h2": "Les étapes d’un projet de piscine",
+      "html": "<ol><li>Vérifier les règles du PLU et les contraintes du terrain : pente, nature du sol, accès des engins, réseaux enterrés.</li><li>Choisir le type de bassin, ses dimensions et ses équipements, puis comparer des devis détaillés.</li><li>Déposer la déclaration préalable ou le permis de construire et attendre la décision avant de commencer.</li><li>Réaliser les travaux : bassin, filtration, margelles et plage.</li><li>Installer le dispositif de sécurité choisi.</li><li>Déclarer la piscine aux impôts dans les 90 jours suivant la fin des travaux.</li></ol><p>Avant de signer, demandez les attestations d’assurance du constructeur et vérifiez qu’elles mentionnent bien l’activité piscine.</p>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Une piscine de moins de 10 m² doit-elle être déclarée ?",
+      "a": "Dans le cas général, non : aucune autorisation d’urbanisme n’est demandée jusqu’à 10 m² de bassin. Le plan local d’urbanisme peut toutefois imposer des règles : renseignez-vous auprès du service urbanisme de la mairie."
+    },
+    {
+      "q": "Quelle amende sans dispositif de sécurité ?",
+      "a": "L’absence de dispositif de sécurité sur une piscine enterrée non couverte expose le propriétaire à une amende de 45 000 €. Barrière, alarme, couverture ou abri : un seul dispositif conforme suffit."
+    },
+    {
+      "q": "Dans quel délai déclarer une piscine aux impôts ?",
+      "a": "Dans les 90 jours suivant la fin des travaux, car une piscine peut augmenter les impôts locaux. Si une autorisation d’urbanisme était nécessaire, la taxe d’aménagement s’applique aussi."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Service Public — Installation ou construction d’une piscine privative",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35108"
+    },
+    {
+      "label": "Service Public — Dispositif de sécurité des piscines privées familiales et collectives (vérifié le 13 février 2026)",
+      "url": "https://www.service-public.gouv.fr/particuliers/actualites/A16519"
+    },
+    {
+      "label": "Prix-travaux-m2.com — Prix d’une piscine (mis à jour le 13 février 2026)",
+      "url": "https://www.prix-travaux-m2.com/prix-piscine.php"
+    },
+    {
+      "label": "Habitatpresto — Piscine maçonnée : prix et étapes (30 juin 2026)",
+      "url": "https://www.habitatpresto.com/mag/piscine/piscine-maconnee"
+    }
+  ],
+  "status": "publishable",
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "reviewed": "2026-11-24"
+}

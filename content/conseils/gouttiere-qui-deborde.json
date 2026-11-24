@@ -1,0 +1,81 @@
+{
+  "slug": "gouttiere-qui-deborde",
+  "category": "zinguerie",
+  "title": "Gouttière qui déborde : causes et solutions | Metbach",
+  "description": "Feuilles, descente bouchée, pente ou crochets affaissés : les causes d’une gouttière qui déborde, ce que vous pouvez vérifier et quand appeler un couvreur.",
+  "h1": "Gouttière qui déborde : les causes et les solutions",
+  "eyebrow": "Gouttières · Zinguerie",
+  "lead": "Une gouttière qui déborde à chaque averse n’est pas qu’un désagrément : l’eau ruisselle sur la façade, mouille le pied des murs et peut finir par entrer dans la maison. La cause se repère souvent depuis le sol.",
+  "answer": "Le plus souvent, la gouttière ou la descente est bouchée par des feuilles, des mousses ou des dépôts. Viennent ensuite une pente insuffisante, des crochets affaissés, un raccord qui fuit ou une gouttière trop petite pour la surface du toit. Observez d’où vient le débordement par forte pluie, sans monter, puis faites nettoyer ou reprendre la zinguerie.",
+  "service": {
+    "url": "/services/couverture",
+    "label": "Couverture, gouttières et zinguerie",
+    "form": "couverture",
+    "cta": "Une gouttière à reprendre ?",
+    "button": "Décrire le problème",
+    "intro": "Indiquez votre commune, ce que vous observez et depuis quand, avec des photos prises depuis le sol. Nous répondons sous 24 h en général, 48 h au plus."
+  },
+  "related": [
+    "prix-demoussage-toiture-haute-savoie",
+    "neige-toiture-que-faire",
+    "fuite-toiture-que-faire"
+  ],
+  "sections": [
+    {
+      "id": "causes",
+      "toc": "Les causes",
+      "h2": "Pourquoi votre gouttière déborde",
+      "html": "<p>L’endroit et le moment du débordement orientent vers la cause :</p><div class=\"table-wrap\" role=\"region\" aria-label=\"Causes et solutions d’une gouttière qui déborde\" tabindex=\"0\"><table><caption class=\"sr-only\">Causes et solutions d’une gouttière qui déborde</caption><thead><tr><th scope=\"col\">Ce que vous observez</th><th scope=\"col\">Cause probable</th><th scope=\"col\">Solution</th></tr></thead><tbody><tr><th scope=\"row\">Débordement sur toute la longueur</th><td>Gouttière encombrée ou descente bouchée</td><td>Nettoyage, grille ou crapaudine en tête de descente</td></tr><tr><th scope=\"row\">Débordement à un endroit précis</th><td>Pente inversée, crochet affaissé, bouchon local</td><td>Reprise de la pente, remplacement des crochets</td></tr><tr><th scope=\"row\">Goutte-à-goutte à un angle ou un raccord</th><td>Joint ou soudure défectueux</td><td>Reprise du raccord ou de la soudure</td></tr><tr><th scope=\"row\">Débordement seulement lors des fortes averses</th><td>Gouttière ou descentes trop petites pour la surface du toit</td><td>Descente supplémentaire ou section plus grande</td></tr><tr><th scope=\"row\">Débordement en hiver</th><td>Neige ou glace dans la gouttière</td><td>Laisser fondre, puis contrôler crochets et raccords</td></tr></tbody></table></div>"
+    },
+    {
+      "id": "verifier",
+      "toc": "Ce que vous pouvez vérifier",
+      "h2": "Ce que vous pouvez vérifier vous-même",
+      "html": "<p>L’<a href=\"https://qualiteconstruction.com/wp-content/uploads/2024/05/Fiche-Pathologie-Batiment-G09-Entretien-Maintenance-Couvertures-AQC.pdf\" target=\"_blank\" rel=\"noopener\">Agence Qualité Construction</a> indique que l’usager peut examiner les gouttières et les chéneaux lorsque c’est possible, ainsi que les regards en pied de descente pour vérifier que l’eau s’écoule bien.</p><ol><li>Par forte pluie, repérez depuis le sol l’endroit exact du débordement.</li><li>Regardez si l’eau sort normalement en bas de la descente.</li><li>Vérifiez si la gouttière penche ou se décroche entre deux crochets.</li><li>Notez les arbres proches : feuilles et aiguilles bouchent vite les évacuations.</li></ol><p>Restez au sol : une échelle posée contre une gouttière expose à une chute, et l’<a href=\"https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html\" target=\"_blank\" rel=\"noopener\">INRS</a> rappelle que ces risques existent même à faible hauteur.</p>"
+    },
+    {
+      "id": "entretien",
+      "toc": "L’entretien",
+      "h2": "Un entretien au moins une fois par an",
+      "html": "<p>L’Agence Qualité Construction recommande un entretien annuel des couvertures, avec le nettoyage des chéneaux et des gouttières et la vérification des soudures. La fréquence augmente si la maison est entourée d’arbres, comme les chênes ou les pins, et un contrôle est utile après les tempêtes et la fonte des neiges.</p><p>Les mousses du toit finissent dans les gouttières : un démoussage se complète par leur nettoyage. Voir notre page <a href=\"/services/nettoyage-toiture\">nettoyage et démoussage de toiture</a> et les <a href=\"/conseils/prix-demoussage-toiture-haute-savoie\">prix du démoussage au m²</a>.</p>"
+    },
+    {
+      "id": "agir",
+      "toc": "Pourquoi agir vite",
+      "h2": "Pourquoi ne pas laisser déborder",
+      "html": "<p>L’eau qui déborde ruisselle sur la façade, humidifie le pied des murs et peut s’infiltrer par les points faibles. Un chéneau bouché peut aussi faire refouler l’eau sous la couverture. L’Agence Qualité Construction souligne qu’un défaut d’entretien peut coûter cher au regard d’une cause souvent mineure.</p><p>Selon l’<a href=\"https://www.anil.org/votre-besoin/gerer-un-bien/intemperies-et-assurances/\" target=\"_blank\" rel=\"noopener\">ANIL</a>, les dommages qui résultent d’un défaut d’entretien sont en général exclus des garanties d’assurance liées aux intempéries.</p>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Faut-il installer une grille sur la gouttière ?",
+      "a": "Une grille ou une crapaudine en tête de descente limite l’entrée des feuilles, sans dispenser d’un nettoyage régulier. Son intérêt dépend des arbres proches et du type de gouttière."
+    },
+    {
+      "q": "À quelle fréquence nettoyer les gouttières ?",
+      "a": "L’Agence Qualité Construction recommande un entretien au moins annuel des couvertures, gouttières comprises, plus fréquent si la maison est entourée d’arbres. Un contrôle après une tempête ou la fonte des neiges est aussi utile."
+    },
+    {
+      "q": "Une gouttière qui déborde peut-elle causer une fuite ?",
+      "a": "Oui. L’eau qui déborde peut s’infiltrer par les points faibles de la façade, ou refouler sous la couverture quand un chéneau est bouché. Faites rechercher l’origine si une trace apparaît à l’intérieur."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Agence Qualité Construction — Entretien et maintenance des couvertures (fiche G.09)",
+      "url": "https://qualiteconstruction.com/wp-content/uploads/2024/05/Fiche-Pathologie-Batiment-G09-Entretien-Maintenance-Couvertures-AQC.pdf"
+    },
+    {
+      "label": "ANIL — Les assurances liées aux intempéries",
+      "url": "https://www.anil.org/votre-besoin/gerer-un-bien/intemperies-et-assurances/"
+    },
+    {
+      "label": "INRS — Risques liés aux chutes de hauteur",
+      "url": "https://www.inrs.fr/risques/chutes-hauteur/ce-qu-il-faut-retenir.html"
+    }
+  ],
+  "status": "publishable",
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "reviewed": "2026-11-24"
+}

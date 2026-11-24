@@ -1,0 +1,86 @@
+{
+  "slug": "prix-demoussage-toiture-haute-savoie",
+  "category": "toiture",
+  "title": "Prix du démoussage de toiture en Haute-Savoie | Metbach",
+  "description": "Nettoyage, démoussage et hydrofuge : les prix au m² en 2026, ce qui les fait varier et comment comparer les devis pour votre toiture.",
+  "h1": "Prix du démoussage de toiture au m² en Haute-Savoie",
+  "eyebrow": "Toiture · Prix",
+  "lead": "Combien coûte un démoussage de toiture ? Voici les prix indicatifs au mètre carré pour une toiture en tuiles. Ils peuvent varier selon la toiture, son état et son accès : chaque devis se fait au cas par cas.",
+  "answer": "Comptez environ 8 à 20 € le m² pour un nettoyage de tuiles et 12 à 25 € le m² pour un démoussage complet. Un traitement hydrofuge ajoute 8 à 15 € le m². L’ardoise et le zinc coûtent souvent plus cher. Ces prix peuvent varier selon le chantier : le devis se fait au cas par cas.",
+  "service": {
+    "url": "/services/nettoyage-toiture",
+    "label": "Nettoyage et démoussage de toiture",
+    "form": "nettoyage-toiture",
+    "cta": "Un démoussage à chiffrer ?",
+    "button": "Demander mon devis",
+    "intro": "Indiquez votre commune, la surface approximative et le matériau, avec des photos prises depuis le sol. Nous répondons en général sous 24 h, et au plus tard sous 48 h ; le devis gratuit est ensuite établi après examen de la toiture."
+  },
+  "related": [
+    "nettoyer-reparer-ou-refaire-toiture",
+    "fuite-toiture-que-faire"
+  ],
+  "sections": [
+    {
+      "id": "fourchettes",
+      "toc": "Les prix au m²",
+      "h2": "Les prix au m² en 2026",
+      "html": "<p>Prix indicatifs en 2026 pour une toiture en tuiles, fournitures et main-d’œuvre comprises :</p><div class=\"table-wrap\" role=\"region\" aria-label=\"Prix du démoussage de toiture au m²\" tabindex=\"0\"><table><caption class=\"sr-only\">Prix indicatifs au m² pour l’entretien d’une toiture en tuiles en 2026</caption><thead><tr><th scope=\"col\">Prestation</th><th scope=\"col\">Prix indicatif au m²</th><th scope=\"col\">Ce qu’elle comprend en général</th></tr></thead><tbody><tr><th scope=\"row\">Nettoyage de la couverture</th><td>8 à 20 €</td><td>Retrait des dépôts et des mousses, sans traitement de fond.</td></tr><tr><th scope=\"row\">Démoussage complet</th><td>12 à 25 €</td><td>Nettoyage, puis application d’un traitement antimousse.</td></tr><tr><th scope=\"row\">Traitement hydrofuge</th><td>8 à 15 € en plus</td><td>Produit déperlant appliqué après nettoyage, si le matériau s’y prête.</td></tr><tr><th scope=\"row\">Ardoise ou zinc</th><td>20 à 30 % de plus</td><td>Matériaux plus délicats à traiter que la tuile.</td></tr></tbody></table></div><p>Pour 100 m² de tuiles, un démoussage complet représente ainsi un ordre de grandeur de 1 200 à 2 500 €, sans hydrofuge.</p><p>Ces prix peuvent varier selon le chantier ; un échafaudage ou un accès difficile peuvent s’y ajouter. Chaque devis est établi au cas par cas.</p>"
+    },
+    {
+      "id": "variations",
+      "toc": "Ce qui fait varier le prix",
+      "h2": "Pourquoi le prix change d’un chantier à l’autre",
+      "html": "<p>Deux toitures de même surface peuvent donner deux devis très différents. Le prix dépend notamment :</p><ul><li>de la surface, du nombre de pans et de leur forme ;</li><li>de la pente, de la hauteur et des moyens d’accès : échelle, nacelle ou échafaudage, stationnement, cour étroite ;</li><li>du matériau et de son état : une tuile poreuse ou fragile demande plus de précautions, et un fibrociment posé avant 1997 peut contenir de l’amiante ;</li><li>de l’importance des mousses, lichens et dépôts ;</li><li>du traitement retenu : antimousse seul, hydrofuge, nombre de passages ;</li><li>de la protection des abords, du nettoyage des gouttières et de l’évacuation des résidus.</li></ul><p>Les réparations découvertes pendant l’examen, comme des tuiles cassées ou un raccord abîmé, sont à chiffrer à part. C’est pourquoi chaque devis se fait au cas par cas, après avoir vu la toiture ou des photos suffisantes.</p>"
+    },
+    {
+      "id": "comparer",
+      "toc": "Comparer les devis",
+      "h2": "Comparer deux devis de démoussage",
+      "html": "<p>Un prix au m² ne se compare qu’à prestation égale. Avant de choisir, vérifiez que chaque devis précise :</p><ol><li>la surface retenue et la façon de la compter ;</li><li>la méthode de nettoyage et les produits utilisés, avec leur nom ;</li><li>si un hydrofuge est inclus, et sur quelles surfaces ;</li><li>les moyens d’accès et les protections prévus ;</li><li>le nettoyage des gouttières et des abords ;</li><li>les réparations éventuelles, chiffrées séparément ;</li><li>le taux de TVA appliqué ;</li><li>les attestations d’assurance couvrant ces travaux.</li></ol>"
+    },
+    {
+      "id": "periode",
+      "toc": "Quand le prévoir",
+      "h2": "À quelle période prévoir le démoussage ?",
+      "html": "<p>Un produit antimousse s’applique en général par temps sec, hors gel et sans pluie annoncée dans les heures qui suivent, selon la notice du fabricant. La date se fixe donc avec la météo, l’accès et l’état de la couverture.</p><p>Un démoussage ne répare pas une fuite. Si de l’eau entre déjà dans la maison, consultez notre guide <a href=\"/conseils/fuite-toiture-que-faire\">fuite de toiture : les premiers gestes</a>.</p>"
+    },
+    {
+      "id": "chablais",
+      "toc": "Votre devis dans le Chablais",
+      "h2": "Un devis pour votre toiture dans le Chablais",
+      "html": "<p>Nous étudions les demandes depuis Publier, à Thonon-les-Bains (voir notre page <a href=\"/villes/demoussage-toiture-thonon-les-bains\">démoussage de toiture à Thonon</a>), à <a href=\"/villes/evian-les-bains\">Évian-les-Bains</a> et dans le Chablais. Indiquez la commune, la surface approximative, le matériau et des photos prises depuis le sol.</p><p>Nous répondons en général sous 24 h, et au plus tard sous 48 h. Le devis est gratuit et précise la méthode, les produits et l’accès retenus. Découvrez aussi notre page <a href=\"/services/nettoyage-toiture\">nettoyage et démoussage de toiture</a>.</p>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Combien coûte le démoussage d’une toiture de 100 m² ?",
+      "a": "Avec ces prix indicatifs, un démoussage complet de 100 m² de tuiles représente un ordre de grandeur de 1 200 à 2 500 €, sans hydrofuge. Le montant réel dépend de l’accès, de l’état du toit et du traitement retenu : il se fixe sur devis."
+    },
+    {
+      "q": "Le traitement hydrofuge est-il indispensable ?",
+      "a": "Non, il n’est pas systématique : son intérêt dépend du matériau et de son état. S’il est proposé, le devis doit nommer le produit et les surfaces traitées. Comptez en général 8 à 15 € le m² en plus."
+    },
+    {
+      "q": "Pourquoi le prix varie-t-il d’une toiture à l’autre ?",
+      "a": "La surface, la pente, l’accès, le matériau, l’état de la couverture et le traitement retenu changent le travail à faire. C’est pourquoi chaque devis est établi au cas par cas, après examen de la toiture."
+    }
+  ],
+  "sources": [
+    {
+      "label": "France Couvreur — Nettoyage et démoussage de toiture en Haute-Savoie, prix indicatifs (mis à jour en septembre 2026)",
+      "url": "https://www.francecouvreur.com/auvergne-rhone-alpes/haute-savoie/nettoyage-demoussage/"
+    },
+    {
+      "label": "Prix-travaux-m2.com — Prix d’un démoussage de toiture au m² (mis à jour le 23 octobre 2026)",
+      "url": "https://www.prix-travaux-m2.com/prix-demoussage-toiture.php"
+    },
+    {
+      "label": "Bischoff Couverture — Prix couvreur 2026",
+      "url": "https://bischoff-couverture.fr/prix-couvreur/"
+    }
+  ],
+  "status": "publishable",
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "reviewed": "2026-11-24"
+}

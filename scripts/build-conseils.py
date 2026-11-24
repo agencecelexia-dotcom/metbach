@@ -39,6 +39,7 @@ CATEGORIES = {
     'zinguerie': ('Gouttières et zinguerie', 'Gouttières, chéneaux et raccords qui évacuent l’eau du toit.'),
     'isolation': ('Isolation extérieure et façades', 'Système, raccords et devis : préparer votre projet.'),
     'maconnerie': ('Maçonnerie', 'Murs, soutènements, dalles et fissures.'),
+    'piscine': ('Piscines', 'Autorisations, sécurité et budget d’une piscine.'),
 }
 OG_IMAGE = {
     'toiture': ('toiture-tuiles.jpg', 1200, 1600, 'Couverture de maison en tuiles, avec ses raccords de toiture'),
@@ -46,6 +47,7 @@ OG_IMAGE = {
     'zinguerie': ('toiture-tuiles.jpg', 1200, 1600, 'Couverture de maison en tuiles, avec ses raccords de toiture'),
     'isolation': ('bardage-bois-terrasse.jpg', 1600, 1066, 'Façade en bardage bois et terrasse extérieure'),
     'maconnerie': ('maison-renovation.jpg', 1600, 1200, 'Maison individuelle en rénovation'),
+    'piscine': ('bardage-bois-terrasse.jpg', 1600, 1066, 'Façade en bardage bois et terrasse extérieure'),
 }
 REQUIRED = ('slug', 'status', 'category', 'title', 'description', 'h1', 'eyebrow', 'lead', 'answer', 'sections',
             'faq', 'sources', 'service', 'related', 'published', 'modified', 'reviewed')
@@ -167,7 +169,7 @@ def load():
         ids = [s['id'] for s in a['sections']]
         if len(ids) != len(set(ids)) or set(ids) & {'main', 'questions', 'devis', 'sources'}:
             sys.exit(f'{f.name}: duplicate or reserved section id')
-        if a['service']['form'] not in ('couverture', 'nettoyage-toiture', 'isolation-exterieure', 'maconnerie'):
+        if a['service']['form'] not in ('couverture', 'nettoyage-toiture', 'isolation-exterieure', 'maconnerie', 'piscine'):
             sys.exit(f'{f.name}: unsupported service form value')
         if not a['service'].get('intro'):
             sys.exit(f'{f.name}: contextual service intro required')
@@ -245,6 +247,7 @@ def article_page(a, by_slug, header, footer):
     related = ''.join(
         f'<a href="/conseils/{r}" class="related-card"><span>{escape(CATEGORIES[by_slug[r]["category"]][0])}</span>'
         f'{escape(by_slug[r]["h1"])}</a>' for r in a['related'])
+    related_block = ('<section class="article-related" aria-label="À lire aussi"><h2>À lire aussi</h2><div class="related-grid">{related}</div><a href="/conseils" class="text-link">Tous les conseils →</a></section>'.format(related=related) if related else '')
     sources = ''.join(
         f'<li><a href="{escape(s["url"])}" target="_blank" rel="noopener" class="underline">{escape(s["label"])}</a></li>'
         for s in a['sources'])
@@ -269,9 +272,9 @@ def article_page(a, by_slug, header, footer):
 <div class="article-answer"><p class="eyebrow">En bref</p><p>{escape(a['answer'])}</p></div></section>
 <div class="guide-layout"><nav class="guide-toc" aria-label="Dans cet article"><strong>Dans cet article</strong>{toc}</nav><div class="guide-content">{sections}
 <section id="questions"><h2>Questions fréquentes</h2><div class="article-faq">{faq}</div></section>
-<section id="devis" class="article-cta"><h2>{escape(service.get('cta', 'Un projet à étudier ?'))}</h2><p>{escape(service['intro'])}</p><div class="article-cta-actions"><a href="{contact_url}" class="btn btn-primary">{escape(service.get('button', 'Présenter mon projet'))}</a><a href="tel:+33769136182" class="btn btn-ghost">07 69 13 61 82</a></div><p class="article-cta-note">Depuis Publier, dans le Chablais et le Genevois français. Demandes reçues 24 h/24 et 7 j/7. Le délai d’intervention est confirmé selon le projet.</p><p class="article-cta-note"><a href="{service['url']}" class="text-link">{escape(service['label'])} →</a></p><p class="article-cta-note">{INSURANCE}</p></section>
+<section id="devis" class="article-cta"><h2>{escape(service.get('cta', 'Un projet à étudier ?'))}</h2><p>{escape(service['intro'])}</p><div class="article-cta-actions"><a href="{contact_url}" class="btn btn-primary">{escape(service.get('button', 'Présenter mon projet'))}</a><a href="tel:+33769136182" class="btn btn-ghost">07 69 13 61 82</a></div><p class="article-cta-note">Depuis Publier, dans le Chablais et le Genevois français. Demandes reçues 24 h/24 et 7 j/7, réponse sous 24 h en général et 48 h au plus. Le délai d’intervention est confirmé selon le projet.</p><p class="article-cta-note"><a href="{service['url']}" class="text-link">{escape(service['label'])} →</a></p><p class="article-cta-note">{INSURANCE}</p></section>
 <section id="sources"><h2>Sources</h2><ul>{sources}</ul><p class="field-help mt-5">Sources consultées le <time datetime="{a['reviewed']}">{fr_date(a['reviewed'])}</time>. Article publié par Rénovation Metbach pour préparer le premier échange. Les choix techniques et les démarches dépendent du bâtiment et du projet.</p></section>
-<section class="article-related" aria-label="À lire aussi"><h2>À lire aussi</h2><div class="related-grid">{related}</div><a href="/conseils" class="text-link">Tous les conseils →</a></section>
+{related_block}
 </div></div></div></main>
 
   {footer}</body>
